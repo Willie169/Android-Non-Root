@@ -1,7 +1,7 @@
 # Android Non-Root
 This guide offers a comprehensive approach to enhance your Android device’s security, privacy, and customization without root, including:
 - [Connect to ADB to Self-Debug Android Device with Shizuku without Another Device and Leave Developer Options off When Doing So with SystemUI Tuner](#connect-to-adb-to-self-debug-android-device-with-shizuku-without-another-device-and-leave-developer-options-off-when-doing-so-with-systemui-tuner)
-- [Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Unwanted Trackers with TrackerControl and InviZible Pro](#route-traffic-through-tor,-block-dns-over-udp,-set-dns-server,-and-block-unwanted-trackers-with-trackercontrol-and-invizible-pro)
+- [Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Unwanted Trackers with TrackerControl and InviZible Pro](#route-traffic-through-tor-block-dns-over-udp-set-dns-server-and-block-unwanted-trackers-with-trackercontrol-and-invizible-pro)
 ## License
 This project is licensed under the terms the GNU General Public License v3.0 or later (GPL-3.0-or-later).\
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\
