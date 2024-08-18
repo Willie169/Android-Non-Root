@@ -17,20 +17,20 @@ Install **Shizuku** from Google Play Store: [https://play.google.com/store/apps/
 ### Connect Shizuku to Wireless ADB
 1. Grant **Shizuku** notification permission.
 2. Tap **Pairing** in **Start via Wireless debugging** block in **Shizuku**.
-2. Connect to a WiFi you trust. You don't need to login to the WiFi if the WiFi needs that. You just need to let your phone think that you're connected to WiFi.
+2. Connect to a WiFi you trust. You don't need to log in to the WiFi if the WiFi needs that. You just need to let your phone think that you're connected to WiFi.
 2. In phone's **Settings** or something similar, go to **About Phone > Software Information** or something similar, and tap the **Version Number** seven times to enable **Developer Options**.
 2. In the **Developer Options**, enable **Wireless ADB** and tap **Pair with a pairing code**.
 2. Input the pairing code in the notification of **Shizuku**.
-2. In the **Developer Options**, deactivate **ADB authorization timeout** if you don't want to do all above again every time you use **Shizuku**. However, the connection may still stop after a few days even if you've done this, follow [Reconnect Shizuku in Case it Stops](#reconnect-shizuku-in-case-it-stops) to reconnect if you're using **SystemUI Tuner** or something similar at the same time, follow above if you're not using **SystemUI Tuner**.
+2. In the **Developer Options**, deactivate **ADB authorization timeout** if you don't want to do all the above again every time you use **Shizuku**. However, the connection may still be killed by the system after maybe a few days even if you've done this, follow [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner) to reconnect if you're using **SystemUI Tuner** or something similar at the same time, follow the above otherwise.
 2. Back to **Shizuku** and tap **Start** in **Start via Wireless debugging** block. You all see **Shizuku is running** on the top of the interface of **Shizuku**.
 ### Use Shizuku in a Terminal Application for the First Time (Termux for Example)
 1. Tap **Use Shizuku in terminal applications** in **Shizuku** and export files `rish` and `rish_shizuku.dex` to somewhere on your phone.
-2. Use a text editor to replace `PKG` in `rish` with the pakcage name of your terminal application. **Termux**'s package name is `com.termux`. Run `termux-setup-storage` to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands).
+2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. **Termux**'s package name is `com.termux`. Run `termux-setup-storage` to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands).
 2. Open your terminal application and move the exported files to somewhere it can access with `mv old_location new_location`. The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of **Termux** is `/data/data/com.termux/home`, which is abbreviated as `~` in **Termux**.
 2. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
 2. Where used to be `~ $` should become `e2q:/ $` or something similar if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
-2. You can turn WiFi off after ADB is connected. **Shizuku** may say **Paring failed** aftet that ,but it's actually running if you still see `e2q:/ $` or something similar on your terminal application.
-2. Optionally, create a `.sh` file (`nano ~/shizuku.sh` for example), paste the following code block, save it, and make it executable with `chmod +x shizuku.sh` so that you can run this shortcut to start **Shizuku** on your terminal afterwards.
+2. You can turn WiFi off after ADB is connected. **Shizuku** may say **Paring failed** after that, but it's actually running if you still see `e2q:/ $` or something similar on your terminal application.
+2. Optionally, create a `.sh` file (`nano ~/shizuku.sh` for example), paste the following code block, save it, and make it executable with `chmod +x shizuku.sh` so that you can run this shortcut to start **Shizuku** on your terminal afterward.
     ```
     #!/data/data/com.termux/files/usr/bin/bash
     cd shizuku
@@ -47,14 +47,14 @@ Install **SystemUI Tuner** (pub: **Zachary Wander**) from Google Play Store: [ht
 2. In **SystemUI Tuner**, go to **Developer** and turn on **Enable ADB** and **Enable Wireless ADB**.
 2. Press **Start** on **Shizuku** and make sure it's running.
 2. Go to **Persistent Options** and select **Enable ADB**.
-2. Don't `exit` the session of the ADB on your terminal application (hold wakelock if needed) if you want to keep **Shizuku** running.
+2. Don't `exit` the session of the ADB on your terminal application (hold wake lock if needed) if you want to keep **Shizuku** running.
 2. Turn off WiFi. **Enable Wireless ADB** should be turned off automatically. You can check that in **SystemUI Tuner**.
-### Reconnect Shizuku in Case it Stops
+### Reconnect Shizuku in Case it Stops with SystemUI Tuner
 1. Connect to a WiFi.
 2. Turn off **Developer Options** if it's on. The toggle switch is usually on the top of **Developer Options**.
 2. In **SystemUI Tuner**, go to **Developer** and turn on **Enable Wireless ADB**.
 2. Press **Start** on **Shizuku** and make sure it's running.
-2. Don't `exit` the session of the ADB on your terminal application (hold wakelock if needed) if you want to keep **Shizuku** running.
+2. Don't `exit` the session of the ADB on your terminal application (hold wake lock if needed) if you want to keep **Shizuku** running.
 2. Turn off WiFi. **Enable Wireless ADB** should be turned off automatically. You can check that in **SystemUI Tuner**.
 ### Other SystemUI Tuner Usage
 **SystemUI Tuner** exposes some hidden options in Android. You can set them, add them to **Persistent Options** to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner CANNOT work around.\
@@ -73,9 +73,10 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 - Download and install **TrackerControl** (also known as **TC**) from F-Droid. F-Droid: [https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/](https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/).
 - **Note**: Avoid using the Google Play version.
 ### Use TrackerControl to Block Trackers
-- Block unwanted trackers in the main interface of the apps. **TrackerControl** categorizes trackers by port, corporation, category, etc. You can easily block and allow connections. You may have to try several time to figure out what trackers to allow in order to prevent apps from crashing in few cases.
+- Block unwanted trackers in the main interface of the apps. 
+- **Note**: **TrackerControl** categorizes trackers by port, corporation, category, etc. You can easily block and allow connections. You may have to try several time to figure out what trackers to allow in order to prevent apps from crashing in few cases.
 - Turn on **TrackerControl** as the VPN service of the entire device.
-- Blocking tracker can be used independently or with **Prxoy mode** of **InviZible Pro**.
+- Blocking trackers can be used independently or with **Prxoy mode** of **InviZible Pro**.
 ### Configure TrackerControl (TC) to be used with InviZible Pro
 - Turn on **TrackerControl** as the VPN service of the entire device.
 - Disable monitoring of **InviZible Pro** (`pan.alexander.tordnscrypt.stable`) within **TrackerControl**.
@@ -91,8 +92,9 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
     - Set second (below) **VPN DNS** as `149.112.112.112`.
     - Set where to validate the internet connection in **Validate at** if you want, `www.f-droid.org` for example.
 - Set other things if you want.
-- Block unwanted trackers. Note that if you export settings and import it on another device, blocklist won't be able to be configured as that in the previous device.
-- You can apply some of the above settings with the `.xml` below (assuming configuration of **Invizible Pro** is as in this guide), but you have to configure other settings and check everything yourself because things may vary from case to case. Copy it and store it in a `.xml` file. Go to **Settings > Backup > Import settings** to import this file.
+- Block unwanted trackers. 
+- **Note**: If you export settings and import it on another device, the blocklist won't be able to be configured as that in the previous device.
+- You can apply some of the above settings with the `.xml` below (assuming the configuration of **Invizible Pro** is as in this guide), but you have to configure other settings and check everything yourself because things may vary from case to case. Copy it and store it in a `.xml` file. Go to **Settings > Backup > Import settings** to import this file.
     ```
     <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
     <trackercontrol>
@@ -125,11 +127,11 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
       </forward>
     </trackercontrol>
     ```
-- **Note**: **TrackerControl** has **Traffic log** feature for free, which can help a lot in identifying which trackers should be unblocked when services crash.
-- **Note**: Above guide, including the setting `.xml`, can be used in **NetGuard** as well because **TrackerControl** uses NetGuard's code. However, **Traffic log** is only available in **NetGuard Pro** and **TrackerControl**. **NetGuard** is available on Google Play Store and F-Droid. Google Play Store: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). F-Droid: [https://f-droid.org/packages/eu.faircode.netguard/](https://f-droid.org/packages/eu.faircode.netguard/). 
-- **Note**: You may have to disable monitoring of **Termux** (`com.termux`) within **TrackerControl** if you want to use `tor`, `torsocks`, or similar things in termux.
+- **Note**: **TrackerControl** has a **Traffic log** feature for free, which can help a lot in identifying which trackers should be unblocked when the services crash.
+- **Note**: The above guide, including the setting `.xml`, can be used in **NetGuard** as well because **TrackerControl** uses **NetGuard**'s code. However, **Traffic log** feature is not available in **NetGuard**'s free version but only available in **TrackerControl** and **NetGuard**'s **Pro** version. **NetGuard** is available on Google Play Store and F-Droid. Google Play Store: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). F-Droid: [https://f-droid.org/packages/eu.faircode.netguard/](https://f-droid.org/packages/eu.faircode.netguard/). 
+- **Note**: You may have to disable monitoring of apps route traffic through Tor itself within **TrackerControl**, like **Tor Browser**,  and **Termux** if you're using `tor`, `torsocks`, or similar things.
 ### Configure InviZible Pro to be used with TrackerControl
-- Change to **Proxy mode** by tap the 3-point button in the upper right corner.
+- Change to **Proxy mode** by tapping the 3-point button in the upper right corner.
 - Go to **Fast settings**.
     - Turn on **Autostart DNSCrypt** and **Autostart Tor** if you want.
     - Set Delay, DNSCrypr servers, bridges, whether to spoof SNI, etc. if needed.
@@ -143,9 +145,9 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
     - Ensure the **Forwarding rules** is coordinate with the **DNS port** in **Tor settings** (`onion 127.0.0.1:5400` by default).
     - Turn on **Query logging** and **Suspicious logging** if you want.
 - Go to **Tor settings**.
-    - Set Nodes, Proxy, etc. if you want. Make sure the **SOCKS port is coordinate with the **SOCKS proxy** in **TrackerControl** and the **DNS port** is coordinate with the **Forwarding rules** in **DNSCrypt Settings** (`onion 127.0.0.1:5400` by default).
+    - Set Nodes, Proxy, etc. if you want. Make sure the **SOCKS port is coordinated with the **SOCKS proxy** in **TrackerControl** and the **DNS port** is coordinated with the **Forwarding rules** in **DNSCrypt Settings** (`onion 127.0.0.1:5400` by default).
 - Set other things if you want.
-- You can apply some of the above settings with the files below (assuming configuration of **TrackerControl** is as in this guide), but you have to configure other settings and check everything yourself because things may vary from case to case. 
+- You can apply some of the above settings with the files below (assuming the configuration of **TrackerControl** is as in this guide), but you have to configure other settings and check everything yourself because things may vary from case to case. 
     - `dns-proxy.toml`: Copy the text in the below block, tap `Edit dns-proxy.toml` in **DNSCrypt Settings**, and paste.
     ```
     ipv4_servers = true
@@ -292,7 +294,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
     UseBridges 0
     ```
 - Turn both **Tor** and **DNSCrypt** of **InviZible Pro** on.
-- **Note**: Some services may crash when routing traffic through `tor` (set in **Using SOCKS5 proxy** in **TrackerControl**), change the **Exit nodes** to the service's country or region of publication in **InviZible Pro** may help. Otherwise you may try disabling monitoring that app or stopping **Using SOCKS5 proxy** in **TrackerControl**, which compromise your privacy to some degree.
+- **Note**: Some services may crash when routing traffic through `tor` (set in **Using SOCKS5 proxy** in **TrackerControl**), change the **Exit nodes** to the service's country or region of publication in **InviZible Pro** may help. Otherwise, you may try disabling monitoring that app or stopping **Using SOCKS5 proxy** in **TrackerControl**, which compromise your privacy to some degree.
 ### Use Tor but not DNSCrypr of InviZible Pro
 If you want to use Tor but not DNSCrypr of **InviZible Pro** with **TrackerControl**, do below modification on configuration of both DNSCrypt and Tor above:
 - Go to **Port forwarding** in **TrackerControl**
