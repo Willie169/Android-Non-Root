@@ -1,19 +1,42 @@
 # Android Non-Root
 This guide offers a comprehensive approach to enhance your Android device’s security, privacy, and customization without root.
-- [Termux (haven't been written)](#termux)
-- [Shizuku and SystemUI Tuner: Connect to ADB to Self-Debug Android Device without Another Device and Leave Developer Options off When Doing So](#shizuku-and-systemui-tuner-connect-to-adb-to-self-debug-android-device-without-another-device-and-leave-developer-options-off-when-doing-so)
+## Table of Contents
+- [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
+  - [Install Shizuku](#install-shizuku)
+  - [Connect Shizuku to Wireless ADB](#connect-shizuku-to-wireless-adb)
+  - [Use Shizuku in a Terminal Application for the First Time (Termux for Example)](#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example)
+  - [Install SystemUI Tuner](#install-systemui-tuner)
+  - [To Leave Developer Options off When Using Shizuku to Connect to ADB](#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb)
+  - [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner)
+  - [Other SystemUI Tuner Usage](#other-systemui-tuner-usage)
+  - [Using aShell](#using-ashell)
 - [TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers](#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-and-block-trackers)
-- [MacroDroid (NOT OPEN SOURCE) (haven't been written)](#macrodroid-not-open-source)
-- [PipePipe (haven't been written)](#PipePipe)
-- [Tor Browser (haven't been written)](#tor-browser)
+  - [Install InviZible Pro](#install-invizible-pro)
+  - [Install TrackerControl](#install-trackercontrol)
+  - [Use TrackerControl to Block Trackers](#use-trackercontrol-to-block-trackers)
+  - [Configure TrackerControl (TC) to be used with InviZible Pro](#configure-trackercontrol-tc-to-be-used-with-invizible-pro)
+  - [Configure InviZible Pro to be used with TrackerControl](#configure-invizible-pro-to-be-used-with-trackercontrol)
+  - [Use Tor but not DNSCrypr of InviZible Pro](#use-tor-but-not-dnscrypr-of-invizible-pro)
+  - [Use DNSCrypr But not Tor of InviZible Pro](#use-dnscrypr-but-not-tor-of-invizible-pro)
+  - [**Check**](#check)
+  - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
+- [Tor Browser](#tor-browser)
 - [License](#license)
-- [Sources, Credits, and Related Works](#sources-credits-and-related-works)
-## Termux
-- Haven't been written.
-## Shizuku and SystemUI Tuner: Connect to ADB to Self-Debug Android Device without Another Device and Leave Developer Options off When Doing So
+- [Promoted and Related Works](#promoted-and-related-works)
+  - [Termux](#termux)
+  - [Shizuku](#shizuku)
+  - [SystemUI Tuner](#systemui-tuner)
+  - [Invizible Pro](#invizible-pro)
+  - [TrackerControl (also known as TC)](#trackercontrol-also-known-as-tc)
+  - [NetGuard](#netguard)
+  - [DontKillMyApp](#dontkillmyapp)
+  - [aShell](#ashell)
+- [References and Bibliography ](#references-and-bibliography)
+## Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell
 ### Install Shizuku
-Shizuku: An open-source app for serving multiple apps that require root/adb.\
-Install **Shizuku** from Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
+- Shizuku is An open-source app for serving multiple apps that require root/adb.
+- Install **Shizuku** from Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
+- Official tutorial (doesn't contain System UI Tuner and aShell): [https://shizuku.rikka.app/guide/setup/?night=1](https://shizuku.rikka.app/guide/setup/?night=1)
 ### Connect Shizuku to Wireless ADB
 1. Grant **Shizuku** notification permission.
 2. Tap **Pairing** in **Start via Wireless debugging** block in **Shizuku**.
@@ -29,28 +52,29 @@ Install **Shizuku** from Google Play Store: [https://play.google.com/store/apps/
 2. Open your terminal application and move the exported files to somewhere it can access with `mv old_location new_location`. The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of **Termux** is `/data/data/com.termux/home`, which is abbreviated as `~` in **Termux**.
 2. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
 2. Where used to be `~ $` should become `e2q:/ $` or something similar if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
-2. You can turn WiFi off after ADB is connected. **Shizuku** may say **Paring failed** after that, but it's actually running if you still see `e2q:/ $` or something similar on your terminal application.
+2. You can turn WiFi off after ADB is connected. **Shizuku** may say **Paring failed** after that, but you can check on the Terminal wether you're in the adb shell. If you see `e2q:/ $` or something similar, then it's working well.
 2. Optionally, create a `.sh` file (`nano ~/shizuku.sh` for example), paste the following code block, save it, and make it executable with `chmod +x shizuku.sh` so that you can run this shortcut to start **Shizuku** on your terminal afterward.
     ```
     #!/data/data/com.termux/files/usr/bin/bash
     cd shizuku
     sh rish
     ```
-2. **Note**: It is recommended to use **Termux**'s F-Droid version instead of Google Play Store version. F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
+2. **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is no longer updated. F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 ### Install SystemUI Tuner
 Install **SystemUI Tuner** (pub: **Zachary Wander**) from Google Play Store: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner).
-### To Leave Developer Options off When Using Shizuku to Connect to ADB (Some Financial Apps Require Developer Options to Be Off)
+### To Leave Developer Options off When Using Shizuku to Connect to ADB
+Some financial apps may require Developer Options to be off when using them. This is the guide about how to turn Developer Options off while still using Shizuku ADB Shell.
 1. Follow the screen instructions of **SystemUI Tuner**. 
-2. Run `adb shell` command `pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS` (with **Shizuku**).
-2. Connect to a WiFi.
+2. Run `adb shell` command `pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS` (you can do it with **Shizuku** and a terminal such as **Termux** or **aShell**).
+2. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
 2. Turn off **Developer Options** if it's on. The toggle switch is usually on the top of **Developer Options**.
 2. In **SystemUI Tuner**, go to **Developer** and turn on **Enable ADB** and **Enable Wireless ADB**.
 2. Press **Start** on **Shizuku** and make sure it's running.
 2. Go to **Persistent Options** and select **Enable ADB**.
 2. Don't `exit` the session of the ADB on your terminal application (hold wake lock if needed) if you want to keep **Shizuku** running.
-2. Turn off WiFi. **Enable Wireless ADB** should be turned off automatically. You can check that in **SystemUI Tuner**.
+2. Turn off WiFi. **Enable Wireless ADB** will be turned off automatically by system settings. You can check that in **SystemUI Tuner**.
 ### Reconnect Shizuku in Case it Stops with SystemUI Tuner
-1. Connect to a WiFi.
+1. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
 2. Turn off **Developer Options** if it's on. The toggle switch is usually on the top of **Developer Options**.
 2. In **SystemUI Tuner**, go to **Developer** and turn on **Enable Wireless ADB**.
 2. Press **Start** on **Shizuku** and make sure it's running.
@@ -58,20 +82,25 @@ Install **SystemUI Tuner** (pub: **Zachary Wander**) from Google Play Store: [ht
 2. Turn off WiFi. **Enable Wireless ADB** should be turned off automatically. You can check that in **SystemUI Tuner**.
 ### Other SystemUI Tuner Usage
 **SystemUI Tuner** exposes some hidden options in Android. You can set them, add them to **Persistent Options** to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner CANNOT work around.\
-You may need to run the following `adb shell` command (with **Shizuku**) in order to change the settings:
+You may need to run the following `adb shell` command (you can do it with **Shizuku** and a terminal such as **Termux** or **aShell**) in order to change the settings:
 ```
 pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS
 pm grant com.zacharee1.systemuituner android.permission.PACKAGE_USAGE_STATS
 pm grant com.zacharee1.systemuituner android.permission.DUMP
 ```
-
+### Using aShell
+- **aShell** has features like autocomplete suggestions and optional log.
+- Download and Install **aShell** from F-droid. F-droid: [https://f-droid.org/packages/in.sunilpaulmathew.ashell/](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
+- Give **aShell** the permission `moe.shizuku.manager.permission.API_V23`.
+- Connect **Shizuku** to local ADB according to above guide.
+- Use **aShell**.
 ---
 ## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers
 ### Install InviZible Pro
 - Download and install **InviZible Pro** from F-Droid or Google Play Store. F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). Google Play Store: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp).
 ### Install TrackerControl
 - Download and install **TrackerControl** (also known as **TC**) from F-Droid. F-Droid: [https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/](https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/).
-- **Note**: Avoid using the Google Play version.
+- **Note**: Avoid use the Google Play version because it doesn't have the feature like trackers blocking in order to comply with Google's terms.
 ### Use TrackerControl to Block Trackers
 - Block unwanted trackers in the main interface of the apps. 
 - **Note**: **TrackerControl** categorizes trackers by port, corporation, category, etc. You can easily block and allow connections. You may have to try several time to figure out what trackers to allow in order to prevent apps from crashing in few cases.
@@ -94,7 +123,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 - Set other things if you want.
 - Block unwanted trackers. 
 - **Note**: If you export settings and import it on another device, the blocklist won't be able to be configured as that in the previous device.
-- You can apply some of the above settings with the `.xml` below (assuming the configuration of **Invizible Pro** is as in this guide), but you have to configure other settings and check everything yourself because things may vary from case to case. Copy it and store it in a `.xml` file. Go to **Settings > Backup > Import settings** to import this file.
+- You can apply some of the above settings with the `.xml` below (assuming the configuration of **Invizible Pro** is as in this guide) by coping it, storing it in a `.xml` file and going to **Settings > Backup > Import settings** to import this file. However, it just contains some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case. 
     ```
     <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
     <trackercontrol>
@@ -147,7 +176,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 - Go to **Tor settings**.
     - Set Nodes, Proxy, etc. if you want. Make sure the **SOCKS port is coordinated with the **SOCKS proxy** in **TrackerControl** and the **DNS port** is coordinated with the **Forwarding rules** in **DNSCrypt Settings** (`onion 127.0.0.1:5400` by default).
 - Set other things if you want.
-- You can apply some of the above settings with the files below (assuming the configuration of **TrackerControl** is as in this guide), but you have to configure other settings and check everything yourself because things may vary from case to case. 
+- You can apply some of the above settings with the files below (assuming the configuration of **TrackerControl** is as in this guide). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case. 
     - `dns-proxy.toml`: Copy the text in the below block, tap `Edit dns-proxy.toml` in **DNSCrypt Settings**, and paste.
     ```
     ipv4_servers = true
@@ -314,12 +343,6 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 - Go to [https://www.dnsleaktest.com/results.html](https://www.dnsleaktest.com/results.html) or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
 ### Use Invizible Pro without TrackerControl
 - Change to **VPN mode** by tap the 3-point button in the upper right corner.
-## MacroDroid (NOT OPEN SOURCE)
-- **MacroDroid** is NOT OPEN SOURCE. Use at your own risk.
-- **MacroDroid** is available on Google Play Store: [https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid](https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid).
-- Haven't been written.
-## PipePipe
-- Haven't been written.
 ## Tor Browser
 - Haven't been written.
 ## License
@@ -328,46 +351,37 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\
 You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\
 By contributing to this project, you agree that your contributions will be licensed under GPL-3.0-or-later.
-## Sources, Credits, and Related Works
-1. **OpenAI**:
-    - ChatGPT: [https://openai.com/chatgpt/](https://openai.com/chatgpt/)
-    - Terms of Use[https://openai.com/policies/terms-of-use](https://openai.com/policies/terms-of-use).
-2. **Termux**:
-    - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/)
-    - GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
-2. **Shizuku**:
-    - Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api). 
-    - GitHub: [https://github.com/RikkaApps/Shizuku](https://github.com/RikkaApps/Shizuku).
-2. **Termux**:
-    - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/). 
-    - GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
-2. **SystemUI Tuner**:
-    - Google Play Store: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner). 
-    - GitHub: [https://github.com/zacharee/Tweaker](https://github.com/zacharee/Tweaker).
-2. **Invizible**:
-    - Official website: [https://invizible.net/en/](https://invizible.net/en/)
-    - F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). 
-    - Google Play Store: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp). 
-    - GitHub: [https://github.com/Gedsh/InviZible](https://github.com/Gedsh/InviZible).
-2. **TrackerControl** (also known as **TC**):
-    - F-Droid: [https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/](https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/). 
-    - GitHub: [https://github.com/TrackerControl/tracker-control-android](https://github.com/TrackerControl/tracker-control-android).
-2. **NetGuard**:
-    - Google Play Store: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). 
-    - F-Droid: [https://f-droid.org/packages/eu.faircode.netguard/](https://f-droid.org/packages/eu.faircode.netguard/). 
-    - GitHub: [https://github.com/M66B/NetGuard](https://github.com/M66B/NetGuard).
-2. **PipePipe**:
-    - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
-    - GitHub: [https://github.com/InfinityLoop1308/PipePipe](https://github.com/InfinityLoop1308/PipePipe).
-    - CodeBerg: [https://codeberg.org/NullPointerException/PipePipe](https://codeberg.org/NullPointerException/PipePipe).
-2. **NewPipe**:
-    - Official website: [https://newpipe.net/](https://newpipe.net/).
-    - F-Droid: [https://f-droid.org/packages/org.schabi.newpipe/](https://f-droid.org/packages/org.schabi.newpipe/).
-    - GitHub: [https://github.com/TeamNewPipe/NewPipe/releases/](https://github.com/TeamNewPipe/NewPipe/releases/).
-2. **DontKillMyApp**:
-    - Official website: [https://dontkillmyapp.com/](https://dontkillmyapp.com/).
-    - Google Play Store: [https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp](https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp).
-    - F-Droid: [https://f-droid.org/packages/com.urbandroid.dontkillmyapp/](https://f-droid.org/packages/com.urbandroid.dontkillmyapp/).
-2. **MacroDroid**:
-    - Official forum: [http://www.macrodroidforum.com/](http://www.macrodroidforum.com/)
-    - Google Play Store: [https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid](https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid)
+## Promoted and Related Works
+### Termux
+- F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
+- GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
+### Shizuku
+- Official website: [https://shizuku.rikka.app/guide/setup/?night=1](https://shizuku.rikka.app/guide/setup/?night=1).
+- Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api). 
+- GitHub: [https://github.com/RikkaApps/Shizuku](https://github.com/RikkaApps/Shizuku).
+### SystemUI Tuner
+- Google Play Store: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner). 
+- GitHub: [https://github.com/zacharee/Tweaker](https://github.com/zacharee/Tweaker).
+### Invizible Pro
+- Official website: [https://invizible.net/en/](https://invizible.net/en/).
+- F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). 
+- Google Play Store: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp). 
+- GitHub: [https://github.com/Gedsh/InviZible](https://github.com/Gedsh/InviZible).
+### TrackerControl (also known as TC)
+- F-Droid: [https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/](https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/). 
+- GitHub: [https://github.com/TrackerControl/tracker-control-android](https://github.com/TrackerControl/tracker-control-android).
+### NetGuard
+- Google Play Store: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). 
+- F-Droid: [https://f-droid.org/packages/eu.faircode.netguard/](https://f-droid.org/packages/eu.faircode.netguard/). 
+- GitHub: [https://github.com/M66B/NetGuard](https://github.com/M66B/NetGuard).
+### DontKillMyApp
+- Official website: [https://dontkillmyapp.com/](https://dontkillmyapp.com/).
+- Google Play Store: [https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp](https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp).
+- F-Droid: [https://f-droid.org/packages/com.urbandroid.dontkillmyapp/](https://f-droid.org/packages/com.urbandroid.dontkillmyapp/).
+### aShell
+- F-droid: [https://f-droid.org/packages/in.sunilpaulmathew.ashell/](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
+- GitLab: [https://gitlab.com/sunilpaulmathew/ashell](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
+## References and Bibliography 
+- ChatGPT of OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
+- awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku)
+- shizuku-apps of MrHyperlon101: [https://github.com/MrHyperIon101/shizuku-apps](https://github.com/MrHyperIon101/shizuku-apps)
