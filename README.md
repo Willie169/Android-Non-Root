@@ -52,7 +52,7 @@ This guide offers a comprehensive approach to enhance your Android device’s se
 2. Open your terminal application and move the exported files to somewhere it can access with `mv old_location new_location`. The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of **Termux** is `/data/data/com.termux/home`, which is abbreviated as `~` in **Termux**.
 2. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
 2. Where used to be `~ $` should become `e2q:/ $` or something similar if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
-2. You can turn WiFi off after ADB is connected. **Shizuku** may say **Paring failed** after that, but you can check on the Terminal wether you're in the adb shell. If you see `e2q:/ $` or something similar, then it's working well.
+2. You can turn WiFi off after ADB is connected. The notification of **Shizuku** may say **Paring failed** after that, but you can check **Shizuku** app to check whether there's a block read **Shizuku is running** on the top.
 2. Optionally, create a `.sh` file (`nano ~/shizuku.sh` for example), paste the following code block, save it, and make it executable with `chmod +x shizuku.sh` so that you can run this shortcut to start **Shizuku** on your terminal afterward.
     ```
     #!/data/data/com.termux/files/usr/bin/bash
@@ -69,17 +69,15 @@ Some financial apps may require Developer Options to be off when using them. Thi
 2. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
 2. Turn off **Developer Options** if it's on. The toggle switch is usually on the top of **Developer Options**.
 2. In **SystemUI Tuner**, go to **Developer** and turn on **Enable ADB** and **Enable Wireless ADB**.
-2. Press **Start** on **Shizuku** and make sure it's running.
 2. Go to **Persistent Options** and select **Enable ADB**.
-2. Don't `exit` the session of the ADB on your terminal application (hold wake lock if needed) if you want to keep **Shizuku** running.
+2. Press **Start** on **Shizuku**.
 2. Turn off WiFi. **Enable Wireless ADB** will be turned off automatically by system settings. You can check that in **SystemUI Tuner**.
 ### Reconnect Shizuku in Case it Stops with SystemUI Tuner
 1. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
 2. Turn off **Developer Options** if it's on. The toggle switch is usually on the top of **Developer Options**.
 2. In **SystemUI Tuner**, go to **Developer** and turn on **Enable Wireless ADB**.
-2. Press **Start** on **Shizuku** and make sure it's running.
-2. Don't `exit` the session of the ADB on your terminal application (hold wake lock if needed) if you want to keep **Shizuku** running.
-2. Turn off WiFi. **Enable Wireless ADB** should be turned off automatically. You can check that in **SystemUI Tuner**.
+2. Press **Start** on **Shizuku**.
+2. Turn off WiFi. **Enable Wireless ADB** will be turned off automatically by system settings. You can check that in **SystemUI Tuner**.
 ### Other SystemUI Tuner Usage
 **SystemUI Tuner** exposes some hidden options in Android. You can set them, add them to **Persistent Options** to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner CANNOT work around.\
 You may need to run the following `adb shell` command (you can do it with **Shizuku** and a terminal such as **Termux** or **aShell**) in order to change the settings:
