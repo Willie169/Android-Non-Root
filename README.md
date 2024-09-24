@@ -1,5 +1,5 @@
 # Android Non-Root
-In this guide, we'll explore a range of powerful, non-root approach to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
+In this guide, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
 ## Table of Contents
 - [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Installation](#installation)
@@ -8,6 +8,16 @@ In this guide, we'll explore a range of powerful, non-root approach to enhancing
   - [Package Management](#package-management)
   - [Package Command Error](#package-command-error)
   - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
+- [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Managers, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-managers-or-xfce-lxqt-or-mate-desktop-environment)
+  - [Enable the X11 Repository ](#enable-the-x11-repository)
+  - [VNC Server](#vnc-server)
+  - [Fluxbox](#fluxbox)
+- [Fluxbox desktop.](#fluxbox-desktop)
+  - [Openbox](#openbox)
+  - [XFCE](#xfce)
+  - [LXQt](#lxqt)
+  - [MATE](#mate)
+  - [Further Readings and References](#further-readings-and-references)
 - [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
   - [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
   - [Introduction](#introduction)
@@ -96,37 +106,37 @@ terminal and selecting the Help menu option to learn more.
 #### pkg
 pkg is a tool for managing apt packages.\
 Usage: `pkg [--check-mirror] command [arguments]`.
-- `--check-mirror` forces a re-check of availability of mirrors
+- `--check-mirror` - forces a re-check of availability of mirrors
 - Commands:
-  - `autoclean`: Remove all outdated packages from apt cache.
-  - `clean`: Remove all packages from apt cache.
-  - `files <packages>`: Show all files installed by packages.
-  - `install <packages>`: Install specified packages.
-  - `list-all`: List all packages available in repositories.
-  - `list-installed`: List installed packages.
-  - `reinstall <packages>`: Reinstall specified installed packages at the latest version.
-  - `search <query>`: Search package by query, for example by name or description part.
-  - `show <packages>`: Show basic metadata, such as dependencies.
-  - `uninstall <packages>`: Uninstall specified packages. Configuration files will be left intact.
-  - `upgrade`: Upgrade all installed packages to the latest version.
-  - `update` Update apt databases from configured repositories.
+  - `autoclean` - Remove all outdated packages from apt cache.
+  - `clean` - Remove all packages from apt cache.
+  - `files <packages>` - Show all files installed by packages.
+  - `install <packages>` - Install specified packages.
+  - `list-all` - List all packages available in repositories.
+  - `list-installed` - List installed packages.
+  - `reinstall <packages>` - Reinstall specified installed packages at the latest version.
+  - `search <query>` - Search package by query, for example by name or description part.
+  - `show <packages>` - Show basic metadata, such as dependencies.
+  - `uninstall <packages>` - Uninstall specified packages. Configuration files will be left intact.
+  - `upgrade` - Upgrade all installed packages to the latest version.
+  - `update` - Update apt databases from configured repositories.
 #### apt
 apt is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.\
 - Usage: `apt [options] command`
 - Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
 - Most used commands:
-  - `list`: list packages based on package names
-  - `search`: search in package descriptions
-  - `show`: show package details
-  - `install`: install packages
-  - `reinstall`: reinstall packages
-  - `remove`: remove packages
-  - `autoremove`: automatically remove all unused packages
-  - `update`: update list of available packages
-  - `upgrade`: upgrade the system by installing/upgrading packages
-  - `full-upgrade`: upgrade the system by removing/installing/upgrading packages
-  - `edit-sources`: edit the source information file
-  - `satisfy`: satisfy dependency strings
+  - `list` - list packages based on package names
+  - `search` - search in package descriptions
+  - `show` - show package details
+  - `install` - install packages
+  - `reinstall` - reinstall packages
+  - `remove` - remove packages
+  - `autoremove` - automatically remove all unused packages
+  - `update` - update list of available packages
+  - `upgrade` - upgrade the system by installing/upgrading packages
+  - `full-upgrade` - upgrade the system by removing/installing/upgrading packages
+  - `edit-sources` - edit the source information file
+  - `satisfy` - satisfy dependency strings
 - See apt(8) for more information about the available commands: [https://manpages.debian.org/unstable/apt/apt.8.en.html](https://manpages.debian.org/unstable/apt/apt.8.en.html).
 - Configuration options and syntax is detailed in apt.conf(5): [https://manpages.debian.org/unstable/apt/apt.conf.5.en.html](https://manpages.debian.org/unstable/apt/apt.conf.5.en.html).
 - Information about how to configure sources can be found in sources.list(5): [https://manpages.debian.org/unstable/apt/sources.list.5.en.html](https://manpages.debian.org/unstable/apt/sources.list.5.en.html).
@@ -222,6 +232,169 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - [https://kskroyal.com/disable-phantom-process-killer-in-android-12-13/#google_vignette](https://kskroyal.com/disable-phantom-process-killer-in-android-12-13/#google_vignette).
 - [https://issuetracker.google.com/u/1/issues/205156966](https://issuetracker.google.com/u/1/issues/205156966).
 - [https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md](https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md).
+---
+## Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Managers, or XFCE, LXQt, or MATE Desktop Environment
+### Enable the X11 Repository 
+X11 packages are available in a separate APT repository. You can enable it by running the following command:
+```
+pkg install x11-repo
+```
+It will automatically add appropriate sources.list file and PGP key.\
+You can disable this repository by running the following command:
+```
+pkg uninstall x11-repo
+```
+### VNC Server
+In this section, you will learn how to set up a VNC server in **Termux** for graphical output.
+#### Install
+```
+pkg install tigervnc
+```
+#### Start Server
+```
+vncserver -localhost
+```
+VNC server will start on unused port with the smallest positive integer number, like `localhost:1` if port 1 is not used.\
+At first time, you will be prompted for setting up passwords:
+```
+You will require a password to access your desktops.
+
+Password:
+Verify:
+Would you like to enter a view-only password (y/n)? n
+```
+Note that passwords are not visible when you are typing them and maximal password length is 8 characters.\
+If everything is okay, you will see this message:
+```
+New 'localhost:1 ()' desktop is localhost:1
+
+Creating default startup script /data/data/com.termux/files/home/.vnc/xstartup
+Creating default config /data/data/com.termux/files/home/.vnc/config
+Starting applications specified in /data/data/com.termux/files/home/.vnc/xstartup
+Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
+```
+It means that the server is available on display `localhost:1`. \
+To make programs do graphical output to the display `localhost:1`, set environment variable like shown here (yes, without specifying `localhost`):
+```
+export DISPLAY=":1"
+```
+You may even put this variable to your bashrc or profile so you don't have to always set it manually unless display address will be changed.\
+Connect to the VNC server from a VNC viewer to view the output, you will not see anything except your mouse pointer if no windows manager or desktop environment is started.
+#### Kill
+```
+vncserver -kill localhost:1
+```
+Change the port with the actual port your VNC server started on.
+### Fluxbox
+#### Install
+```
+pkg install fluxbox
+```
+#### Setup
+```
+nano ~/.vnc/xstartup
+```
+Copy below command and paste to it:
+```
+#!/data/data/com.termux/files/usr/bin/sh
+## Fluxbox desktop.
+
+# Generate menu.
+fluxbox-generate_menu
+
+# Start fluxbox.
+fluxbox &
+```
+Fluxbox will start automatically on VNC server startup.
+### Openbox
+#### Install
+```
+pkg install openbox pypanel xorg-xsetroot
+```
+#### Setup
+```
+nano ~/.vnc/xstartup
+```
+Copy below command and paste to it:
+```
+#!/data/data/com.termux/files/usr/bin/sh
+
+# Start Openbox.
+openbox-session &
+```
+Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above since Openbox has its own autostart script located at `${PREFIX}/etc/xdg/openbox/autostart`.
+```
+nano ~/etc/xdg/openbox/autostart
+```
+Copy below command and paste to it:
+```
+# Make background gray.
+xsetroot -solid gray
+
+# Launch PyPanel.
+pypanel &
+```
+Openbox will start automatically on VNC server startup.
+### XFCE
+#### Install
+```
+pkg install xfce4
+```
+#### Setup
+```
+nano ~/.vnc/xstartup
+```
+Copy below command and paste to it:
+```
+#!/data/data/com.termux/files/usr/bin/sh
+xfce4-session &
+```
+Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above.\
+XFCE will start automatically on VNC server startup.
+#### Additional Recommended Packages for Installation
+- `netsurf` - Simple graphical web browser. Javascript is not supported.
+- `xfce4-terminal` - Terminal emulator for XFCE. It is not included as part of XFCE installation to allow use of `aterm` or `st`.
+### LXQt
+#### Install
+```
+pkg install lxqt
+```
+#### Setup
+```
+nano ~/.vnc/xstartup
+```
+Copy below command and paste to it:
+```
+#!/data/data/com.termux/files/usr/bin/sh
+startlxqt &
+```
+Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above.\
+LXQt will start automatically on VNC server startup.
+#### Additional Recommended Packages for Installation
+- `otter-browser` - Free and open source web browser that aims to recreate aspects of Opera 12.x
+- `qterminal` - Terminal emulator for LXQt. It is not included as part of LXQt installation to allow use of `aterm` or `st`.
+### MATE
+#### Install
+```
+pkg install mate-* marco
+```
+#### Setup
+```
+nano ~/.vnc/xstartup
+```
+Copy below command and paste to it:
+```
+#!/data/data/com.termux/files/usr/bin/sh
+mate-session &
+```
+Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above.\
+MATE will start automatically on VNC server startup.
+#### Additional Recommended Packages for Installation
+- `netsurf` - Simple graphical web browser. Javascript is not supported.
+- `mate-terminal` - Terminal emulator for MATE. It is not included as part of MATE installation to allow use of `aterm` or `st`.
+### Further Readings and References
+- [https://wiki.termux.com/wiki/Graphical_Environment](https://wiki.termux.com/wiki/Graphical_Environment).
+- [https://github.com/termux/x11-packages](https://github.com/termux/x11-packages).
 ---
 ## Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices
 ### Optional but Recommended: Install Andronix App
@@ -876,6 +1049,7 @@ By contributing to this project, you agree that your contributions will be licen
 ### Termux
 - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 - GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
+- X11 packages GitHub: [https://github.com/termux/x11-packages](https://github.com/termux/x11-packages).
 - Wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
 - Reddit Community: [https://termux.com/community](https://termux.com/community).
 ### Andronix
