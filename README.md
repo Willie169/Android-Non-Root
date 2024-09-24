@@ -1,8 +1,25 @@
 # Android Non-Root
-This guide offers a comprehensive approach to enhance your Android device’s security, privacy, and customization without root.
+In this guide, we’ll explore a comprehensive approach to enhance your Android device’s security, privacy, and customization — all without the need for root access. With a focus on non-root solutions, this guide introduces powerful tools and techniques that allow you to extend the capabilities of your Android device while ensuring your personal data remains secure and your privacy intact.
 ## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
+  - [Installation](#installation)
+  - [Introduction](#introduction)
+  - [App User Interface](#app-user-interface)
+  - [Package Management](#package-management)
+  - [Package Command Error](#package-command-error)
+  - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
+- [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
+  - [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
+  - [Introduction](#introduction)
+  - [Usage](#usage)
+  - [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
+  - [Sound Output from PRoot OS](#sound-output-from-proot-os)
+  - [Example: Debian with CLI Only](#example-debian-with-cli-only)
+  - [Example: Uninstallation of Debian OS (Not Modded)](#example-uninstallation-of-debian-os-not-modded)
 - [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
   - [Install Shizuku](#install-shizuku)
+  - [Introduction of Shizuku and ADB](#introduction-of-shizuku-and-adb)
   - [Connect Shizuku to Wireless ADB](#connect-shizuku-to-wireless-adb)
   - [Use Shizuku in a Terminal Application for the First Time (Termux for Example)](#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example)
   - [Install SystemUI Tuner](#install-systemui-tuner)
@@ -18,12 +35,13 @@ This guide offers a comprehensive approach to enhance your Android device’s se
   - [Configure InviZible Pro to be used with TrackerControl](#configure-invizible-pro-to-be-used-with-trackercontrol)
   - [Use Tor but not DNSCrypr of InviZible Pro](#use-tor-but-not-dnscrypr-of-invizible-pro)
   - [Use DNSCrypr But not Tor of InviZible Pro](#use-dnscrypr-but-not-tor-of-invizible-pro)
-  - [**Check**](#check)
+  - [Check](#check)
   - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
 - [Tor Browser](#tor-browser)
 - [License](#license)
-- [Promoted and Related Works](#promoted-and-related-works)
+- [Promoted and Related Works, Reference, and Bibliography](#promoted-and-related-works-reference-and-bibliography)
   - [Termux](#termux)
+  - [Andronix](#andronix)
   - [Shizuku](#shizuku)
   - [SystemUI Tuner](#systemui-tuner)
   - [Invizible Pro](#invizible-pro)
@@ -31,17 +49,247 @@ This guide offers a comprehensive approach to enhance your Android device’s se
   - [NetGuard](#netguard)
   - [DontKillMyApp](#dontkillmyapp)
   - [aShell](#ashell)
-- [References and Bibliography ](#references-and-bibliography)
+  - [Others](#others)
+---
+## Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection
+### Installation
+- Download and Install **Termux** from F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
+- **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is depreciated.
+- Many of the following guides work on or depend on **Termux**.
+- If you installed termux from Google Play Store or a very old version, then you will receive package command errors. Google Play Store builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at [https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html](https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html). It is recommended that you shift to F-Droid or Github releases.
+### Introduction
+- Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package.
+collection.
+  - Enjoy the bash and zsh shells.
+  - Edit files with nano and vim.
+  - Access servers over ssh.
+  - Compile code with gcc and clang.
+  - Use the python console as a pocket calculator.
+  - Check out projects with git and subversion.
+  - Run text-based games with frotz.
+  - and more
+- At first start a small base system is downloaded - desired packages can then be
+installed using the apt package manager known from the Debian and Ubuntu Linux
+distributions. Access the built-in help by long-pressing anywhere on the
+terminal and selecting the Help menu option to learn more.
+- More information can be found on:
+  - Wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
+  - Reddit Community: [https://termux.com/community](https://termux.com/community).
+### App User Interface
+- Pinch to zoom in or out.
+- Long press to Copy, Paste, Select URL, Share transcript, Autofill password, Reset, Kill process, Style, Keep screen on, Help, Settings, or Report Issue.
+- Pull out the left menu to open **Termux Settings**, start another **NEW SESSION**, or launch **KEYBOARD**.
+### Package Management
+#### pkg
+pkg is a tool for managing apt packages.\
+Usage: `pkg [--check-mirror] command [arguments]`.
+- `--check-mirror` forces a re-check of availability of mirrors
+- Commands:
+  - `autoclean`: Remove all outdated packages from apt cache.
+  - `clean`: Remove all packages from apt cache.
+  - `files <packages>`: Show all files installed by packages.
+  - `install <packages>`: Install specified packages.
+  - `list-all`: List all packages available in repositories.
+  - `list-installed`: List installed packages.
+  - `reinstall <packages>`: Reinstall specified installed packages at the latest version.
+  - `search <query>`: Search package by query, for example by name or description part.
+  - `show <packages>`: Show basic metadata, such as dependencies.
+  - `uninstall <packages>`: Uninstall specified packages. Configuration files will be left intact.
+  - `upgrade`: Upgrade all installed packages to the latest version.
+  - `update` Update apt databases from configured repositories.
+#### apt
+apt is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.\
+- Usage: `apt [options] command`
+- Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
+- Most used commands:
+  - `list`: list packages based on package names
+  - `search`: search in package descriptions
+  - `show`: show package details
+  - `install`: install packages
+  - `reinstall`: reinstall packages
+  - `remove`: remove packages
+  - `autoremove`: automatically remove all unused packages
+  - `update`: update list of available packages
+  - `upgrade`: upgrade the system by installing/upgrading packages
+  - `full-upgrade`: upgrade the system by removing/installing/upgrading packages
+  - `edit-sources`: edit the source information file
+  - `satisfy`: satisfy dependency strings
+- See apt(8) for more information about the available commands: [https://manpages.debian.org/unstable/apt/apt.8.en.html](https://manpages.debian.org/unstable/apt/apt.8.en.html).
+- Configuration options and syntax is detailed in apt.conf(5): [https://manpages.debian.org/unstable/apt/apt.conf.5.en.html](https://manpages.debian.org/unstable/apt/apt.conf.5.en.html).
+- Information about how to configure sources can be found in sources.list(5): [https://manpages.debian.org/unstable/apt/sources.list.5.en.html](https://manpages.debian.org/unstable/apt/sources.list.5.en.html).
+- Package and version choices can be expressed via apt_preferences(5): [https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html](https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html).
+- Security details are available in apt-secure(8): [https://manpages.debian.org/unstable/apt/apt-secure.8.en.html](https://manpages.debian.org/unstable/apt/apt-secure.8.en.html).
+#### Command for Copy
+```
+apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean && pkg update && pkg upgrade && pkg clean
+```
+```
+apt update && apt upgrade && pkg update && pkg upgrade
+```
+```
+apt update && apt upgrade
+```
+```
+pkg update && pkg upgrade
+```
+### Package Command Error
+Termux had to move the primary Termux package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:
+```
+E: The repository 'https://termux.org/packages stable Release' does no longer have a Release file.
+N: Metadata integrity can't be verified, repository is disabled now.
+N: Possible cause: repository is under maintenance or down (wrong sources.list URL?).
+```
+```
+E: The repository 'https://dl.bintray.com/grimler/game-packages-24 games Release' does not have a Release file.
+N: Metadata integrity can't be verified, repository is disabled now.
+N: Possible cause: repository is under maintenance or down (wrong sources.list URL?).
+```
+```
+E: The repository 'https://science.termux-mirror.ml science Release' does not have a Release file.
+N: Metadata integrity can't be verified, repository is disabled now.
+N: Possible cause: repository is under maintenance or down (wrong sources.list URL?).
+```
+#### Command Solution
+- Run `termux-change-repo` command.
+- Select one or more repositories for which you want to change mirror by tapping "space" and navigating over list by up/down arrow keys. Tap enter to confirm the choice.
+- Pick a mirror, it is recommended to begin with mirror hosted by Grimler. Same as previously, navigate over list by arrow keys, pick mirror by space key and confirm choice by pressing "enter".
+- If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the `termux-info` command. Note that the science and game repos have been merged into main repo and should be removed with apt remove science-repo game-repo if you have them installed.
+- If you receive errors like:
+  ```
+  E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Origin' value from 'Bintray' to 'termux-root-packages-24 root'
+  E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Label' value from 'Bintray' to 'termux-root-packages-24 root'
+  N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+  Do you want to accept these changes and continue updating from this repository? [y/N] 
+  ```
+  , then accept them by typing `y`.
+- After changing the mirror, it is highly advisable to run `pkg upgrade` command to update all packages to the latest available versions, or at least update `termux-tools` package with `pkg install termux-tools` command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.
+#### Manual Solution
+- If for some reason `termux-change-repo` is not available, you can manually edit `sources.list` to replace the main url with a value obtained from [Termux Mirrors List](https://github.com/termux/termux-packages/wiki/Mirrors). 
+- Run `nano $PREFIX/etc/apt/sources.list` to edit it. 
+- This will not change the urls of other package repositories, to change those run `pkg install termux-tools` afterwards and use `termux-change-repo` or manually edit their files under `$PREFIX/etc/apt/sources.list.d` directory.
+- Changing the mirror may specially be needed if a user is still using bintray as the mirror or `pkg upgrade` command hasn't been run in a while to update termux package related scripts.
+#### Further reading
+- [https://github.com/termux/termux-packages/wiki/Package-Management](https://github.com/termux/termux-packages/wiki/Package-Management).
+- [https://github.com/termux/termux-packages/issues/6726](https://github.com/termux/termux-packages/issues/6726).
+- [https://github.com/termux/termux-packages/issues/6455](https://github.com/termux/termux-packages/issues/6455).
+- [https://github.com/termux/termux-packages/wiki/Mirrors](https://github.com/termux/termux-packages/wiki/Mirrors).
+### Process completed (signal 9) - press Enter error
+Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU. You may get [Process completed (signal 9) - press Enter] message in the terminal without actually exiting the shell process yourself. Here is the guide of how to turn it off.
+#### Fix for Stock Android 12L and beyond
+- In phone's **Settings** or something similar, go to **About Phone > Software Information** or something similar, and tap the **Version Number** seven times to enable **Developer Options**. Some phones may have different methods to enable **Developer Options**.
+- Find the section named **Feature Flags**, enter via clicking it.
+- Find the switch to toggle off **settings_enable_monitor_phantom_procs** to disable phantom process killer.
+- To enable phantom process killer again, just toggle on the switch.
+#### Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond
+- Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**. Read [the section about **Shizuku** in this guide](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell) to learn about it.
+- Type `adb shell` to enter `adb shell`.
+- Run the following commands inside `adb shell`:
+  ```
+  /system/bin/device_config set_sync_disabled_for_tests persistent
+  /system/bin/device_config put activity_manager max_phantom_processes 2147483647
+  settings put global settings_enable_monitor_phantom_procs false
+  ```
+- To check the status of whether phantom process killer is disabled, run the following commands inside `adb shell`:
+  ```
+  /system/bin/dumpsys activity settings | grep max_phantom_processes
+  /system/bin/device_config get activity_manager max_phantom_processes
+  ```
+- To enable phantom process killer again, run the following commands inside `adb shell`:
+  ```
+  /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
+  settings put global settings_enable_monitor_phantom_procs true
+  ```
+#### Further Reading
+- [https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220](https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220).
+- [https://github.com/termux/termux-app/issues/2366](https://github.com/termux/termux-app/issues/2366).
+- [https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond](https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond).
+- [https://www.xda-developers.com/android-13-phantom-process-toggle/](https://www.xda-developers.com/android-13-phantom-process-toggle/).
+- [https://youtu.be/mjXSh3yq-I0](https://youtu.be/mjXSh3yq-I0).
+- [https://ivonblog.com/en-us/posts/fix-termux-signal9-error/](https://ivonblog.com/en-us/posts/fix-termux-signal9-error/).
+- [https://kskroyal.com/disable-phantom-process-killer-in-android-12-13/#google_vignette](https://kskroyal.com/disable-phantom-process-killer-in-android-12-13/#google_vignette).
+- [https://issuetracker.google.com/u/1/issues/205156966](https://issuetracker.google.com/u/1/issues/205156966).
+- [https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md](https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md).
+---
+## Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices
+### Optional but Recommended: Install Andronix App
+Install Andronix from Google Play Store: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
+### Introduction
+- **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close source Modded OS too, which won't be mentioned in this guide.
+- **PRoot** is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
+- chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
+- Further reading:
+  - [https://en.m.wikipedia.org/wiki/Chroot](https://en.m.wikipedia.org/wiki/Chroot).
+  - [https://github.com/AndronixApp/AndronixOrigin](https://github.com/AndronixApp/AndronixOrigin).
+### Usage
+#### Install an OS
+- Open **Andronix** app.
+- Click the **Linux Distribution** card.
+- Click on the Linux distribution you want to install. It is recommended to get started with Debian if you are overwhelmed by the options.
+- Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your Linux distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your Linux distribution. 
+  - Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you've little or no experience with Linux. 
+  - Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage Windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive. 
+  - CLI Only: If you don't want a Graphical User-interface, you can go ahead with the Command Line Interface. You'll have a terminal, which is enough if you know what you're doing in your session.
+- **Andronix** will automatically copy the command to your clipboard.
+- Paste and run in **Termux**.
+#### Uninstall an OS (Not Modded)
+- Open **Andronix** app.
+- Click the **Linux Distribution** card.
+- Long press on the Linux distribution you want to uninstall.
+- Select**Uninstall**.
+- **Andronix** will automatically copy the command to your clipboard.
+- Paste and run in **Termux**.
+#### Error
+You may encounter `Process completed (signal 9) - press Enter error` error, read [the section about it in this guide](#process-completed-signal-9---press-enter-error) to learn about it.
+### Example: Debian with XFCE Desktop Environment
+#### Installation
+```
+pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh && chmod +x debian-xfce.sh &&  bash debian-xfce.sh
+```
+The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it in **Termux** outside of the OS.
+#### Turn on (CLI)
+```
+./start-debian.sh
+```
+#### VNC Server
+- Run `vncserver-start` in the OS to start the VNC server (default on port 1).
+- Get a VNC viewer.
+- Add a new connection with address `localhost:1`.
+- View GUI of the OS from VNC viewer.
+- Run `vncserver-start` in the OS to kill all VNC servers.
+### Sound Output from PRoot OS
+#### Installation 
+```
+pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh && chmod +x setup-audio.sh && ./setup-audio.sh
+```
+#### Start
+```
+pulseaudio --start
+```
+### Example: Debian with CLI Only
+#### Installation 
+```
+pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh && chmod +x debian.sh && bash debian.sh
+```
+### Example: Uninstallation of Debian OS (Not Modded)
+```
+wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh && chmod +x UNI-debian.sh && bash UNI-debian.sh
+```
+---
 ## Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell
 ### Install Shizuku
-- Shizuku is An open-source app for serving multiple apps that require root/adb.
 - Install **Shizuku** from Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
-- Official tutorial (doesn't contain System UI Tuner and aShell): [https://shizuku.rikka.app/guide/setup/?night=1](https://shizuku.rikka.app/guide/setup/?night=1)
+- Official tutorial of Shizuku: [https://shizuku.rikka.app/guide/setup/?night=1](https://shizuku.rikka.app/guide/setup/?night=1)
+### Introduction of Shizuku and ADB
+- **Shizuku** is An open-source app for serving multiple apps that require root/adb.
+- The Android Debug Bridge (commonly abbreviated as adb) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google since 2007, its features include a shell and the possibility to make backups. The adb software is available for Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
+- Further reading: 
+  - [https://developer.android.com/tools/adb](https://developer.android.com/tools/adb).
+  - [https://android.googlesource.com/platform/packages/modules/adb/](https://android.googlesource.com/platform/packages/modules/adb/).
 ### Connect Shizuku to Wireless ADB
 1. Grant **Shizuku** notification permission.
 2. Tap **Pairing** in **Start via Wireless debugging** block in **Shizuku**.
 2. Connect to a WiFi you trust. You don't need to log in to the WiFi if the WiFi needs that. You just need to let your phone think that you're connected to WiFi.
-2. In phone's **Settings** or something similar, go to **About Phone > Software Information** or something similar, and tap the **Version Number** seven times to enable **Developer Options**.
+2. In phone's **Settings** or something similar, go to **About Phone > Software Information** or something similar, and tap the **Version Number** seven times to enable **Developer Options**. Some phones may have different methods to enable **Developer Options**.
 2. In the **Developer Options**, enable **Wireless ADB** and tap **Pair with a pairing code**.
 2. Input the pairing code in the notification of **Shizuku**.
 2. In the **Developer Options**, deactivate **ADB authorization timeout** if you don't want to do all the above again every time you use **Shizuku**. However, the connection may still be killed by the system after maybe a few days even if you've done this, follow [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner) to reconnect if you're using **SystemUI Tuner** or something similar at the same time, follow the above otherwise.
@@ -59,7 +307,7 @@ This guide offers a comprehensive approach to enhance your Android device’s se
     cd shizuku
     sh rish
     ```
-2. **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is no longer updated. F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
+2. **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is depreciated. F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 ### Install SystemUI Tuner
 Install **SystemUI Tuner** (pub: **Zachary Wander**) from Google Play Store: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner).
 ### To Leave Developer Options off When Using Shizuku to Connect to ADB
@@ -335,7 +583,7 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 - Turn off **Use SOCKS5 proxy** in **TrackerControl**.
 - Turn off **Outbound prxoy** in **DNSCrypt Settings** in **InviZible Pro**.
 - Turn on DNSCrypt but not Tor in **InviZible Pro**.
-### **Check**
+### Check
 - Go to [https://check.torproject.org/](https://check.torproject.org/) to check if your Tor route succeeded. If yes, you will see  "Congratulations. This browser is configured to use Tor." (assume the page's language is set to English).
 - Go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.
 - Go to [https://www.dnsleaktest.com/results.html](https://www.dnsleaktest.com/results.html) or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
@@ -349,10 +597,16 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\
 You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\
 By contributing to this project, you agree that your contributions will be licensed under GPL-3.0-or-later.
-## Promoted and Related Works
+## Promoted and Related Works, Reference, and Bibliography 
 ### Termux
 - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 - GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
+- Wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
+- Reddit Community: [https://termux.com/community](https://termux.com/community).
+### Andronix
+- Google Play Store: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
+- GitHub: [https://github.com/AndronixApp/AndronixOrigin](https://github.com/AndronixApp/AndronixOrigin).
+- Official website: [https://docs.andronix.app/](https://docs.andronix.app/).
 ### Shizuku
 - Official website: [https://shizuku.rikka.app/guide/setup/?night=1](https://shizuku.rikka.app/guide/setup/?night=1).
 - Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api). 
@@ -379,7 +633,8 @@ By contributing to this project, you agree that your contributions will be licen
 ### aShell
 - F-droid: [https://f-droid.org/packages/in.sunilpaulmathew.ashell/](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
 - GitLab: [https://gitlab.com/sunilpaulmathew/ashell](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
-## References and Bibliography 
+### Others
 - ChatGPT of OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
-- awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku)
-- shizuku-apps of MrHyperlon101: [https://github.com/MrHyperIon101/shizuku-apps](https://github.com/MrHyperIon101/shizuku-apps)
+- awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
+- shizuku-apps of MrHyperlon101: [https://github.com/MrHyperIon101/shizuku-apps](https://github.com/MrHyperIon101/shizuku-apps).
+- Wikipedia: [https://en.m.wikipedia.org/](https://en.m.wikipedia.org/).
