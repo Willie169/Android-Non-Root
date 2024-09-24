@@ -1,7 +1,6 @@
 # Android Non-Root
-In this guide, we’ll explore a comprehensive approach to enhance your Android device’s security, privacy, and customization — all without the need for root access. With a focus on non-root solutions, this guide introduces powerful tools and techniques that allow you to extend the capabilities of your Android device while ensuring your personal data remains secure and your privacy intact.
+In this guide, we'll explore a range of powerful, non-root approach to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
 ## Table of Contents
-- [Table of Contents](#table-of-contents)
 - [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Installation](#installation)
   - [Introduction](#introduction)
@@ -12,11 +11,24 @@ In this guide, we’ll explore a comprehensive approach to enhance your Android 
 - [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
   - [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
   - [Introduction](#introduction)
-  - [Usage](#usage)
-  - [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
+  - [Install an OS](#install-an-os)
+  - [Uninstall an OS (Not Modded)](#uninstall-an-os-not-modded)
   - [Sound Output from PRoot OS](#sound-output-from-proot-os)
+  - [Error](#error)
+  - [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
   - [Example: Debian with CLI Only](#example-debian-with-cli-only)
   - [Example: Uninstallation of Debian OS (Not Modded)](#example-uninstallation-of-debian-os-not-modded)
+  - [Note](#note)
+- [QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image](#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-image-method-or-qcow2-cloud-image)
+  - [Install QEMU](#install-qemu)
+  - [ISO Image method](#iso-image-method)
+  - [QCOW2 Cloud Image Method](#qcow2-cloud-image-method)
+  - [Login](#login)
+  - [Resize Disk Space](#resize-disk-space)
+  - [Check](#check)
+  - [Error](#error)
+  - [Note](#note)
+  - [Further Readings and References ](#further-readings-and-references)
 - [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
   - [Install Shizuku](#install-shizuku)
   - [Introduction of Shizuku and ADB](#introduction-of-shizuku-and-adb)
@@ -39,7 +51,7 @@ In this guide, we’ll explore a comprehensive approach to enhance your Android 
   - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
 - [Tor Browser](#tor-browser)
 - [License](#license)
-- [Promoted and Related Works, Reference, and Bibliography](#promoted-and-related-works-reference-and-bibliography)
+- [Promoted and Related Works, References, and Bibliography ](#promoted-and-related-works-references-and-bibliography)
   - [Termux](#termux)
   - [Andronix](#andronix)
   - [Shizuku](#shizuku)
@@ -49,6 +61,7 @@ In this guide, we’ll explore a comprehensive approach to enhance your Android 
   - [NetGuard](#netguard)
   - [DontKillMyApp](#dontkillmyapp)
   - [aShell](#ashell)
+  - [QEMU](#qemu)
   - [Others](#others)
 ---
 ## Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection
@@ -168,7 +181,7 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 - Run `nano $PREFIX/etc/apt/sources.list` to edit it. 
 - This will not change the urls of other package repositories, to change those run `pkg install termux-tools` afterwards and use `termux-change-repo` or manually edit their files under `$PREFIX/etc/apt/sources.list.d` directory.
 - Changing the mirror may specially be needed if a user is still using bintray as the mirror or `pkg upgrade` command hasn't been run in a while to update termux package related scripts.
-#### Further reading
+#### Further Readings and References
 - [https://github.com/termux/termux-packages/wiki/Package-Management](https://github.com/termux/termux-packages/wiki/Package-Management).
 - [https://github.com/termux/termux-packages/issues/6726](https://github.com/termux/termux-packages/issues/6726).
 - [https://github.com/termux/termux-packages/issues/6455](https://github.com/termux/termux-packages/issues/6455).
@@ -199,7 +212,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
   /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
   settings put global settings_enable_monitor_phantom_procs true
   ```
-#### Further Reading
+#### Further Readings and References 
 - [https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220](https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220).
 - [https://github.com/termux/termux-app/issues/2366](https://github.com/termux/termux-app/issues/2366).
 - [https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond](https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond).
@@ -217,11 +230,10 @@ Install Andronix from Google Play Store: [https://play.google.com/store/apps/det
 - **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close source Modded OS too, which won't be mentioned in this guide.
 - **PRoot** is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
 - chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
-- Further reading:
+- Further readings and references:
   - [https://en.m.wikipedia.org/wiki/Chroot](https://en.m.wikipedia.org/wiki/Chroot).
   - [https://github.com/AndronixApp/AndronixOrigin](https://github.com/AndronixApp/AndronixOrigin).
-### Usage
-#### Install an OS
+### Install an OS
 - Open **Andronix** app.
 - Click the **Linux Distribution** card.
 - Click on the Linux distribution you want to install. It is recommended to get started with Debian if you are overwhelmed by the options.
@@ -231,21 +243,31 @@ Install Andronix from Google Play Store: [https://play.google.com/store/apps/det
   - CLI Only: If you don't want a Graphical User-interface, you can go ahead with the Command Line Interface. You'll have a terminal, which is enough if you know what you're doing in your session.
 - **Andronix** will automatically copy the command to your clipboard.
 - Paste and run in **Termux**.
-#### Uninstall an OS (Not Modded)
+### Uninstall an OS (Not Modded)
 - Open **Andronix** app.
 - Click the **Linux Distribution** card.
 - Long press on the Linux distribution you want to uninstall.
 - Select**Uninstall**.
 - **Andronix** will automatically copy the command to your clipboard.
-- Paste and run in **Termux**.
-#### Error
+- Paste and run in **Termux** (Not inside Linux).
+### Sound Output from PRoot OS
+#### Installation 
+Run the following command in Termux (Not inside Linux):
+```
+pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh && chmod +x setup-audio.sh && ./setup-audio.sh
+```
+#### Start PulseAudio Server
+```
+pulseaudio --start
+```
+### Error
 You may encounter `Process completed (signal 9) - press Enter error` error, read [the section about it in this guide](#process-completed-signal-9---press-enter-error) to learn about it.
 ### Example: Debian with XFCE Desktop Environment
 #### Installation
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh && chmod +x debian-xfce.sh &&  bash debian-xfce.sh
 ```
-The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it in **Termux** outside of the OS.
+The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the Debian OS.
 #### Turn on (CLI)
 ```
 ./start-debian.sh
@@ -256,24 +278,277 @@ The file directory of the Debian OS will be `debian-fs`. You can read, write, an
 - Add a new connection with address `localhost:1`.
 - View GUI of the OS from VNC viewer.
 - Run `vncserver-start` in the OS to kill all VNC servers.
-### Sound Output from PRoot OS
-#### Installation 
-```
-pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh && chmod +x setup-audio.sh && ./setup-audio.sh
-```
-#### Start
-```
-pulseaudio --start
-```
 ### Example: Debian with CLI Only
 #### Installation 
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh && chmod +x debian.sh && bash debian.sh
 ```
+The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the Debian OS.
 ### Example: Uninstallation of Debian OS (Not Modded)
 ```
 wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh && chmod +x UNI-debian.sh && bash UNI-debian.sh
 ```
+### Note
+Remember to update before `apt` installing.
+```
+apt update && apt upgrade
+```
+---
+## QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image
+### Install QEMU
+Run the following command in **Termux**:
+```
+pkg install qemu-system-x86_64 qemu-utils qemu-common openssl
+```
+### ISO Image method
+This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This guide assumes no such problems are encounter.
+#### Prepare the ISO Image
+Here takes Debian for example. Change the URL to the download link of the ISO you want.
+```
+wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.7.0-amd64-netinst.iso
+```
+#### Create a Virtual Disk Image Where the Operating System Will Be Installed
+```
+qemu-img create -f qcow2 debian_amd64.qcow2 20G
+```
+Change the `debian_amd64.qcow2` to the file name you want. `20G` indicates 20GB disk image. You can adjust the size as needed.
+#### Install VM with CLI
+```
+nano install-qemu.sh
+```
+Copy below command and paste to it:
+```
+qemu-system-x86_64 -machine q35 \
+-drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd \
+-m 2G \
+-accel tcg,thread=multi \
+-smp sockets=1,cores=4,threads=1 \
+-cpu qemu64 \
+-vga std \
+-netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 \
+-device intel-hda \
+-device qemu-xhci \
+-boot d \
+-boot menu=on \
+-drive file=debian_amd64.qcow2 \
+-nographic \
+-serial mon:stdio \
+-display none \
+-cdrom ~/debian-12.7.0-amd64-DVD-1.iso
+```
+Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed.\
+Make it executable:
+```
+chmod +x install-qemu.sh
+```
+Run it:
+```
+./install-qemu.sh
+```
+Follow the screen guide to install.
+#### Install VM with GUI
+```
+nano install-qemu.sh
+```
+Copy below command and paste to it:
+```
+qemu-system-x86_64 -machine q35 \
+-drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd \
+-m 2G \
+-accel tcg,thread=multi \
+-smp sockets=1,cores=4,threads=1 \
+-cpu qemu64 \
+-vga std \
+-netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 \
+-device intel-hda \
+-device usb-tablet \
+-boot menu=on \
+-drive file=debian_amd64.qcow2 \
+--vnc :0 \
+-cdrom ~/debian-12.7.0-amd64-netinst.iso
+```
+Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.\
+Make it executable:
+```
+chmod +x install-qemu.sh
+```
+Run it:
+```
+./install-qemu.sh
+```
+Connect to the VNC server from a VNC viewer and follow the screen guide on the VNC viewer to install.
+#### Boot VM with CLI
+```
+nano qemu-cli.sh
+```
+Copy below command and paste to it:
+```
+qemu-system-x86_64 -machine q35 \
+-drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd \
+-m 2G \
+-accel tcg,thread=multi \
+-smp sockets=1,cores=4,threads=1 \
+-cpu qemu64 \
+-vga std \
+-netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 \
+-device intel-hda \
+-device usb-tablet \
+-boot menu=on \
+-drive file=debian_amd64.qcow2 \
+-serial mon:stdio \
+-display none
+```
+Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed.\
+Make it executable:
+```
+chmod +x qemu-cli.sh
+```
+Run it to boot the VM with CLI:
+```
+./qemu-cli.sh
+```
+#### Boot with GUI
+```
+nano qemu-gui.sh
+```
+Copy below command and paste to it:
+```
+qemu-system-x86_64 -machine q35 \
+-drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd \
+-m 2G \
+-accel tcg,thread=multi \
+-smp sockets=1,cores=4,threads=1 \
+-cpu qemu64 \
+-vga std \
+-netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 \
+-device intel-hda \
+-device usb-tablet \
+-boot menu=on \
+-drive file=debian_amd64.qcow2 \
+--vnc :0
+```
+Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.\
+Make it executable:
+```
+chmod +x qemu-cli.sh
+```
+Run it to boot the VM with GUI:
+```
+./qemu-gui.sh
+```
+Connect to the VNC server from a VNC viewer.
+### QCOW2 Cloud Image Method
+This method is more easy but less customizable.
+#### Prepare the QCOW2 Image
+Here takes Debian for example. Change the URL to the download link of the qcow2 you want.
+```
+wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-amd64.qcow2
+```
+#### Boot with CLI
+```
+nano qemu-cli.sh
+```
+Copy below command and paste to it:
+```
+qemu-system-x86_64 -m 2G \
+-drive file=debian-12-nocloud-amd64.qcow2,format=qcow2 \
+-nographic \
+-serial mon:stdio \
+-display none \
+-netdev user,id=net0,hostfwd=tcp::2222-:22 \
+-device e1000,netdev=net0
+```
+Change the `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Adjust `hostfwd` as needed. In the above command, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine.\
+Make it executable:
+```
+chmod +x qemu-cli.sh
+```
+Run it to boot the VM with CLI:
+```
+./qemu-cli.sh
+```
+#### Boot with GUI
+```
+nano qemu-gui.sh
+```
+Copy below command and paste to it:
+```
+qemu-system-x86_64 -m 2G \
+-drive file=debian-12-nocloud-amd64.qcow2,format=qcow2 \
+-vnc :0
+-netdev user,id=net0,hostfwd=tcp::2222-:22 \
+-device e1000,netdev=net0
+```
+Change `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use. Adjust `hostfwd` as needed.\
+Make it executable:
+```
+chmod +x qemu-cli.sh
+```
+Run it to boot the VM with GUI:
+```
+./qemu-gui.sh
+```
+Connect to the VNC server from a VNC viewer.
+### Login
+When you see something similar to the below in the VM:
+```
+Debian GNU/Linux 12 localhost ttyS0
+
+localhost login:
+```
+In the first time, type `root` and you will be logged in without a password. \
+You can set password latter by:
+```
+passwd
+```
+The password should be at least 4 letters long.\
+If you don't want to set a password, just type `root` and you will be logged in without a password every time.
+### Resize Disk Space
+In **Termux** (outside VM), run:
+```
+qemu-img resize debian-12-nocloud-amd64.qcow2 +30G
+```
+Change `debian-12-nocloud-amd64.qcow2` to the real file name. `+20G` indicates increasing 20GB disk image. You can adjust the size as needed. \
+Inside VM, run:
+```
+sudo apt install parted e2fsprogs
+sudo parted /dev/sda
+print
+fix
+resizepart 1 100%
+quit
+sudo resize2fs /dev/sda1
+```
+### Check
+#### Check Info
+In **Termux** (outside VM), run:
+```
+qemu-img info debian-12-nocloud-amd64.qcow2
+```
+Change `debian-12-nocloud-amd64.qcow2` to the real file name. 
+#### Check Disk
+Inside VM, run:
+```
+df -h
+```
+and for partition, run:
+```
+lsblk
+```
+### Error
+You may encounter `Process completed (signal 9) - press Enter error` error, read [the section about it in this guide](#process-completed-signal-9---press-enter-error) to learn about it.
+### Note
+- Remember to update before `apt` installing.
+  ```
+  apt update && apt upgrade
+  ```
+- You can start a SSH server in QEMU VM and start a client in another **Termux** session with `openssh`.
+### Further Readings and References 
+- [https://ivonblog.com/posts/termux-qemu-system-linux/](https://ivonblog.com/posts/termux-qemu-system-linux/)
+- [https://www.qemu.org/docs/master/index.html](https://www.qemu.org/docs/master/index.html)
+- [https://www.debian.org/distrib/index.en.html](https://www.debian.org/distrib/index.en.html)
+- [https://chatgpt.com/](https://chatgpt.com/)
+- [https://www.reddit.com/r/debian/s/s871vXlGRI](https://www.reddit.com/r/debian/s/s871vXlGRI)
 ---
 ## Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell
 ### Install Shizuku
@@ -282,7 +557,7 @@ wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninsta
 ### Introduction of Shizuku and ADB
 - **Shizuku** is An open-source app for serving multiple apps that require root/adb.
 - The Android Debug Bridge (commonly abbreviated as adb) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google since 2007, its features include a shell and the possibility to make backups. The adb software is available for Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
-- Further reading: 
+- Further readings and references: 
   - [https://developer.android.com/tools/adb](https://developer.android.com/tools/adb).
   - [https://android.googlesource.com/platform/packages/modules/adb/](https://android.googlesource.com/platform/packages/modules/adb/).
 ### Connect Shizuku to Wireless ADB
@@ -597,7 +872,7 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\
 You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\
 By contributing to this project, you agree that your contributions will be licensed under GPL-3.0-or-later.
-## Promoted and Related Works, Reference, and Bibliography 
+## Promoted and Related Works, References, and Bibliography 
 ### Termux
 - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 - GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
@@ -633,6 +908,9 @@ By contributing to this project, you agree that your contributions will be licen
 ### aShell
 - F-droid: [https://f-droid.org/packages/in.sunilpaulmathew.ashell/](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
 - GitLab: [https://gitlab.com/sunilpaulmathew/ashell](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
+### QEMU
+- GitLab: [https://gitlab.com/qemu-project/qemu](https://gitlab.com/qemu-project/qemu).
+- Official website: [https://www.qemu.org/](https://www.qemu.org/).
 ### Others
 - ChatGPT of OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
 - awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
