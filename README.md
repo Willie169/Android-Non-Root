@@ -326,7 +326,7 @@ Copy below command and paste to it:
 # Start Openbox.
 openbox-session &
 ```
-Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above since Openbox has its own autostart script located at `${PREFIX}/etc/xdg/openbox/autostart`.
+Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above since Openbox has its own autostart script, which is located at `${PREFIX}/etc/xdg/openbox/autostart`.
 ```
 nano ~/etc/xdg/openbox/autostart
 ```
@@ -353,7 +353,7 @@ Copy below command and paste to it:
 #!/data/data/com.termux/files/usr/bin/sh
 xfce4-session &
 ```
-Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above.\
+Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.\
 XFCE will start automatically on VNC server startup.
 #### Additional Recommended Packages for Installation
 - `netsurf` - Simple graphical web browser. Javascript is not supported.
@@ -372,7 +372,7 @@ Copy below command and paste to it:
 #!/data/data/com.termux/files/usr/bin/sh
 startlxqt &
 ```
-Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above.\
+Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.\
 LXQt will start automatically on VNC server startup.
 #### Additional Recommended Packages for Installation
 - `otter-browser` - Free and open source web browser that aims to recreate aspects of Opera 12.x
@@ -391,7 +391,7 @@ Copy below command and paste to it:
 #!/data/data/com.termux/files/usr/bin/sh
 mate-session &
 ```
-Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above.\
+Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.\
 MATE will start automatically on VNC server startup.
 #### Additional Recommended Packages for Installation
 - `netsurf` - Simple graphical web browser. Javascript is not supported.
