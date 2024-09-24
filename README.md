@@ -1,11 +1,12 @@
-# Android Non-Root
-In this guide, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
+# Android-Non-Root
+In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
 ## Table of Contents
 - [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Installation](#installation)
   - [Introduction](#introduction)
   - [App User Interface](#app-user-interface)
   - [Package Management](#package-management)
+  - [SIGINT (Signal Interrupt)](#sigint-signal-interrupt)
   - [Package Command Error](#package-command-error)
   - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
 - [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Managers, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-managers-or-xfce-lxqt-or-mate-desktop-environment)
@@ -102,6 +103,7 @@ terminal and selecting the Help menu option to learn more.
 - Pinch to zoom in or out.
 - Long press to Copy, Paste, Select URL, Share transcript, Autofill password, Reset, Kill process, Style, Keep screen on, Help, Settings, or Report Issue.
 - Pull out the left menu to open **Termux Settings**, start another **NEW SESSION**, or launch **KEYBOARD**.
+- Read [the tutorial about graphical environment in section **Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Managers, or XFCE, LXQt, or MATE Desktop Environment**](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-managers-or-xfce-lxqt-or-mate-desktop-environment).
 ### Package Management
 #### pkg
 pkg is a tool for managing apt packages.\
@@ -155,6 +157,8 @@ apt update && apt upgrade
 ```
 pkg update && pkg upgrade
 ```
+### SIGINT (Signal Interrupt)
+Press Ctrl + C to send a signal called SIGINT (Signal Interrupt) to the currently running process. This signal instructs the process to stop execution. It is typically used to terminate a running program or command, especially one that is taking too long or has become unresponsive.
 ### Package Command Error
 Termux had to move the primary Termux package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:
 ```
@@ -204,7 +208,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - Find the switch to toggle off **settings_enable_monitor_phantom_procs** to disable phantom process killer.
 - To enable phantom process killer again, just toggle on the switch.
 #### Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond
-- Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**. Read [the section about **Shizuku** in this guide](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell) to learn about it.
+- Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**. Read [the tutorial about **Shizuku** in the section **Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell**](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell) to learn about it.
 - Type `adb shell` to enter `adb shell`.
 - Run the following commands inside `adb shell`:
   ```
@@ -400,7 +404,7 @@ MATE will start automatically on VNC server startup.
 ### Optional but Recommended: Install Andronix App
 Install Andronix from Google Play Store: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
 ### Introduction
-- **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close source Modded OS too, which won't be mentioned in this guide.
+- **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close-source modded OS too, which won't be mentioned in this tutorial.
 - **PRoot** is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
 - chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
 - Further readings and references:
@@ -434,7 +438,7 @@ pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-F
 pulseaudio --start
 ```
 ### Error
-You may encounter `Process completed (signal 9) - press Enter error` error, read [the section about it in this guide](#process-completed-signal-9---press-enter-error) to learn about it.
+You may encounter `Process completed (signal 9) - press Enter error` error, read [the tutorial about it in the section **Process completed (signal 9) - press Enter error**](#process-completed-signal-9---press-enter-error) to learn about it.
 ### Example: Debian with XFCE Desktop Environment
 #### Installation
 ```
@@ -474,7 +478,7 @@ Run the following command in **Termux**:
 pkg install qemu-system-x86_64 qemu-utils qemu-common openssl
 ```
 ### ISO Image method
-This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This guide assumes no such problems are encounter.
+This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This tutorial assumes no such problems are encounter.
 #### Prepare the ISO Image
 Here takes Debian for example. Change the URL to the download link of the ISO you want.
 ```
@@ -709,7 +713,7 @@ and for partition, run:
 lsblk
 ```
 ### Error
-You may encounter `Process completed (signal 9) - press Enter error` error, read [the section about it in this guide](#process-completed-signal-9---press-enter-error) to learn about it.
+You may encounter `Process completed (signal 9) - press Enter error` error, read [the tutorial about it in the section **Process completed (signal 9) - press Enter error**](#process-completed-signal-9---press-enter-error) to learn about it.
 ### Note
 - Remember to update before `apt` installing.
   ```
@@ -759,7 +763,7 @@ You may encounter `Process completed (signal 9) - press Enter error` error, read
 ### Install SystemUI Tuner
 Install **SystemUI Tuner** (pub: **Zachary Wander**) from Google Play Store: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner).
 ### To Leave Developer Options off When Using Shizuku to Connect to ADB
-Some financial apps may require Developer Options to be off when using them. This is the guide about how to turn Developer Options off while still using Shizuku ADB Shell.
+Some financial apps may require Developer Options to be off when using them. This section is the tutorial about how to turn Developer Options off while still using Shizuku ADB Shell.
 1. Follow the screen instructions of **SystemUI Tuner**. 
 2. Run `adb shell` command `pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS` (you can do it with **Shizuku** and a terminal such as **Termux** or **aShell**).
 2. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
