@@ -255,10 +255,21 @@ In this section, you will learn how to set up a VNC server in **Termux** for gra
 pkg install tigervnc
 ```
 #### Start Server
+Not specifying port:
 ```
 vncserver -localhost
 ```
 VNC server will start on unused port with the smallest positive integer number, like `localhost:1` if port 1 is not used.\
+Specifying port:
+```
+vncserver :1
+```
+VNC server will start on the port you specified.\
+Specifying resolution:
+```
+vncserver :1 -geometry 1920x1080
+```
+You can specify resolution with `-geometry`.\
 At first time, you will be prompted for setting up passwords:
 ```
 You will require a password to access your desktops.
