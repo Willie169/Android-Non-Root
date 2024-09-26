@@ -32,7 +32,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
 - [QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image](#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-image-method-or-qcow2-cloud-image)
   - [Install QEMU](#install-qemu)
   - [ISO Image method](#iso-image-method)
-  - [QCOW2 Cloud Image Method](#qcow2-cloud-image-method)
+  - [QCOW2 Image Method](#qcow2-image-method)
   - [Window Managers or Desktop Environments](#window-managers-or-desktop-environments)
   - [Login](#login)
   - [Resize Disk Space](#resize-disk-space)
@@ -501,7 +501,7 @@ pkg install qemu-system-x86_64 qemu-utils qemu-common openssl
 This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This tutorial assumes no such problems are encounter.\
 It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.
 #### Prepare the ISO Image
-Here takes Debian for example. Change the URL to the download link of the ISO you want.
+Prepare the ISO image. Here takes Debian AMD64 for example. Change the URL to the download link of the ISO image you want or `cp` or `mv` the ISO image you want to the directory you want.
 ```
 wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.7.0-amd64-netinst.iso
 ```
@@ -635,11 +635,11 @@ Run it to boot the VM with GUI:
 ./qemu-gui.sh
 ```
 Connect to the VNC server from a VNC viewer.
-### QCOW2 Cloud Image Method
+### QCOW2 Image Method
 This method is more easy but less customizable.\
 It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.
 #### Prepare the QCOW2 Image
-Here takes Debian for example. Change the URL to the download link of the qcow2 you want.
+Prepare the qcow2 image. Here takes Debian AMD64 qcow2 cloud image for example. Change the URL to the download link of the qcow2 image you want or `cp` or `mv` the qcow2 image you want to the directory you want.
 ```
 wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-amd64.qcow2
 ```
