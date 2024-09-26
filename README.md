@@ -9,7 +9,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [SIGINT (Signal Interrupt)](#sigint-signal-interrupt)
   - [Package Command Error](#package-command-error)
   - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
-- [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Managers, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-managers-or-xfce-lxqt-or-mate-desktop-environment)
+- [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment)
   - [Enable the X11 Repository ](#enable-the-x11-repository)
   - [VNC Server](#vnc-server)
   - [Fluxbox](#fluxbox)
@@ -34,6 +34,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Install QEMU](#install-qemu)
   - [ISO Image method](#iso-image-method)
   - [QCOW2 Cloud Image Method](#qcow2-cloud-image-method)
+  - [Window Managers or Desktop Environments](#window-managers-or-desktop-environments)
   - [Login](#login)
   - [Resize Disk Space](#resize-disk-space)
   - [Check](#check)
@@ -61,6 +62,9 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Check](#check)
   - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
 - [Tor Browser](#tor-browser)
+  - [Install](#install)
+  - [Introduction](#introduction)
+  - [NoScript Security Suite](#noscript-security-suite)
 - [License](#license)
 - [Promoted and Related Works, References, and Bibliography ](#promoted-and-related-works-references-and-bibliography)
   - [Termux](#termux)
@@ -73,6 +77,8 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [DontKillMyApp](#dontkillmyapp)
   - [aShell](#ashell)
   - [QEMU](#qemu)
+  - [The Tor Project ](#the-tor-project)
+  - [MyIP/IPCheck.ing](#myipipchecking)
   - [Others](#others)
 ---
 ## Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection
@@ -103,7 +109,7 @@ terminal and selecting the Help menu option to learn more.
 - Pinch to zoom in or out.
 - Long press to Copy, Paste, Select URL, Share transcript, Autofill password, Reset, Kill process, Style, Keep screen on, Help, Settings, or Report Issue.
 - Pull out the left menu to open **Termux Settings**, start another **NEW SESSION**, or launch **KEYBOARD**.
-- Read [the tutorial about graphical environment in section **Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Managers, or XFCE, LXQt, or MATE Desktop Environment**](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-managers-or-xfce-lxqt-or-mate-desktop-environment).
+- Read [the tutorial about graphical environment in section **Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment**](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment).
 ### Package Management
 #### pkg
 pkg is a tool for managing apt packages.\
@@ -237,7 +243,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - [https://issuetracker.google.com/u/1/issues/205156966](https://issuetracker.google.com/u/1/issues/205156966).
 - [https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md](https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md).
 ---
-## Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Managers, or XFCE, LXQt, or MATE Desktop Environment
+## Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment
 ### Enable the X11 Repository 
 X11 packages are available in a separate APT repository. You can enable it by running the following command:
 ```
@@ -524,7 +530,7 @@ qemu-system-x86_64 -machine q35 \
 -display none \
 -cdrom ~/debian-12.7.0-amd64-DVD-1.iso
 ```
-Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed.\
+Adjust `hostfwd` as needed. In the above command, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine. Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed.\
 Make it executable:
 ```
 chmod +x install-qemu.sh
@@ -555,7 +561,7 @@ qemu-system-x86_64 -machine q35 \
 --vnc :0 \
 -cdrom ~/debian-12.7.0-amd64-netinst.iso
 ```
-Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.\
+Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.\
 Make it executable:
 ```
 chmod +x install-qemu.sh
@@ -586,7 +592,7 @@ qemu-system-x86_64 -machine q35 \
 -serial mon:stdio \
 -display none
 ```
-Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed.\
+Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed.\
 Make it executable:
 ```
 chmod +x qemu-cli.sh
@@ -615,7 +621,7 @@ qemu-system-x86_64 -machine q35 \
 -drive file=debian_amd64.qcow2 \
 --vnc :0
 ```
-Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.\
+Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.\
 Make it executable:
 ```
 chmod +x qemu-cli.sh
@@ -646,7 +652,7 @@ qemu-system-x86_64 -m 2G \
 -netdev user,id=net0,hostfwd=tcp::2222-:22 \
 -device e1000,netdev=net0
 ```
-Change the `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Adjust `hostfwd` as needed. In the above command, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine.\
+Change the `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Adjust `hostfwd` as needed.\
 Make it executable:
 ```
 chmod +x qemu-cli.sh
@@ -677,6 +683,8 @@ Run it to boot the VM with GUI:
 ./qemu-gui.sh
 ```
 Connect to the VNC server from a VNC viewer.
+### Window Managers or Desktop Environments
+You can install a window manager such as Fluxbox or Openbox, or desktop environment such as XFCE, LXQt, or MATE for your GUI.
 ### Login
 When you see something similar to the below in the VM:
 ```
@@ -1048,12 +1056,27 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 - Turn on DNSCrypt but not Tor in **InviZible Pro**.
 ### Check
 - Go to [https://check.torproject.org/](https://check.torproject.org/) to check if your Tor route succeeded. If yes, you will see  "Congratulations. This browser is configured to use Tor." (assume the page's language is set to English).
-- Go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.
-- Go to [https://www.dnsleaktest.com/results.html](https://www.dnsleaktest.com/results.html) or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
+- Go to [https://ipcheck.ing/](https://ipcheck.ing/) or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.
+- Go to [https://ipcheck.ing/](https://ipcheck.ing/) or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
 ### Use Invizible Pro without TrackerControl
 - Change to **VPN mode** by tap the 3-point button in the upper right corner.
 ## Tor Browser
-- Haven't been written.
+### Install
+You can install **Tor Browser** from Google Play Store: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
+### Introduction
+Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.\
+Using Tor makes it more difficult to trace a user's Internet activity by preventing any single point on the Internet (other than the user's device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user's location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user's freedom and ability to communicate confidentially.\
+Key Features of Tor:
+1. Anonymity: Tor allows users to browse the internet anonymously by routing their internet traffic through a network of volunteer-operated servers called nodes or relays. Each relay only knows the IP address of the previous and next node, making it difficult to trace the origin of the traffic.
+2. Onion Routing: The name "Onion Router" comes from the way data is encrypted in layers, similar to the layers of an onion. When data is sent through the Tor network, it is encrypted multiple times, and each node decrypts a layer before passing it on to the next, protecting user privacy.
+3. Access to .onion Sites: Tor allows users to access hidden services with .onion domain names, which are not reachable through standard web browsers. These sites often provide additional privacy and anonymity.
+4. Bypass Censorship: Tor can help users bypass censorship and access restricted content by routing traffic through nodes in different countries.
+5. Privacy Tools: The Tor Browser, based on Mozilla Firefox, comes preconfigured with privacy enhancements, making it easier for users to maintain anonymity while browsing.\
+The **Tor Browser** for Android is a mobile version of the Tor Browser that utilizes **Mozilla Firefox** for Android codebase.
+### NoScript Security Suite
+**NoScript** (or **NoScript Security Suite**) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group.\
+By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension's toolbar menu or by clicking a placeholder icon.\
+It is recommended to enable NoScript for all Tor sites unless you fully trust it.
 ## License
 This project is licensed under the terms the GNU General Public License v3.0 or later (GPL-3.0-or-later).\
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\
@@ -1100,6 +1123,16 @@ By contributing to this project, you agree that your contributions will be licen
 ### QEMU
 - GitLab: [https://gitlab.com/qemu-project/qemu](https://gitlab.com/qemu-project/qemu).
 - Official website: [https://www.qemu.org/](https://www.qemu.org/).
+### The Tor Project 
+- Google Play Store of Tor Browser: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
+- GitLab of Tor Browser: [https://gitlab.torproject.org/tpo/applications/tor-browser](https://gitlab.torproject.org/tpo/applications/tor-browser).
+- GitLab of The Tor Project: [https://gitlab.torproject.org/tpo](https://gitlab.torproject.org/tpo).
+- GitLab of the Debian package tor:[https://gitlab.torproject.org/tpo/core/debian/tor](https://gitlab.torproject.org/tpo/core/debian/tor).
+- Official website: [https://www.torproject.org/](https://www.torproject.org/).
+- Check Tor Project: [https://check.torproject.org/](https://check.torproject.org/).
+### MyIP/IPCheck.ing
+- Official website: [https://ipcheck.ing/](https://ipcheck.ing/).
+- GitHub: [https://github.com/jason5ng32/MyIP](https://github.com/jason5ng32/MyIP).
 ### Others
 - ChatGPT of OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
 - awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
