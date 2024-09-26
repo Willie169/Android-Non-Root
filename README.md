@@ -2,7 +2,7 @@
 In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
 ## Table of Contents
 - [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
-  - [Installation](#installation)
+  - [Install Termux](#install-termux)
   - [Introduction of Termux](#introduction-of-termux)
   - [App User Interface](#app-user-interface)
   - [Package Management](#package-management)
@@ -24,7 +24,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Install an OS](#install-an-os)
   - [Uninstall an OS (Not Modded)](#uninstall-an-os-not-modded)
   - [Sound Output from PRoot OS](#sound-output-from-proot-os)
-  - [Error](#error)
+  - [Signal 9 Error](#signal-9-error)
   - [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
   - [Example: Debian with CLI Only](#example-debian-with-cli-only)
   - [Example: Uninstallation of Debian OS (Not Modded)](#example-uninstallation-of-debian-os-not-modded)
@@ -37,7 +37,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Login](#login)
   - [Resize Disk Space](#resize-disk-space)
   - [Check](#check)
-  - [Error](#error)
+  - [Signal 9 Error](#signal-9-error)
   - [Note](#note)
   - [Further Readings and References](#further-readings-and-references)
 - [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
@@ -61,7 +61,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Check](#check)
   - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
 - [Tor Browser](#tor-browser)
-  - [Install](#install)
+  - [Install Tor Browser](#install-tor-browser)
   - [Introduction of Tor](#introduction-of-tor)
   - [NoScript Security Suite](#noscript-security-suite)
 - [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
@@ -83,7 +83,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
 - [License](#license)
 ---
 ## Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection
-### Installation
+### Install Termux
 - Download and Install **Termux** from F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 - **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is depreciated.
 - Many of the following guides work on or depend on **Termux**.
@@ -258,7 +258,7 @@ pkg uninstall x11-repo
 ```
 ### VNC Server
 In this section, you will learn how to set up a VNC server in **Termux** for graphical output.
-#### Install
+#### Install TigerVNC
 ```
 pkg install tigervnc
 ```
@@ -309,7 +309,7 @@ vncserver -kill localhost:1
 ```
 Change the port with the actual port your VNC server started on.
 ### Fluxbox
-#### Install
+#### Install Fluxbox
 ```
 pkg install fluxbox
 ```
@@ -330,7 +330,7 @@ fluxbox &
 ```
 Fluxbox will start automatically on VNC server startup.
 ### Openbox
-#### Install
+#### Install Openbox
 ```
 pkg install openbox pypanel xorg-xsetroot
 ```
@@ -359,7 +359,7 @@ pypanel &
 ```
 Openbox will start automatically on VNC server startup.
 ### XFCE
-#### Install
+#### Install XFCE
 ```
 pkg install xfce4
 ```
@@ -378,7 +378,7 @@ XFCE will start automatically on VNC server startup.
 - `netsurf` - Simple graphical web browser. Javascript is not supported.
 - `xfce4-terminal` - Terminal emulator for XFCE. It is not included as part of XFCE installation to allow use of `aterm` or `st`.
 ### LXQt
-#### Install
+#### Install LXQt
 ```
 pkg install lxqt
 ```
@@ -397,7 +397,7 @@ LXQt will start automatically on VNC server startup.
 - `otter-browser` - Free and open source web browser that aims to recreate aspects of Opera 12.x
 - `qterminal` - Terminal emulator for LXQt. It is not included as part of LXQt installation to allow use of `aterm` or `st`.
 ### MATE
-#### Install
+#### Install MATE
 ```
 pkg install mate-* marco
 ```
@@ -447,7 +447,7 @@ Install Andronix from Google Play Store: [https://play.google.com/store/apps/det
 - **Andronix** will automatically copy the command to your clipboard.
 - Paste and run in **Termux** (Not inside Linux).
 ### Sound Output from PRoot OS
-#### Installation 
+#### Install and Setup Sound Output from PRoot OS
 Run the following command in Termux (Not inside Linux):
 ```
 pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh && chmod +x setup-audio.sh && ./setup-audio.sh
@@ -456,10 +456,10 @@ pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-F
 ```
 pulseaudio --start
 ```
-### Error
+### Signal 9 Error
 You may encounter `Process completed (signal 9) - press Enter error` error, read the tutorial about it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 ### Example: Debian with XFCE Desktop Environment
-#### Installation
+#### Install Debian with XFCE
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh && chmod +x debian-xfce.sh &&  bash debian-xfce.sh
 ```
@@ -475,7 +475,7 @@ The file directory of the Debian OS will be `debian-fs`. You can read, write, an
 - View GUI of the OS from VNC viewer.
 - Run `vncserver-start` in the OS to kill all VNC servers.
 ### Example: Debian with CLI Only
-#### Installation 
+#### Install Debian
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh && chmod +x debian.sh && bash debian.sh
 ```
@@ -736,7 +736,7 @@ and for partition, run:
 ```
 lsblk
 ```
-### Error
+### Signal 9 Error
 You may encounter `Process completed (signal 9) - press Enter error` error, read the tutorial about it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 ### Note
 - Remember to update before `apt` installing.
@@ -1067,7 +1067,7 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 ### Use Invizible Pro without TrackerControl
 - Change to **VPN mode** by tap the 3-point button in the upper right corner.
 ## Tor Browser
-### Install
+### Install Tor Browser 
 You can install **Tor Browser** from Google Play Store: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
 ### Introduction of Tor
 Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.\
