@@ -3,7 +3,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
 ## Table of Contents
 - [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Installation](#installation)
-  - [Introduction](#introduction)
+  - [Introduction of Termux](#introduction-of-termux)
   - [App User Interface](#app-user-interface)
   - [Package Management](#package-management)
   - [SIGINT (Signal Interrupt)](#sigint-signal-interrupt)
@@ -21,7 +21,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Further Readings and References](#further-readings-and-references)
 - [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
   - [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
-  - [Introduction](#introduction)
+  - [Introduction of Andronix and PRoot](#introduction-of-andronix-and-proot)
   - [Install an OS](#install-an-os)
   - [Uninstall an OS (Not Modded)](#uninstall-an-os-not-modded)
   - [Sound Output from PRoot OS](#sound-output-from-proot-os)
@@ -63,7 +63,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
 - [Tor Browser](#tor-browser)
   - [Install](#install)
-  - [Introduction](#introduction)
+  - [Introduction of Tor](#introduction-of-tor)
   - [NoScript Security Suite](#noscript-security-suite)
 - [License](#license)
 - [Promoted and Related Works, References, and Bibliography ](#promoted-and-related-works-references-and-bibliography)
@@ -87,7 +87,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
 - **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is depreciated.
 - Many of the following guides work on or depend on **Termux**.
 - If you installed termux from Google Play Store or a very old version, then you will receive package command errors. Google Play Store builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at [https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html](https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html). It is recommended that you shift to F-Droid or Github releases.
-### Introduction
+### Introduction of Termux
 - Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package.
 collection.
   - Enjoy the bash and zsh shells.
@@ -109,7 +109,7 @@ terminal and selecting the Help menu option to learn more.
 - Pinch to zoom in or out.
 - Long press to Copy, Paste, Select URL, Share transcript, Autofill password, Reset, Kill process, Style, Keep screen on, Help, Settings, or Report Issue.
 - Pull out the left menu to open **Termux Settings**, start another **NEW SESSION**, or launch **KEYBOARD**.
-- Read [the tutorial about graphical environment in section **Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment**](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment).
+- Read the tutorial about it in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment).
 ### Package Management
 #### pkg
 pkg is a tool for managing apt packages.\
@@ -214,7 +214,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - Find the switch to toggle off **settings_enable_monitor_phantom_procs** to disable phantom process killer.
 - To enable phantom process killer again, just toggle on the switch.
 #### Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond
-- Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**. Read [the tutorial about **Shizuku** in the section **Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell**](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell) to learn about it.
+- Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**. Read the tutorial about **Shizuku** in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell) to learn about it.
 - Type `adb shell` to enter `adb shell`.
 - Run the following commands inside `adb shell`:
   ```
@@ -244,6 +244,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - [https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md](https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md).
 ---
 ## Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment
+Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 ### Enable the X11 Repository 
 X11 packages are available in a separate APT repository. You can enable it by running the following command:
 ```
@@ -420,8 +421,8 @@ MATE will start automatically on VNC server startup.
 ## Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices
 ### Optional but Recommended: Install Andronix App
 Install Andronix from Google Play Store: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
-### Introduction
-- **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close-source modded OS too, which won't be mentioned in this tutorial.
+### Introduction of Andronix and PRoot
+- **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close-source modded OS too, which won't be mentioned in this tutorial. Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 - **PRoot** is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
 - chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
 - Further readings and references:
@@ -430,7 +431,7 @@ Install Andronix from Google Play Store: [https://play.google.com/store/apps/det
 ### Install an OS
 - Open **Andronix** app.
 - Click the **Linux Distribution** card.
-- Click on the Linux distribution you want to install. It is recommended to get started with Debian if you are overwhelmed by the options.
+- Click on the Linux distribution you want to install. It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.
 - Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your Linux distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your Linux distribution. 
   - Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you've little or no experience with Linux. 
   - Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage Windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive. 
@@ -455,7 +456,7 @@ pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-F
 pulseaudio --start
 ```
 ### Error
-You may encounter `Process completed (signal 9) - press Enter error` error, read [the tutorial about it in the section **Process completed (signal 9) - press Enter error**](#process-completed-signal-9---press-enter-error) to learn about it.
+You may encounter `Process completed (signal 9) - press Enter error` error, read the tutorial about it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 ### Example: Debian with XFCE Desktop Environment
 #### Installation
 ```
@@ -489,13 +490,15 @@ apt update && apt upgrade
 ```
 ---
 ## QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image
+Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 ### Install QEMU
 Run the following command in **Termux**:
 ```
 pkg install qemu-system-x86_64 qemu-utils qemu-common openssl
 ```
 ### ISO Image method
-This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This tutorial assumes no such problems are encounter.
+This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This tutorial assumes no such problems are encounter.\
+It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.
 #### Prepare the ISO Image
 Here takes Debian for example. Change the URL to the download link of the ISO you want.
 ```
@@ -632,7 +635,8 @@ Run it to boot the VM with GUI:
 ```
 Connect to the VNC server from a VNC viewer.
 ### QCOW2 Cloud Image Method
-This method is more easy but less customizable.
+This method is more easy but less customizable.\
+It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.
 #### Prepare the QCOW2 Image
 Here takes Debian for example. Change the URL to the download link of the qcow2 you want.
 ```
@@ -732,7 +736,7 @@ and for partition, run:
 lsblk
 ```
 ### Error
-You may encounter `Process completed (signal 9) - press Enter error` error, read [the tutorial about it in the section **Process completed (signal 9) - press Enter error**](#process-completed-signal-9---press-enter-error) to learn about it.
+You may encounter `Process completed (signal 9) - press Enter error` error, read the tutorial about it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 ### Note
 - Remember to update before `apt` installing.
   ```
@@ -767,7 +771,7 @@ You may encounter `Process completed (signal 9) - press Enter error` error, read
 2. Back to **Shizuku** and tap **Start** in **Start via Wireless debugging** block. You all see **Shizuku is running** on the top of the interface of **Shizuku**.
 ### Use Shizuku in a Terminal Application for the First Time (Termux for Example)
 1. Tap **Use Shizuku in terminal applications** in **Shizuku** and export files `rish` and `rish_shizuku.dex` to somewhere on your phone.
-2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. **Termux**'s package name is `com.termux`. Run `termux-setup-storage` to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands).
+2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take **Termux** for example, **Termux**'s package name is `com.termux`. Run `termux-setup-storage` to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands). Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 2. Open your terminal application and move the exported files to somewhere it can access with `mv old_location new_location`. The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of **Termux** is `/data/data/com.termux/home`, which is abbreviated as `~` in **Termux**.
 2. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
 2. Where used to be `~ $` should become `e2q:/ $` or something similar if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
@@ -813,6 +817,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 - Use **aShell**.
 ---
 ## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers
+Read the tutorial about **Tor** in [Introduction of Tor](#introduction-of-tor).
 ### Install InviZible Pro
 - Download and install **InviZible Pro** from F-Droid or Google Play Store. F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). Google Play Store: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp).
 ### Install TrackerControl
@@ -1063,7 +1068,7 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 ## Tor Browser
 ### Install
 You can install **Tor Browser** from Google Play Store: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
-### Introduction
+### Introduction of Tor
 Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.\
 Using Tor makes it more difficult to trace a user's Internet activity by preventing any single point on the Internet (other than the user's device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user's location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user's freedom and ability to communicate confidentially.\
 Key Features of Tor:
@@ -1133,6 +1138,9 @@ By contributing to this project, you agree that your contributions will be licen
 ### MyIP/IPCheck.ing
 - Official website: [https://ipcheck.ing/](https://ipcheck.ing/).
 - GitHub: [https://github.com/jason5ng32/MyIP](https://github.com/jason5ng32/MyIP).
+### Debian
+- Official website: [https://www.debian.org/](https://www.debian.org/).
+- GitLab: [https://salsa.debian.org/public](https://salsa.debian.org/public).
 ### Others
 - ChatGPT of OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
 - awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
