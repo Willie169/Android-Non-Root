@@ -1062,8 +1062,8 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 - Turn on DNSCrypt but not Tor in **InviZible Pro**.
 ### Check
 - Go to [https://check.torproject.org/](https://check.torproject.org/) to check if your Tor route succeeded. If yes, you will see  "Congratulations. This browser is configured to use Tor." (assume the page's language is set to English).
-- Go to [https://ipcheck.ing/](https://ipcheck.ing/) or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.
-- Go to [https://ipcheck.ing/](https://ipcheck.ing/) or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
+- Go to [https://whatismyipaddress.com](https://whatismyipaddress.com) (not open source), [https://ipcheck.ing/](https://ipcheck.ing/), or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.
+- Go to [https://www.dnsleaktest.com](https://www.dnsleaktest.com) (not open source), [https://ipcheck.ing/](https://ipcheck.ing/), or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
 ### Use Invizible Pro without TrackerControl
 - Change to **VPN mode** by tap the 3-point button in the upper right corner.
 ## Tor Browser
@@ -1141,6 +1141,8 @@ It is recommended to enable NoScript for all Tor sites unless you fully trust it
 - awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
 - shizuku-apps of MrHyperlon101: [https://github.com/MrHyperIon101/shizuku-apps](https://github.com/MrHyperIon101/shizuku-apps).
 - Wikipedia: [https://en.m.wikipedia.org/](https://en.m.wikipedia.org/).
+- DNS leak test: [https://www.dnsleaktest.com](https://www.dnsleaktest.com).
+- What Is My IP Address: [https://whatismyipaddress.com](https://whatismyipaddress.com).
 ## Contribution
 We welcome contributions to this project! Please fork the repository and submit a pull request for your contributions. For clarity and convenience, we recommend making one pull request per revised section or added feature.
 ## License
