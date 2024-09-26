@@ -64,8 +64,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Install](#install)
   - [Introduction of Tor](#introduction-of-tor)
   - [NoScript Security Suite](#noscript-security-suite)
-- [License](#license)
-- [Promoted and Related Works, References, and Bibliography](#promoted-and-related-works-references-and-bibliography)
+- [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   - [Termux](#termux)
   - [Andronix](#andronix)
   - [Shizuku](#shizuku)
@@ -80,6 +79,8 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [MyIP/IPCheck.ing](#myipipchecking)
   - [Debian](#debian)
   - [Others](#others)
+- [Contribution](#contribution)
+- [License](#license)
 ---
 ## Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection
 ### Installation
@@ -1082,13 +1083,7 @@ The **Tor Browser** for Android is a mobile version of the Tor Browser that util
 **NoScript** (or **NoScript Security Suite**) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group.\
 By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension's toolbar menu or by clicking a placeholder icon.\
 It is recommended to enable NoScript for all Tor sites unless you fully trust it.
-## License
-This project is licensed under the terms the GNU General Public License v3.0 or later (GPL-3.0-or-later).\
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\
-You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\
-By contributing to this project, you agree that your contributions will be licensed under GPL-3.0-or-later.
-## Promoted and Related Works, References, and Bibliography 
+## Promoted or Related Works, References, and Bibliography 
 ### Termux
 - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 - GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
@@ -1146,3 +1141,11 @@ By contributing to this project, you agree that your contributions will be licen
 - awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
 - shizuku-apps of MrHyperlon101: [https://github.com/MrHyperIon101/shizuku-apps](https://github.com/MrHyperIon101/shizuku-apps).
 - Wikipedia: [https://en.m.wikipedia.org/](https://en.m.wikipedia.org/).
+## Contribution
+We welcome contributions to this project! Please fork the repository and submit a pull request for your contributions. For clarity and convenience, we recommend making one pull request per revised section or added feature.
+## License
+This project is licensed under the terms the GNU General Public License v3.0 or later (GPL-3.0-or-later).\
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\
+You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\
+By contributing to this project, you agree that your contributions will be licensed under GPL-3.0-or-later.
