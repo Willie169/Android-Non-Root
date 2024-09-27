@@ -1,4 +1,3 @@
-[![HitCount](https://hits.dwyl.com/Willie169/Android-Non-Root.svg?style=flat)](http://hits.dwyl.com/Willie169/Android-Non-Root)
 # Android-Non-Root
 In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
 ## Table of Contents
