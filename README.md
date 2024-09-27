@@ -11,7 +11,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
 ## Table of Contents
 - [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Install Termux](#install-termux)
-  - [Introduction about Termux](#introduction-about-termux)
+  - [Introduction of Termux](#introduction-of-termux)
   - [App User Interface](#app-user-interface)
   - [Package Management](#package-management)
   - [SIGINT (Signal Interrupt)](#sigint-signal-interrupt)
@@ -28,7 +28,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Further Readings and References](#further-readings-and-references)
 - [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
   - [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
-  - [Introduction about Andronix and PRoot](#introduction-about-andronix-and-proot)
+  - [Introduction of Andronix and PRoot](#introduction-of-andronix-and-proot)
   - [Install an OS](#install-an-os)
   - [Uninstall an OS (Not Modded)](#uninstall-an-os-not-modded)
   - [Sound Output from PRoot OS](#sound-output-from-proot-os)
@@ -50,7 +50,7 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Further Readings and References](#further-readings-and-references)
 - [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
   - [Install Shizuku](#install-shizuku)
-  - [Introduction about Shizuku and ADB](#introduction-about-shizuku-and-adb)
+  - [Introduction of Shizuku and ADB](#introduction-of-shizuku-and-adb)
   - [Connect Shizuku to Wireless ADB](#connect-shizuku-to-wireless-adb)
   - [Use Shizuku in a Terminal Application for the First Time (Termux for Example)](#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example)
   - [Install SystemUI Tuner](#install-systemui-tuner)
@@ -70,30 +70,35 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
 - [Tor Browser](#tor-browser)
   - [Install Tor Browser](#install-tor-browser)
-  - [Introduction about Tor](#introduction-about-tor)
+  - [Introduction of Tor](#introduction-of-tor)
   - [NoScript Security Suite](#noscript-security-suite)
-- [OpenSSL](#openssl)
-  - [Introduction about OpenSSL](#introduction-about-openssl)
+- [OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation](#openssl-secure-sockets-layer-ssl-and-transport-layer-security-tls-protocols-and-cryptography-library-implementation)
+  - [Introduction of OpenSSL](#introduction-of-openssl)
   - [Installation of OpenSSL in Termux](#installation-of-openssl-in-termux)
   - [Installation of OpenSSL in Debian](#installation-of-openssl-in-debian)
   - [RSA](#rsa)
   - [Symmetric Encryption and Decryption](#symmetric-encryption-and-decryption)
+- [Linux Command Library](#linux-command-library)
+  - [Introduction of Linux Command Library](#introduction-of-linux-command-library)
+  - [Install and Use Linux Command Library](#install-and-use-linux-command-library)
 - [Linux Command for Copy](#linux-command-for-copy)
   - [Setup Command for Copy](#setup-command-for-copy)
 - [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
-  - [Termux](#termux)
-  - [Andronix](#andronix)
-  - [Shizuku](#shizuku)
-  - [SystemUI Tuner](#systemui-tuner)
-  - [Invizible Pro](#invizible-pro)
-  - [TrackerControl (also known as TC)](#trackercontrol-also-known-as-tc)
-  - [NetGuard](#netguard)
-  - [DontKillMyApp](#dontkillmyapp)
-  - [aShell](#ashell)
-  - [QEMU](#qemu)
-  - [The Tor Project](#the-tor-project)
-  - [MyIP/IPCheck.ing](#myipipchecking)
+  - [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
+  - [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
+  - [Shizuku by Xingchen & Rikka / RikkaApps](#shizuku-by-xingchen--rikka--rikkaapps)
+  - [SystemUI Tuner by Zachary Wander / zacharee](#systemui-tuner-by-zachary-wander--zacharee)
+  - [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
+  - [TrackerControl / TC by TrackerControl / Oxford HCC](#trackercontrol--tc-by-trackercontrol--oxford-hcc)
+  - [NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV](#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv)
+  - [DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nlevka-urbandroid)
+  - [aShell by Sunil Paul Mathew M. / sunilpaulmathew](#ashell-by-sunil-paul-mathew-m--sunilpaulmathew)
+  - [QEMU by Qemu Project / QEMU](#qemu-by-qemu-project--qemu)
+  - [Tor and Tor Browser by The Tor Project](#tor-and-tor-browser-by-the-tor-project)
+  - [MyIP/IPCheck.ing by Jason Ng / jason5ng32](#myipipchecking-by-jason-ng--jason5ng32)
   - [Debian](#debian)
+  - [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
+  - [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
   - [Others](#others)
 - [Contribution](#contribution)
 - [License](#license)
@@ -101,10 +106,10 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
 ## Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection
 ### Install Termux
 - Download and Install **Termux** from F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
-- **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is depreciated.
+- **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play version because the latter is depreciated.
 - Many of the following guides work on or depend on **Termux**.
-- If you installed termux from Google Play Store or a very old version, then you will receive package command errors. Google Play Store builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at [https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html](https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html). It is recommended that you shift to F-Droid or Github releases.
-### Introduction about Termux
+- If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at [https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html](https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html). It is recommended that you shift to F-Droid or Github releases.
+### Introduction of Termux
 - Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package.
 collection.
   - Enjoy the bash and zsh shells.
@@ -437,8 +442,8 @@ MATE will start automatically on VNC server startup.
 ---
 ## Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices
 ### Optional but Recommended: Install Andronix App
-Install Andronix from Google Play Store: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
-### Introduction about Andronix and PRoot
+Install Andronix from Google Play: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
+### Introduction of Andronix and PRoot
 - **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close-source modded OS too, which won't be mentioned in this tutorial. Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 - **PRoot** is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
 - chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
@@ -770,9 +775,9 @@ You may encounter `Process completed (signal 9) - press Enter error` error, read
 ---
 ## Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell
 ### Install Shizuku
-- Install **Shizuku** from Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
+- Install **Shizuku** from Google Play: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
 - Official tutorial of Shizuku: [https://shizuku.rikka.app/guide/setup/?night=1](https://shizuku.rikka.app/guide/setup/?night=1)
-### Introduction about Shizuku and ADB
+### Introduction of Shizuku and ADB
 - **Shizuku** is An open-source app for serving multiple apps that require root/adb.
 - The Android Debug Bridge (commonly abbreviated as adb) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google since 2007, its features include a shell and the possibility to make backups. The adb software is available for Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
 - Further readings and references: 
@@ -800,9 +805,9 @@ You may encounter `Process completed (signal 9) - press Enter error` error, read
     cd shizuku
     sh rish
     ```
-2. **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play Store version because the latter is depreciated. F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
+2. **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play version because the latter is depreciated. F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 ### Install SystemUI Tuner
-Install **SystemUI Tuner** (pub: **Zachary Wander**) from Google Play Store: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner).
+Install **SystemUI Tuner** (pub: **Zachary Wander**) from Google Play: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner).
 ### To Leave Developer Options off When Using Shizuku to Connect to ADB
 Some financial apps may require Developer Options to be off when using them. This section is the tutorial about how to turn Developer Options off while still using Shizuku ADB Shell.
 1. Follow the screen instructions of **SystemUI Tuner**. 
@@ -835,9 +840,9 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 - Use **aShell**.
 ---
 ## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers
-Read the tutorial about **Tor** in [Introduction about Tor](#introduction-about-tor).
+Read the tutorial about **Tor** in [Introduction of Tor](#introduction-about-tor).
 ### Install InviZible Pro
-- Download and install **InviZible Pro** from F-Droid or Google Play Store. F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). Google Play Store: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp).
+- Download and install **InviZible Pro** from F-Droid or Google Play. F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). Google Play: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp).
 ### Install TrackerControl
 - Download and install **TrackerControl** (also known as **TC**) from F-Droid. F-Droid: [https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/](https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/).
 - **Note**: Avoid use the Google Play version because it doesn't have the feature like trackers blocking in order to comply with Google's terms.
@@ -897,7 +902,7 @@ Read the tutorial about **Tor** in [Introduction about Tor](#introduction-about-
     </trackercontrol>
     ```
 - **Note**: **TrackerControl** has a **Traffic log** feature for free, which can help a lot in identifying which trackers should be unblocked when the services crash.
-- **Note**: The above guide, including the setting `.xml`, can be used in **NetGuard** as well because **TrackerControl** uses **NetGuard**'s code. However, **Traffic log** feature is not available in **NetGuard**'s free version but only available in **TrackerControl** and **NetGuard**'s **Pro** version. **NetGuard** is available on Google Play Store and F-Droid. Google Play Store: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). F-Droid: [https://f-droid.org/packages/eu.faircode.netguard/](https://f-droid.org/packages/eu.faircode.netguard/). 
+- **Note**: The above guide, including the setting `.xml`, can be used in **NetGuard** as well because **TrackerControl** uses **NetGuard**'s code. However, **Traffic log** feature is not available in **NetGuard**'s free version but only available in **TrackerControl** and **NetGuard**'s **Pro** version. **NetGuard** is available on Google Play and F-Droid. Google Play: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). F-Droid: [https://f-droid.org/packages/eu.faircode.netguard/](https://f-droid.org/packages/eu.faircode.netguard/). 
 - **Note**: You may have to disable monitoring of apps route traffic through Tor itself within **TrackerControl**, like **Tor Browser**,  and **Termux** if you're using `tor`, `torsocks`, or similar things.
 ### Configure InviZible Pro to be used with TrackerControl
 - Change to **Proxy mode** by tapping the 3-point button in the upper right corner.
@@ -1085,8 +1090,8 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 - Change to **VPN mode** by tap the 3-point button in the upper right corner.
 ## Tor Browser
 ### Install Tor Browser 
-You can install **Tor Browser** from Google Play Store: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
-### Introduction about Tor
+You can install **Tor Browser** from Google Play: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
+### Introduction of Tor
 Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.\
 Using Tor makes it more difficult to trace a user's Internet activity by preventing any single point on the Internet (other than the user's device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user's location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user's freedom and ability to communicate confidentially.\
 Key Features of Tor:
@@ -1100,9 +1105,9 @@ The **Tor Browser** for Android is a mobile version of the Tor Browser that util
 **NoScript** (or **NoScript Security Suite**) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group.\
 By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension's toolbar menu or by clicking a placeholder icon.\
 It is recommended to enable NoScript for all Tor sites unless you fully trust it.
-## OpenSSL
-### Introduction about OpenSSL
-**OpenSSL** is a widely used open-source software library that implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols. It provides a robust set of cryptographic functions and tools for secure communication over networks.
+## OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation
+### Introduction of OpenSSL
+**OpenSSL** is an open-source library that provides a comprehensive suite of cryptographic tools for securing communications over computer networks. It implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols and includes a general-purpose cryptographic library that supports a variety of encryption algorithms, hashing functions, digital signatures, key generation, certificate management, and secure random number generation.
 ### Installation of OpenSSL in Termux
 ```
 pkg install openssl openssl-tool
@@ -1387,6 +1392,11 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
   - sm4-ctr
   - sm4-ecb
   - sm4-ofb
+## Linux Command Library
+### Introduction of Linux Command Library
+The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software.
+### Install and Use Linux Command Library 
+You can install **Linux Command Library** in Google Play: [https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca](https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca) or F-Droid: [https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/](https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/), or browse it on its official website: [https://linuxcommandlibrary.com/](https://linuxcommandlibrary.com/).
 ## Linux Command for Copy
 ### Setup Command for Copy
 ```
@@ -1398,62 +1408,76 @@ python3 get-pip.py
 pip3 install numpy sympy matplotlib numba nuitka setuptools selenium conan jupyter pybind11 pandas
 ```
 ## Promoted or Related Works, References, and Bibliography 
-### Termux
+### Termux by Fredrik Fornwall / Termux / termux
 - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
-- GitHub: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
-- X11 packages GitHub: [https://github.com/termux/x11-packages](https://github.com/termux/x11-packages).
-- Wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
-- Reddit Community: [https://termux.com/community](https://termux.com/community).
-### Andronix
-- Google Play Store: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
+- GitHub of termux-app: [https://github.com/termux/termux-app](https://github.com/termux/termux-app).
+- GitHub of x11-packages: [https://github.com/termux/x11-packages](https://github.com/termux/x11-packages).
+- Official wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
+- Official Reddit community: [https://termux.com/community](https://termux.com/community).
+- Google Play: [https://play.google.com/store/apps/details?id=com.termux](https://play.google.com/store/apps/details?id=com.termux).
+### Andronix by Devriz Technologies LLP / Andronix App /AndronixApp
+- Google Play: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
 - GitHub: [https://github.com/AndronixApp/AndronixOrigin](https://github.com/AndronixApp/AndronixOrigin).
 - Official website: [https://docs.andronix.app/](https://docs.andronix.app/).
-### Shizuku
+### Shizuku by Xingchen & Rikka / RikkaApps
 - Official website: [https://shizuku.rikka.app/guide/setup/?night=1](https://shizuku.rikka.app/guide/setup/?night=1).
-- Google Play Store: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api). 
+- Google Play: [https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api). 
 - GitHub: [https://github.com/RikkaApps/Shizuku](https://github.com/RikkaApps/Shizuku).
-### SystemUI Tuner
-- Google Play Store: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner). 
+### SystemUI Tuner by Zachary Wander / zacharee
+- Google Play: [https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner). 
 - GitHub: [https://github.com/zacharee/Tweaker](https://github.com/zacharee/Tweaker).
-### Invizible Pro
+### Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh
 - Official website: [https://invizible.net/en/](https://invizible.net/en/).
 - F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). 
-- Google Play Store: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp). 
+- Google Play: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp). 
 - GitHub: [https://github.com/Gedsh/InviZible](https://github.com/Gedsh/InviZible).
-### TrackerControl (also known as TC)
+### TrackerControl / TC by TrackerControl / Oxford HCC
 - F-Droid: [https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/](https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/). 
 - GitHub: [https://github.com/TrackerControl/tracker-control-android](https://github.com/TrackerControl/tracker-control-android).
-### NetGuard
-- Google Play Store: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). 
+- Official website: [https://trackercontrol.org/](https://trackercontrol.org/).
+- Google Play: [https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play](https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play).
+### NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV
+- Google Play: [https://play.google.com/store/apps/details?id=eu.faircode.netguard](https://play.google.com/store/apps/details?id=eu.faircode.netguard). 
 - F-Droid: [https://f-droid.org/packages/eu.faircode.netguard/](https://f-droid.org/packages/eu.faircode.netguard/). 
 - GitHub: [https://github.com/M66B/NetGuard](https://github.com/M66B/NetGuard).
-### DontKillMyApp
+- Official website of NetGuard: [https://netguard.me/](https://netguard.me/).
+- Official website of FairCode: [https://www.faircode.eu/](https://www.faircode.eu/).
+### DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)
 - Official website: [https://dontkillmyapp.com/](https://dontkillmyapp.com/).
-- Google Play Store: [https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp](https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp).
+- Google Play: [https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp](https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp).
 - F-Droid: [https://f-droid.org/packages/com.urbandroid.dontkillmyapp/](https://f-droid.org/packages/com.urbandroid.dontkillmyapp/).
-### aShell
+- GitHub: [https://github.com/urbandroid-team/dontkillmy-app](https://github.com/urbandroid-team/dontkillmy-app).
+### aShell by Sunil Paul Mathew M. / sunilpaulmathew
 - F-droid: [https://f-droid.org/packages/in.sunilpaulmathew.ashell/](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
 - GitLab: [https://gitlab.com/sunilpaulmathew/ashell](https://f-droid.org/packages/in.sunilpaulmathew.ashell/).
-### QEMU
+### QEMU by Qemu Project / QEMU
 - GitLab: [https://gitlab.com/qemu-project/qemu](https://gitlab.com/qemu-project/qemu).
 - Official website: [https://www.qemu.org/](https://www.qemu.org/).
-### The Tor Project 
-- Google Play Store of Tor Browser: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
+### Tor and Tor Browser by The Tor Project 
+- Google Play of Tor Browser: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
 - GitLab of Tor Browser: [https://gitlab.torproject.org/tpo/applications/tor-browser](https://gitlab.torproject.org/tpo/applications/tor-browser).
 - GitLab of The Tor Project: [https://gitlab.torproject.org/tpo](https://gitlab.torproject.org/tpo).
 - GitLab of the Debian package tor:[https://gitlab.torproject.org/tpo/core/debian/tor](https://gitlab.torproject.org/tpo/core/debian/tor).
 - Official website: [https://www.torproject.org/](https://www.torproject.org/).
 - Check Tor Project: [https://check.torproject.org/](https://check.torproject.org/).
-### MyIP/IPCheck.ing
+### MyIP/IPCheck.ing by Jason Ng / jason5ng32
 - Official website: [https://ipcheck.ing/](https://ipcheck.ing/).
 - GitHub: [https://github.com/jason5ng32/MyIP](https://github.com/jason5ng32/MyIP).
 ### Debian
 - Official website: [https://www.debian.org/](https://www.debian.org/).
 - GitLab: [https://salsa.debian.org/public](https://salsa.debian.org/public).
+### Linux Command Library by Simon Schubert / SimonSchubert
+- GitHub: [https://github.com/SimonSchubert/LinuxCommandLibrary](https://github.com/SimonSchubert/LinuxCommandLibrary).
+- Google Play: [https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca](https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca). 
+- F-Droid: [https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/](https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/). 
+- Official website: [https://linuxcommandlibrary.com/](https://linuxcommandlibrary.com/).
+### OpenSSL by OpenSSL / openssl
+- Official website: [https://www.openssl.org/](https://www.openssl.org/).
+- GitHub: [https://github.com/openssl/openssl](https://github.com/openssl/openssl).
 ### Others
-- ChatGPT of OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
-- awesome-shizuku of timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
-- shizuku-apps of MrHyperlon101: [https://github.com/MrHyperIon101/shizuku-apps](https://github.com/MrHyperIon101/shizuku-apps).
+- ChatGPT by OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
+- awesome-shizuku by Tim Schneeberger / timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
+- shizuku-apps by Souvik Bagchi (Mr HyperIon) / MrHyperlon101: [https://github.com/MrHyperIon101/shizuku-apps](https://github.com/MrHyperIon101/shizuku-apps).
 - Wikipedia: [https://en.m.wikipedia.org/](https://en.m.wikipedia.org/).
 - DNS leak test: [https://www.dnsleaktest.com](https://www.dnsleaktest.com).
 - What Is My IP Address: [https://whatismyipaddress.com](https://whatismyipaddress.com).
