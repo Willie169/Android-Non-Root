@@ -76,13 +76,25 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Introduction of OpenSSL](#introduction-of-openssl)
   - [Installation of OpenSSL in Termux](#installation-of-openssl-in-termux)
   - [Installation of OpenSSL in Debian](#installation-of-openssl-in-debian)
-  - [RSA](#rsa)
-  - [Symmetric Encryption and Decryption](#symmetric-encryption-and-decryption)
+  - [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)
+  - [Symmetric Encryption](#symmetric-encryption)
 - [Linux Command Library](#linux-command-library)
   - [Introduction of Linux Command Library](#introduction-of-linux-command-library)
   - [Install and Use Linux Command Library](#install-and-use-linux-command-library)
-- [Linux Command for Copy](#linux-command-for-copy)
-  - [Setup Command for Copy](#setup-command-for-copy)
+- [Command for Copy](#command-for-copy)
+  - [Linux Setup Command](#linux-setup-command)
+  - [Termux Package Management Command (All)](#termux-package-management-command-all)
+  - [Termux Package Management Command (All apt)](#termux-package-management-command-all-apt)
+  - [Termux Package Management Command (All pkg)](#termux-package-management-command-all-pkg)
+  - [Termux Package Management Command (Update and Upgrade All)](#termux-package-management-command-update-and-upgrade-all)
+  - [Termux Package Management Command (Update and Upgrade apt)](#termux-package-management-command-update-and-upgrade-apt)
+  - [Termux Package Management Command (Update and Upgrade pkg)](#termux-package-management-command-update-and-upgrade-pkg)
+  - [Termux Package Management Command (Update All)](#termux-package-management-command-update-all)
+  - [Termux Package Management Command (Update apt)](#termux-package-management-command-update-apt)
+  - [Termux Package Management Command (Update pkg)](#termux-package-management-command-update-pkg)
+  - [Linux Package Management Command (All apt)](#linux-package-management-command-all-apt)
+  - [Linux Package Management Command (Update and Upgrade apt)](#linux-package-management-command-update-and-upgrade-apt)
+  - [Linux Package Management Command (Update apt)](#linux-package-management-command-update-apt)
 - [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   - [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
   - [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
@@ -840,7 +852,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 - Use **aShell**.
 ---
 ## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers
-Read the tutorial about **Tor** in [Introduction of Tor](#introduction-about-tor).
+Read the tutorial about **Tor** in [Introduction of Tor](#introduction-of-tor).
 ### Install InviZible Pro
 - Download and install **InviZible Pro** from F-Droid or Google Play. F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). Google Play: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp).
 ### Install TrackerControl
@@ -1116,7 +1128,21 @@ pkg install openssl openssl-tool
 ```
 sudo apt install openssl libssl-dev
 ```
-### RSA
+### RSA (Rivest-Shamir-Adleman)
+#### Introduction of RSA
+RSA is a widely used asymmetric encryption algorithm that underpins many security protocols. Its strength lies in the difficulty of factoring large prime numbers. The algorithm involves key generation, encryption, and decryption processes utilizing a pair of keys: a public key, shared openly, and a private key, kept secret.
+1. **Mathematical Foundation and Key Generation:**  
+   The algorithm begins by selecting two large prime numbers, \( p \) and \( q \). These are multiplied to produce \( n = p \times q \), the modulus for both keys. The totient function \( \phi(n) = (p-1)(q-1) \) is computed. A public exponent \( e \), typically 65537, is chosen, which is coprime to \( \phi(n) \). The public key is \( (n, e) \). The private exponent \( d \) is calculated such that \( d \cdot e \equiv 1 \mod \phi(n) \), making \( (n, d) \) the private key. RSA's security relies on the ease of multiplying primes and the difficulty of factoring their product.
+2. **Public Encryption and Private Decryption (Communication):**  
+   After generating the keys, RSA can be used for secure communication. To encrypt a message \( m \), the sender uses the recipient's public key \( (n, e) \) with the formula \( c \equiv m^e \mod n \), where \( c \) is the ciphertext. Only the intended recipient, with the private key \( (n, d) \), can decrypt it using \( m \equiv c^d \mod n \).
+3. **Private Encryption and Public Decryption (Signature):**  
+   RSA can also create digital signatures for authenticity and non-repudiation. The sender encrypts a hash \( h \) of the message with their private key \( (n, d) \): \( s \equiv h^d \mod n \). This signature \( s \) accompanies the original message \( m \). The recipient verifies the signature by decrypting it with the sender's public key \( (n, e) \): \( h' \equiv s^e \mod n \). If \( h' \) matches the hash of the received message \( m \), it confirms the message's authenticity.
+4. **Applications:**  
+   RSA is employed in various applications that require secure communication and data integrity:
+   - **Secure Web Communications (HTTPS):** RSA is commonly used in SSL/TLS protocols to establish secure connections between web browsers and servers.
+   - **Email Encryption:** Services like PGP (Pretty Good Privacy) use RSA for encrypting emails, ensuring only intended recipients can read them.
+   - **Digital Signatures:** RSA is used to sign software and documents, verifying the identity of the sender and ensuring the content hasn't been altered.
+   - **Secure Key Exchange:** RSA can facilitate the secure exchange of symmetric keys for faster encryption methods, allowing secure communication without the need for shared secrets.
 #### Generate New Private Key
 ```
 openssl genrsa -out /path/privatekeyfilename.pem 2048
@@ -1204,7 +1230,25 @@ openssl pkeyutl [-help] [-in file] [-rawin] [-digest algorithm] [-out file] [-si
 - -rand files, -writerand file: See "Random State Options" in openssl(1) for details.
 - -provider name: -provider-path path: -propquery propq: See "Provider Options" in openssl(1), provider(7), and property(7).
 - -config configfile: See "Configuration Option" in openssl(1).
-### Symmetric Encryption and Decryption
+### Symmetric Encryption
+#### Introduction of Symmetric Encryption
+Symmetric encryption uses the same key for both encryption and decryption, requiring both parties to possess and keep the key confidential.
+1. **Single Key**: Both parties use the same key, making key management critical. If the key is compromised, the encrypted data is at risk.
+2. **Speed**: Symmetric algorithms are faster than asymmetric ones, making them ideal for encrypting large amounts of data, particularly in real-time applications.
+3. **Confidentiality**: Only authorized parties with the correct key can decrypt the data, maintaining its confidentiality.
+4. **Common Algorithms**:
+   - **AES**: Secure and efficient, with key sizes of 128, 192, or 256 bits.
+   - **DES**: Uses a 56-bit key; now considered insecure.
+   - **3DES**: Applies DES three times with different keys but slower than AES.
+   - **Blowfish**: A fast cipher with key lengths of 32 to 448 bits.
+   - **Twofish**: A more advanced version of Blowfish, supporting keys up to 256 bits.
+   - **RC4**: A stream cipher known for speed but now insecure in many uses.
+5. **Applications**:
+   - **Data Encryption**: Secures data in storage and transmission (e.g., SSL/TLS).
+   - **VPNs**: Encrypts data over public networks to protect privacy.
+   - **Disk Encryption**: Protects data on devices, ensuring confidentiality if lost or stolen.
+   - **Secure Communications**: Used in messaging apps and secure protocols.
+   - **Cloud Storage Security**: Encrypts data in the cloud, protecting it from unauthorized access.
 #### AES-256-CBC Encryption
 ```
 openssl enc -aes-256-cbc -in file.rar -out encfile.rar -pass pass:1234567890123456789012345678901234567890123456789012345678901234 -base64 -iv 12345678901234567890123456789012 -S 1234567890123456 -md sha-256 -iter 2048 -pbkdf2 -p
@@ -1397,15 +1441,64 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
 The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software.
 ### Install and Use Linux Command Library 
 You can install **Linux Command Library** in Google Play: [https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca](https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca) or F-Droid: [https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/](https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/), or browse it on its official website: [https://linuxcommandlibrary.com/](https://linuxcommandlibrary.com/).
-## Linux Command for Copy
-### Setup Command for Copy
+## Command for Copy
+### Linux Setup Command
 ```
-sudo apt install xfce4 xfce4-goodies python3-all-dev python3-venv build-essential cmake curl wget git gh openjdk-17-jdk nano vim iproute2 procps grep libboost-all-dev gdb tmux
+sudo apt update && sudo apt upgrade
+sudo apt install xfce4 xfce4-goodies python3-all-dev python3-venv build-essential cmake curl wget git gh openjdk-17-jdk nano vim iproute2 procps grep libboost-all-dev gdb tmux openssl libssl-dev openssh-server
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 -m venv myenv
 source myenv/bin/activate
 python3 get-pip.py
-pip3 install numpy sympy matplotlib numba nuitka setuptools selenium conan jupyter pybind11 pandas
+pip3 install numpy pandas sympy matplotlib numba nuitka setuptools selenium conan jupyter pybind11 pyinstaller
+```
+### Termux Package Management Command (All)
+```
+apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean && pkg update && pkg upgrade && pkg clean
+```
+### Termux Package Management Command (All apt)
+```
+apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean
+```
+### Termux Package Management Command (All pkg)
+```
+pkg update && pkg upgrade && pkg clean
+```
+### Termux Package Management Command (Update and Upgrade All)
+```
+apt update && apt upgrade && pkg update && pkg upgrade
+```
+### Termux Package Management Command (Update and Upgrade apt)
+```
+apt update && apt upgrade
+```
+### Termux Package Management Command (Update and Upgrade pkg)
+```
+pkg update && pkg upgrade
+```
+### Termux Package Management Command (Update All)
+```
+apt update && pkg update
+```
+### Termux Package Management Command (Update apt)
+```
+apt update
+```
+### Termux Package Management Command (Update pkg)
+```
+pkg update
+```
+### Linux Package Management Command (All apt)
+```
+sudo apt update && sudo apt upgrade && sudo apt --fix-broken install && sudo apt autoremove --purge && sudo apt clean
+```
+### Linux Package Management Command (Update and Upgrade apt)
+```
+sudo apt update && sudo apt upgrade
+```
+### Linux Package Management Command (Update apt)
+```
+sudo apt update
 ```
 ## Promoted or Related Works, References, and Bibliography 
 ### Termux by Fredrik Fornwall / Termux / termux
