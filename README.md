@@ -1,15 +1,20 @@
 # Android-Non-Root
-In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.
+In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.\
+Please read the [Global Note](#global-note) before you start or you may encounter errors.
 ## Global Note
-- Always run `apt update` before any `apt install` command in **Termux**, even if the tutorial does not specifically mention it in the code block.
-- Always run `pkg update` before any `pkg install` command in **Termux**, even if the tutorial does not specifically mention it in the code block.
-- Always run `sudo apt update` before any `apt install` command in Linux, including virtual machines and emulations, even if the tutorial does not specifically mention it in the code block.
-- Always type `Y`, `y`, `Yes`, or `yes` in response to any prompts that request confirmation during command execution, even if the tutorial does not specifically mention it in the code block.
+- Always run `apt update` before any `apt install` command in **Termux**.
+- Always run `pkg update` before any `pkg install` command in **Termux**.
+- Always run `sudo apt update` before any `apt install` command in Linux, including virtual machines and emulations.
+- Always type `Y`, `y`, `Yes`, or `yes` in response to any prompts that request confirmation during command execution.
 - Most of the software mentioned in this tutorial is open source unless explicitly stated otherwise. However, it is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 - Some sections about Linux usages are included since we also cover methods to build a Linux VM in Android device.
-- Change the file names, directories, and paths in the commands in the tutorial to your actual ones of yours, even if the tutorial does not specifically mention it in the code block.
+- Change the file names, directories, and paths in the commands in the tutorial to the actual ones of yours.
+- Many sections of the tutorial mention **Termux**. Read the tutorial about **Termux** in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection) and read the tutorial about **Termux** graphical environment in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment).
+- Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on any devices (Linux, Windows, macOS, Android, IOS, etc.). Read the tutorial about **AVNC**, a VNC client for Android, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
+- You may encounter `Process completed (signal 9) - press Enter error` even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
+- Many sections of the tutorial mention ADB (Android Debug Bridge). You can connect to an Android device's ADB shell from another device via **Android SDK Platform Tools** or from the same device via **Shizuku**. Read the tutorial about **Shizuku** ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
 ## Table of Contents
-- [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
+- [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Install Termux](#install-termux)
   - [Introduction of Termux](#introduction-of-termux)
   - [App User Interface](#app-user-interface)
@@ -32,10 +37,9 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Install an OS](#install-an-os)
   - [Uninstall an OS (Not Modded)](#uninstall-an-os-not-modded)
   - [Sound Output from PRoot OS](#sound-output-from-proot-os)
-  - [Signal 9 Error](#signal-9-error)
   - [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
   - [Example: Debian with CLI Only](#example-debian-with-cli-only)
-  - [Example: Uninstallation of Debian OS (Not Modded)](#example-uninstallation-of-debian-os-not-modded)
+  - [Example: Uninstall Debian OS (Not Modded)](#example-uninstall-debian-os-not-modded)
   - [Note](#note)
 - [QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image](#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-image-method-or-qcow2-cloud-image)
   - [Install QEMU](#install-qemu)
@@ -45,9 +49,12 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Login](#login)
   - [Resize Disk Space](#resize-disk-space)
   - [Check](#check)
-  - [Signal 9 Error](#signal-9-error)
   - [Note](#note)
   - [Further Readings and References](#further-readings-and-references)
+- [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android)
+  - [Install AVNC](#install-avnc)
+  - [Connect a VNC Server](#connect-a-vnc-server)
+  - [Features of AVNC](#features-of-avnc)
 - [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
   - [Install Shizuku](#install-shizuku)
   - [Introduction of Shizuku and ADB](#introduction-of-shizuku-and-adb)
@@ -111,11 +118,12 @@ In this tutorial called **Android-Non-Root**, we'll explore a range of powerful,
   - [Debian](#debian)
   - [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
   - [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
+  - [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
   - [Others](#others)
 - [Contribution](#contribution)
 - [License](#license)
 ---
-## Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection
+## Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection
 ### Install Termux
 - Download and Install **Termux** from F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
 - **Note**: It is recommended to use **Termux**'s F-Droid version and avoid using Google Play version because the latter is depreciated.
@@ -143,7 +151,6 @@ terminal and selecting the Help menu option to learn more.
 - Pinch to zoom in or out.
 - Long press to Copy, Paste, Select URL, Share transcript, Autofill password, Reset, Kill process, Style, Keep screen on, Help, Settings, or Report Issue.
 - Pull out the left menu to open **Termux Settings**, start another **NEW SESSION**, or launch **KEYBOARD**.
-- Read the tutorial about it in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment).
 ### Package Management
 #### pkg
 pkg is a tool for managing apt packages.\
@@ -248,7 +255,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - Find the switch to toggle off **settings_enable_monitor_phantom_procs** to disable phantom process killer.
 - To enable phantom process killer again, just toggle on the switch.
 #### Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond
-- Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**. Read the tutorial about **Shizuku** in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell) to learn about it.
+- Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**.
 - Type `adb shell` to enter `adb shell`.
 - Run the following commands inside `adb shell`:
   ```
@@ -278,7 +285,6 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - [https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md](https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md).
 ---
 ## Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment
-Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 ### Enable the X11 Repository 
 X11 packages are available in a separate APT repository. You can enable it by running the following command:
 ```
@@ -456,7 +462,7 @@ MATE will start automatically on VNC server startup.
 ### Optional but Recommended: Install Andronix App
 Install Andronix from Google Play: [https://play.google.com/store/apps/details?id=studio.com.techriz.andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
 ### Introduction of Andronix and PRoot
-- **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close-source modded OS too, which won't be mentioned in this tutorial. Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
+- **Andronix** is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close-source modded OS too, which won't be mentioned in this tutorial.
 - **PRoot** is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
 - chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
 - Further readings and references:
@@ -489,8 +495,6 @@ pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-F
 ```
 pulseaudio --start
 ```
-### Signal 9 Error
-You may encounter `Process completed (signal 9) - press Enter error` error, read the tutorial about it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 ### Example: Debian with XFCE Desktop Environment
 #### Install Debian with XFCE
 ```
@@ -513,7 +517,7 @@ The file directory of the Debian OS will be `debian-fs`. You can read, write, an
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh && chmod +x debian.sh && bash debian.sh
 ```
 The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the Debian OS.
-### Example: Uninstallation of Debian OS (Not Modded)
+### Example: Uninstall Debian OS (Not Modded)
 ```
 wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh && chmod +x UNI-debian.sh && bash UNI-debian.sh
 ```
@@ -524,7 +528,6 @@ apt update && apt upgrade
 ```
 ---
 ## QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image
-Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 ### Install QEMU
 Run the following command in **Termux**:
 ```
@@ -770,8 +773,6 @@ and for partition, run:
 ```
 lsblk
 ```
-### Signal 9 Error
-You may encounter `Process completed (signal 9) - press Enter error` error, read the tutorial about it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 ### Note
 - Remember to update before `apt` installing.
   ```
@@ -784,6 +785,32 @@ You may encounter `Process completed (signal 9) - press Enter error` error, read
 - [https://www.debian.org/distrib/index.en.html](https://www.debian.org/distrib/index.en.html)
 - [https://chatgpt.com/](https://chatgpt.com/)
 - [https://www.reddit.com/r/debian/s/s871vXlGRI](https://www.reddit.com/r/debian/s/s871vXlGRI)
+---
+## AVNC: A VNC Client for Android
+### Install AVNC
+You can install AVNC from F-Droid: [https://f-droid.org/packages/com.gaurav.avnc/](https://f-droid.org/packages/com.gaurav.avnc/).
+### Connect a VNC Server
+- Tap the **+** sign in the lower right corner, 
+- Input **Name** (arbitrary name), **Host** address (`localhost` for localhost), and **Port**, input **Username** and **Password** if needed, adjust **ADVANCED** options if needed, and then tap **SAVE**.
+- Tap the Server name to connect.
+- If you encounter incorrect mouse display or recieving, going to **Settings => Input => Mouse** and toggling on **Hide local pointer** may help.
+### Features of AVNC
+- Gesture styles: Automatic, Touchscreen (Do actions at touch-point), or Touchpad mode (Do actions at pointer).
+- Material Design: Dark theme and light theme.
+- Configurable gestures: Configure the meaning of each gesture.
+- Tight encoding.
+- Virtual Keys: Go to **Settings => Input => Virtual keys => Customize keys** to customize Virtual Key layout.
+- Picture-in-Picture mode.
+- View-only mode.
+- Zeroconf Server Discovery.
+- TLS support: AnonTLS and VeNCrypt.
+- SSH tunnel: VNC over SSH.
+- Import/Export servers.
+- VNC Repeater support.
+- Clipboard Sync with server.
+- Pause update in background.
+- Automatic reconnection.
+- Automatically find supported servers.
 ---
 ## Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell
 ### Install Shizuku
@@ -806,7 +833,7 @@ You may encounter `Process completed (signal 9) - press Enter error` error, read
 2. Back to **Shizuku** and tap **Start** in **Start via Wireless debugging** block. You all see **Shizuku is running** on the top of the interface of **Shizuku**.
 ### Use Shizuku in a Terminal Application for the First Time (Termux for Example)
 1. Tap **Use Shizuku in terminal applications** in **Shizuku** and export files `rish` and `rish_shizuku.dex` to somewhere on your phone.
-2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take **Termux** for example, **Termux**'s package name is `com.termux`. Run `termux-setup-storage` to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands). Read the tutorial about **Termux** in [Termux: a Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
+2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take **Termux** for example, **Termux**'s package name is `com.termux`. Run `termux-setup-storage` to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands). 
 2. Open your terminal application and move the exported files to somewhere it can access with `mv old_location new_location`. The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of **Termux** is `/data/data/com.termux/home`, which is abbreviated as `~` in **Termux**.
 2. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
 2. Where used to be `~ $` should become `e2q:/ $` or something similar if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
@@ -1184,7 +1211,7 @@ openssl pkeyutl -in filename.txt -rawin -out verification.txt -sigfile signed_fi
 ```
 openssl pkeyutl -in hexfilename.txt -rawin -out verification.txt -sigfile signed_filename.txt -inkey keyfile/publickeyfile.pem -pubin -verify
 ```
-#### All Command Options
+#### All Command Options of Pkeyutl
 ```
 openssl pkeyutl [-help] [-in file] [-rawin] [-digest algorithm] [-out file] [-sigfile file] [-inkey filename|uri] [-keyform DER|PEM|P12|ENGINE] [-passin arg] [-peerkey file] [-peerform DER|PEM|P12|ENGINE] [-pubin] [-certin] [-rev] [-sign] [-verify] [-verifyrecover] [-encrypt] [-decrypt] [-derive] [-kdf algorithm] [-kdflen length] [-pkeyopt opt:value] [-pkeyopt_passin opt[:passarg]] [-hexdump] [-asn1parse] [-engine id] [-engine_impl] [-rand files] [-writerand file] [-provider name] [-provider-path path] [-propquery propq] [-config configfile]
 ```
@@ -1257,11 +1284,11 @@ openssl enc -aes-256-cbc -in file.rar -out encfile.rar -pass pass:12345678901234
 ```
 openssl enc -aes-256-cbc -in encfile.rar -out file.rar -pass pass:1234567890123456789012345678901234567890123456789012345678901234 -d -base64 -iv 12345678901234567890123456789012 -S 1234567890123456 -md sha-256 -iter 2048 -pbkdf2
 ```
-#### All Command Options 
+#### All Command Options of Enc / Cipher
 ```
 openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out filename] [-pass arg] [-e] [-d] [-a] [-base64] [-A] [-k password] [-kfile filename] [-K key] [-iv IV] [-S salt] [-salt] [-nosalt] [-z] [-md digest] [-iter count] [-pbkdf2] [-saltlen size] [-p] [-P] [-bufsize number] [-nopad] [-v] [-debug] [-none] [-engine id] [-rand files] [-writerand file] [-provider name] [-provider-path path] [-propquery propq]
 ```
-**DESCRIPTION**: The symmetric cipher commands allow data to be encrypted or decrypted using various block and stream ciphers using keys based on passwords or explicitly provided. Base64 encoding or decoding can also be performed either by itself or in addition to the encryption or decryption.
+**DESCRIPTION**: The symmetric cipher commands allow data to be encrypted or decrypted using various block and stream ciphers using keys based on passwords or explicitly provided. Base64 encoding or decoding can also be performed either by itself or in addition to the encryption or decryption.\
 **OPTIONS**:
 -help: Print out a usage message.
 - -list: List all supported ciphers.
@@ -1567,6 +1594,9 @@ sudo apt update
 ### OpenSSL by OpenSSL / openssl
 - Official website: [https://www.openssl.org/](https://www.openssl.org/).
 - GitHub: [https://github.com/openssl/openssl](https://github.com/openssl/openssl).
+### ANC by Gaurav Ujwal / gujjwal00
+- F-Droid: [https://f-droid.org/packages/com.gaurav.avnc/](https://f-droid.org/packages/com.gaurav.avnc/).
+- GitHub: [https://github.com/gujjwal00/avnc](https://github.com/gujjwal00/avnc).
 ### Others
 - ChatGPT by OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
 - awesome-shizuku by Tim Schneeberger / timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
