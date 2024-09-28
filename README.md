@@ -1,20 +1,10 @@
 # Android-Non-Root
 In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.\
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
-## Global Note
-- Always run `apt update` before any `apt install` command in **Termux**.
-- Always run `pkg update` before any `pkg install` command in **Termux**.
-- Always run `sudo apt update` before any `apt install` command in Linux, including virtual machines and emulations.
-- Always type `Y`, `y`, `Yes`, or `yes` in response to any prompts that request confirmation during command execution.
-- Most of the software mentioned in this tutorial is open source unless explicitly stated otherwise. However, it is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-- Some sections about Linux usages are included since we also cover methods to build a Linux VM in Android device.
-- Change the file names, directories, and paths in the commands in the tutorial to the actual ones of yours.
-- Many sections of the tutorial mention **Termux**. Read the tutorial about **Termux** in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), read the tutorial about **Termux** graphical environment in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment), and read the miscellaneous guides and commands about Linux and **Termux** in [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends).
-- Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on any devices (Linux, Windows, macOS, Android, IOS, etc.). Read the tutorial about **AVNC**, a VNC client for Android, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
-- You may encounter `Process completed (signal 9) - press Enter error` even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
-- Many sections of the tutorial mention ADB (Android Debug Bridge). You can connect to an Android device's ADB shell from another device via **Android SDK Platform Tools** or from the same device via **Shizuku**. Read the tutorial about **Shizuku** ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
-- Many sections of the tutorial mention **Tor**. Read the tutorial about it in [Introduction of Tor](#introduction-of-tor).
+
+---
 ## Table of Contents
+- [Global Note](#global-note)
 - [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Install Termux](#install-termux)
   - [Introduction of Termux](#introduction-of-termux)
@@ -25,19 +15,19 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Package Command Error](#package-command-error)
   - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
 - [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment)
-  - [Enable the X11 Repository](#enable-the-x11-repository)
-  - [VNC Server](#vnc-server)
-  - [Fluxbox](#fluxbox)
-  - [Openbox](#openbox)
-  - [XFCE](#xfce)
-  - [LXQt](#lxqt)
-  - [MATE](#mate)
+  - [Enable the X11 Repository of Termux](#enable-the-x11-repository-of-termux)
+  - [VNC Server in Termux](#vnc-server-in-termux)
+  - [Fluxbox in Termux](#fluxbox-in-termux)
+  - [Openbox in Termux](#openbox-in-termux)
+  - [XFCE in Termux](#xfce-in-termux)
+  - [LXQt in Termux](#lxqt-in-termux)
+  - [MATE in Termux](#mate-in-termux)
   - [Further Readings and References about Termux Graphical Environment](#further-readings-and-references-about-termux-graphical-environment)
 - [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
   - [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
   - [Introduction of Andronix and PRoot](#introduction-of-andronix-and-proot)
-  - [Install an OS](#install-an-os)
-  - [Uninstall an OS (Not Modded)](#uninstall-an-os-not-modded)
+  - [Install an OS with Andronix](#install-an-os-with-andronix)
+  - [Uninstall an OS (Not Modded) with Andronix](#uninstall-an-os-not-modded-with-andronix)
   - [Sound Output from PRoot OS](#sound-output-from-proot-os)
   - [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
   - [Example: Debian with CLI Only](#example-debian-with-cli-only)
@@ -114,6 +104,20 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Others](#others)
 - [Contribution](#contribution)
 - [License](#license)
+---
+## Global Note
+- Always run `apt update` before any `apt install` command in **Termux**.
+- Always run `pkg update` before any `pkg install` command in **Termux**.
+- Always run `sudo apt update` before any `apt install` command in Linux, including virtual machines and emulations.
+- Always type `Y`, `y`, `Yes`, or `yes` in response to any prompts that request confirmation during command execution.
+- Most of the software mentioned in this tutorial is open source unless explicitly stated otherwise. However, it is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+- Some sections about Linux usages are included since we also cover methods to build a Linux VM in Android device.
+- Change the file names, directories, and paths in the commands in the tutorial to the actual ones of yours.
+- Many sections of the tutorial mention **Termux**. Read the tutorial about **Termux** in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), read the tutorial about **Termux** graphical environment in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment), and read the miscellaneous guides and commands about Linux and **Termux** in [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends).
+- Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on any devices (Linux, Windows, macOS, Android, IOS, etc.). Read the tutorial about **AVNC**, a VNC client for Android, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
+- You may encounter `Process completed (signal 9) - press Enter error` even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
+- Many sections of the tutorial mention ADB (Android Debug Bridge). You can connect to an Android device's ADB shell from another device via **Android SDK Platform Tools** or from the same device via **Shizuku**. Read the tutorial about **Shizuku** ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
+- Many sections of the tutorial mention **Tor**. Read the tutorial about it in [Introduction of Tor](#introduction-of-tor).
 ---
 ## Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection
 ### Install Termux
@@ -242,7 +246,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 - [https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md](https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md).
 ---
 ## Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment
-### Enable the X11 Repository 
+### Enable the X11 Repository of Termux
 X11 packages are available in a separate APT repository. You can enable it by running the following command:
 ```
 pkg install x11-repo
@@ -252,13 +256,13 @@ You can disable this repository by running the following command:
 ```
 pkg uninstall x11-repo
 ```
-### VNC Server
+### VNC Server in Termux
 In this section, you will learn how to set up a VNC server in **Termux** for graphical output.
 #### Install TigerVNC
 ```
 pkg install tigervnc
 ```
-#### Start Server
+#### Start a VNC Server
 Not specifying port:
 ```
 vncserver -localhost
@@ -299,12 +303,12 @@ export DISPLAY=":1"
 ```
 You may even put this variable to your bashrc or profile so you don't have to always set it manually unless display address will be changed.\
 Connect to the VNC server from a VNC viewer to view the output, you will not see anything except your mouse pointer if no windows manager or desktop environment is started.
-#### Kill
+#### Kill All VNC Servers
 ```
 vncserver -kill localhost:1
 ```
 Change the port with the actual port your VNC server started on.
-### Fluxbox
+### Fluxbox in Termux
 #### Install Fluxbox
 ```
 pkg install fluxbox
@@ -325,7 +329,7 @@ fluxbox-generate_menu
 fluxbox &
 ```
 Fluxbox will start automatically on VNC server startup.
-### Openbox
+### Openbox in Termux
 #### Install Openbox
 ```
 pkg install openbox pypanel xorg-xsetroot
@@ -354,7 +358,7 @@ xsetroot -solid gray
 pypanel &
 ```
 Openbox will start automatically on VNC server startup.
-### XFCE
+### XFCE in Termux
 #### Install XFCE
 ```
 pkg install xfce4
@@ -373,7 +377,7 @@ XFCE will start automatically on VNC server startup.
 #### Additional Recommended Packages for Installation
 - `netsurf` - Simple graphical web browser. Javascript is not supported.
 - `xfce4-terminal` - Terminal emulator for XFCE. It is not included as part of XFCE installation to allow use of `aterm` or `st`.
-### LXQt
+### LXQt in Termux
 #### Install LXQt
 ```
 pkg install lxqt
@@ -392,7 +396,7 @@ LXQt will start automatically on VNC server startup.
 #### Additional Recommended Packages for Installation
 - `otter-browser` - Free and open source web browser that aims to recreate aspects of Opera 12.x
 - `qterminal` - Terminal emulator for LXQt. It is not included as part of LXQt installation to allow use of `aterm` or `st`.
-### MATE
+### MATE in Termux
 #### Install MATE
 ```
 pkg install mate-* marco
@@ -425,7 +429,7 @@ Install Andronix from Google Play: [https://play.google.com/store/apps/details?i
 - Further readings and references:
   - [https://en.m.wikipedia.org/wiki/Chroot](https://en.m.wikipedia.org/wiki/Chroot).
   - [https://github.com/AndronixApp/AndronixOrigin](https://github.com/AndronixApp/AndronixOrigin).
-### Install an OS
+### Install an OS with Andronix
 - Open **Andronix** app.
 - Click the **Linux Distribution** card.
 - Click on the Linux distribution you want to install. It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.
@@ -435,7 +439,7 @@ Install Andronix from Google Play: [https://play.google.com/store/apps/details?i
   - CLI Only: If you don't want a Graphical User-interface, you can go ahead with the Command Line Interface. You'll have a terminal, which is enough if you know what you're doing in your session.
 - **Andronix** will automatically copy the command to your clipboard.
 - Paste and run in **Termux**.
-### Uninstall an OS (Not Modded)
+### Uninstall an OS (Not Modded) with Andronix
 - Open **Andronix** app.
 - Click the **Linux Distribution** card.
 - Long press on the Linux distribution you want to uninstall.
@@ -458,7 +462,7 @@ pulseaudio --start
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh && chmod +x debian-xfce.sh &&  bash debian-xfce.sh
 ```
 The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the Debian OS.
-#### Turn on (CLI)
+#### Turn on the OS (CLI)
 ```
 ./start-debian.sh
 ```
@@ -474,6 +478,10 @@ The file directory of the Debian OS will be `debian-fs`. You can read, write, an
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh && chmod +x debian.sh && bash debian.sh
 ```
 The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the Debian OS.
+#### Turn on the OS (CLI)
+```
+./start-debian.sh
+```
 ### Example: Uninstall Debian OS (Not Modded)
 ```
 wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh && chmod +x UNI-debian.sh && bash UNI-debian.sh
