@@ -9,17 +9,19 @@ Please read the [Global Note](#global-note) before you start or you may encounte
 - Most of the software mentioned in this tutorial is open source unless explicitly stated otherwise. However, it is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 - Some sections about Linux usages are included since we also cover methods to build a Linux VM in Android device.
 - Change the file names, directories, and paths in the commands in the tutorial to the actual ones of yours.
-- Many sections of the tutorial mention **Termux**. Read the tutorial about **Termux** in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection) and read the tutorial about **Termux** graphical environment in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment).
+- Many sections of the tutorial mention **Termux**. Read the tutorial about **Termux** in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), read the tutorial about **Termux** graphical environment in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment), and read the miscellaneous guides and commands about Linux and **Termux** in [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends).
 - Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on any devices (Linux, Windows, macOS, Android, IOS, etc.). Read the tutorial about **AVNC**, a VNC client for Android, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
 - You may encounter `Process completed (signal 9) - press Enter error` even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 - Many sections of the tutorial mention ADB (Android Debug Bridge). You can connect to an Android device's ADB shell from another device via **Android SDK Platform Tools** or from the same device via **Shizuku**. Read the tutorial about **Shizuku** ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
+- Many sections of the tutorial mention **Tor**. Read the tutorial about it in [Introduction of Tor](#introduction-of-tor).
 ## Table of Contents
 - [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   - [Install Termux](#install-termux)
   - [Introduction of Termux](#introduction-of-termux)
-  - [App User Interface](#app-user-interface)
-  - [Package Management](#package-management)
-  - [SIGINT (Signal Interrupt)](#sigint-signal-interrupt)
+  - [Official Wiki and Community of Termux](#official-wiki-and-community-of-termux)
+  - [Termux App User Interface](#termux-app-user-interface)
+  - [Grant Termux Storage Permission](#grant-termux-storage-permission)
+  - [Termux pkg Package Management](#termux-pkg-package-management)
   - [Package Command Error](#package-command-error)
   - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
 - [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment)
@@ -30,7 +32,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [XFCE](#xfce)
   - [LXQt](#lxqt)
   - [MATE](#mate)
-  - [Further Readings and References](#further-readings-and-references)
+  - [Further Readings and References about Termux Graphical Environment](#further-readings-and-references-about-termux-graphical-environment)
 - [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
   - [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
   - [Introduction of Andronix and PRoot](#introduction-of-andronix-and-proot)
@@ -40,7 +42,6 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
   - [Example: Debian with CLI Only](#example-debian-with-cli-only)
   - [Example: Uninstall Debian OS (Not Modded)](#example-uninstall-debian-os-not-modded)
-  - [Note](#note)
 - [QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image](#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-image-method-or-qcow2-cloud-image)
   - [Install QEMU](#install-qemu)
   - [ISO Image method](#iso-image-method)
@@ -48,9 +49,10 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Window Managers or Desktop Environments](#window-managers-or-desktop-environments)
   - [Login](#login)
   - [Resize Disk Space](#resize-disk-space)
-  - [Check](#check)
-  - [Note](#note)
-  - [Further Readings and References](#further-readings-and-references)
+  - [Check Image Info](#check-image-info)
+  - [Check VM Disk](#check-vm-disk)
+  - [OpenSSH](#openssh)
+  - [Further Readings and References about QEMU](#further-readings-and-references-about-qemu)
 - [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android)
   - [Install AVNC](#install-avnc)
   - [Connect a VNC Server](#connect-a-vnc-server)
@@ -73,7 +75,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Configure InviZible Pro to be used with TrackerControl](#configure-invizible-pro-to-be-used-with-trackercontrol)
   - [Use Tor but not DNSCrypr of InviZible Pro](#use-tor-but-not-dnscrypr-of-invizible-pro)
   - [Use DNSCrypr But not Tor of InviZible Pro](#use-dnscrypr-but-not-tor-of-invizible-pro)
-  - [Check](#check)
+  - [Check Whether the Tor Route Setup Is Successful](#check-whether-the-tor-route-setup-is-successful)
   - [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
 - [Tor Browser](#tor-browser)
   - [Install Tor Browser](#install-tor-browser)
@@ -88,20 +90,10 @@ Please read the [Global Note](#global-note) before you start or you may encounte
 - [Linux Command Library](#linux-command-library)
   - [Introduction of Linux Command Library](#introduction-of-linux-command-library)
   - [Install and Use Linux Command Library](#install-and-use-linux-command-library)
-- [Command for Copy](#command-for-copy)
-  - [Linux Setup Command](#linux-setup-command)
-  - [Termux Package Management Command (All)](#termux-package-management-command-all)
-  - [Termux Package Management Command (All apt)](#termux-package-management-command-all-apt)
-  - [Termux Package Management Command (All pkg)](#termux-package-management-command-all-pkg)
-  - [Termux Package Management Command (Update and Upgrade All)](#termux-package-management-command-update-and-upgrade-all)
-  - [Termux Package Management Command (Update and Upgrade apt)](#termux-package-management-command-update-and-upgrade-apt)
-  - [Termux Package Management Command (Update and Upgrade pkg)](#termux-package-management-command-update-and-upgrade-pkg)
-  - [Termux Package Management Command (Update All)](#termux-package-management-command-update-all)
-  - [Termux Package Management Command (Update apt)](#termux-package-management-command-update-apt)
-  - [Termux Package Management Command (Update pkg)](#termux-package-management-command-update-pkg)
-  - [Linux Package Management Command (All apt)](#linux-package-management-command-all-apt)
-  - [Linux Package Management Command (Update and Upgrade apt)](#linux-package-management-command-update-and-upgrade-apt)
-  - [Linux Package Management Command (Update apt)](#linux-package-management-command-update-apt)
+- [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends)
+  - [apt (Termux, Debian, etc.)](#apt-termux-debian-etc)
+  - [SIGINT: Send Signal Interrupt from Keyboard (Termux, Debian, etc.)](#sigint-send-signal-interrupt-from-keyboard-termux-debian-etc)
+  - [Commands for Copy](#commands-for-copy)
 - [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   - [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
   - [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
@@ -130,8 +122,8 @@ Please read the [Global Note](#global-note) before you start or you may encounte
 - Many of the following guides work on or depend on **Termux**.
 - If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at [https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html](https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html). It is recommended that you shift to F-Droid or Github releases.
 ### Introduction of Termux
-- Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package.
-collection.
+- Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package collection. Some of the commands available in Linux are available in **Termux** too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
+- Features:
   - Enjoy the bash and zsh shells.
   - Edit files with nano and vim.
   - Access servers over ssh.
@@ -140,19 +132,21 @@ collection.
   - Check out projects with git and subversion.
   - Run text-based games with frotz.
   - and more
-- At first start a small base system is downloaded - desired packages can then be
-installed using the apt package manager known from the Debian and Ubuntu Linux
-distributions. Access the built-in help by long-pressing anywhere on the
-terminal and selecting the Help menu option to learn more.
-- More information can be found on:
-  - Wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
-  - Reddit Community: [https://termux.com/community](https://termux.com/community).
-### App User Interface
+- At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the Debian and Ubuntu Linux distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.
+### Official Wiki and Community of Termux
+- Wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
+- Reddit Community: [https://termux.com/community](https://termux.com/community).
+### Termux App User Interface
 - Pinch to zoom in or out.
 - Long press to Copy, Paste, Select URL, Share transcript, Autofill password, Reset, Kill process, Style, Keep screen on, Help, Settings, or Report Issue.
 - Pull out the left menu to open **Termux Settings**, start another **NEW SESSION**, or launch **KEYBOARD**.
-### Package Management
-#### pkg
+### Grant Termux Storage Permission
+Run the following command **Termux**:
+```
+termux-setup-storage
+```
+and tap **Allow**.
+### Termux pkg Package Management
 pkg is a tool for managing apt packages.\
 Usage: `pkg [--check-mirror] command [arguments]`.
 - `--check-mirror` - forces a re-check of availability of mirrors
@@ -169,43 +163,6 @@ Usage: `pkg [--check-mirror] command [arguments]`.
   - `uninstall <packages>` - Uninstall specified packages. Configuration files will be left intact.
   - `upgrade` - Upgrade all installed packages to the latest version.
   - `update` - Update apt databases from configured repositories.
-#### apt
-apt is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.\
-- Usage: `apt [options] command`
-- Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
-- Most used commands:
-  - `list` - list packages based on package names
-  - `search` - search in package descriptions
-  - `show` - show package details
-  - `install` - install packages
-  - `reinstall` - reinstall packages
-  - `remove` - remove packages
-  - `autoremove` - automatically remove all unused packages
-  - `update` - update list of available packages
-  - `upgrade` - upgrade the system by installing/upgrading packages
-  - `full-upgrade` - upgrade the system by removing/installing/upgrading packages
-  - `edit-sources` - edit the source information file
-  - `satisfy` - satisfy dependency strings
-- See apt(8) for more information about the available commands: [https://manpages.debian.org/unstable/apt/apt.8.en.html](https://manpages.debian.org/unstable/apt/apt.8.en.html).
-- Configuration options and syntax is detailed in apt.conf(5): [https://manpages.debian.org/unstable/apt/apt.conf.5.en.html](https://manpages.debian.org/unstable/apt/apt.conf.5.en.html).
-- Information about how to configure sources can be found in sources.list(5): [https://manpages.debian.org/unstable/apt/sources.list.5.en.html](https://manpages.debian.org/unstable/apt/sources.list.5.en.html).
-- Package and version choices can be expressed via apt_preferences(5): [https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html](https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html).
-- Security details are available in apt-secure(8): [https://manpages.debian.org/unstable/apt/apt-secure.8.en.html](https://manpages.debian.org/unstable/apt/apt-secure.8.en.html).
-#### Command for Copy
-```
-apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean && pkg update && pkg upgrade && pkg clean
-```
-```
-apt update && apt upgrade && pkg update && pkg upgrade
-```
-```
-apt update && apt upgrade
-```
-```
-pkg update && pkg upgrade
-```
-### SIGINT (Signal Interrupt)
-Press Ctrl + C to send a signal called SIGINT (Signal Interrupt) to the currently running process. This signal instructs the process to stop execution. It is typically used to terminate a running program or command, especially one that is taking too long or has become unresponsive.
 ### Package Command Error
 Termux had to move the primary Termux package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:
 ```
@@ -242,7 +199,7 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 - Run `nano $PREFIX/etc/apt/sources.list` to edit it. 
 - This will not change the urls of other package repositories, to change those run `pkg install termux-tools` afterwards and use `termux-change-repo` or manually edit their files under `$PREFIX/etc/apt/sources.list.d` directory.
 - Changing the mirror may specially be needed if a user is still using bintray as the mirror or `pkg upgrade` command hasn't been run in a while to update termux package related scripts.
-#### Further Readings and References
+#### Further Readings and References about Package Command Error
 - [https://github.com/termux/termux-packages/wiki/Package-Management](https://github.com/termux/termux-packages/wiki/Package-Management).
 - [https://github.com/termux/termux-packages/issues/6726](https://github.com/termux/termux-packages/issues/6726).
 - [https://github.com/termux/termux-packages/issues/6455](https://github.com/termux/termux-packages/issues/6455).
@@ -273,7 +230,7 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
   /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
   settings put global settings_enable_monitor_phantom_procs true
   ```
-#### Further Readings and References 
+#### Further Readings and References about Process completed (signal 9) - press Enter error
 - [https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220](https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220).
 - [https://github.com/termux/termux-app/issues/2366](https://github.com/termux/termux-app/issues/2366).
 - [https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond](https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond).
@@ -454,7 +411,7 @@ MATE will start automatically on VNC server startup.
 #### Additional Recommended Packages for Installation
 - `netsurf` - Simple graphical web browser. Javascript is not supported.
 - `mate-terminal` - Terminal emulator for MATE. It is not included as part of MATE installation to allow use of `aterm` or `st`.
-### Further Readings and References
+### Further Readings and References about Termux Graphical Environment
 - [https://wiki.termux.com/wiki/Graphical_Environment](https://wiki.termux.com/wiki/Graphical_Environment).
 - [https://github.com/termux/x11-packages](https://github.com/termux/x11-packages).
 ---
@@ -520,11 +477,6 @@ The file directory of the Debian OS will be `debian-fs`. You can read, write, an
 ### Example: Uninstall Debian OS (Not Modded)
 ```
 wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh && chmod +x UNI-debian.sh && bash UNI-debian.sh
-```
-### Note
-Remember to update before `apt` installing.
-```
-apt update && apt upgrade
 ```
 ---
 ## QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image
@@ -757,14 +709,13 @@ resizepart 1 100%
 quit
 sudo resize2fs /dev/sda1
 ```
-### Check
-#### Check Info
+### Check Image Info
 In **Termux** (outside VM), run:
 ```
 qemu-img info debian-12-nocloud-amd64.qcow2
 ```
 Change `debian-12-nocloud-amd64.qcow2` to the real file name. 
-#### Check Disk
+### Check VM Disk
 Inside VM, run:
 ```
 df -h
@@ -773,13 +724,9 @@ and for partition, run:
 ```
 lsblk
 ```
-### Note
-- Remember to update before `apt` installing.
-  ```
-  apt update && apt upgrade
-  ```
-- You can start a SSH server in QEMU VM and start a client in another **Termux** session with `openssh`.
-### Further Readings and References 
+### OpenSSH
+You can start a SSH server in QEMU VM and start a client in another **Termux** session with `openssh`.
+### Further Readings and References about QEMU
 - [https://ivonblog.com/posts/termux-qemu-system-linux/](https://ivonblog.com/posts/termux-qemu-system-linux/)
 - [https://www.qemu.org/docs/master/index.html](https://www.qemu.org/docs/master/index.html)
 - [https://www.debian.org/distrib/index.en.html](https://www.debian.org/distrib/index.en.html)
@@ -833,7 +780,7 @@ You can install AVNC from F-Droid: [https://f-droid.org/packages/com.gaurav.avnc
 2. Back to **Shizuku** and tap **Start** in **Start via Wireless debugging** block. You all see **Shizuku is running** on the top of the interface of **Shizuku**.
 ### Use Shizuku in a Terminal Application for the First Time (Termux for Example)
 1. Tap **Use Shizuku in terminal applications** in **Shizuku** and export files `rish` and `rish_shizuku.dex` to somewhere on your phone.
-2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take **Termux** for example, **Termux**'s package name is `com.termux`. Run `termux-setup-storage` to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands). 
+2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take **Termux** for example, **Termux**'s package name is `com.termux`. Run `termux-setup-storage` and tap **Allow** to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands). 
 2. Open your terminal application and move the exported files to somewhere it can access with `mv old_location new_location`. The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of **Termux** is `/data/data/com.termux/home`, which is abbreviated as `~` in **Termux**.
 2. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
 2. Where used to be `~ $` should become `e2q:/ $` or something similar if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
@@ -879,7 +826,6 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 - Use **aShell**.
 ---
 ## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers
-Read the tutorial about **Tor** in [Introduction of Tor](#introduction-of-tor).
 ### Install InviZible Pro
 - Download and install **InviZible Pro** from F-Droid or Google Play. F-Droid: [https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/). Google Play: [https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp).
 ### Install TrackerControl
@@ -1121,7 +1067,7 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 - Turn off **Use SOCKS5 proxy** in **TrackerControl**.
 - Turn off **Outbound prxoy** in **DNSCrypt Settings** in **InviZible Pro**.
 - Turn on DNSCrypt but not Tor in **InviZible Pro**.
-### Check
+### Check Whether the Tor Route Setup Is Successful
 - Go to [https://check.torproject.org/](https://check.torproject.org/) to check if your Tor route succeeded. If yes, you will see  "Congratulations. This browser is configured to use Tor." (assume the page's language is set to English).
 - Go to [https://whatismyipaddress.com](https://whatismyipaddress.com) (not open source), [https://ipcheck.ing/](https://ipcheck.ing/), or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.
 - Go to [https://www.dnsleaktest.com](https://www.dnsleaktest.com) (not open source), [https://ipcheck.ing/](https://ipcheck.ing/), or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
@@ -1465,11 +1411,36 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
   - sm4-ofb
 ## Linux Command Library
 ### Introduction of Linux Command Library
-The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software.
+The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in Linux are available in **Termux** too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
 ### Install and Use Linux Command Library 
 You can install **Linux Command Library** in Google Play: [https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca](https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca) or F-Droid: [https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/](https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/), or browse it on its official website: [https://linuxcommandlibrary.com/](https://linuxcommandlibrary.com/).
-## Command for Copy
-### Linux Setup Command
+## Linux and Termux Odds and Ends
+### apt (Termux, Debian, etc.)
+apt is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.\
+- Usage: `apt [options] command`
+- Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
+- Most used commands:
+  - `list` - list packages based on package names
+  - `search` - search in package descriptions
+  - `show` - show package details
+  - `install` - install packages
+  - `reinstall` - reinstall packages
+  - `remove` - remove packages
+  - `autoremove` - automatically remove all unused packages
+  - `update` - update list of available packages
+  - `upgrade` - upgrade the system by installing/upgrading packages
+  - `full-upgrade` - upgrade the system by removing/installing/upgrading packages
+  - `edit-sources` - edit the source information file
+  - `satisfy` - satisfy dependency strings
+- See apt(8) for more information about the available commands: [https://manpages.debian.org/unstable/apt/apt.8.en.html](https://manpages.debian.org/unstable/apt/apt.8.en.html).
+- Configuration options and syntax is detailed in apt.conf(5): [https://manpages.debian.org/unstable/apt/apt.conf.5.en.html](https://manpages.debian.org/unstable/apt/apt.conf.5.en.html).
+- Information about how to configure sources can be found in sources.list(5): [https://manpages.debian.org/unstable/apt/sources.list.5.en.html](https://manpages.debian.org/unstable/apt/sources.list.5.en.html).
+- Package and version choices can be expressed via apt_preferences(5): [https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html](https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html).
+- Security details are available in apt-secure(8): [https://manpages.debian.org/unstable/apt/apt-secure.8.en.html](https://manpages.debian.org/unstable/apt/apt-secure.8.en.html).
+### SIGINT: Send Signal Interrupt from Keyboard (Termux, Debian, etc.)
+Press Ctrl + C to send a signal called SIGINT (Signal Interrupt) to the currently running process. This signal instructs the process to stop execution. It is typically used to terminate a running program or command, especially one that is taking too long or has become unresponsive.
+### Commands for Copy
+#### Linux Setup Command
 ```
 sudo apt update && sudo apt upgrade
 sudo apt install xfce4 xfce4-goodies python3-all-dev python3-venv build-essential cmake curl wget git gh openjdk-17-jdk nano vim iproute2 procps grep libboost-all-dev gdb tmux openssl libssl-dev openssh-server
@@ -1479,51 +1450,51 @@ source myenv/bin/activate
 python3 get-pip.py
 pip3 install numpy pandas sympy matplotlib numba nuitka setuptools selenium conan jupyter pybind11 pyinstaller
 ```
-### Termux Package Management Command (All)
+#### Termux Package Management Command (All)
 ```
 apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean && pkg update && pkg upgrade && pkg clean
 ```
-### Termux Package Management Command (All apt)
+#### Termux Package Management Command (All apt)
 ```
 apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean
 ```
-### Termux Package Management Command (All pkg)
+#### Termux Package Management Command (All pkg)
 ```
 pkg update && pkg upgrade && pkg clean
 ```
-### Termux Package Management Command (Update and Upgrade All)
+#### Termux Package Management Command (Update and Upgrade All)
 ```
 apt update && apt upgrade && pkg update && pkg upgrade
 ```
-### Termux Package Management Command (Update and Upgrade apt)
+#### Termux Package Management Command (Update and Upgrade apt)
 ```
 apt update && apt upgrade
 ```
-### Termux Package Management Command (Update and Upgrade pkg)
+#### Termux Package Management Command (Update and Upgrade pkg)
 ```
 pkg update && pkg upgrade
 ```
-### Termux Package Management Command (Update All)
+#### Termux Package Management Command (Update All)
 ```
 apt update && pkg update
 ```
-### Termux Package Management Command (Update apt)
+#### Termux Package Management Command (Update apt)
 ```
 apt update
 ```
-### Termux Package Management Command (Update pkg)
+#### Termux Package Management Command (Update pkg)
 ```
 pkg update
 ```
-### Linux Package Management Command (All apt)
+#### Linux Package Management Command (All apt)
 ```
 sudo apt update && sudo apt upgrade && sudo apt --fix-broken install && sudo apt autoremove --purge && sudo apt clean
 ```
-### Linux Package Management Command (Update and Upgrade apt)
+#### Linux Package Management Command (Update and Upgrade apt)
 ```
 sudo apt update && sudo apt upgrade
 ```
-### Linux Package Management Command (Update apt)
+#### Linux Package Management Command (Update apt)
 ```
 sudo apt update
 ```
