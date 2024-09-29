@@ -128,8 +128,8 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Others](#others)
 - [Contribution](#contribution)
 - [License](#license)
-  - [GNU Free Documentation License, Version 1.3](#gnu-free-documentation-license-version-13)
-  - [Creative Commons Attribution-ShareAlike 4.0 International License](#creative-commons-attribution-sharealike-40-international-license)
+  - [GNU Free Documentation License, Version 1.3 (GFDL 1.3)](#gnu-free-documentation-license-version-13-gfdl-13)
+  - [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](#creative-commons-attribution-sharealike-40-international-license-cc-by-sa-40)
 ---
 ## Global Note
 - Many sections of the tutorial mention **Termux** and Linux. Read the tutorial about them in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment), [File and Directory Management of Termux and Linux](#file-and-directory-management-of-termux-and-linux), [OpenSSH with Linux or Termux: Secure Remote Access](#openssh-with-linux-or-termux-secure-remote-access), [Linux Command Library](#linux-command-library), and [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends).
@@ -2011,13 +2011,13 @@ Copyright (C) 2024 [Willie169](https://github.com/Willie169).
 
 This project is licensed under the terms of either:
 - **GNU Free Documentation License, Version 1.3 (GFDL 1.3)**  
-- **Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA 4.0)**
-### GNU Free Documentation License, Version 1.3
+- **Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)**
+### GNU Free Documentation License, Version 1.3 (GFDL 1.3)
 Permission is granted to copy, distribute, and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 
 You should have received a copy of the GNU Free Documentation License along with this document. If not, see [https://www.gnu.org/licenses/fdl-1.3.html](https://www.gnu.org/licenses/fdl-1.3.html).
 
-### Creative Commons Attribution-ShareAlike 4.0 International License
+### Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)
 You are free to:
 
 - **Share** — copy and redistribute the material in any medium or format
