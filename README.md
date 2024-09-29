@@ -14,7 +14,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Termux pkg Package Management](#termux-pkg-package-management)
   - [Text Editor: Nano and Vim](#text-editor-nano-and-vim)
   - [Package Command Error](#package-command-error)
-  - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
+  - [`Process completed (signal 9) - press Enter` error](#process-completed-signal-9---press-enter-error)
 - [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment)
   - [Enable the X11 Repository of Termux](#enable-the-x11-repository-of-termux)
   - [VNC Server in Termux](#vnc-server-in-termux)
@@ -79,18 +79,18 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)
   - [Symmetric Encryption](#symmetric-encryption)
 - [File and Directory Management of Termux and Linux](#file-and-directory-management-of-termux-and-linux)
-  - [cp (Copy files and directories)](#cp-copy-files-and-directories)
-  - [mv (Move or rename files and directories)](#mv-move-or-rename-files-and-directories)
-  - [rm (Remove files or directories)](#rm-remove-files-or-directories)
-  - [mkdir (Create directories)](#mkdir-create-directories)
-  - [ls (List directory contents)](#ls-list-directory-contents)
-  - [rmdir (Remove empty directories)](#rmdir-remove-empty-directories)
-  - [find (Search for files and directories)](#find-search-for-files-and-directories)
-  - [touch (Create or update file timestamps)](#touch-create-or-update-file-timestamps)
-  - [chmod (Change File Permissions)](#chmod-change-file-permissions)
-  - [chown (Change File Ownership)](#chown-change-file-ownership)
-  - [df (Disk Space Usage)](#df-disk-space-usage)
-  - [du (Disk Usage)](#du-disk-usage)
+  - [`cp` (Copy files and directories)](#cp-copy-files-and-directories)
+  - [`mv` (Move or rename files and directories)](#mv-move-or-rename-files-and-directories)
+  - [`rm` (Remove files or directories)](#rm-remove-files-or-directories)
+  - [`mkdir` (Create directories)](#mkdir-create-directories)
+  - [`ls` (List directory contents)](#ls-list-directory-contents)
+  - [`rmdir` (Remove empty directories)](#rmdir-remove-empty-directories)
+  - [`find` (Search for files and directories)](#find-search-for-files-and-directories)
+  - [`touch` (Create or update file timestamps)](#touch-create-or-update-file-timestamps)
+  - [`chmod` (Change File Permissions)](#chmod-change-file-permissions)
+  - [`chown` (Change File Ownership)](#chown-change-file-ownership)
+  - [`df` (Disk Space Usage)](#df-disk-space-usage)
+  - [`du` (Disk Usage)](#du-disk-usage)
   - [pwd (Check Current Directory)](#pwd-check-current-directory)
 - [OpenSSH with Linux or Termux and SFTP Server Mount on Material Files: Secure Remote Access](#openssh-with-linux-or-termux-and-sftp-server-mount-on-material-files-secure-remote-access)
   - [Introduction of SSH and OpenSSH](#introduction-of-ssh-and-openssh)
@@ -139,7 +139,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
 - Some sections about Linux usages are included since we also cover methods to build a Linux VM in Android device.
 - Change the file names, directories, and paths in the commands in the tutorial to the actual ones of yours.
 - Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on any devices (Linux, Windows, macOS, Android, IOS, etc.). Read the tutorial about **AVNC**, a VNC client for Android, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
-- You may encounter `Process completed (signal 9) - press Enter error` even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
+- You may encounter `Process completed (signal 9) - press Enter` error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [`Process completed (signal 9) - press Enter` error](#process-completed-signal-9---press-enter-error).
 - Many sections of the tutorial mention ADB (Android Debug Bridge). You can connect to an Android device's ADB shell from another device via **Android SDK Platform Tools** or from the same device via **Shizuku**. Read the tutorial about **Shizuku** ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
 - Many sections of the tutorial mention **Tor**. Read the tutorial about it in [Introduction of Tor](#introduction-of-tor).
 - Uncommenting a line means to remove the comment signs (`#` for bash) from the beginning of the line.
@@ -251,8 +251,8 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 - [https://github.com/termux/termux-packages/issues/6726](https://github.com/termux/termux-packages/issues/6726).
 - [https://github.com/termux/termux-packages/issues/6455](https://github.com/termux/termux-packages/issues/6455).
 - [https://github.com/termux/termux-packages/wiki/Mirrors](https://github.com/termux/termux-packages/wiki/Mirrors).
-### Process completed (signal 9) - press Enter error
-Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU. You may get [Process completed (signal 9) - press Enter] message in the terminal without actually exiting the shell process yourself. Here is the guide of how to turn it off.
+### `Process completed (signal 9) - press Enter` error
+Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU. You may get `Process completed (signal 9) - press Enter` message in the terminal without actually exiting the shell process yourself. Here is the guide of how to turn it off.
 #### Fix for Stock Android 12L and beyond
 - In phone's **Settings** or something similar, go to **About Phone > Software Information** or something similar, and tap the **Version Number** seven times to enable **Developer Options**. Some phones may have different methods to enable **Developer Options**.
 - Find the section named **Feature Flags**, enter via clicking it.
@@ -1465,44 +1465,44 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
   - sm4-ofb
 ---
 ## File and Directory Management of Termux and Linux
-### cp (Copy files and directories)
+### `cp` (Copy files and directories)
 - **Examples**:
   - `cp -r dir1/ dir2/`: Recursively copy `dir1` to `dir2`.
   - `cp -i file1.txt file2.txt`: Prompt before overwriting `file2.txt`.
-### mv (Move or rename files and directories)
+### `mv` (Move or rename files and directories)
 - **Examples**:
   - `mv file1.txt /home/user/`: Move `file1.txt` to `/home/user/`.
   - `mv oldname.txt newname.txt`: Rename `oldname.txt` to `newname.txt`.
-### rm (Remove files or directories)
+### `rm` (Remove files or directories)
 - **Examples**:
   - `rm file1.txt`: Remove `file1.txt`.
   - `rm -r dir1/`: Recursively remove `dir1` and its contents.
   - `rm -rf dir1/`: Forcefully remove `dir1` and its contents without prompts.
-### mkdir (Create directories)
+### `mkdir` (Create directories)
 - **Examples**:
   - `mkdir newdir`: Create a directory named `newdir`.
   - `mkdir -p parentdir/childdir`: Create `parentdir` and `childdir` if they don't exist.
-### ls (List directory contents)
+### `ls` (List directory contents)
 - **Examples**:
   - `ls -l`: List with detailed information (permissions, ownership, size).
   - `ls -a`: List all files, including hidden ones (starting with `.`).
   - `ls -lh`: List with human-readable file sizes.
-### rmdir (Remove empty directories)
+### `rmdir` (Remove empty directories)
 - **Syntax**: `rmdir [options] directory`
 - **Examples**:
   - `rmdir emptydir`: Remove `emptydir` if it's empty.
   - `rmdir -p parentdir/childdir`: Remove `childdir` and `parentdir` if they are empty.
-### find (Search for files and directories)
+### `find` (Search for files and directories)
 - **Syntax**: `find [path] [options] [expression]`
 - **Examples**:
   - `find /home/user/ -name '*.txt'`: Find all `.txt` files under `/home/user/`.
   - `find . -type d -name 'dir*'`: Find directories starting with `dir`.
-### touch (Create or update file timestamps)
+### `touch` (Create or update file timestamps)
 - **Syntax**: `touch [options] file`
 - **Examples**:
   - `touch newfile.txt`: Create an empty `newfile.txt` or update its timestamp.
   - `touch -c non_existent_file.txt`: Don’t create `non_existent_file.txt` if it doesn’t exist.
-### chmod (Change File Permissions)
+### `chmod` (Change File Permissions)
 `chmod` can use both numeric (octal) and symbolic modes to set file permissions.
 #### Numeric (Octal) Mode
 - **Syntax**: `chmod [permissions] file`
@@ -1536,7 +1536,7 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
 - `=` = Set exact permission
 #### Options
 - `-R` or `--recursive`: Apply changes recursively to directories and their contents.
-### chown (Change File Ownership)
+### `chown` (Change File Ownership)
 - **Syntax**: `chown [options] user[:group] file`
 - **Examples**:
   - `chown user file.txt`: Change the owner to `user`.
@@ -1544,13 +1544,13 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
   - `chown :group file.txt`: Change the group to `group` without changing the owner.
 - Options
   - `-R` or `--recursive`: Apply changes recursively to directories and their contents.
-### df (Disk Space Usage)
+### `df` (Disk Space Usage)
 - **Syntax**: `df [options] [file]`
 - **Examples**:
   - `df -h`: Display disk space in a human-readable format (e.g., MB, GB).
   - `df -T`: Show the filesystem type along with space usage.
   - `df --total`: Show a grand total of all file systems.
-### du (Disk Usage)
+### `du` (Disk Usage)
 - **Syntax**: `du [options] [file]`
 - **Examples**:
   - `du -h`: Show disk usage in human-readable format.
@@ -1618,11 +1618,6 @@ sudo systemctl enable ssh
 ```
 sudo service ssh status
 ```
-#### Allow Localhost Connection 
-```
-nano /etc/hosts .deny
-```
-Delete all lines in it.
 ### OpenSSH Server in Termux 
 #### Install
 ```
@@ -1662,12 +1657,13 @@ Type:
 exit
 ```
 to exit a SSH connection.
-#### Delete Key
-You need to delete the original key if the server is reset.
-```
-ssh-keygen -R [localhost]:2222
-```
-Change `[localhost]:2222` to the actual address and port of the server.
+#### `kex_exchange_identification: read: Connection reset by peer` Error
+To solve this error, try:
+- `nano /etc/hosts .deny` and delete all lines in it.
+- Run `ssh-keygen -R [localhost]:2222` on the client side. Change `[localhost]:2222` to the actual address and port of the server.
+- Ensure that no VPN service is blocking or forwarding the connections of both sides.
+- Ensure the configuration in `/etc/ssh/sshd_config` is correct.
+- Reboot both sides.
 ### SCP (Secure Copy Protocol)
 You can use `scp` on the client side to transfer files between the server side and the client side.\
 The syntax of `scp` is the same as that of `cp`, but with the `username@host:` added before the path to copy to or from the server. For example:
@@ -1690,7 +1686,7 @@ SFTP, or Secure File Transfer Protocol, is a secure network protocol used for tr
 - Open the left menu.
 - Tap **Add storage ...**.
 - Tap **SFTP server**.
-- Input necessary information. Hostname, Port, etc. means those of the SSH server. Leave path empty or type `/` to mount `/`.
+- Input necessary information. Hostname, Port, etc. means those of the SSH server. Leave path empty to mount the whole file system of the server side.
 - You can manage the file system of the SSH server like managing local storage now.
 ### Further Readings and References about OpenSSH with Linux and Termux
 - [https://www.openssh.com/](https://www.openssh.com/)
