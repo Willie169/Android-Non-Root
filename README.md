@@ -128,6 +128,8 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Others](#others)
 - [Contribution](#contribution)
 - [License](#license)
+  - [GNU Free Documentation License, Version 1.3](#gnu-free-documentation-license-version-13)
+  - [Creative Commons Attribution-ShareAlike 4.0 International License](#creative-commons-attribution-sharealike-40-international-license)
 ---
 ## Global Note
 - Many sections of the tutorial mention **Termux** and Linux. Read the tutorial about them in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment), [File and Directory Management of Termux and Linux](#file-and-directory-management-of-termux-and-linux), [OpenSSH with Linux or Termux: Secure Remote Access](#openssh-with-linux-or-termux-secure-remote-access), [Linux Command Library](#linux-command-library), and [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends).
@@ -2005,8 +2007,29 @@ sudo apt update
 We welcome contributions to this project! Please fork the repository and submit a pull request for your contributions. For clarity and convenience, we recommend making one pull request per revised section or added feature.
 ---
 ## License
-This project is licensed under the terms the GNU General Public License v3.0 or later (GPL-3.0-or-later).\
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\
-You should have received a copy of the GNU General Public License along with this program.  If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).\
-By contributing to this project, you agree that your contributions will be licensed under GPL-3.0-or-later.
+Copyright (C) 2024 [Willie169](https://github.com/Willie169).
+
+This project is licensed under the terms of either:
+- **GNU Free Documentation License, Version 1.3 (GFDL 1.3)**  
+- **Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA 4.0)**
+### GNU Free Documentation License, Version 1.3
+Permission is granted to copy, distribute, and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+
+You should have received a copy of the GNU Free Documentation License along with this document. If not, see [https://www.gnu.org/licenses/fdl-1.3.html](https://www.gnu.org/licenses/fdl-1.3.html).
+
+### Creative Commons Attribution-ShareAlike 4.0 International License
+You are free to:
+
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+Under the following terms:
+
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+You should have received a copy of the Creative Commons Attribution-ShareAlike 4.0 International License along with this program. If not, see [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/).
