@@ -1576,24 +1576,145 @@ sudo systemctl enable --now ssh
 ```
 sudo nano /etc/ssh/sshd_config
 ```
-Change the line:
+Edit as your need.\
+If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, `hostfwd=tcp::2222-:22`, and you hope to connect it from outside of the VM (e.g. **Termux**), then you can edit the configuration as the following:
 ```
-#Port 22
+sudo rm /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config
 ```
-to:
+Copy below and paste to it:
 ```
-Port 2222
-```
-You can change the port `2222` to the port you want. Note that you may need to set the ports that VM can use when booting VM if you are in a VM.\
-Change the line:
-```
-#PermitRootLogin prohibit-password
-```
-to:
-```
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+Port 22
+#AddressFamily any
+ListenAddress 0.0.0.0
+#ListenAddress ::
+
+# The default requires explicit activation of protocol 1
+#Protocol 2
+
+# HostKey for protocol version 1
+#HostKey /etc/ssh/ssh_host_key
+# HostKeys for protocol version 2
+#HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_dsa_key
+#HostKey /etc/ssh/ssh_host_ecdsa_key
+
+# Lifetime and size of ephemeral version 1 server key
+#KeyRegenerationInterval 1h
+#ServerKeyBits 1024
+
+# Logging
+# obsoletes QuietMode and FascistLogging
+#SyslogFacility AUTH
+#LogLevel INFO
+
+# Authentication:
+
+#LoginGraceTime 2m
 PermitRootLogin yes
+#StrictModes yes
+#MaxAuthTries 6
+#MaxSessions 10
+
+#RSAAuthentication yes
+#PubkeyAuthentication yes
+
+# The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
+# but this is overridden so installations will only check .ssh/authorized_keys
+AuthorizedKeysFile    .ssh/authorized_keys
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#RhostsRSAAuthentication no
+# similar for protocol version 2
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# RhostsRSAAuthentication and HostbasedAuthentication
+#IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication yes
+#PermitEmptyPasswords no
+
+# Change to no to disable s/key passwords
+ChallengeResponseAuthentication no
+
+# Kerberos options
+#KerberosAuthentication no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+#KerberosGetAFSToken no
+
+# GSSAPI options
+#GSSAPIAuthentication no
+#GSSAPICleanupCredentials yes
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+#GatewayPorts no
+#X11Forwarding no
+#X11DisplayOffset 10
+#X11UseLocalhost yes
+PrintMotd no # pam does that
+#PrintLastLog yes
+#TCPKeepAlive yes
+#UseLogin no
+UsePrivilegeSeparation sandbox        # Default for new installations.
+#PermitUserEnvironment no
+#Compression delayed
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
+#UseDNS yes
+#PidFile /run/sshd.pid
+#MaxStartups 10:30:100
+#PermitTunnel no
+#ChrootDirectory none
+#VersionAddendum none
+
+# no default banner path
+#Banner none
+
+# override default of no subsystems
+Subsystem    sftp    /usr/lib/ssh/sftp-server
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#    X11Forwarding no
+#    AllowTcpForwarding no
+#    ForceCommand cvs server
 ```
-if you want to permit login as root.
+Run:
+```
+sudo nano /etc/hosts .deny
+```
+and delete all lines in it.
 #### Start 
 ```
 sudo service ssh start
@@ -1641,6 +1762,13 @@ sudo apt install openssh-client
 ```
 apt install openssh
 ```
+#### Key Generation 
+If you plan to use key authentication, you have to generate key by:
+```
+mkdir -p ~/.ssh
+ssh-keygen -t rsa -b 4096
+```
+If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, use password authentication (with password set by running `passwd`), you won't need to generate key.
 #### Run
 ```
 ssh root@localhost
@@ -1650,19 +1778,21 @@ Run with port specified:
 ```
 ssh root@localhost -p 2222
 ```
-Change `2222` to the port of the server.
+Change `2222` to the port of the server.\
+If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, `hostfwd=tcp::2222-:22` and `Port 22`, then you can run:
+```
+ssh root@localhost -p 2222
+```
+on client side.
 #### Exit
-Type:
 ```
 exit
 ```
-to exit a SSH connection.
 #### `kex_exchange_identification: read: Connection reset by peer` Error
 To solve this error, try:
-- `nano /etc/hosts .deny` and delete all lines in it.
 - Run `ssh-keygen -R [localhost]:2222` on the client side. Change `[localhost]:2222` to the actual address and port of the server.
 - Use `ssh -v root@localhost -p port`, `ssh -vv root@localhost -p port`, `ssh -vvv root@localhost -p port` to debug.
-- Ensure that no firewall or VPN service is blocking or forwarding the connections.
+- Ensure that no firewall or VPN service is blocking the connections.
 - Ensure the configuration in `/etc/ssh/sshd_config` is correct.
 - Ensure the authentication is correct.
 - Restart SSH server.
