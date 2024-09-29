@@ -1661,9 +1661,13 @@ to exit a SSH connection.
 To solve this error, try:
 - `nano /etc/hosts .deny` and delete all lines in it.
 - Run `ssh-keygen -R [localhost]:2222` on the client side. Change `[localhost]:2222` to the actual address and port of the server.
-- Ensure that no VPN service is blocking or forwarding the connections of both sides.
+- Use `ssh -v root@localhost -p port`, `ssh -vv root@localhost -p port`, `ssh -vvv root@localhost -p port` to debug.
+- Ensure that no firewall or VPN service is blocking or forwarding the connections.
 - Ensure the configuration in `/etc/ssh/sshd_config` is correct.
-- Reboot both sides.
+- Ensure the authentication is correct.
+- Restart SSH server.
+- Check SSH log file.
+- Reboot.
 ### SCP (Secure Copy Protocol)
 You can use `scp` on the client side to transfer files between the server side and the client side.\
 The syntax of `scp` is the same as that of `cp`, but with the `username@host:` added before the path to copy to or from the server. For example:
