@@ -12,6 +12,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Termux App User Interface](#termux-app-user-interface)
   - [Grant Termux Storage Permission](#grant-termux-storage-permission)
   - [Termux pkg Package Management](#termux-pkg-package-management)
+  - [Text Editor: Nano and Vim](#text-editor-nano-and-vim)
   - [Package Command Error](#package-command-error)
   - [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error)
 - [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment)
@@ -77,6 +78,28 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Installation of OpenSSL in Debian](#installation-of-openssl-in-debian)
   - [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)
   - [Symmetric Encryption](#symmetric-encryption)
+- [File and Directory Management of Termux and Linux](#file-and-directory-management-of-termux-and-linux)
+  - [cp (Copy files and directories)](#cp-copy-files-and-directories)
+  - [mv (Move or rename files and directories)](#mv-move-or-rename-files-and-directories)
+  - [rm (Remove files or directories)](#rm-remove-files-or-directories)
+  - [mkdir (Create directories)](#mkdir-create-directories)
+  - [ls (List directory contents)](#ls-list-directory-contents)
+  - [rmdir (Remove empty directories)](#rmdir-remove-empty-directories)
+  - [find (Search for files and directories)](#find-search-for-files-and-directories)
+  - [touch (Create or update file timestamps)](#touch-create-or-update-file-timestamps)
+  - [chmod (Change File Permissions)](#chmod-change-file-permissions)
+  - [chown (Change File Ownership)](#chown-change-file-ownership)
+  - [df (Disk Space Usage)](#df-disk-space-usage)
+  - [du (Disk Usage)](#du-disk-usage)
+  - [pwd (Check Current Directory)](#pwd-check-current-directory)
+- [OpenSSH with Linux or Termux and SFTP Server Mount on Material Files: Secure Remote Access](#openssh-with-linux-or-termux-and-sftp-server-mount-on-material-files-secure-remote-access)
+  - [Introduction of SSH and OpenSSH](#introduction-of-ssh-and-openssh)
+  - [OpenSSH Server in Linux](#openssh-server-in-linux)
+  - [OpenSSH Server in Termux](#openssh-server-in-termux)
+  - [OpenSSH Client in Linux or Termux](#openssh-client-in-linux-or-termux)
+  - [SCP (Secure Copy Protocol)](#scp-secure-copy-protocol)
+  - [SFTP Server Mound on Material Files](#sftp-server-mound-on-material-files)
+  - [Further Readings and References about OpenSSH with Linux and Termux](#further-readings-and-references-about-openssh-with-linux-and-termux)
 - [Linux Command Library](#linux-command-library)
   - [Introduction of Linux Command Library](#introduction-of-linux-command-library)
   - [Install and Use Linux Command Library](#install-and-use-linux-command-library)
@@ -101,23 +124,26 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
   - [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
   - [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
+  - [Material Files / MaterialFiles by Hai Zhang / zhanghai](#material-files--materialfiles-by-hai-zhang--zhanghai)
   - [Others](#others)
 - [Contribution](#contribution)
 - [License](#license)
 ---
 ## Global Note
-- Always run `apt update` before any `apt install` command in **Termux**.
+- Many sections of the tutorial mention **Termux** and Linux. Read the tutorial about them in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment), [File and Directory Management of Termux and Linux](#file-and-directory-management-of-termux-and-linux), [OpenSSH with Linux or Termux: Secure Remote Access](#openssh-with-linux-or-termux-secure-remote-access), [Linux Command Library](#linux-command-library), and [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends).
+- Always run `apt update` before any `apt install` command in **Termux** or Linux, including virtual machines and emulations.
+- Add `sudo` at the beginning of commands in Linux if needed, and remove `sudo` from the beginning of commands in **Termux**.
 - Always run `pkg update` before any `pkg install` command in **Termux**.
-- Always run `sudo apt update` before any `apt install` command in Linux, including virtual machines and emulations.
 - Always type `Y`, `y`, `Yes`, or `yes` in response to any prompts that request confirmation during command execution.
 - Most of the software mentioned in this tutorial is open source unless explicitly stated otherwise. However, it is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 - Some sections about Linux usages are included since we also cover methods to build a Linux VM in Android device.
 - Change the file names, directories, and paths in the commands in the tutorial to the actual ones of yours.
-- Many sections of the tutorial mention **Termux**. Read the tutorial about **Termux** in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), read the tutorial about **Termux** graphical environment in [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager, or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment), and read the miscellaneous guides and commands about Linux and **Termux** in [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends).
 - Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on any devices (Linux, Windows, macOS, Android, IOS, etc.). Read the tutorial about **AVNC**, a VNC client for Android, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
 - You may encounter `Process completed (signal 9) - press Enter error` even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) - press Enter error](#process-completed-signal-9---press-enter-error).
 - Many sections of the tutorial mention ADB (Android Debug Bridge). You can connect to an Android device's ADB shell from another device via **Android SDK Platform Tools** or from the same device via **Shizuku**. Read the tutorial about **Shizuku** ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
 - Many sections of the tutorial mention **Tor**. Read the tutorial about it in [Introduction of Tor](#introduction-of-tor).
+- Uncommenting a line means to remove the comment signs (`#` for bash) from the beginning of the line.
+- When the tutorial uses `nano`, `vim`, or `vi` to edit a file, you can use any text editor you want, such `nano`, `vim`, and `vi`.
 ---
 ## Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection
 ### Install Termux
@@ -167,6 +193,23 @@ Usage: `pkg [--check-mirror] command [arguments]`.
   - `uninstall <packages>` - Uninstall specified packages. Configuration files will be left intact.
   - `upgrade` - Upgrade all installed packages to the latest version.
   - `update` - Update apt databases from configured repositories.
+### Text Editor: Nano and Vim
+Nano and Vim are both text editors used in Unix-like operating systems. 
+#### Nano
+Install:
+```
+apt install nano
+```
+Nano is a simple, user-friendly text editor designed for ease of use.
+- Basic Functions: It supports basic editing features like cut, copy, paste, search, and replace.
+- Command Shortcuts: Common commands are displayed at the bottom of the screen (e.g., ^X to exit).
+- Usage: Typically used for quick edits or for users who prefer a no-frills experience. You can open a file by typing `nano filename`.
+#### Vim
+Vim (Vi IMproved) is a highly configurable and powerful text editor, which is an enhanced version of the original Vi editor. It is favored by experienced users and programmers.
+- Modes: Vim operates in different modes (Normal, Insert, Visual, etc.), allowing for more complex editing tasks and commands.
+- Extensibility: Users can customize Vim extensively through configuration files and plugins.
+- Powerful Editing Capabilities: It has a steep learning curve but offers efficient ways to manipulate text.
+- Usage: Often used for programming and extensive text manipulation. You can open a file by typing `vim filename`.
 ### Package Command Error
 Termux had to move the primary Termux package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:
 ```
@@ -320,6 +363,7 @@ nano ~/.vnc/xstartup
 Copy below command and paste to it:
 ```
 #!/data/data/com.termux/files/usr/bin/sh
+---
 ## Fluxbox desktop.
 
 # Generate menu.
@@ -1081,6 +1125,7 @@ If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerContr
 - Go to [https://www.dnsleaktest.com](https://www.dnsleaktest.com) (not open source), [https://ipcheck.ing/](https://ipcheck.ing/), or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
 ### Use Invizible Pro without TrackerControl
 - Change to **VPN mode** by tap the 3-point button in the upper right corner.
+---
 ## Tor Browser
 ### Install Tor Browser 
 You can install **Tor Browser** from Google Play: [https://play.google.com/store/apps/details?id=org.torproject.torbrowser](https://play.google.com/store/apps/details?id=org.torproject.torbrowser).
@@ -1098,6 +1143,7 @@ The **Tor Browser** for Android is a mobile version of the Tor Browser that util
 **NoScript** (or **NoScript Security Suite**) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group.\
 By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension's toolbar menu or by clicking a placeholder icon.\
 It is recommended to enable NoScript for all Tor sites unless you fully trust it.
+---
 ## OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation
 ### Introduction of OpenSSL
 **OpenSSL** is an open-source library that provides a comprehensive suite of cryptographic tools for securing communications over computer networks. It implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols and includes a general-purpose cryptographic library that supports a variety of encryption algorithms, hashing functions, digital signatures, key generation, certificate management, and secure random number generation.
@@ -1417,11 +1463,247 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
   - sm4-ctr
   - sm4-ecb
   - sm4-ofb
+---
+## File and Directory Management of Termux and Linux
+### cp (Copy files and directories)
+- **Examples**:
+  - `cp -r dir1/ dir2/`: Recursively copy `dir1` to `dir2`.
+  - `cp -i file1.txt file2.txt`: Prompt before overwriting `file2.txt`.
+### mv (Move or rename files and directories)
+- **Examples**:
+  - `mv file1.txt /home/user/`: Move `file1.txt` to `/home/user/`.
+  - `mv oldname.txt newname.txt`: Rename `oldname.txt` to `newname.txt`.
+### rm (Remove files or directories)
+- **Examples**:
+  - `rm file1.txt`: Remove `file1.txt`.
+  - `rm -r dir1/`: Recursively remove `dir1` and its contents.
+  - `rm -rf dir1/`: Forcefully remove `dir1` and its contents without prompts.
+### mkdir (Create directories)
+- **Examples**:
+  - `mkdir newdir`: Create a directory named `newdir`.
+  - `mkdir -p parentdir/childdir`: Create `parentdir` and `childdir` if they don't exist.
+### ls (List directory contents)
+- **Examples**:
+  - `ls -l`: List with detailed information (permissions, ownership, size).
+  - `ls -a`: List all files, including hidden ones (starting with `.`).
+  - `ls -lh`: List with human-readable file sizes.
+### rmdir (Remove empty directories)
+- **Syntax**: `rmdir [options] directory`
+- **Examples**:
+  - `rmdir emptydir`: Remove `emptydir` if it's empty.
+  - `rmdir -p parentdir/childdir`: Remove `childdir` and `parentdir` if they are empty.
+### find (Search for files and directories)
+- **Syntax**: `find [path] [options] [expression]`
+- **Examples**:
+  - `find /home/user/ -name '*.txt'`: Find all `.txt` files under `/home/user/`.
+  - `find . -type d -name 'dir*'`: Find directories starting with `dir`.
+### touch (Create or update file timestamps)
+- **Syntax**: `touch [options] file`
+- **Examples**:
+  - `touch newfile.txt`: Create an empty `newfile.txt` or update its timestamp.
+  - `touch -c non_existent_file.txt`: Don’t create `non_existent_file.txt` if it doesn’t exist.
+### chmod (Change File Permissions)
+`chmod` can use both numeric (octal) and symbolic modes to set file permissions.
+#### Numeric (Octal) Mode
+- **Syntax**: `chmod [permissions] file`
+- **Examples**:
+  - `chmod 755 file.txt`: 
+    - `7` (rwx) for owner
+    - `5` (r-x) for group
+    - `5` (r-x) for others
+  - `chmod 644 file.txt`:
+    - `6` (rw-) for owner
+    - `4` (r--) for group
+    - `4` (r--) for others
+**Numeric Permission Values**:
+- `4` = Read (r)
+- `2` = Write (w)
+- `1` = Execute (x)
+- Permissions are additive. For example, `7` = `4` (r) + `2` (w) + `1` (x).
+#### Symbolic Mode
+- **Syntax**: `chmod [who][+/-][permissions] file`
+- **Examples**:
+  - `chmod u+x file.txt`: Add execute permission for the user (owner).
+  - `chmod g-w file.txt`: Remove write permission for the group.
+  - `chmod o=r file.txt`: Set others' permissions to read-only.
+**Symbolic Permission Characters**:
+- `u` = User (owner)
+- `g` = Group
+- `o` = Others
+- `a` = All (user, group, and others)
+- `+` = Add permission
+- `-` = Remove permission
+- `=` = Set exact permission
+#### Options
+- `-R` or `--recursive`: Apply changes recursively to directories and their contents.
+### chown (Change File Ownership)
+- **Syntax**: `chown [options] user[:group] file`
+- **Examples**:
+  - `chown user file.txt`: Change the owner to `user`.
+  - `chown user:group file.txt`: Change the owner to `user` and the group to `group`.
+  - `chown :group file.txt`: Change the group to `group` without changing the owner.
+- Options
+  - `-R` or `--recursive`: Apply changes recursively to directories and their contents.
+### df (Disk Space Usage)
+- **Syntax**: `df [options] [file]`
+- **Examples**:
+  - `df -h`: Display disk space in a human-readable format (e.g., MB, GB).
+  - `df -T`: Show the filesystem type along with space usage.
+  - `df --total`: Show a grand total of all file systems.
+### du (Disk Usage)
+- **Syntax**: `du [options] [file]`
+- **Examples**:
+  - `du -h`: Show disk usage in human-readable format.
+  - `du -sh /path/to/dir`: Show the total size of `/path/to/dir`.
+  - `du -a`: Show the size of all files and directories.
+  - `du --max-depth=1`: Limit the depth of directory traversal to 1 level.
+### pwd (Check Current Directory)
+- **Syntax**: `pwd`
+---
+## OpenSSH with Linux or Termux and SFTP Server Mount on Material Files: Secure Remote Access
+### Introduction of SSH and OpenSSH
+SSH provides a secure way for accessing remote hosts and replaces tools such as telnet, rlogin, rsh, ftp. \
+OpenSSH (also known as OpenBSD Secure Shell) is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.\
+Default SSH port in **Termux** is `8022`.\
+Default SSH port in Linux is usually `22`.
+### OpenSSH Server in Linux
+#### Install and Setup
+```
+sudo apt install openssh-server
+sudo systemctl enable --now ssh
+```
+#### Edit Configuration 
+```
+sudo nano /etc/ssh/sshd_config
+```
+Change the line:
+```
+#Port 22
+```
+to:
+```
+Port 2222
+```
+You can change the port `2222` to the port you want. Note that you may need to set the ports that VM can use when booting VM if you are in a VM.\
+Change the line:
+```
+#PermitRootLogin prohibit-password
+```
+to:
+```
+PermitRootLogin yes
+```
+if you want to permit login as root.
+#### Start 
+```
+sudo service ssh start
+```
+#### Restart  
+```
+sudo service ssh restart
+```
+#### Stop 
+```
+sudo service ssh stop
+```
+#### Disable 
+```
+sudo systemctl disable ssh
+```
+#### Enable 
+```
+sudo systemctl enable ssh
+```
+#### Check Status
+```
+sudo service ssh status
+```
+#### Allow Localhost Connection 
+```
+nano /etc/hosts .deny
+```
+Delete all lines in it.
+### OpenSSH Server in Termux 
+#### Install
+```
+apt install openssh
+```
+#### Start
+```
+sshd
+```
+#### Stop
+```
+pkill sshd
+```
+---
+### OpenSSH Client in Linux or Termux
+#### Install in Linux
+```
+sudo apt install openssh-client
+```
+#### Install in Termux 
+```
+apt install openssh
+```
+#### Run
+```
+ssh root@localhost
+```
+Change the `root@localhost` to the actual user name and address. Port will be set as default.\
+Run with port specified:
+```
+ssh root@localhost -p 2222
+```
+Change `2222` to the port of the server.
+#### Exit
+Type:
+```
+exit
+```
+to exit a SSH connection.
+#### Delete Key
+You need to delete the original key if the server is reset.
+```
+ssh-keygen -R [localhost]:2222
+```
+Change `[localhost]:2222` to the actual address and port of the server.
+### SCP (Secure Copy Protocol)
+You can use `scp` on the client side to transfer files between the server side and the client side.\
+The syntax of `scp` is the same as that of `cp`, but with the `username@host:` added before the path to copy to or from the server. For example:
+```
+scp -r root@localhost:/root/Desktop /data/data/com.termux/files/home/
+```
+Use SFTP server mount if you encounter errors in this method.
+### SFTP Server Mound on Material Files
+#### Install Material Files
+You can install **Material Files** from Google Play: [https://play.google.com/store/apps/details?id=me.zhanghai.android.files](https://play.google.com/store/apps/details?id=me.zhanghai.android.files) or F-Droid: [https://f-droid.org/packages/me.zhanghai.android.files/](https://f-droid.org/packages/me.zhanghai.android.files/).
+#### Introduction of SFTP
+SFTP, or Secure File Transfer Protocol, is a secure network protocol used for transferring files over a secure connection. It is an extension of the SSH (Secure Shell) protocol, which means it provides the same level of security and encryption that SSH offers. Here are some key points about SFTP:
+1. Security: SFTP encrypts both commands and data. This makes it more secure than traditional FTP (File Transfer Protocol).
+2. Authentication: SFTP supports various password-based and key-based authentication.
+3. File Management: SFTP allows for various file management operations, such as listing files, changing directories, and deleting files.
+4. Port: SFTP typically operates over the same port used by SSH.
+5. Cross-Platform: SFTP is supported on various platforms, making it a versatile option for file transfers across different systems.
+#### Mount SFTP Server
+- Connect to the SSH server with **Termux** or other clients on your Android device.
+- Open the left menu.
+- Tap **Add storage ...**.
+- Tap **SFTP server**.
+- Input necessary information. Hostname, Port, etc. means those of the SSH server. Leave path empty or type `/` to mount `/`.
+- You can manage the file system of the SSH server like managing local storage now.
+### Further Readings and References about OpenSSH with Linux and Termux
+- [https://www.openssh.com/](https://www.openssh.com/)
+- [https://ivonblog.com/posts/termux-qemu-system-linux/](https://ivonblog.com/posts/termux-qemu-system-linux/)
+- [https://wiki.termux.com/wiki/Remote_Access](https://wiki.termux.com/wiki/Remote_Access).
+- [https://ivonblog.com/posts/termux-openssh/](https://ivonblog.com/posts/termux-openssh/).
+---
 ## Linux Command Library
 ### Introduction of Linux Command Library
 The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in Linux are available in **Termux** too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
 ### Install and Use Linux Command Library 
 You can install **Linux Command Library** in Google Play: [https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca](https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca) or F-Droid: [https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/](https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/), or browse it on its official website: [https://linuxcommandlibrary.com/](https://linuxcommandlibrary.com/).
+---
 ## Linux and Termux Odds and Ends
 ### apt (Termux, Debian, etc.)
 apt is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.\
@@ -1506,6 +1788,7 @@ sudo apt update && sudo apt upgrade
 ```
 sudo apt update
 ```
+---
 ## Promoted or Related Works, References, and Bibliography 
 ### Termux by Fredrik Fornwall / Termux / termux
 - F-Droid: [https://f-droid.org/packages/com.termux/](https://f-droid.org/packages/com.termux/).
@@ -1576,6 +1859,10 @@ sudo apt update
 ### ANC by Gaurav Ujwal / gujjwal00
 - F-Droid: [https://f-droid.org/packages/com.gaurav.avnc/](https://f-droid.org/packages/com.gaurav.avnc/).
 - GitHub: [https://github.com/gujjwal00/avnc](https://github.com/gujjwal00/avnc).
+### Material Files / MaterialFiles by Hai Zhang / zhanghai
+- Google Play: [https://play.google.com/store/apps/details?id=me.zhanghai.android.files](https://play.google.com/store/apps/details?id=me.zhanghai.android.files).
+- F-Droid: [https://f-droid.org/packages/me.zhanghai.android.files/](https://f-droid.org/packages/me.zhanghai.android.files/).
+- GitHub: [https://github.com/zhanghai/MaterialFiles](https://github.com/zhanghai/MaterialFiles).
 ### Others
 - ChatGPT by OpenAI: [https://openai.com/chatgpt/](https://openai.com/chatgpt/).
 - awesome-shizuku by Tim Schneeberger / timschneeb: [https://github.com/timschneeb/awesome-shizuku](https://github.com/timschneeb/awesome-shizuku).
@@ -1583,8 +1870,10 @@ sudo apt update
 - Wikipedia: [https://en.m.wikipedia.org/](https://en.m.wikipedia.org/).
 - DNS leak test: [https://www.dnsleaktest.com](https://www.dnsleaktest.com).
 - What Is My IP Address: [https://whatismyipaddress.com](https://whatismyipaddress.com).
+---
 ## Contribution
 We welcome contributions to this project! Please fork the repository and submit a pull request for your contributions. For clarity and convenience, we recommend making one pull request per revised section or added feature.
+---
 ## License
 This project is licensed under the terms the GNU General Public License v3.0 or later (GPL-3.0-or-later).\
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\
