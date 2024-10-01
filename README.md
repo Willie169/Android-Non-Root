@@ -10,6 +10,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Introduction of Termux](#introduction-of-termux)
   - [Official Wiki and Community of Termux](#official-wiki-and-community-of-termux)
   - [Termux App User Interface](#termux-app-user-interface)
+  - [Shortcuts](#shortcuts)
   - [Grant Termux Storage Permission](#grant-termux-storage-permission)
   - [Termux pkg Package Management](#termux-pkg-package-management)
   - [Text Editor: Nano and Vim](#text-editor-nano-and-vim)
@@ -105,7 +106,6 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Install and Use Linux Command Library](#install-and-use-linux-command-library)
 - [Linux and Termux Odds and Ends](#linux-and-termux-odds-and-ends)
   - [apt (Termux, Debian, etc.)](#apt-termux-debian-etc)
-  - [SIGINT: Send Signal Interrupt from Keyboard (Termux, Debian, etc.)](#sigint-send-signal-interrupt-from-keyboard-termux-debian-etc)
   - [Commands for Copy](#commands-for-copy)
 - [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   - [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
@@ -170,8 +170,57 @@ Please read the [Global Note](#global-note) before you start or you may encounte
 - Reddit Community: [https://termux.com/community](https://termux.com/community).
 ### Termux App User Interface
 - Pinch to zoom in or out.
-- Long press to Copy, Paste, Select URL, Share transcript, Autofill password, Reset, Kill process, Style, Keep screen on, Help, Settings, or Report Issue.
-- Pull out the left menu to open **Termux Settings**, start another **NEW SESSION**, or launch **KEYBOARD**.
+- Swipe right from the left edge of the screen to drag out the navigation bar, where you can open **Termux Settings**, start another **NEW SESSION**, switch to another session, or launch **KEYBOARD**.
+- Long press on screen to:
+  - COPY: Copy
+  - PASTE: Paste
+  - More: More
+    - Select URL: Select URL
+    - Share transcipt: transfer all output of the current session (via Android api)
+    - Reset: Reset
+    - Kill process: Kill the current terminal session process
+    - Style: Style (requires Termux: Styling plugin)
+    - Keep screen on:
+    - Help: Help documentation (Termux Wiki)
+### Shortcuts
+The following are some of the shortcuts commonly used in the terminal, and they also work in Ter­mux. The volume plus button (abbreviated to Volume below) can be used as a special key to generate a specific input, which can be roughly understood as the Fn key on a laptop.
+- Ctrl + A - Move cursor to the start position
+- Ctrl + E - Move cursor to the end
+- Ctrl + K - Cut everything from here to the end
+- Ctrl + U - Cut everything from here to the beginning
+- Ctrl + W - Cut everything from here to the left
+- Ctrl + Y - Paste words cut by Ctrl + U, Ctrl + D, or Ctrl + W
+- Ctrl + L - Equivalent to clear command or clear screen
+- Ctrl + C - Send Signal Interrupt (SIGINT), which terminate the process
+- Ctrl + D - Close the terminal
+- Ctrl + Z - Send Signal Terminal Stop (SIGTSTP), which suspend the current process
+- Volume + E - Esc
+- Volume + T - Tab
+- Volume + 1 - F1
+- Volume + 2 - F2
+- Volume + 3 - F3
+- Volume + 4 - F4
+- Volume + 5 - F5
+- Volume + 6 - F6
+- Volume + 7 - F7
+- Volume + 8 - F8
+- Volume + 9 - F9
+- Volume + 0 - F10
+- Volume + B / Alt + B - Return a word when using readline
+- Volume + F / Alt + F - Forward a word when using readline
+- Volume + X / Alt + X
+- Volume + W - Up Arrow
+- Volume + A - Left Arrow
+- Volume + S - Down Arrow
+- Volume + D - Right Arrow
+- Volume + L - | (pipe character)
+- Volume + H - ~ (tilde character)
+- Volume + U - _ (underscore character)
+- Volume + P - Page Up (previous page)
+- Volume + N - Page Down (next page)
+- Volume + . / Ctrl + \ - Signal Quit (SIGQUIT)
+- Volume + V - Show volume control
+- Volume + Q / Volume + K - Show extra button view
 ### Grant Termux Storage Permission
 Run the following command **Termux**:
 ```
@@ -253,6 +302,7 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 - [https://github.com/termux/termux-packages/issues/6726](https://github.com/termux/termux-packages/issues/6726).
 - [https://github.com/termux/termux-packages/issues/6455](https://github.com/termux/termux-packages/issues/6455).
 - [https://github.com/termux/termux-packages/wiki/Mirrors](https://github.com/termux/termux-packages/wiki/Mirrors).
+- [https://github.com/cyb0rgdoll/freshtermux](https://github.com/cyb0rgdoll/freshtermux).
 ### `Process completed (signal 9) - press Enter` error
 Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU. You may get `Process completed (signal 9) - press Enter` message in the terminal without actually exiting the shell process yourself. Here is the guide of how to turn it off.
 #### Fix for Stock Android 12L and beyond
@@ -1859,8 +1909,6 @@ apt is a commandline package manager and provides commands for searching and man
 - Information about how to configure sources can be found in sources.list(5): [https://manpages.debian.org/unstable/apt/sources.list.5.en.html](https://manpages.debian.org/unstable/apt/sources.list.5.en.html).
 - Package and version choices can be expressed via apt_preferences(5): [https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html](https://manpages.debian.org/unstable/apt/apt_preferences.5.en.html).
 - Security details are available in apt-secure(8): [https://manpages.debian.org/unstable/apt/apt-secure.8.en.html](https://manpages.debian.org/unstable/apt/apt-secure.8.en.html).
-### SIGINT: Send Signal Interrupt from Keyboard (Termux, Debian, etc.)
-Press Ctrl + C to send a signal called SIGINT (Signal Interrupt) to the currently running process. This signal instructs the process to stop execution. It is typically used to terminate a running program or command, especially one that is taking too long or has become unresponsive.
 ### Commands for Copy
 #### Linux Setup Command
 ```
@@ -2002,6 +2050,7 @@ sudo apt update
 - Wikipedia: [https://en.m.wikipedia.org/](https://en.m.wikipedia.org/).
 - DNS leak test: [https://www.dnsleaktest.com](https://www.dnsleaktest.com).
 - What Is My IP Address: [https://whatismyipaddress.com](https://whatismyipaddress.com).
+- freshtermux by Miranda / cyb0rgdoll: [https://github.com/cyb0rgdoll/freshtermux](https://github.com/cyb0rgdoll/freshtermux).
 ---
 ## Contribution
 We welcome contributions to this project! Please fork the repository and submit a pull request for your contributions. For clarity and convenience, we recommend making one pull request per revised section or added feature.
