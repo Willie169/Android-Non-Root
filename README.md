@@ -12,6 +12,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - [Termux App User Interface](#termux-app-user-interface)
   - [Shortcuts](#shortcuts)
   - [Grant Termux Storage Permission](#grant-termux-storage-permission)
+  - [Termux-Properties](#termux-properties)
   - [Termux pkg Package Management](#termux-pkg-package-management)
   - [Text Editor: Nano and Vim](#text-editor-nano-and-vim)
   - [Package Command Error](#package-command-error)
@@ -165,6 +166,7 @@ Please read the [Global Note](#global-note) before you start or you may encounte
   - Run text-based games with frotz.
   - and more
 - At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the Debian and Ubuntu Linux distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.
+- `$PREFIX` and `~` refer to `/data/data/com.termux/files/home`.
 ### Official Wiki and Community of Termux
 - Wiki: [https://wiki.termux.com/](https://wiki.termux.com/).
 - Reddit Community: [https://termux.com/community](https://termux.com/community).
@@ -226,7 +228,14 @@ Run the following command **Termux**:
 ```
 termux-setup-storage
 ```
-and tap **Allow**.
+and tap **Allow**.\
+Many processes mentioned in this tutorial need **Termux** to have this permission.
+### Termux-Properties
+You can edit properties of **Termux** by:
+```
+nano ~/.termux/termux-properties
+```
+Properties can be changed including `default-working-directory`, `allow-external-apps`, `volume-keys`, etc.
 ### Termux pkg Package Management
 pkg is a tool for managing apt packages.\
 Usage: `pkg [--check-mirror] command [arguments]`.
