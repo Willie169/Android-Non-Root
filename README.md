@@ -424,7 +424,7 @@ nano ~/.vnc/xstartup
 Copy below command and paste to it:
 ```
 #!/data/data/com.termux/files/usr/bin/sh
----
+
 ## Fluxbox desktop.
 
 # Generate menu.
