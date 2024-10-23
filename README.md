@@ -1017,7 +1017,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
     - Ensure the **Forwarding rules** is coordinate with the **DNS port** in **Tor settings** (`onion 127.0.0.1:5400` by default).
     - Turn on **Query logging** and **Suspicious logging** if you want.
 - Go to **Tor settings**.
-    - Set Nodes, Proxy, etc. if you want. Make sure the **SOCKS port is coordinated with the **SOCKS proxy** in **TrackerControl** and the **DNS port** is coordinated with the **Forwarding rules** in **DNSCrypt Settings** (`onion 127.0.0.1:5400` by default).
+    - Set Nodes, Proxy, etc. if you want. Make sure the **SOCKS port** is coordinated with the **SOCKS proxy** in **TrackerControl** and the **DNS port** is coordinated with the **Forwarding rules** in **DNSCrypt Settings** (`onion 127.0.0.1:5400` by default).
 - Set other things if you want.
 - You can apply some of the above settings with the files below (assuming the configuration of **TrackerControl** is as in this guide). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case. 
     - `dns-proxy.toml`: Copy the text in the below block, tap `Edit dns-proxy.toml` in **DNSCrypt Settings**, and paste.
