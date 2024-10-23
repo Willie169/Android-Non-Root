@@ -1,4 +1,4 @@
-# This Repo Is Depreciated, Please Go to [Willie169.github.io](https://Willie169.github.io)
+# This Project Is Moved to [Willie169.github.io](https://Willie169.github.io)
 
 # Android-Non-Root
 In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.\
