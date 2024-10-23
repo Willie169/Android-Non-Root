@@ -1,3 +1,5 @@
+# This Repo Is Depreciated, Please Go to [willie169.github.io](https://willie169.github.io)
+
 # Android-Non-Root
 In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.\
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
@@ -1351,7 +1353,7 @@ openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out fil
 ```
 **DESCRIPTION**: The symmetric cipher commands allow data to be encrypted or decrypted using various block and stream ciphers using keys based on passwords or explicitly provided. Base64 encoding or decoding can also be performed either by itself or in addition to the encryption or decryption.\
 **OPTIONS**:
--help: Print out a usage message.
+- -help: Print out a usage message.
 - -list: List all supported ciphers.
 - -ciphers: Alias of -list to display all supported ciphers.
 - -in filename: The input filename, standard input by default.
