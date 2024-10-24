@@ -20,7 +20,7 @@ Binaries: https://github.com/Willie169/Android-Non-Root/releases/download/v%v/co
 Builds:
   - versionName: '1.0'
     versionCode: 10
-    commit: 2672b8f3ccd135d771e6dc3d685325e88bae27b4
+    commit: 860723f238a607e4e44bd0c1bf514042743be4c2
     subdir: app
     gradle:
       - yes
