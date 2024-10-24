@@ -4,7 +4,7 @@
 # Android Non Root
 
 <a href="https://github.com/Willie169/Android-Non-Root"><img src="img/Android Non Root.png" alt="Android Non Root" style="height: 200px;"></a>
-<p>In this tutorial called <strong>Android-Non-Root</strong>, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access, including Termux, Shizuku, ADB, TrackerControl, Linux Emulation and Virtualization, Tor, etc.</p>
+<p>In this tutorial called <strong>Android Non Root</strong>, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access, including Termux, Shizuku, ADB, TrackerControl, Linux Emulation and Virtualization, Tor, etc.</p>
 
 ## Website
 
