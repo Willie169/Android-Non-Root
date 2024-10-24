@@ -13,7 +13,7 @@
 ## App
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.svg" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/com.willie.androidnonroot)
-[<img src="https://github.com/Kunzisoft/Github-badge/raw/main/get-it-on-github.svg" alt="Get it on GitHub" height="80">](https://github.com/Willie169/mancala-android/releases/download/v1.0/com.willie.androidnonroot_10.apk)
+[<img src="https://github.com/Kunzisoft/Github-badge/raw/main/get-it-on-github.svg" alt="Get it on GitHub" height="80">](https://github.com/Willie169/Android-Non-Root/releases/download/v1.0/com.willie.androidnonroot_10.apk)
 
 ## Author 
 
