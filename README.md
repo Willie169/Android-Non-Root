@@ -21,4 +21,4 @@
 
 ## Screenshot
 
-![screenshot](fastlane/metadata/android/en-US%2Fimage/phoneScreenshots/screenshot.jpg)
+![screenshot](fastlane/metadata/android/en-US/image/phoneScreenshots/screenshot.jpg)
