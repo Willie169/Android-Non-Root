@@ -11,12 +11,12 @@ AutoName: Android Non Root
 
 RepoType: git
 Repo: https://github.com/Willie169/Android-Non-Root.git
-Binaries: https://github.com/Willie169/mancala-android/releases/download/v%v/com.willie.mancala_%c.apk
+Binaries: https://github.com/Willie169/Android-Non-Root/releases/download/v%v/com.willie.androidnonroot_%c.apk
 
 Builds:
   - versionName: '1.0'
     versionCode: 10
-    commit: 84b0847c99aae3abf3b8036c27304863c250e286
+    commit: 2672b8f3ccd135d771e6dc3d685325e88bae27b4
     subdir: app
     gradle:
       - yes
