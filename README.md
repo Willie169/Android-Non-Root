@@ -8,7 +8,7 @@
 
 ## Website
 
-<a href="https://willie169.github.io">https://github.com/Willie169/Android-Non-Root</a>
+<a href="https://willie169.github.io">https://willie169.github.io</a>
 
 ## App
 
