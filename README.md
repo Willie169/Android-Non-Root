@@ -1,4 +1,3 @@
-![fdroidRelease](https://img.shields.io/f-droid/v/com.willie.androidnonroot.svg?logo=F-Droid) 
 ![ghRelease](https://img.shields.io/github/v/release/Willie169/Android-Non-Root)
 ![License](https://img.shields.io/badge/license-GFDL%201.3%20or%20CC%20BY--SA%204.0-blue.svg)
 # Android Non Root
@@ -12,7 +11,6 @@
 
 ## App
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.svg" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/com.willie.androidnonroot)
 [<img src="https://github.com/Kunzisoft/Github-badge/raw/main/get-it-on-github.svg" alt="Get it on GitHub" height="80">](https://github.com/Willie169/Android-Non-Root/releases/download/v1.0/com.willie.androidnonroot_10.apk)
 
 ## Author 
