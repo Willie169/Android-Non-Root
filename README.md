@@ -1,5 +1,3 @@
-# This Project Is Moved to [willie169.github.io](https://willie169.github.io)
-
 # Android-Non-Root
 In this tutorial called **Android-Non-Root**, we'll explore a range of powerful, open-source tools to enhancing your Android device’s functionality, security, privacy, and customization without the need for root access.\
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
