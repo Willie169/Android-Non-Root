@@ -1,6 +1,6 @@
 # Android Non Root
 
-Android Non Root has three version:
+Android Non Root has three versions:
 
 * The HTML version: <https://willie169.github.io>.
 * The repository of the HTML version: <https://github.com/Willie169/Willie169.github.io>.
