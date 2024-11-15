@@ -1,4 +1,4 @@
-[![Android Non Root](img/Android_Non_Root.png)](https://willie169.github.io) 
+[![Android Non Root](img/Android_Non_Root.png)](https://willie169.github.io)
 
 # Android Non Root
 
@@ -279,10 +279,8 @@ The following are some of the shortcuts commonly used in the terminal, and they 
 ### Grant Termux Storage Permission
 
 Run the following command **Termux**:
-
 ```
 termux-setup-storage
-
 ```
 
 and tap **Allow**.  
@@ -291,10 +289,8 @@ Many processes mentioned in this tutorial need **Termux** to have this permissio
 ### Termux-Properties
 
 You can edit properties of **Termux** by:
-
 ```
 nano ~/.termux/termux-properties
-
 ```
 
 Properties can be changed including `default-working-directory`, `allow-external-apps`, `volume-keys`, etc.
@@ -326,10 +322,8 @@ Nano and Vim are both text editors used in Unix-like operating systems.
 #### Nano
 
 Install:
-
 ```
 apt install nano
-
 ```
 
 Nano is a simple, user-friendly text editor designed for ease of use.
@@ -350,26 +344,20 @@ Vim (Vi IMproved) is a highly configurable and powerful text editor, which is an
 ### Package Command Error
 
 Termux had to move the primary Termux package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:
-
 ```
 E: The repository 'https://termux.org/packages stable Release' does no longer have a Release file.
 N: Metadata integrity can't be verified, repository is disabled now.
 N: Possible cause: repository is under maintenance or down (wrong sources.list URL?).
-
 ```
-
 ```
 E: The repository 'https://dl.bintray.com/grimler/game-packages-24 games Release' does not have a Release file.
 N: Metadata integrity can't be verified, repository is disabled now.
 N: Possible cause: repository is under maintenance or down (wrong sources.list URL?).
-
 ```
-
 ```
 E: The repository 'https://science.termux-mirror.ml science Release' does not have a Release file.
 N: Metadata integrity can't be verified, repository is disabled now.
 N: Possible cause: repository is under maintenance or down (wrong sources.list URL?).
-
 ```
 
 #### Command Solution
@@ -379,13 +367,11 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 * Pick a mirror, it is recommended to begin with mirror hosted by Grimler. Same as previously, navigate over list by arrow keys, pick mirror by space key and confirm choice by pressing "enter".
 * If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the `termux-info` command. Note that the science and game repos have been merged into main repo and should be removed with apt remove science-repo game-repo if you have them installed.
 * If you receive errors like:
-
 ```
 E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Origin' value from 'Bintray' to 'termux-root-packages-24 root'  
 E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Label' value from 'Bintray' to 'termux-root-packages-24 root'  
 N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.  
 Do you want to accept these changes and continue updating from this repository? [y/N]  
-
 ```
 
   
@@ -424,28 +410,22 @@ Some Android OS will kill any (phantom) processes greater than 32 (limit is for 
 * Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via **Shizuku**.
 * Type `adb shell` to enter `adb shell`.
 * Run the following commands inside `adb shell`:
-
 ```
 /system/bin/device_config set_sync_disabled_for_tests persistent  
 /system/bin/device_config put activity_manager max_phantom_processes 2147483647  
 settings put global settings_enable_monitor_phantom_procs false  
-
 ```
 
 * To check the status of whether phantom process killer is disabled, run the following commands inside `adb shell`:
-
 ```
 /system/bin/dumpsys activity settings | grep max_phantom_processes  
 /system/bin/device_config get activity_manager max_phantom_processes  
-
 ```
 
 * To enable phantom process killer again, run the following commands inside `adb shell`:
-
 ```
 /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32  
 settings put global settings_enable_monitor_phantom_procs true  
-
 ```
 
 #### Further Readings and References about Process completed (signal 9) - press Enter error
@@ -467,18 +447,14 @@ settings put global settings_enable_monitor_phantom_procs true
 ### Enable the X11 Repository of Termux
 
 X11 packages are available in a separate APT repository. You can enable it by running the following command:
-
 ```
 pkg install x11-repo
-
 ```
 
 It will automatically add appropriate sources.list file and PGP key.  
 You can disable this repository by running the following command:
-
 ```
 pkg uninstall x11-repo
-
 ```
 
 ### VNC Server in Termux
@@ -486,52 +462,41 @@ pkg uninstall x11-repo
 In this section, you will learn how to set up a VNC server in **Termux** for graphical output.
 
 #### Install TigerVNC
-
 ```
 pkg install tigervnc
-
 ```
 
 #### Start a VNC Server
 
 Not specifying port:
-
 ```
 vncserver -localhost
-
 ```
 
 VNC server will start on unused port with the smallest positive integer number, like `localhost:1` if port 1 is not used.  
 Specifying port:
-
 ```
 vncserver :1
-
 ```
 
 VNC server will start on the port you specified.  
 Specifying resolution:
-
 ```
 vncserver :1 -geometry 1920x1080
-
 ```
 
 You can specify resolution with `-geometry`.  
 At first time, you will be prompted for setting up passwords:
-
 ```
 You will require a password to access your desktops.
 
 Password:
 Verify:
 Would you like to enter a view-only password (y/n)? n
-
 ```
 
 Note that passwords are not visible when you are typing them and maximal password length is 8 characters.  
 If everything is okay, you will see this message:
-
 ```
 New 'localhost:1 ()' desktop is localhost:1
 
@@ -539,25 +504,20 @@ Creating default startup script /data/data/com.termux/files/home/.vnc/xstartup
 Creating default config /data/data/com.termux/files/home/.vnc/config
 Starting applications specified in /data/data/com.termux/files/home/.vnc/xstartup
 Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
-
 ```
 
 It means that the server is available on display `localhost:1`.  
 To make programs do graphical output to the display `localhost:1`, set environment variable like shown here (yes, without specifying `localhost`):
-
 ```
 export DISPLAY=":1"
-
 ```
 
 You may even put this variable to your bashrc or profile so you don't have to always set it manually unless display address will be changed.  
 Connect to the VNC server from a VNC viewer to view the output, you will not see anything except your mouse pointer if no windows manager or desktop environment is started.
 
 #### Kill All VNC Servers
-
 ```
 vncserver -kill localhost:1
-
 ```
 
 Change the port with the actual port your VNC server started on.
@@ -565,21 +525,16 @@ Change the port with the actual port your VNC server started on.
 ### Fluxbox in Termux
 
 #### Install Fluxbox
-
 ```
 pkg install fluxbox
-
 ```
 
 #### Setup
-
 ```
 nano ~/.vnc/xstartup
-
 ```
 
 Copy below command and paste to it:
-
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 
@@ -590,7 +545,6 @@ fluxbox-generate_menu
 
 # Start fluxbox.
 fluxbox &
-
 ```
 
 Fluxbox will start automatically on VNC server startup.
@@ -598,45 +552,35 @@ Fluxbox will start automatically on VNC server startup.
 ### Openbox in Termux
 
 #### Install Openbox
-
 ```
 pkg install openbox pypanel xorg-xsetroot
-
 ```
 
 #### Setup
-
 ```
 nano ~/.vnc/xstartup
-
 ```
 
 Copy below command and paste to it:
-
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 
 # Start Openbox.
 openbox-session &
-
 ```
 
 Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above since Openbox has its own autostart script, which is located at `${PREFIX}/etc/xdg/openbox/autostart`.
-
 ```
 nano ~/etc/xdg/openbox/autostart
-
 ```
 
 Copy below command and paste to it:
-
 ```
 # Make background gray.
 xsetroot -solid gray
 
 # Launch PyPanel.
 pypanel &
-
 ```
 
 Openbox will start automatically on VNC server startup.
@@ -644,25 +588,19 @@ Openbox will start automatically on VNC server startup.
 ### XFCE in Termux
 
 #### Install XFCE
-
 ```
 pkg install xfce4
-
 ```
 
 #### Setup
-
 ```
 nano ~/.vnc/xstartup
-
 ```
 
 Copy below command and paste to it:
-
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 xfce4-session &
-
 ```
 
 Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.  
@@ -676,25 +614,19 @@ XFCE will start automatically on VNC server startup.
 ### LXQt in Termux
 
 #### Install LXQt
-
 ```
 pkg install lxqt
-
 ```
 
 #### Setup
-
 ```
 nano ~/.vnc/xstartup
-
 ```
 
 Copy below command and paste to it:
-
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 startlxqt &
-
 ```
 
 Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.  
@@ -708,25 +640,19 @@ LXQt will start automatically on VNC server startup.
 ### MATE in Termux
 
 #### Install MATE
-
 ```
 pkg install mate-* marco
-
 ```
 
 #### Setup
-
 ```
 nano ~/.vnc/xstartup
-
 ```
 
 Copy below command and paste to it:
-
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 mate-session &
-
 ```
 
 Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.  
@@ -785,35 +711,27 @@ Install Andronix from Google Play: <https://play.google.com/store/apps/details?i
 #### Install and Setup Sound Output from PRoot OS
 
 Run the following command in Termux (Not inside Linux):
-
 ```
 pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh && chmod +x setup-audio.sh && ./setup-audio.sh
-
 ```
 
 #### Start PulseAudio Server
-
 ```
 pulseaudio --start
-
 ```
 
 ### Example: Debian with XFCE Desktop Environment
 
 #### Install Debian with XFCE
-
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh && chmod +x debian-xfce.sh &&  bash debian-xfce.sh
-
 ```
 
 The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the Debian OS.
 
 #### Turn on the OS (CLI)
-
 ```
 ./start-debian.sh
-
 ```
 
 #### VNC Server
@@ -827,26 +745,20 @@ The file directory of the Debian OS will be `debian-fs`. You can read, write, an
 ### Example: Debian with CLI Only
 
 #### Install Debian
-
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh && chmod +x debian.sh && bash debian.sh
-
 ```
 
 The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the Debian OS.
 
 #### Turn on the OS (CLI)
-
 ```
 ./start-debian.sh
-
 ```
 
 ### Example: Uninstall Debian OS (Not Modded)
-
 ```
 wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh && chmod +x UNI-debian.sh && bash UNI-debian.sh
-
 ```
 
 ---
@@ -856,10 +768,8 @@ wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninsta
 ### Install QEMU
 
 Run the following command in **Termux**:
-
 ```
 pkg install qemu-system-x86_64 qemu-utils qemu-common openssl
-
 ```
 
 ### ISO Image method
@@ -870,30 +780,23 @@ It is recommended to get started with Ubuntu or Debian if you are overwhelmed by
 #### Prepare the ISO Image
 
 Prepare the ISO image. Here takes Debian AMD64 for example. Change the URL to the download link of the ISO image you want or `cp` or `mv` the ISO image you want to the directory you want.
-
 ```
 wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.7.0-amd64-netinst.iso
-
 ```
 
 #### Create a Virtual Disk Image Where the Operating System Will Be Installed
-
 ```
 qemu-img create -f qcow2 debian_amd64.qcow2 20G
-
 ```
 
 Change the `debian_amd64.qcow2` to the file name you want. `20G` indicates 20GB disk image. You can adjust the size as needed.
 
 #### Install VM with CLI
-
 ```
 nano install-qemu.sh
-
 ```
 
 Copy below command and paste to it:
-
 ```
 qemu-system-x86_64 -machine q35 
 
@@ -928,35 +831,27 @@ qemu-system-x86_64 -machine q35
 -display none 
 
 -cdrom ~/debian-12.7.0-amd64-DVD-1.iso
-
 ```
 
 Adjust `hostfwd` as needed. In the above command, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine. Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed.  
 Make it executable:
-
 ```
 chmod +x install-qemu.sh
-
 ```
 
 Run it:
-
 ```
 ./install-qemu.sh
-
 ```
 
 Follow the screen guide to install.
 
 #### Install VM with GUI
-
 ```
 nano install-qemu.sh
-
 ```
 
 Copy below command and paste to it:
-
 ```
 qemu-system-x86_64 -machine q35 
 
@@ -985,35 +880,27 @@ qemu-system-x86_64 -machine q35
 --vnc :0 
 
 -cdrom ~/debian-12.7.0-amd64-netinst.iso
-
 ```
 
 Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.  
 Make it executable:
-
 ```
 chmod +x install-qemu.sh
-
 ```
 
 Run it:
-
 ```
 ./install-qemu.sh
-
 ```
 
 Connect to the VNC server from a VNC viewer and follow the screen guide on the VNC viewer to install.
 
 #### Boot VM with CLI
-
 ```
 nano qemu-cli.sh
-
 ```
 
 Copy below command and paste to it:
-
 ```
 qemu-system-x86_64 -machine q35 
 
@@ -1042,33 +929,25 @@ qemu-system-x86_64 -machine q35
 -serial mon:stdio 
 
 -display none
-
 ```
 
 Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed.  
 Make it executable:
-
 ```
 chmod +x qemu-cli.sh
-
 ```
 
 Run it to boot the VM with CLI:
-
 ```
 ./qemu-cli.sh
-
 ```
 
 #### Boot with GUI
-
 ```
 nano qemu-gui.sh
-
 ```
 
 Copy below command and paste to it:
-
 ```
 qemu-system-x86_64 -machine q35 
 
@@ -1095,22 +974,17 @@ qemu-system-x86_64 -machine q35
 -drive file=debian_amd64.qcow2 
 
 --vnc :0
-
 ```
 
 Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use.  
 Make it executable:
-
 ```
 chmod +x qemu-cli.sh
-
 ```
 
 Run it to boot the VM with GUI:
-
 ```
 ./qemu-gui.sh
-
 ```
 
 Connect to the VNC server from a VNC viewer.
@@ -1123,21 +997,16 @@ It is recommended to get started with Ubuntu or Debian if you are overwhelmed by
 #### Prepare the QCOW2 Image
 
 Prepare the qcow2 image. Here takes Debian AMD64 qcow2 cloud image for example. Change the URL to the download link of the qcow2 image you want or `cp` or `mv` the qcow2 image you want to the directory you want.
-
 ```
 wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-amd64.qcow2
-
 ```
 
 #### Boot with CLI
-
 ```
 nano qemu-cli.sh
-
 ```
 
 Copy below command and paste to it:
-
 ```
 qemu-system-x86_64 -m 2G 
 
@@ -1152,33 +1021,25 @@ qemu-system-x86_64 -m 2G
 -netdev user,id=net0,hostfwd=tcp::2222-:22 
 
 -device e1000,netdev=net0
-
 ```
 
 Change the `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Adjust `hostfwd` as needed.  
 Make it executable:
-
 ```
 chmod +x qemu-cli.sh
-
 ```
 
 Run it to boot the VM with CLI:
-
 ```
 ./qemu-cli.sh
-
 ```
 
 #### Boot with GUI
-
 ```
 nano qemu-gui.sh
-
 ```
 
 Copy below command and paste to it:
-
 ```
 qemu-system-x86_64 -m 2G 
 
@@ -1188,22 +1049,17 @@ qemu-system-x86_64 -m 2G
 -netdev user,id=net0,hostfwd=tcp::2222-:22 
 
 -device e1000,netdev=net0
-
 ```
 
 Change `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use. Adjust `hostfwd` as needed.  
 Make it executable:
-
 ```
 chmod +x qemu-cli.sh
-
 ```
 
 Run it to boot the VM with GUI:
-
 ```
 ./qemu-gui.sh
-
 ```
 
 Connect to the VNC server from a VNC viewer.
@@ -1215,20 +1071,16 @@ You can install a window manager such as Fluxbox or Openbox, or desktop environm
 ### Login
 
 When you see something similar to the below in the VM:
-
 ```
 Debian GNU/Linux 12 localhost ttyS0
 
 localhost login:
-
 ```
 
 In the first time, type `root` and you will be logged in without a password.  
 You can set password latter by:
-
 ```
 passwd
-
 ```
 
 The password should be at least 4 letters long.  
@@ -1237,15 +1089,12 @@ If you don't want to set a password, just type `root` and you will be logged in 
 ### Resize Disk Space
 
 In **Termux** (outside VM), run:
-
 ```
 qemu-img resize debian-12-nocloud-amd64.qcow2 +30G
-
 ```
 
 Change `debian-12-nocloud-amd64.qcow2` to the real file name. `+30G` indicates increasing 30GB disk image. You can adjust the size as needed.  
 Inside VM, run:
-
 ```
 sudo apt update
 sudo apt install parted e2fsprogs
@@ -1255,16 +1104,13 @@ fix
 resizepart 1 100%
 quit
 sudo resize2fs /dev/sda1
-
 ```
 
 ### Check Image Info
 
 In **Termux** (outside VM), run:
-
 ```
 qemu-img info debian-12-nocloud-amd64.qcow2
-
 ```
 
 Change `debian-12-nocloud-amd64.qcow2` to the real file name. 
@@ -1272,17 +1118,13 @@ Change `debian-12-nocloud-amd64.qcow2` to the real file name.
 ### Check VM Disk
 
 Inside VM, run:
-
 ```
 df -h
-
 ```
 
 and for partition, run:
-
 ```
 lsblk
-
 ```
 
 ### OpenSSH
@@ -1399,12 +1241,10 @@ Some financial apps may require Developer Options to be off when using them. Thi
 
 **SystemUI Tuner** exposes some hidden options in Android. You can set them, add them to **Persistent Options** to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner CANNOT work around.  
 You may need to run the following `adb shell` command (you can do it with **Shizuku** and a terminal such as **Termux** or **aShell**) in order to change the settings:
-
 ```
 pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS
 pm grant com.zacharee1.systemuituner android.permission.PACKAGE_USAGE_STATS
 pm grant com.zacharee1.systemuituner android.permission.DUMP
-
 ```
 
 ### Using aShell
@@ -1453,7 +1293,6 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 * Set other things if you want.
 * Block unwanted trackers.
 * **Note**: If you export settings and import it on another device, the blocklist won't be able to be configured as that in the previous device. You can apply some of the above settings with the `.xml` below (assuming the configuration of **Invizible Pro** is as in this guide) by coping it, storing it in a `.xml` file and going to **Settings > Backup > Import settings** to import this file. However, it just contains some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.
-
 ```
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <trackercontrol>
@@ -1485,7 +1324,6 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
     <port pkg="nobody" protocol="6" dport="53" raddr="127.0.0.1" rport="5354" />
   </forward>
 </trackercontrol>
-
 ```
 
 * **Note**: **TrackerControl** has a **Traffic log** feature for free, which can help a lot in identifying which trackers should be unblocked when the services crash.
@@ -1511,7 +1349,6 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 * Set Nodes, Proxy, etc. if you want. Make sure the **SOCKS port** is coordinated with the **SOCKS proxy** in **TrackerControl** and the **DNS port** is coordinated with the **Forwarding rules** in **DNSCrypt Settings** (`onion 127.0.0.1:5400` by default).
 * Set other things if you want. You can apply some of the above settings with the files below (assuming the configuration of **TrackerControl** is as in this guide). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.
 * `dns-proxy.toml`: Copy the text in the below block, tap `Edit dns-proxy.toml` in **DNSCrypt Settings**, and paste.
-
 ```
 ipv4_servers = true  
 ipv6_servers = true  
@@ -1613,11 +1450,9 @@ routes = [
 { server_name = 'adguard-dns-ipv6', via=['anon-ams-ipv6', 'anon-scaleway-ams-ipv6', 'anon-tiarap-ipv6'] }  
 ]  
 [static]  
-
 ```
 
 `tor.conf`: Copy the text in the below block, tap `Edit tor.conf` in **Tor Settings**, and paste.
-
 ```
 RunAsDaemon 0
 AvoidDiskWrites 1
@@ -1658,7 +1493,6 @@ CircuitsAvailableTimeout 86400
 ClientUseIPv4 1
 ClientUseIPv6 1
 UseBridges 0
-
 ```
 
 * Turn both **Tor** and **DNSCrypt** of **InviZible Pro** on.
@@ -1729,17 +1563,13 @@ It is recommended to enable NoScript for all Tor sites unless you fully trust it
 **OpenSSL** is an open-source library that provides a comprehensive suite of cryptographic tools for securing communications over computer networks. It implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols and includes a general-purpose cryptographic library that supports a variety of encryption algorithms, hashing functions, digital signatures, key generation, certificate management, and secure random number generation.
 
 ### Installation of OpenSSL in Termux
-
 ```
 pkg install openssl openssl-tool
-
 ```
 
 ### Installation of OpenSSL in Debian
-
 ```
 sudo apt install openssl libssl-dev
-
 ```
 
 ### RSA (Rivest-Shamir-Adleman)
@@ -1762,82 +1592,60 @@ RSA is employed in various applications that require secure communication and da
 * **Secure Key Exchange:** RSA can facilitate the secure exchange of symmetric keys for faster encryption methods, allowing secure communication without the need for shared secrets.
 
 #### Generate New Private Key
-
 ```
 openssl genrsa -out /path/privatekeyfilename.pem 2048
-
 ```
 
 `2048` means 2048 iterations, change the number as needed.
 
 #### Generate Public Key from Private Key
-
 ```
 openssl rsa -pubout -in /path/privatekeyfilename.pem -out /path/publickeyfilename.pem
-
 ```
 
 #### Encrypt with Public Key
-
 ```
 openssl pkeyutl -in /path/filename.txt -out /path/publickeyencryptedfilename.txt -inkey /path/publickeyfilename.pem -pubin -encrypt
-
 ```
 
 #### Decrypt with Public Key
-
 ```
 openssl pkeyutl -in /path/publickeyencryptedfilename.txt -out /path/filename.txt -inkey /path/privatekeyfilename.pem -decrypt
-
 ```
 
 #### Encrypt with Private Key
-
 ```
 openssl pkeyutl -in /path/filename.txt -out /path/privatekeyencryptedfilename.txt -inkey /path/privatekeyfilename.pem -encrypt
-
 ```
 
 #### Decrypt with Private Key
-
 ```
 openssl pkeyutl -in /path/privatekeyencryptedfilename.txt -out /path/filename.txt -inkey /path/publickeyfilename.pem -pubin -decrypt
-
 ```
 
 #### Sign a Raw File
-
 ```
 openssl pkeyutl -in filename.txt -rawin -out signed_filename.txt -inkey keyfile/privatekeyfile.pem -sign
-
 ```
 
 #### Sign a Hex File
-
 ```
 openssl pkeyutl -in hexfilename.txt -out signed_filename.txt -inkey keyfile/privatekeyfile.pem -sign
-
 ```
 
 #### Verify a Signature Against a Raw File
-
 ```
 openssl pkeyutl -in filename.txt -rawin -out verification.txt -sigfile signed_filename.txt -inkey keyfile/publickeyfile.pem -pubin -verify
-
 ```
 
 #### Verify a Signature Against a Hex File
-
 ```
 openssl pkeyutl -in hexfilename.txt -rawin -out verification.txt -sigfile signed_filename.txt -inkey keyfile/publickeyfile.pem -pubin -verify
-
 ```
 
 #### All Command Options of Pkeyutl
-
 ```
 openssl pkeyutl [-help] [-in file] [-rawin] [-digest algorithm] [-out file] [-sigfile file] [-inkey filename|uri] [-keyform DER|PEM|P12|ENGINE] [-passin arg] [-peerkey file] [-peerform DER|PEM|P12|ENGINE] [-pubin] [-certin] [-rev] [-sign] [-verify] [-verifyrecover] [-encrypt] [-decrypt] [-derive] [-kdf algorithm] [-kdflen length] [-pkeyopt opt:value] [-pkeyopt_passin opt[:passarg]] [-hexdump] [-asn1parse] [-engine id] [-engine_impl] [-rand files] [-writerand file] [-provider name] [-provider-path path] [-propquery propq] [-config configfile]
-
 ```
 
 **DESCRIPTION**: This command can be used to perform low-level public key operations using any supported algorithm.  
@@ -1908,24 +1716,18 @@ Symmetric encryption uses the same key for both encryption and decryption, requi
 * **Cloud Storage Security**: Encrypts data in the cloud, protecting it from unauthorized access.
 
 #### AES-256-CBC Encryption
-
 ```
 openssl enc -aes-256-cbc -in file.rar -out encfile.rar -pass pass:1234567890123456789012345678901234567890123456789012345678901234 -base64 -iv 12345678901234567890123456789012 -S 1234567890123456 -md sha-256 -iter 2048 -pbkdf2 -p
-
 ```
 
 #### AES-256-CBC Decryption
-
 ```
 openssl enc -aes-256-cbc -in encfile.rar -out file.rar -pass pass:1234567890123456789012345678901234567890123456789012345678901234 -d -base64 -iv 12345678901234567890123456789012 -S 1234567890123456 -md sha-256 -iter 2048 -pbkdf2
-
 ```
 
 #### All Command Options of Enc / Cipher
-
 ```
 openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out filename] [-pass arg] [-e] [-d] [-a] [-base64] [-A] [-k password] [-kfile filename] [-K key] [-iv IV] [-S salt] [-salt] [-nosalt] [-z] [-md digest] [-iter count] [-pbkdf2] [-saltlen size] [-p] [-P] [-bufsize number] [-nopad] [-v] [-debug] [-none] [-engine id] [-rand files] [-writerand file] [-provider name] [-provider-path path] [-propquery propq]
-
 ```
 
 **DESCRIPTION**: The symmetric cipher commands allow data to be encrypted or decrypted using various block and stream ciphers using keys based on passwords or explicitly provided. Base64 encoding or decoding can also be performed either by itself or in addition to the encryption or decryption.  
@@ -2247,31 +2049,24 @@ Default SSH port in Linux is usually `22`.
 ### OpenSSH Server in Linux
 
 #### Install and Setup
-
 ```
 sudo apt install openssh-server
 sudo systemctl enable --now ssh
-
 ```
 
 #### Edit Configuration
-
 ```
 sudo nano /etc/ssh/sshd_config
-
 ```
 
 Edit as your need.  
 If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, `hostfwd=tcp::2222-:22`, and you hope to connect it from outside of the VM (e.g. **Termux**), then you can edit the configuration as the following:
-
 ```
 sudo rm /etc/ssh/sshd_config
 sudo nano /etc/ssh/sshd_config
-
 ```
 
 Copy below and paste to it:
-
 ```
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
@@ -2398,81 +2193,60 @@ Subsystem    sftp    /usr/lib/ssh/sftp-server
 #    X11Forwarding no
 #    AllowTcpForwarding no
 #    ForceCommand cvs server
-
 ```
 
 Run:
-
 ```
 sudo nano /etc/hosts .deny
-
 ```
 
 and delete all lines in it.
 
 #### Start
-
 ```
 sudo service ssh start
-
 ```
 
 #### Restart
-
 ```
 sudo service ssh restart
-
 ```
 
 #### Stop
-
 ```
 sudo service ssh stop
-
 ```
 
 #### Disable
-
 ```
 sudo systemctl disable ssh
-
 ```
 
 #### Enable
-
 ```
 sudo systemctl enable ssh
-
 ```
 
 #### Check Status
-
 ```
 sudo service ssh status
-
 ```
 
 ### OpenSSH Server in Termux
 
 #### Install
-
 ```
 apt install openssh
-
 ```
 
 #### Start
-
 ```
 sshd
-
 ```
 
 #### Stop
-
 ```
 pkill sshd
-
 ```
 
 ---
@@ -2480,61 +2254,47 @@ pkill sshd
 ### OpenSSH Client in Linux or Termux
 
 #### Install in Linux
-
 ```
 sudo apt install openssh-client
-
 ```
 
 #### Install in Termux
-
 ```
 apt install openssh
-
 ```
 
 #### Key Generation
 
 If you plan to use key authentication, you have to generate key by:
-
 ```
 mkdir -p ~/.ssh
 ssh-keygen -t rsa -b 4096
-
 ```
 
 If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, use password authentication (with password set by running `passwd`), you won't need to generate key.
 
 #### Run
-
 ```
 ssh root@localhost
-
 ```
 
 Change the `root@localhost` to the actual user name and address. Port will be set as default.  
 Run with port specified:
-
 ```
 ssh root@localhost -p 2222
-
 ```
 
 Change `2222` to the port of the server.  
 If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, `hostfwd=tcp::2222-:22` and `Port 22`, then you can run:
-
 ```
 ssh root@localhost -p 2222
-
 ```
 
 on client side.
 
 #### Exit
-
 ```
 exit
-
 ```
 
 #### `kex_exchange_identification: read: Connection reset by peer` Error
@@ -2554,10 +2314,8 @@ To solve this error, try:
 
 You can use `scp` on the client side to transfer files between the server side and the client side.  
 The syntax of `scp` is the same as that of `cp`, but with the `username@host:` added before the path to copy to or from the server. For example:
-
 ```
 scp -r root@localhost:/root/Desktop /data/data/com.termux/files/home/
-
 ```
 
 Use SFTP server mount if you encounter errors in this method.
@@ -2706,7 +2464,6 @@ apt is a commandline package manager and provides commands for searching and man
 ### Commands for Copy
 
 #### Linux Setup Command
-
 ```
 sudo apt update && sudo apt upgrade
 sudo apt install xfce4 xfce4-goodies python3-all-dev python3-venv build-essential cmake curl wget git gh openjdk-17-jdk nano vim iproute2 procps grep libboost-all-dev gdb tmux openssl libssl-dev openssh-server
@@ -2715,91 +2472,66 @@ python3 -m venv myenv
 source myenv/bin/activate
 python3 get-pip.py
 pip3 install numpy sympy matplotlib setuptools selenium jupyter pandas
-
 ```
 
 #### Termux Package Management Command (All)
-
 ```
 apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean && pkg update && pkg upgrade && pkg clean
-
 ```
 
 #### Termux Package Management Command (All apt)
-
 ```
 apt update && apt upgrade && apt --fix-broken install && apt autoremove --purge && apt clean
-
 ```
 
 #### Termux Package Management Command (All pkg)
-
 ```
 pkg update && pkg upgrade && pkg clean
-
 ```
 
 #### Termux Package Management Command (Update and Upgrade All)
-
 ```
 apt update && apt upgrade && pkg update && pkg upgrade
-
 ```
 
 #### Termux Package Management Command (Update and Upgrade apt)
-
 ```
 apt update && apt upgrade
-
 ```
 
 #### Termux Package Management Command (Update and Upgrade pkg)
-
 ```
 pkg update && pkg upgrade
-
 ```
 
 #### Termux Package Management Command (Update All)
-
 ```
 apt update && pkg update
-
 ```
 
 #### Termux Package Management Command (Update apt)
-
 ```
 apt update
-
 ```
 
 #### Termux Package Management Command (Update pkg)
-
 ```
 pkg update
-
 ```
 
 #### Linux Package Management Command (All apt)
-
 ```
 sudo apt update && sudo apt upgrade && sudo apt --fix-broken install && sudo apt autoremove --purge && sudo apt clean
-
 ```
 
 #### Linux Package Management Command (Update and Upgrade apt)
-
 ```
 sudo apt update && sudo apt upgrade
-
 ```
 
 #### Linux Package Management Command (Update apt)
-
 ```
 sudo apt update
-
 ```
 
 ---
@@ -2974,6 +2706,4 @@ Under the following terms:
 
 No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
-You should have received a copy of the Creative Commons Attribution-ShareAlike 4.0 International License along with this program. If not, see [https://creativecommons.org/licenses/by-sa/4.0/](https://www.gnu.org/licenses/fdl-1.3.html).
-
-↑ Back to Top 
+You should have received a copy of the Creative Commons Attribution-ShareAlike 4.0 International License along with this program. If not, see [https://creativecommons.org/licenses/by-sa/4.0/](https://www.gnu.org/licenses/fdl-1.3.html). 
