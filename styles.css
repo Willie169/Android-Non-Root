@@ -1,0 +1,213 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.6;
+	background-color: #f5f5f5;
+	color: #333;
+	padding: 0;
+	margin: 0;
+    overflow: auto;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Roboto', sans-serif;
+	color: #007acc;
+	margin-bottom: 15px;
+}
+
+h1 {
+	font-size: 2rem;
+	border-bottom: 2px solid #007acc;
+	padding-bottom: 10px;
+}
+
+h2 {
+	font-size: 1.6rem;
+	border-bottom: 1px solid #007acc;
+	padding-bottom: 8px;
+}
+
+h3 {
+	font-size: 1.4rem;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1.2rem;
+}
+
+.navbar {
+	width: 100%;
+	background-color: #333;
+	color: white;
+	padding: 10px 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navbar a {
+	color: white;
+	text-decoration: none;
+	font-size: 1.2rem;
+	margin-left: 20px;
+}
+
+.navbar a:hover {
+	color: #007acc;
+}
+
+button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 20px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+button:hover {
+    background-color: #005f8d;
+}
+
+.content {
+	margin: 20px;
+	padding: 60px 20px;
+	text-align: left;
+}
+
+a {
+	color: #007acc;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul,
+ol {
+	margin: 20px;
+	padding-left: 40px;
+}
+
+ul {
+	list-style-type: disc;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+li {
+	margin-bottom: 10px;
+	font-size: 1rem;
+}
+
+li::marker,
+#toc-list li::marker {
+	font-size: 1.2rem;
+	color: #007acc;
+}
+
+pre {
+    background-color: #e8e8e8;
+    border-radius: 3px solid #848484;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+code {
+	background-color: #e8e8e8;
+	color: #d6336c;
+	padding: 2px 5px;
+	border-radius: 3px;
+	font-size: 1rem;
+	font-family: 'Fira Code', monospace;
+}
+
+pre code {
+  display: block;
+  background: none;
+  white-space: pre;
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 0;
+}
+
+li:hover {
+	background-color: #f0faff;
+}
+
+pre:hover {
+	background-color: #f8f8f8;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container a img {
+    max-width: 100px;
+    height: auto;
+}
+
+#table-of-contents {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+#table-of-contents h2 {
+  font-size: 1.2em;
+}
+
+#toc-list li {
+  list-style: disc;
+  margin: 5px 0;
+}
+
+#toc-list li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#toc-list li.h3 {
+  margin-left: 20px;
+}
+
+#top {
+    width: 0;
+    height: 0;
+    display: inline-block;
+}
