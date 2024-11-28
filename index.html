@@ -11,7 +11,8 @@
 <body>
 <div class="navbar">
 <div class="container">
-<a href="https://willie169.github.io"><img src="img/Android_Non_Root.png" alt="Android Non Root" style="height: 40px;"></a>
+<a href="https://willie169.github.io"><img src="img/willie169.jpeg" alt="Willie169" style="height: 40px;"></a>
+<a href="https://willie169.github.io/Android-Non-Root"><img src="img/Android_Non_Root.png" alt="Android Non Root" style="height: 40px;"></a>
 </div>
 </div>
 <div id="top"></div>
@@ -19,26 +20,10 @@
 <h1 id="android-non-root">Android Non Root</h1>
 <p>Android Non Root has three versions:</p>
 <ul>
-<li>The HTML version: <a href="https://willie169.github.io">https://willie169.github.io</a>.</li>
-<li>The repository of the HTML version: <a href="https://github.com/Willie169/Willie169.github.io">https://github.com/Willie169/Willie169.github.io</a>.</li>
+<li>The HTML version: <a href="https://Willie169.github.io/Android-Non-Root">https://willie169.github.io</a>.</li>
 <li>The Markdown version: <a href="https://github.com/Willie169/Android-Non-Root">https://github.com/Willie169/Android-Non-Root</a>.</li>
 <li>The app version: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot_10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot_10.apk</a>.</li>
 <li>The repository of the app version: <a href="https://github.com/Willie169/Android-Non-Root-App">https://github.com/Willie169/Android-Non-Root-App</a>.</li>
-</ul>
-<p>The author of this tutorial is <a href="https://github.com/Willie169">Willie169 (Willie Shen)</a>.</p>
-<p>If for whatever reason you want to send me money, here are where you may do so:</p>
-<ul>
-<li>BTC:
-bc1qm7fuvza2tktvjzfmvf37vw6yft5ntd2u5gh9l0</li>
-<li>ETH:
-0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
-<li>BNB (BNB Smart Chain):
-0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
-<li>SOL:
-5ytjeNsMqxUqCZGHghGWjZNZHFSebwfAkKXepExmqvTU</li>
-<li>DOGE:
-DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
-<li>XMR: 48j6iQDeCSDeH46gw4dPJnMsa6TQzPa6WJaYbBS9JJucKqg9Mkt5EDe9nSkES3b8u7V6XJfL8neAPAtbEpmV2f4XC7bdbkv</li>
 </ul>
 <p>In this tutorial, we'll explore a range of powerful, open-source tools such as Termux, Shizuku, Tor, TrackerControl, InviZible Pro, QEMU, Andronix, and OpenSSL to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
 <p>Please read the <a href="#global-note">Global Note</a> before you start or you may encounter errors.</p>
@@ -47,12 +32,10 @@ DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
 <h2>Table of Contents</h2>
 <ul id="toc-list">
 <li class="h2"><a href="#table-of-contents">Table of Contents</a>
-<ul>
-</ul>
+</li>
+<li class="h2"><a href="#author-information">Author Information</a>
 </li>
 <li class="h2"><a href="#global-note">Global Note</a>
-<ul>
-</ul>
 </li>
 <li class="h2"><a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>
 <ul>
@@ -245,6 +228,23 @@ DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
 </li>
 </ul>
 </div>
+<hr />
+<h2 id="author-information">Author Information</h2>
+<p>The author of this tutorial is <a href="https://github.com/Willie169">Willie169 (Willie Shen)</a>.</p>
+<p>If for whatever reason you want to send me money, here are where you may do so:</p>
+<ul>
+<li>BTC:
+bc1qm7fuvza2tktvjzfmvf37vw6yft5ntd2u5gh9l0</li>
+<li>ETH:
+0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
+<li>BNB (BNB Smart Chain):
+0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
+<li>SOL:
+5ytjeNsMqxUqCZGHghGWjZNZHFSebwfAkKXepExmqvTU</li>
+<li>DOGE:
+DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
+<li>XMR: 48j6iQDeCSDeH46gw4dPJnMsa6TQzPa6WJaYbBS9JJucKqg9Mkt5EDe9nSkES3b8u7V6XJfL8neAPAtbEpmV2f4XC7bdbkv</li>
+</ul>
 <hr />
 <h2 id="global-note">Global Note</h2>
 <p>Many sections of the tutorial mention <strong>Termux</strong> and Linux. Read the tutorial about them in <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>, <a href="#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-window-manager-or-xfce-lxqt-or-mate-desktop-environment">Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</a>, <a href="#file-and-directory-management-of-termux-and-linux">File and Directory Management of Termux and Linux</a>, <a href="#openssh-with-linux-or-termux-secure-remote-access">OpenSSH with Linux or Termux: Secure Remote Access</a>, <a href="#linux-command-library">Linux Command Library</a>, and <a href="#linux-and-termux-odds-and-ends">Linux and Termux Odds and Ends</a>.</p>
