@@ -2981,4 +2981,3 @@ No additional restrictions — You may not apply legal terms or technological me
 
 You should have received a copy of the Creative Commons Attribution-ShareAlike 4.0 International License along with this program. If not, see [https://creativecommons.org/licenses/by-sa/4.0/](https://www.gnu.org/licenses/fdl-1.3.html).
 
-↑ Back to Top 
