@@ -5,12 +5,12 @@
 
 Android Non Root has three versions:
 
-* The HTML version: [https://willie169.github.io](https://Willie169.github.io/Android-Non-Root).
+* The HTML version: [https://willie169.github.io/Android-Non-Root](https://Willie169.github.io/Android-Non-Root).
 * The Markdown version: <https://github.com/Willie169/Android-Non-Root>.
 * The app version: <https://github.com/Willie169/Android-Non-Root-App>.
 * App download link: <https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk>.
 
-In this tutorial, we'll explore a range of powerful, open-source tools such as Termux, Shizuku, Tor, TrackerControl, InviZible Pro, QEMU, Andronix, and OpenSSL to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.
+In this tutorial, we'll explore a range of powerful, open-source tools such as [Termux](https://github.com/termux/termux-app), [Shizuku](https://github.com/RikkaApps/Shizuku), [Tor](https://www.torproject.org), [TrackerControl](https://github.com/TrackerControl/tracker-control-android), [InviZible Pro](https://github.com/Gedsh/InviZible), [QEMU](https://github.com/qemu/qemu), and [Andronix](https://github.com/AndronixApp/AndronixOrigin) to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.
 
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
 
