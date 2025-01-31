@@ -18,263 +18,293 @@
 <div id="top"></div>
 <div class="content">
 <h1 id="android-non-root">Android Non Root</h1>
-<p>Android Non Root has three versions:</p>
+<p><strong>Android Non Root</strong> has three versions:</p>
 <ul>
-<li>The HTML version: <a href="https://Willie169.github.io/Android-Non-Root">https://willie169.github.io/Android-Non-Root</a>.</li>
+<li>The HTML version: <a href="https://willie169.github.io/Android-Non-Root">https://willie169.github.io/Android-Non-Root</a>.</li>
 <li>The Markdown version: <a href="https://github.com/Willie169/Android-Non-Root">https://github.com/Willie169/Android-Non-Root</a>.</li>
 <li>The app version: <a href="https://github.com/Willie169/Android-Non-Root-App">https://github.com/Willie169/Android-Non-Root-App</a>.</li>
-<li>App download link: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot_10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot_10.apk</a>.</li>
+<li>App download link: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk</a>.</li>
 </ul>
-<p>In this tutorial, we'll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, <a href="https://github.com/qemu/qemu">QEMU</a>, and <a href="https://github.com/AndronixApp/AndronixOrigin">Andronix</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
+<p>In this tutorial, we'll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, and <a href="https://github.com/qemu/qemu">QEMU</a> to enhance your <strong>Android</strong> device’s functionality, security, privacy, and customization without the need for root access.</p>
 <p>Please read the <a href="#global-note">Global Note</a> before you start or you may encounter errors.</p>
 <hr />
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<ul id="toc-list">
-<li class="h2"><a href="#table-of-contents">Table of Contents</a>
-</li>
-<li class="h2"><a href="#author-information">Author Information</a>
-</li>
-<li class="h2"><a href="#global-note">Global Note</a>
-</li>
-<li class="h2"><a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>
+<h2 id="table-of-contents">Table of Contents</h2>
 <ul>
-<li class="h3"><a href="#install-termux">Install Termux</a></li>
-<li class="h3"><a href="#introduction-of-termux">Introduction of Termux</a></li>
-<li class="h3"><a href="#official-wiki-and-community-of-termux">Official Wiki and Community of Termux</a></li>
-<li class="h3"><a href="#termux-app-user-interface">Termux App User Interface</a></li>
-<li class="h3"><a href="#shortcuts">Shortcuts</a></li>
-<li class="h3"><a href="#grant-termux-storage-permission">Grant Termux Storage Permission</a></li>
-<li class="h3"><a href="#termux-properties">Termux-Properties</a></li>
-<li class="h3"><a href="#termux-pkg-package-management">Termux pkg Package Management</a></li>
-<li class="h3"><a href="#text-editor-nano-and-vim">Text Editor: Nano and Vim</a></li>
-<li class="h3"><a href="#package-command-error">Package Command Error</a></li>
-<li class="h3"><a href="#process-completed-signal-9---press-enter-error">Process completed (signal 9) - press Enter Error</a></li>
+<li><a href="#author-information">Author Information</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#global-note">Global Note</a></li>
+<li><a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a></li>
+<li><a href="#install-termux">Install Termux</a></li>
+<li><a href="#introduction-of-termux">Introduction of Termux</a></li>
+<li><a href="#official-wiki-and-community-of-termux">Official Wiki and Community of Termux</a></li>
+<li><a href="#termux-app-user-interface">Termux App User Interface</a></li>
+<li><a href="#shortcuts">Shortcuts</a></li>
+<li><a href="#grant-termux-storage-permission">Grant Termux Storage Permission</a></li>
+<li><a href="#termux-properties">Termux-Properties</a></li>
+<li><a href="#termux-pkg-package-management">Termux pkg Package Management</a></li>
+<li><a href="#package-command-error">Package Command Error</a><ul>
+<li><a href="#command-solution">Command Solution</a></li>
+<li><a href="#manual-solution">Manual Solution</a></li>
+<li><a href="#further-readings-and-references-about-package-command-error">Further Readings and References about Package Command Error</a></li></ul></li>
+<li><a href="#process-completed-signal-9---press-enter-error">Process completed (signal 9) - press Enter Error</a><ul>
+<li><a href="#fix-for-stock-android-12l-and-beyond">Fix for Stock Android 12L and beyond</a></li>
+<li><a href="#fix-for-qems-like-oneui-miui-samsung-etc-and-other-non-stock-android-12l-and-beyond">Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond</a></li>
+<li><a href="#further-readings-and-references-about-process-completed-signal-9---press-enter-error">Further Readings and References about Process completed (signal 9) - press Enter error</a></li></ul></li>
+<li><a href="#termuxstyling">Termux:Styling</a></li>
+<li><a href="#termuxwidget">Termux:Widget</a></li>
+<li><a href="#termuxboot">Termux:Boot</a></li>
+<li><a href="#termuxfloat">Termux:Float</a></li>
+<li><a href="#termuxapi">Termux:API</a></li>
+<li><a href="#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment">Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</a></li>
+<li><a href="#enable-the-x11-repository-of-termux">Enable the X11 Repository of Termux</a></li>
+<li><a href="#vnc-server-in-termux">VNC Server in Termux</a><ul>
+<li><a href="#install-tigervnc">Install TigerVNC</a></li>
+<li><a href="#start-a-vnc-server">Start a VNC Server</a></li>
+<li><a href="#kill-all-vnc-servers">Kill All VNC Servers</a></li></ul></li>
+<li><a href="#fluxbox-in-termux">Fluxbox in Termux</a><ul>
+<li><a href="#install-fluxbox">Install Fluxbox</a></li>
+<li><a href="#setup">Setup</a></li></ul></li>
+<li><a href="#openbox-in-termux">Openbox in Termux</a><ul>
+<li><a href="#install-openbox">Install Openbox</a></li>
+<li><a href="#setup-1">Setup</a></li></ul></li>
+<li><a href="#xfce-in-termux">XFCE in Termux</a><ul>
+<li><a href="#install-xfce">Install XFCE</a></li>
+<li><a href="#setup-2">Setup</a></li>
+<li><a href="#additional-recommended-packages-for-installation">Additional Recommended Packages for Installation</a></li></ul></li>
+<li><a href="#lxqt-in-termux">LXQt in Termux</a><ul>
+<li><a href="#install-lxqt">Install LXQt</a></li>
+<li><a href="#setup-3">Setup</a></li>
+<li><a href="#additional-recommended-packages-for-installation-1">Additional Recommended Packages for Installation</a></li></ul></li>
+<li><a href="#mate-in-termux">MATE in Termux</a><ul>
+<li><a href="#install-mate">Install MATE</a></li>
+<li><a href="#setup-4">Setup</a></li>
+<li><a href="#additional-recommended-packages-for-installation-2">Additional Recommended Packages for Installation</a></li></ul></li>
+<li><a href="#further-readings-and-references-about-termux-graphical-environment">Further Readings and References about Termux Graphical Environment</a></li>
+<li><a href="#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices">Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices</a></li>
+<li><a href="#optional-but-recommended-install-andronix-app">Optional but Recommended: Install Andronix App</a></li>
+<li><a href="#introduction-of-andronix-and-proot">Introduction of Andronix and PRoot</a></li>
+<li><a href="#install-an-os-with-andronix">Install an OS with Andronix</a></li>
+<li><a href="#uninstall-an-os-not-modded-with-andronix">Uninstall an OS (Not Modded) with Andronix</a></li>
+<li><a href="#sound-output-from-proot-os">Sound Output from PRoot OS</a><ul>
+<li><a href="#install-and-setup-sound-output-from-proot-os">Install and Setup Sound Output from PRoot OS</a></li>
+<li><a href="#start-pulseaudio-server">Start PulseAudio Server</a></li></ul></li>
+<li><a href="#example-debian-with-xfce-desktop-environment">Example: Debian with XFCE Desktop Environment</a><ul>
+<li><a href="#install-debian-with-xfce">Install Debian with XFCE</a></li>
+<li><a href="#turn-on-the-os-cli">Turn on the OS (CLI)</a></li>
+<li><a href="#vnc-server">VNC Server</a></li></ul></li>
+<li><a href="#example-debian-with-cli-only">Example: Debian with CLI Only</a><ul>
+<li><a href="#install-debian">Install Debian</a></li>
+<li><a href="#turn-on-the-os-cli-1">Turn on the OS (CLI)</a></li></ul></li>
+<li><a href="#example-uninstall-debian-os-not-modded">Example: Uninstall Debian OS (Not Modded)</a></li>
+<li><a href="#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-image-method-or-qcow2-cloud-image">QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image</a></li>
+<li><a href="#install-qemu">Install QEMU</a></li>
+<li><a href="#iso-image-method">ISO Image method</a><ul>
+<li><a href="#prepare-the-iso-image">Prepare the ISO Image</a></li>
+<li><a href="#create-a-virtual-disk-image-where-the-operating-system-will-be-installed">Create a Virtual Disk Image Where the Operating System Will Be Installed</a></li>
+<li><a href="#install-vm-with-cli">Install VM with CLI</a></li>
+<li><a href="#install-vm-with-gui">Install VM with GUI</a></li>
+<li><a href="#boot-vm-with-cli">Boot VM with CLI</a></li>
+<li><a href="#boot-with-gui">Boot with GUI</a></li></ul></li>
+<li><a href="#qcow2-image-method">QCOW2 Image Method</a><ul>
+<li><a href="#prepare-the-qcow2-image">Prepare the QCOW2 Image</a></li>
+<li><a href="#boot-with-cli">Boot with CLI</a></li>
+<li><a href="#boot-with-gui-1">Boot with GUI</a></li></ul></li>
+<li><a href="#window-managers-or-desktop-environments">Window Managers or Desktop Environments</a></li>
+<li><a href="#login">Login</a></li>
+<li><a href="#resize-disk-space">Resize Disk Space</a></li>
+<li><a href="#check-image-info">Check Image Info</a></li>
+<li><a href="#check-vm-disk">Check VM Disk</a></li>
+<li><a href="#openssh">OpenSSH</a></li>
+<li><a href="#further-readings-and-references-about-qemu">Further Readings and References about QEMU</a></li>
+<li><a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a></li>
+<li><a href="#install-avnc">Install AVNC</a></li>
+<li><a href="#connect-a-vnc-server">Connect a VNC Server</a></li>
+<li><a href="#features-of-avnc">Features of AVNC</a></li>
+<li><a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a></li>
+<li><a href="#install-shizuku">Install Shizuku</a></li>
+<li><a href="#introduction-of-shizuku-and-adb">Introduction of Shizuku and ADB</a></li>
+<li><a href="#connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</a></li>
+<li><a href="#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example">Use Shizuku in a Terminal Application for the First Time (Termux for Example)</a></li>
+<li><a href="#install-systemui-tuner">Install SystemUI Tuner</a></li>
+<li><a href="#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb">To Leave Developer Options off When Using Shizuku to Connect to ADB</a></li>
+<li><a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a></li>
+<li><a href="#other-systemui-tuner-usage">Other SystemUI Tuner Usage</a></li>
+<li><a href="#using-ashell">Using aShell</a></li>
+<li><a href="#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-and-block-trackers">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers</a></li>
+<li><a href="#install-invizible-pro">Install InviZible Pro</a></li>
+<li><a href="#install-trackercontrol">Install TrackerControl</a></li>
+<li><a href="#use-trackercontrol-to-block-trackers">Use TrackerControl to Block Trackers</a></li>
+<li><a href="#configure-trackercontrol-tc-to-be-used-with-invizible-pro">Configure TrackerControl (TC) to be used with InviZible Pro</a></li>
+<li><a href="#configure-invizible-pro-to-be-used-with-trackercontrol">Configure InviZible Pro to be used with TrackerControl</a></li>
+<li><a href="#use-tor-but-not-dnscrypr-of-invizible-pro">Use Tor but not DNSCrypr of InviZible Pro</a></li>
+<li><a href="#use-dnscrypr-but-not-tor-of-invizible-pro">Use DNSCrypr But not Tor of InviZible Pro</a></li>
+<li><a href="#check-whether-the-tor-route-setup-is-successful">Check Whether the Tor Route Setup Is Successful</a></li>
+<li><a href="#use-invizible-pro-without-trackercontrol">Use Invizible Pro without TrackerControl</a></li>
+<li><a href="#tor-browser">Tor Browser</a></li>
+<li><a href="#install-tor-browser">Install Tor Browser</a></li>
+<li><a href="#introduction-of-tor">Introduction of Tor</a></li>
+<li><a href="#noscript-security-suite">NoScript Security Suite</a></li>
+<li><a href="#openssl-secure-sockets-layer-ssl-and-transport-layer-security-tls-protocols-and-cryptography-library-implementation">OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation</a></li>
+<li><a href="#introduction-of-openssl">Introduction of OpenSSL</a></li>
+<li><a href="#installation-of-openssl-in-termux">Installation of OpenSSL in Termux</a></li>
+<li><a href="#installation-of-openssl-in-debian">Installation of OpenSSL in Debian</a></li>
+<li><a href="#rsa-rivest-shamir-adleman">RSA (Rivest-Shamir-Adleman)</a><ul>
+<li><a href="#introduction-of-rsa">Introduction of RSA</a></li>
+<li><a href="#generate-new-private-key">Generate New Private Key</a></li>
+<li><a href="#generate-public-key-from-private-key">Generate Public Key from Private Key</a></li>
+<li><a href="#encrypt-with-public-key">Encrypt with Public Key</a></li>
+<li><a href="#decrypt-with-public-key">Decrypt with Public Key</a></li>
+<li><a href="#encrypt-with-private-key">Encrypt with Private Key</a></li>
+<li><a href="#decrypt-with-private-key">Decrypt with Private Key</a></li>
+<li><a href="#sign-a-raw-file">Sign a Raw File</a></li>
+<li><a href="#sign-a-hex-file">Sign a Hex File</a></li>
+<li><a href="#verify-a-signature-against-a-raw-file">Verify a Signature Against a Raw File</a></li>
+<li><a href="#verify-a-signature-against-a-hex-file">Verify a Signature Against a Hex File</a></li>
+<li><a href="#all-command-options-of-pkeyutl">All Command Options of Pkeyutl</a></li></ul></li>
+<li><a href="#symmetric-encryption">Symmetric Encryption</a><ul>
+<li><a href="#introduction-of-symmetric-encryption">Introduction of Symmetric Encryption</a></li>
+<li><a href="#aes-256-cbc-encryption">AES-256-CBC Encryption</a></li>
+<li><a href="#aes-256-cbc-decryption">AES-256-CBC Decryption</a></li>
+<li><a href="#all-command-options-of-enc--cipher">All Command Options of Enc / Cipher</a></li></ul></li>
+<li><a href="#file-and-directory-management-of-termux-and-linux">File and Directory Management of Termux and Linux</a></li>
+<li><a href="#cp-copy-files-and-directories"><code>cp</code> (Copy files and directories)</a></li>
+<li><a href="#mv-move-or-rename-files-and-directories"><code>mv</code> (Move or rename files and directories)</a></li>
+<li><a href="#rm-remove-files-or-directories"><code>rm</code> (Remove files or directories)</a></li>
+<li><a href="#mkdir-create-directories"><code>mkdir</code> (Create directories)</a></li>
+<li><a href="#ls-list-directory-contents"><code>ls</code> (List directory contents)</a></li>
+<li><a href="#rmdir-remove-empty-directories"><code>rmdir</code> (Remove empty directories)</a></li>
+<li><a href="#find-search-for-files-and-directories"><code>find</code> (Search for files and directories)</a></li>
+<li><a href="#touch-create-or-update-file-timestamps"><code>touch</code> (Create or update file timestamps)</a></li>
+<li><a href="#chmod-change-file-permissions"><code>chmod</code> (Change File Permissions)</a><ul>
+<li><a href="#numeric-octal-mode">Numeric (Octal) Mode</a></li>
+<li><a href="#symbolic-mode">Symbolic Mode</a></li>
+<li><a href="#options">Options</a></li></ul></li>
+<li><a href="#chown-change-file-ownership"><code>chown</code> (Change File Ownership)</a></li>
+<li><a href="#df-disk-space-usage"><code>df</code> (Disk Space Usage)</a></li>
+<li><a href="#du-disk-usage"><code>du</code> (Disk Usage)</a></li>
+<li><a href="#pwd-check-current-directory">pwd (Check Current Directory)</a></li>
+<li><a href="#openssh-with-linux-or-termux-secure-remote-access">OpenSSH with Linux or Termux: Secure Remote Access</a></li>
+<li><a href="#introduction-of-ssh-and-openssh">Introduction of SSH and OpenSSH</a></li>
+<li><a href="#openssh-server">OpenSSH Server</a><ul>
+<li><a href="#install-in-debian-derivatives">Install in Debian Derivatives</a></li>
+<li><a href="#install-in-termux">Install in Termux</a></li>
+<li><a href="#edit-configuration">Edit Configuration</a></li>
+<li><a href="#listening-port">Listening Port</a></li>
+<li><a href="#ports-listening-to">Ports Listening to</a></li>
+<li><a href="#permitrootlogin">PermitRootLogin</a></li>
+<li><a href="#passwordauthentication">PasswordAuthentication</a></li>
+<li><a href="#usage-in-linux-with-systemctl">Usage in Linux with Systemctl</a></li>
+<li><a href="#usage-in-termux">Usage in Termux</a></li>
+<li><a href="#start">Start</a></li>
+<li><a href="#stop">Stop</a></li>
+<li><a href="#deny">Deny</a></li>
+<li><a href="#ubuntu-firewall">Ubuntu Firewall</a></li></ul></li>
+<li><a href="#openssh-client">OpenSSH Client</a><ul>
+<li><a href="#install-in-debian-derivatives-1">Install in Debian Derivatives</a></li>
+<li><a href="#install-in-termux-1">Install in Termux</a></li>
+<li><a href="#connect">Connect</a></li>
+<li><a href="#key">Key</a></li></ul></li>
+<li><a href="#scp-secure-copy-protocol">SCP (Secure Copy Protocol)</a></li>
+<li><a href="#sftp-server-mound-on-material-files">SFTP Server Mound on Material Files</a><ul>
+<li><a href="#introduction-of-sftp">Introduction of SFTP</a></li>
+<li><a href="#install-material-files">Install Material Files</a></li>
+<li><a href="#mount-sftp-server">Mount SFTP Server</a></li></ul></li>
+<li><a href="#further-readings-and-references-about-openssh-with-linux-and-termux">Further Readings and References about OpenSSH with Linux and Termux</a></li>
+<li><a href="#droidvnc-ng-vnc-server-app-for-android-that-does-not-require-root-privileges">droidVNC-NG: VNC server app for Android that does not require root privileges</a></li>
+<li><a href="#install-droidvnc-ng">Install droidVNC-NG</a></li>
+<li><a href="#features-of-droidvnc-ng">Features of droidVNC-NG</a></li>
+<li><a href="#sd-maid-se-a-file-management-tool-and-system-cleaner">SD Maid SE: A File Management Tool and System Cleaner</a></li>
+<li><a href="#install-sd-maid-se">Install SD Maid SE</a></li>
+<li><a href="#introduction-of-sd-maid-se">Introduction of SD Maid SE</a></li>
+<li><a href="#use-sd-maid-se-with-shizuku">Use SD Maid SE with Shizuku</a></li>
+<li><a href="#linux-command-library">Linux Command Library</a></li>
+<li><a href="#introduction-of-linux-command-library">Introduction of Linux Command Library</a></li>
+<li><a href="#install-and-use-linux-command-library">Install and Use Linux Command Library</a></li>
+<li><a href="#linux-and-termux-odds-and-ends">Linux and Termux Odds and Ends</a></li>
+<li><a href="#apt-termux-debian-etc">apt (Termux, Debian, etc.)</a></li>
+<li><a href="#commands-for-copy">Commands for Copy</a><ul>
+<li><a href="#linux-setup-command">Linux Setup Command</a></li>
+<li><a href="#termux-package-management-command-all">Termux Package Management Command (All)</a></li>
+<li><a href="#termux-package-management-command-all-apt">Termux Package Management Command (All apt)</a></li>
+<li><a href="#termux-package-management-command-all-pkg">Termux Package Management Command (All pkg)</a></li>
+<li><a href="#termux-package-management-command-update-and-upgrade-all">Termux Package Management Command (Update and Upgrade All)</a></li>
+<li><a href="#termux-package-management-command-update-and-upgrade-apt">Termux Package Management Command (Update and Upgrade apt)</a></li>
+<li><a href="#termux-package-management-command-update-and-upgrade-pkg">Termux Package Management Command (Update and Upgrade pkg)</a></li>
+<li><a href="#termux-package-management-command-update-all">Termux Package Management Command (Update All)</a></li>
+<li><a href="#termux-package-management-command-update-apt">Termux Package Management Command (Update apt)</a></li>
+<li><a href="#termux-package-management-command-update-pkg">Termux Package Management Command (Update pkg)</a></li>
+<li><a href="#linux-package-management-command-all-apt">Linux Package Management Command (All apt)</a></li>
+<li><a href="#linux-package-management-command-update-and-upgrade-apt">Linux Package Management Command (Update and Upgrade apt)</a></li>
+<li><a href="#linux-package-management-command-update-apt">Linux Package Management Command (Update apt)</a></li></ul></li>
+<li><a href="#promoted-or-related-works-references-and-bibliography">Promoted or Related Works, References, and Bibliography</a></li>
+<li><a href="#termux-by-fredrik-fornwall--termux--termux">Termux by Fredrik Fornwall / Termux / termux</a></li>
+<li><a href="#andronix-by-devriz-technologies-llp--andronix-app-andronixapp">Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</a></li>
+<li><a href="#shizuku-by-xingchen--rikka--rikkaapps">Shizuku by Xingchen & Rikka / RikkaApps</a></li>
+<li><a href="#systemui-tuner-by-zachary-wander--zacharee">SystemUI Tuner by Zachary Wander / zacharee</a></li>
+<li><a href="#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</a></li>
+<li><a href="#trackercontrol--tc-by-trackercontrol--oxford-hcc">TrackerControl / TC by TrackerControl / Oxford HCC</a></li>
+<li><a href="#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv">NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV</a></li>
+<li><a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid">DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</a></li>
+<li><a href="#ashell-by-sunil-paul-mathew-m--sunilpaulmathew">aShell by Sunil Paul Mathew M. / sunilpaulmathew</a></li>
+<li><a href="#qemu-by-qemu-project--qemu">QEMU by Qemu Project / QEMU</a></li>
+<li><a href="#tor-and-tor-browser-by-the-tor-project">Tor and Tor Browser by The Tor Project</a></li>
+<li><a href="#myip--ipchecking-by-jason-ng--jason5ng32">MyIP / IPCheck.ing by Jason Ng / jason5ng32</a></li>
+<li><a href="#debian">Debian</a></li>
+<li><a href="#linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</a></li>
+<li><a href="#openssl-by-openssl--openssl">OpenSSL by OpenSSL / openssl</a></li>
+<li><a href="#anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</a></li>
+<li><a href="#material-files--materialfiles-by-hai-zhang--zhanghai">Material Files / MaterialFiles by Hai Zhang / zhanghai</a></li>
+<li><a href="#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development">SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</a></li>
+<li><a href="#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138">droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</a></li>
+<li><a href="#others">Others</a></li>
+<li><a href="#contribution">Contribution</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#gnu-free-documentation-license-version-13-gfdl-13">GNU Free Documentation License, Version 1.3 (GFDL 1.3)</a></li>
+<li><a href="#creative-commons-attribution-sharealike-40-international-license-cc-by-sa-40">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a></li>
 </ul>
-</li>
-<li class="h2"><a href="#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment">Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</a>
-<ul>
-<li class="h3"><a href="#enable-the-x11-repository-of-termux">Enable the X11 Repository of Termux</a></li>
-<li class="h3"><a href="#vnc-server-in-termux">VNC Server in Termux</a></li>
-<li class="h3"><a href="#fluxbox-in-termux">Fluxbox in Termux</a></li>
-<li class="h3"><a href="#openbox-in-termux">Openbox in Termux</a></li>
-<li class="h3"><a href="#xfce-in-termux">XFCE in Termux</a></li>
-<li class="h3"><a href="#lxqt-in-termux">LXQt in Termux</a></li>
-<li class="h3"><a href="#mate-in-termux">MATE in Termux</a></li>
-<li class="h3"><a href="#further-readings-and-references-about-termux-graphical-environment">Further Readings and References about Termux Graphical Environment</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices">Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices</a>
-<ul>
-<li class="h3"><a href="#optional-but-recommended-install-andronix-app">Optional but Recommended: Install Andronix App</a></li>
-<li class="h3"><a href="#introduction-of-andronix-and-proot">Introduction of Andronix and PRoot</a></li>
-<li class="h3"><a href="#install-an-os-with-andronix">Install an OS with Andronix</a></li>
-<li class="h3"><a href="#uninstall-an-os-not-modded-with-andronix">Uninstall an OS (Not Modded) with Andronix</a></li>
-<li class="h3"><a href="#sound-output-from-proot-os">Sound Output from PRoot OS</a></li>
-<li class="h3"><a href="#example-debian-with-xfce-desktop-environment">Example: Debian with XFCE Desktop Environment</a></li>
-<li class="h3"><a href="#example-debian-with-cli-only">Example: Debian with CLI Only</a></li>
-<li class="h3"><a href="#example-uninstall-debian-os-not-modded">Example: Uninstall Debian OS (Not Modded)</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-image-method-or-qcow2-cloud-image">QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image</a>
-<ul>
-<li class="h3"><a href="#install-qemu">Install QEMU</a></li>
-<li class="h3"><a href="#iso-image-method">ISO Image method</a></li>
-<li class="h3"><a href="#qcow2-image-method">QCOW2 Image Method</a></li>
-<li class="h3"><a href="#window-managers-or-desktop-environments">Window Managers or Desktop Environments</a></li>
-<li class="h3"><a href="#login">Login</a></li>
-<li class="h3"><a href="#resize-disk-space">Resize Disk Space</a></li>
-<li class="h3"><a href="#check-image-info">Check Image Info</a></li>
-<li class="h3"><a href="#check-vm-disk">Check VM Disk</a></li>
-<li class="h3"><a href="#openssh">OpenSSH</a></li>
-<li class="h3"><a href="#further-readings-and-references-about-qemu">Further Readings and References about QEMU</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a>
-<ul>
-<li class="h3"><a href="#install-avnc">Install AVNC</a></li>
-<li class="h3"><a href="#connect-a-vnc-server">Connect a VNC Server</a></li>
-<li class="h3"><a href="#features-of-avnc">Features of AVNC</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>
-<ul>
-<li class="h3"><a href="#install-shizuku">Install Shizuku</a></li>
-<li class="h3"><a href="#introduction-of-shizuku-and-adb">Introduction of Shizuku and ADB</a></li>
-<li class="h3"><a href="#connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</a></li>
-<li class="h3"><a href="#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example">Use Shizuku in a Terminal Application for the First Time (Termux for Example)</a></li>
-<li class="h3"><a href="#install-systemui-tuner">Install SystemUI Tuner</a></li>
-<li class="h3"><a href="#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb">To Leave Developer Options off When Using Shizuku to Connect to ADB</a></li>
-<li class="h3"><a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a></li>
-<li class="h3"><a href="#other-systemui-tuner-usage">Other SystemUI Tuner Usage</a></li>
-<li class="h3"><a href="#using-ashell">Using aShell</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-and-block-trackers">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers</a>
-<ul>
-<li class="h3"><a href="#install-invizible-pro">Install InviZible Pro</a></li>
-<li class="h3"><a href="#install-trackercontrol">Install TrackerControl</a></li>
-<li class="h3"><a href="#use-trackercontrol-to-block-trackers">Use TrackerControl to Block Trackers</a></li>
-<li class="h3"><a href="#configure-trackercontrol-tc-to-be-used-with-invizible-pro">Configure TrackerControl (TC) to be used with InviZible Pro</a></li>
-<li class="h3"><a href="#configure-invizible-pro-to-be-used-with-trackercontrol">Configure InviZible Pro to be used with TrackerControl</a></li>
-<li class="h3"><a href="#use-tor-but-not-dnscrypr-of-invizible-pro">Use Tor but not DNSCrypr of InviZible Pro</a></li>
-<li class="h3"><a href="#use-dnscrypr-but-not-tor-of-invizible-pro">Use DNSCrypr But not Tor of InviZible Pro</a></li>
-<li class="h3"><a href="#check-whether-the-tor-route-setup-is-successful">Check Whether the Tor Route Setup Is Successful</a></li>
-<li class="h3"><a href="#use-invizible-pro-without-trackercontrol">Use Invizible Pro without TrackerControl</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#tor-browser">Tor Browser</a>
-<ul>
-<li class="h3"><a href="#install-tor-browser">Install Tor Browser</a></li>
-<li class="h3"><a href="#introduction-of-tor">Introduction of Tor</a></li>
-<li class="h3"><a href="#noscript-security-suite">NoScript Security Suite</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#openssl-secure-sockets-layer-ssl-and-transport-layer-security-tls-protocols-and-cryptography-library-implementation">OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation</a>
-<ul>
-<li class="h3"><a href="#introduction-of-openssl">Introduction of OpenSSL</a></li>
-<li class="h3"><a href="#installation-of-openssl-in-termux">Installation of OpenSSL in Termux</a></li>
-<li class="h3"><a href="#installation-of-openssl-in-debian">Installation of OpenSSL in Debian</a></li>
-<li class="h3"><a href="#rsa-rivest-shamir-adleman">RSA (Rivest-Shamir-Adleman)</a></li>
-<li class="h3"><a href="#symmetric-encryption">Symmetric Encryption</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#file-and-directory-management-of-termux-and-linux">File and Directory Management of Termux and Linux</a>
-<ul>
-<li class="h3"><a href="#cp-copy-files-and-directories">cp (Copy files and directories)</a></li>
-<li class="h3"><a href="#mv-move-or-rename-files-and-directories">mv (Move or rename files and directories)</a></li>
-<li class="h3"><a href="#rm-remove-files-or-directories">rm (Remove files or directories)</a></li>
-<li class="h3"><a href="#mkdir-create-directories">mkdir (Create directories)</a></li>
-<li class="h3"><a href="#ls-list-directory-contents">ls (List directory contents)</a></li>
-<li class="h3"><a href="#rmdir-remove-empty-directories">rmdir (Remove empty directories)</a></li>
-<li class="h3"><a href="#find-search-for-files-and-directories">find (Search for files and directories)</a></li>
-<li class="h3"><a href="#touch-create-or-update-file-timestamps">touch (Create or update file timestamps)</a></li>
-<li class="h3"><a href="#chmod-change-file-permissions">chmod (Change File Permissions)</a></li>
-<li class="h3"><a href="#chown-change-file-ownership">chown (Change File Ownership)</a></li>
-<li class="h3"><a href="#df-disk-space-usage">df (Disk Space Usage)</a></li>
-<li class="h3"><a href="#du-disk-usage">du (Disk Usage)</a></li>
-<li class="h3"><a href="#pwd-check-current-directory">pwd (Check Current Directory)</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#openssh-with-linux-or-termux-and-sftp-server-mount-on-material-files-secure-remote-access">OpenSSH with Linux or Termux and SFTP Server Mount on Material Files: Secure Remote Access</a>
-<ul>
-<li class="h3"><a href="#introduction-of-ssh-and-openssh">Introduction of SSH and OpenSSH</a></li>
-<li class="h3"><a href="#openssh-server-in-linux">OpenSSH Server in Linux</a></li>
-<li class="h3"><a href="#openssh-server-in-termux">OpenSSH Server in Termux</a></li>
-<li class="h3"><a href="#openssh-client-in-linux-or-termux">OpenSSH Client in Linux or Termux</a></li>
-<li class="h3"><a href="#scp-secure-copy-protocol">SCP (Secure Copy Protocol)</a></li>
-<li class="h3"><a href="#sftp-server-mound-on-material-files">SFTP Server Mound on Material Files</a></li>
-<li class="h3"><a href="#further-readings-and-references-about-openssh-with-linux-and-termux">Further Readings and References about OpenSSH with Linux and Termux</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#droidvnc-ng-vnc-server-app-for-android-that-does-not-require-root-privileges">droidVNC-NG: VNC server app for Android that does not require root privileges</a>
-<ul>
-<li class="h3"><a href="#install-droidvnc-ng">Install droidVNC-NG</a></li>
-<li class="h3"><a href="#features-of-droidvnc-ng">Features of droidVNC-NG</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#sd-maid-se-a-file-management-tool-and-system-cleaner">SD Maid SE: A File Management Tool and System Cleaner</a>
-<ul>
-<li class="h3"><a href="#install-sd-maid-se">Install SD Maid SE</a></li>
-<li class="h3"><a href="#introduction-of-sd-maid-se">Introduction of SD Maid SE</a></li>
-<li class="h3"><a href="#use-sd-maid-se-with-shizuku">Use SD Maid SE with Shizuku</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#linux-command-library">Linux Command Library</a>
-<ul>
-<li class="h3"><a href="#introduction-of-linux-command-library">Introduction of Linux Command Library</a></li>
-<li class="h3"><a href="#install-and-use-linux-command-library">Install and Use Linux Command Library</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#linux-and-termux-odds-and-ends">Linux and Termux Odds and Ends</a>
-<ul>
-<li class="h3"><a href="#apt-termux-debian-etc">apt (Termux, Debian, etc.)</a></li>
-<li class="h3"><a href="#commands-for-copy">Commands for Copy</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#promoted-or-related-works-references-and-bibliography">Promoted or Related Works, References, and Bibliography</a>
-<ul>
-<li class="h3"><a href="#termux-by-fredrik-fornwall--termux--termux">Termux by Fredrik Fornwall / Termux / termux</a></li>
-<li class="h3"><a href="#andronix-by-devriz-technologies-llp--andronix-app-andronixapp">Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</a></li>
-<li class="h3"><a href="#shizuku-by-xingchen--rikka--rikkaapps">Shizuku by Xingchen & Rikka / RikkaApps</a></li>
-<li class="h3"><a href="#systemui-tuner-by-zachary-wander--zacharee">SystemUI Tuner by Zachary Wander / zacharee</a></li>
-<li class="h3"><a href="#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</a></li>
-<li class="h3"><a href="#trackercontrol--tc-by-trackercontrol--oxford-hcc">TrackerControl / TC by TrackerControl / Oxford HCC</a></li>
-<li class="h3"><a href="#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv">NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV</a></li>
-<li class="h3"><a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nálevka-urbandroid">DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</a></li>
-<li class="h3"><a href="#ashell-by-sunil-paul-mathew-m--sunilpaulmathew">aShell by Sunil Paul Mathew M. / sunilpaulmathew</a></li>
-<li class="h3"><a href="#qemu-by-qemu-project--qemu">QEMU by Qemu Project / QEMU</a></li>
-<li class="h3"><a href="#tor-and-tor-browser-by-the-tor-project">Tor and Tor Browser by The Tor Project</a></li>
-<li class="h3"><a href="#myip--ipchecking-by-jason-ng--jason5ng32">MyIP / IPCheck.ing by Jason Ng / jason5ng32</a></li>
-<li class="h3"><a href="#debian">Debian</a></li>
-<li class="h3"><a href="#linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</a></li>
-<li class="h3"><a href="#openssl-by-openssl--openssl">OpenSSL by OpenSSL / openssl</a></li>
-<li class="h3"><a href="#anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</a></li>
-<li class="h3"><a href="#material-files--materialfiles-by-hai-zhang--zhanghai">Material Files / MaterialFiles by Hai Zhang / zhanghai</a></li>
-<li class="h3"><a href="#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development">SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</a></li>
-<li class="h3"><a href="#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138">droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</a></li>
-<li class="h3"><a href="#others">Others</a></li>
-</ul>
-</li>
-<li class="h2"><a href="#contribution">Contribution</a>
-<ul>
-</ul>
-</li>
-<li class="h2"><a href="#license">License</a>
-<ul>
-<li class="h3"><a href="#gnu-free-documentation-license-version-13-gfdl-13">GNU Free Documentation License, Version 1.3 (GFDL 1.3)</a></li>
-<li class="h3"><a href="#creative-commons-attribution-sharealike-40-international-license-cc-by-sa-40">Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)</a></li>
-</ul>
-</li>
-</ul>
-</div>
 <hr />
 <h2 id="author-information">Author Information</h2>
-<p>The author of this tutorial is <a href="https://github.com/Willie169">Willie169 (Willie Shen)</a>.</p>
+<p>The author of this tutorial is <a href="https://github.com/Willie169"><strong>Willie169, Willie Shen, or 沈威宇</strong></a>.</p>
 <p>If for whatever reason you want to send me money, here are where you may do so:</p>
 <ul>
-<li>BTC:
-bc1qm7fuvza2tktvjzfmvf37vw6yft5ntd2u5gh9l0</li>
-<li>ETH:
-0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
-<li>BNB (BNB Smart Chain):
-0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
-<li>SOL:
-5ytjeNsMqxUqCZGHghGWjZNZHFSebwfAkKXepExmqvTU</li>
-<li>DOGE:
-DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
+<li>BTC: bc1qm7fuvza2tktvjzfmvf37vw6yft5ntd2u5gh9l0</li>
+<li>ETH: 0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
+<li>BNB (BNB Smart Chain): 0xC5A26bF0F3564a77973a261624231Ac9DE647967</li>
+<li>SOL: 5ytjeNsMqxUqCZGHghGWjZNZHFSebwfAkKXepExmqvTU</li>
+<li>DOGE: DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
 <li>XMR: 48j6iQDeCSDeH46gw4dPJnMsa6TQzPa6WJaYbBS9JJucKqg9Mkt5EDe9nSkES3b8u7V6XJfL8neAPAtbEpmV2f4XC7bdbkv</li>
 </ul>
 <hr />
 <h2 id="global-note">Global Note</h2>
-<p>Many sections of the tutorial mention <strong>Termux</strong> and Linux. Read the tutorial about them in <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>, <a href="#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-window-manager-or-xfce-lxqt-or-mate-desktop-environment">Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</a>, <a href="#file-and-directory-management-of-termux-and-linux">File and Directory Management of Termux and Linux</a>, <a href="#openssh-with-linux-or-termux-secure-remote-access">OpenSSH with Linux or Termux: Secure Remote Access</a>, <a href="#linux-command-library">Linux Command Library</a>, and <a href="#linux-and-termux-odds-and-ends">Linux and Termux Odds and Ends</a>.</p>
 <ul>
-<li>Always run <code>apt update</code> before any <code>apt install</code> command in <strong>Termux</strong> or Linux, including virtual machines and emulations.</li>
-<li>Add <code>sudo</code> at the beginning of commands in Linux if needed, and remove <code>sudo</code> from the beginning of commands in <strong>Termux</strong>.</li>
-<li>Always run <code>pkg update</code> before any <code>pkg install</code> command in <strong>Termux</strong>.</li>
-<li>Always type <code>Y</code>, <code>y</code>, <code>Yes</code>, or <code>yes</code> in response to any prompts that request confirmation during command execution.</li>
-<li>Most of the software mentioned in this tutorial is open source unless explicitly stated otherwise. However, it is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</li>
-<li>Some sections about Linux usages are included since we also cover methods to build a Linux VM in Android device.</li>
-<li>Change the file names, directories, and paths in the commands in the tutorial to the actual ones of yours.</li>
-<li>Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on any devices (Linux, Windows, macOS, Android, IOS, etc.). Read the tutorial about <strong>AVNC</strong>, a VNC client for Android, in <a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a>.</li>
+<li>This tutorial is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</li>
+<li>Many sections of the tutorial mention <strong>Termux</strong> and <strong>Linux</strong>. Read the tutorial about them in <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>, <a href="#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-window-manager-or-xfce-lxqt-or-mate-desktop-environment">Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</a>, <a href="#file-and-directory-management-of-termux-and-linux">File and Directory Management of Termux and Linux</a>, <a href="#openssh-with-linux-or-termux-secure-remote-access">OpenSSH with Linux or Termux: Secure Remote Access</a>, <a href="#linux-command-library">Linux Command Library</a>, and <a href="#linux-and-termux-odds-and-ends">Linux and Termux Odds and Ends</a>. And some setup Shell scripts for automating the configuration of <strong>Termux</strong> is available from my another repository: <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>.</li>
+<li>Run update command, such as <code>pkg update</code> and <code>apt update</code>, before install command, such as <code>pkg install</code> and <code>apt install</code> to update available packages.</li>
+<li>Add <code>sudo</code> at the beginning of commands in <strong>Linux</strong> if root permission is needed. Remove <code>sudo</code> from the beginning of commands in <strong>Termux</strong> if the device is not rooted. <strong>Termux</strong> doesn't need root permission to install packages etc.</li>
+<li>Type <code>Y</code>, <code>y</code>, <code>Yes</code>, <code>yes</code>, etc. as asked for in response to any prompts that request confirmation during command execution to confirm execution.</li>
+<li>Most of the software mentioned in this tutorial is open source.</li>
+<li>Some sections about <strong>Linux</strong> usages are included since we also cover methods to build a <strong>Linux</strong> VM in <strong>Android</strong> device, most of which assumes the <strong>Linux</strong> distribution is <strong>Debian</strong> derived.</li>
+<li>Change the file names, directories, paths, addresses, ports, etc. in the commands in the tutorial to the actual ones of yours.</li>
+<li>Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on many devices such as <strong>Linux</strong>, <strong>Windows</strong>, <strong>macOS</strong>, <strong>Android</strong>, <strong>iOS</strong>, etc. Read the tutorial about <strong>AVNC</strong>, a VNC client for <strong>Android</strong>, in <a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a>.</li>
 <li>You may encounter <code>Process completed (signal 9) press Enter</code> error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in <a href="#process-completed-signal-9-press-enter-error">Process completed (signal 9) press Enter Error</a>.</li>
-<li>Many sections of the tutorial mention ADB (Android Debug Bridge). You can connect to an Android device's ADB shell from another device via <strong>Android SDK Platform Tools</strong> or from the same device via <strong>Shizuku</strong>. Read the tutorial about <strong>Shizuku</strong> ADB connection in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>.</li>
+<li>Many sections of the tutorial mention <strong>Android Debug Bridge</strong> (ADB). You can connect to an <strong>Android</strong> device's ADB shell from another device via <strong>Android SDK Platform Tools</strong> or from the same device via <strong>Shizuku</strong>. Read the tutorial about <strong>Shizuku</strong> ADB connection in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>.</li>
 <li>Many sections of the tutorial mention <strong>Tor</strong>. Read the tutorial about it in <a href="#introduction-of-tor">Introduction of Tor</a>.</li>
 <li>Uncommenting a line means to remove the comment signs (<code>#</code> for bash) from the beginning of the line.</li>
-<li>When the tutorial uses <code>nano</code>, <code>vim</code>, or <code>vi</code> to edit a file, you can use any text editor you want, such <code>nano</code>, <code>vim</code>, and <code>vi</code>.</li>
+<li>When the tutorial uses text editor such as <code>nano</code>, <code>vim</code>, or <code>vi</code> to edit a file, you can use any text editor you want.</li>
+<li>Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See <a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid"><strong>DontKillMyApp</strong></a>.</li>
 </ul>
 <hr />
 <h2 id="termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</h2>
 <h3 id="install-termux">Install Termux</h3>
 <ul>
-<li>Download and Install <strong>Termux</strong> from F-Droid: <a href="https://f-droid.org/packages/com.termux/">https://f-droid.org/packages/com.termux/</a>.</li>
-<li><strong>Note</strong>: It is recommended to use <strong>Termux</strong>'s F-Droid version and avoid using Google Play version because the latter is depreciated.</li>
+<li>Download and Install <strong>Termux</strong> from <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a>.</li>
+<li><strong>Note</strong>: It is recommended to use <strong>Termux</strong>'s <strong>F-Droid</strong> version and avoid using <strong>Google Play</strong> version because the latter is depreciated.</li>
 <li>Many of the following guides work on or depend on <strong>Termux</strong>.</li>
-<li>If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <a href="https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html">https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html</a>. It is recommended that you shift to F-Droid or Github releases.</li>
+<li>If you installed termux from <strong>Google Play</strong> or a very old version, then you will receive package command errors. <strong>Google Play</strong> builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <a href="https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html">https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html</a>. It is recommended that you shift to <strong>F-Droid</strong> or <strong>GitHub</strong> releases.</li>
 </ul>
 <h3 id="introduction-of-termux">Introduction of Termux</h3>
 <ul>
-<li>Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package collection. Some of the commands available in Linux are available in <strong>Termux</strong> too, such as <code>cp</code>, <code>mv</code>, <code>ls</code>, <code>mkdir</code>, <code>apt</code>, and <code>apt-get</code>.</li>
+<li><strong>Termux</strong> is an <strong>Android</strong> terminal application and <strong>Linux</strong> environment. <strong>Termux</strong> combines powerful terminal emulation with an extensive <strong>Linux</strong> package collection. Some of the commands available in <strong>Linux</strong> are available in <strong>Termux</strong> too, such as <code>cp</code>, <code>mv</code>, <code>ls</code>, <code>mkdir</code>, <code>apt</code>, and <code>apt-get</code>.</li>
 <li>Features:</li>
 <li>Enjoy the bash and zsh shells.</li>
 <li>Edit files with nano and vim.</li>
@@ -284,12 +314,12 @@ DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
 <li>Check out projects with git and subversion.</li>
 <li>Run text-based games with frotz.</li>
 <li>and more</li>
-<li>At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the Debian and Ubuntu Linux distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.</li>
+<li>At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the <strong>Debian</strong> and <strong>Ubuntu Linux</strong> distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.</li>
 <li><code>$PREFIX</code> and <code>~</code> refer to <code>/data/data/com.termux/files/home</code>.</li>
 </ul>
 <h3 id="official-wiki-and-community-of-termux">Official Wiki and Community of Termux</h3>
 <ul>
-<li>Wiki: <a href="https://wiki.termux.com/">https://wiki.termux.com/</a>.</li>
+<li>Wiki: <a href="https://wiki.termux.com">https://wiki.termux.com</a>.</li>
 <li>Reddit Community: <a href="https://termux.com/community">https://termux.com/community</a>.</li>
 </ul>
 <h3 id="termux-app-user-interface">Termux App User Interface</h3>
@@ -299,14 +329,14 @@ DQUWv5vBhCLgoCCyNU2T4fh35ZhGi9cM4T</li>
 <li>Long press on screen to:</li>
 <li>COPY: Copy</li>
 <li>PASTE: Paste</li>
-<li>More: More  </li>
-<li>Select URL: Select URL  </li>
-<li>Share transcipt: transfer all output of the current session (via Android api)  </li>
-<li>Reset: Reset  </li>
-<li>Kill process: Kill the current terminal session process  </li>
-<li>Style: Style (requires Termux: Styling plugin)  </li>
-<li>Keep screen on:  </li>
-<li>Help: Help documentation (Termux Wiki)</li>
+<li>More: More</li>
+<li>Select URL: Select URL</li>
+<li>Share transcipt: transfer all output of the current session (via <strong>Android</strong> api)</li>
+<li>Reset: Reset</li>
+<li>Kill process: Kill the current terminal session process</li>
+<li>Style: Style (requires <strong>Termux:Styling</strong> plugin)</li>
+<li>Keep screen on:</li>
+<li>Help: Help documentation (<strong>Termux</strong> Wiki)</li>
 </ul>
 <h3 id="shortcuts">Shortcuts</h3>
 <p>The following are some of the shortcuts commonly used in the terminal, and they also work in Ter­mux. The volume plus button (abbreviated to Volume below) can be used as a special key to generate a specific input, which can be roughly understood as the Fn key on a laptop.</p>
@@ -379,28 +409,8 @@ Usage: <code>pkg [--check-mirror] command [arguments]</code>.</p>
 <li><code>upgrade</code> - Upgrade all installed packages to the latest version.</li>
 <li><code>update</code> - Update apt databases from configured repositories.</li>
 </ul>
-<h3 id="text-editor-nano-and-vim">Text Editor: Nano and Vim</h3>
-<p>Nano and Vim are both text editors used in Unix-like operating systems. </p>
-<h4 id="nano">Nano</h4>
-<p>Install:</p>
-<pre><code>apt install nano
-</code></pre>
-<p>Nano is a simple, user-friendly text editor designed for ease of use.</p>
-<ul>
-<li>Basic Functions: It supports basic editing features like cut, copy, paste, search, and replace.</li>
-<li>Command Shortcuts: Common commands are displayed at the bottom of the screen (e.g., ^X to exit).</li>
-<li>Usage: Typically used for quick edits or for users who prefer a no-frills experience. You can open a file by typing <code>nano filename</code>.</li>
-</ul>
-<h4 id="vim">Vim</h4>
-<p>Vim (Vi IMproved) is a highly configurable and powerful text editor, which is an enhanced version of the original Vi editor. It is favored by experienced users and programmers.</p>
-<ul>
-<li>Modes: Vim operates in different modes (Normal, Insert, Visual, etc.), allowing for more complex editing tasks and commands.</li>
-<li>Extensibility: Users can customize Vim extensively through configuration files and plugins.</li>
-<li>Powerful Editing Capabilities: It has a steep learning curve but offers efficient ways to manipulate text.</li>
-<li>Usage: Often used for programming and extensive text manipulation. You can open a file by typing <code>vim filename</code>.</li>
-</ul>
 <h3 id="package-command-error">Package Command Error</h3>
-<p>Termux had to move the primary Termux package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:</p>
+<p><strong>Termux</strong> had to move the primary <strong>Termux</strong> package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:</p>
 <pre><code>E: The repository 'https://termux.org/packages stable Release' does no longer have a Release file.
 N: Metadata integrity can't be verified, repository is disabled now.
 N: Possible cause: repository is under maintenance or down (wrong sources.list URL?).
@@ -419,15 +429,14 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 <li>Select one or more repositories for which you want to change mirror by tapping "space" and navigating over list by up/down arrow keys. Tap enter to confirm the choice.</li>
 <li>Pick a mirror, it is recommended to begin with mirror hosted by Grimler. Same as previously, navigate over list by arrow keys, pick mirror by space key and confirm choice by pressing "enter".</li>
 <li>If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the <code>termux-info</code> command. Note that the science and game repos have been merged into main repo and should be removed with apt remove science-repo game-repo if you have them installed.</li>
-<li>If you receive errors like:  </li>
+<li>If you receive errors like:</li>
 </ul>
 <pre><code>E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Origin' value from 'Bintray' to 'termux-root-packages-24 root'  
 E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Label' value from 'Bintray' to 'termux-root-packages-24 root'  
 N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.  
 Do you want to accept these changes and continue updating from this repository? [y/N]  
 </code></pre>
-<p><br />
-, then accept them by typing <code>y</code>.</p>
+<p>, then accept them by typing <code>y</code>.</p>
 <ul>
 <li>After changing the mirror, it is highly advisable to run <code>pkg upgrade</code> command to update all packages to the latest available versions, or at least update <code>termux-tools</code> package with <code>pkg install termux-tools</code> command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.</li>
 </ul>
@@ -447,7 +456,7 @@ Do you want to accept these changes and continue updating from this repository? 
 <li><a href="https://github.com/cyb0rgdoll/freshtermux">https://github.com/cyb0rgdoll/freshtermux</a>.</li>
 </ul>
 <h3 id="process-completed-signal-9---press-enter-error">Process completed (signal 9) - press Enter Error</h3>
-<p>Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU. You may get <code>Process completed (signal 9) - press Enter</code> message in the terminal without actually exiting the shell process yourself. Here is the guide of how to turn it off.</p>
+<p>Some <strong>Android</strong> OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU. You may get <code>Process completed (signal 9) - press Enter</code> message in the terminal without actually exiting the shell process yourself. Here is the guide of how to turn it off.</p>
 <h4 id="fix-for-stock-android-12l-and-beyond">Fix for Stock Android 12L and beyond</h4>
 <ul>
 <li>In phone's <strong>Settings</strong> or something similar, go to <strong>About Phone > Software Information</strong> or something similar, and tap the <strong>Version Number</strong> seven times to enable <strong>Developer Options</strong>. Some phones may have different methods to enable <strong>Developer Options</strong>.</li>
@@ -457,22 +466,22 @@ Do you want to accept these changes and continue updating from this repository? 
 </ul>
 <h4 id="fix-for-qems-like-oneui-miui-samsung-etc-and-other-non-stock-android-12l-and-beyond">Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond</h4>
 <ul>
-<li>Connect to Android Debug Bridge (ADB) of your Android device from Linux, Windows, MacOS, etc. or via <strong>Shizuku</strong>.</li>
+<li>Connect to <strong>Android Debug Bridge</strong> (ADB) of your <strong>Android</strong> device from <strong>Linux</strong>, <strong>Windows</strong>, <strong>macOS</strong>, etc. or via <strong>Shizuku</strong>.</li>
 <li>Type <code>adb shell</code> to enter <code>adb shell</code>.</li>
-<li>Run the following commands inside <code>adb shell</code>:  </li>
+<li>Run the following commands inside <code>adb shell</code>:</li>
 </ul>
 <pre><code>/system/bin/device_config set_sync_disabled_for_tests persistent  
 /system/bin/device_config put activity_manager max_phantom_processes 2147483647  
 settings put global settings_enable_monitor_phantom_procs false  
 </code></pre>
 <ul>
-<li>To check the status of whether phantom process killer is disabled, run the following commands inside <code>adb shell</code>:  </li>
+<li>To check the status of whether phantom process killer is disabled, run the following commands inside <code>adb shell</code>:</li>
 </ul>
 <pre><code>/system/bin/dumpsys activity settings | grep max_phantom_processes  
 /system/bin/device_config get activity_manager max_phantom_processes  
 </code></pre>
 <ul>
-<li>To enable phantom process killer again, run the following commands inside <code>adb shell</code>:  </li>
+<li>To enable phantom process killer again, run the following commands inside <code>adb shell</code>:</li>
 </ul>
 <pre><code>/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32  
 settings put global settings_enable_monitor_phantom_procs true  
@@ -482,13 +491,45 @@ settings put global settings_enable_monitor_phantom_procs true
 <li><a href="https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220">https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220</a>.</li>
 <li><a href="https://github.com/termux/termux-app/issues/2366">https://github.com/termux/termux-app/issues/2366</a>.</li>
 <li><a href="https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond">https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond</a>.</li>
-<li><a href="https://www.xda-developers.com/android-13-phantom-process-toggle/">https://www.xda-developers.com/android-13-phantom-process-toggle/</a>.</li>
+<li><a href="https://www.xda-developers.com/android-13-phantom-process-toggle">https://www.xda-developers.com/android-13-phantom-process-toggle</a>.</li>
 <li><a href="https://youtu.be/mjXSh3yq-I0">https://youtu.be/mjXSh3yq-I0</a>.</li>
-<li><a href="https://ivonblog.com/en-us/posts/fix-termux-signal9-error/">https://ivonblog.com/en-us/posts/fix-termux-signal9-error/</a>.</li>
+<li><a href="https://ivonblog.com/en-us/posts/fix-termux-signal9-error">https://ivonblog.com/en-us/posts/fix-termux-signal9-error</a>.</li>
 <li><a href="https://kskroyal.com/disable-phantom-process-killer-in-android-12-13/#google%5Fvignette">https://kskroyal.com/disable-phantom-process-killer-in-android-12-13/#google%5Fvignette</a>.</li>
 <li><a href="https://issuetracker.google.com/u/1/issues/205156966">https://issuetracker.google.com/u/1/issues/205156966</a>.</li>
 <li><a href="https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md">https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md</a>.</li>
 </ul>
+<h3 id="termuxstyling">Termux:Styling</h3>
+<p>This plugin for <strong>Termux</strong> provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal. </p>
+<p>Long-press anywhere on the Termux terminal and use the "Style" menu entry to use after installation.</p>
+<h3 id="termuxwidget">Termux:Widget</h3>
+<p>Add-on app which adds shortcuts to <strong>Termux</strong> scripts and commands on the home screen. Scripts should be placed in the <code>$HOME/.shortcuts/</code> folder to allow quick access to frequently used commands without typing.</p>
+<h3 id="termuxboot">Termux:Boot</h3>
+<p>This plugin for <strong>Termux</strong> allows programs to be run at boot. </p>
+<p>Instructions: </p>
+<ul>
+<li>Start the <strong>Termux:Boot</strong> app once by clicking on its launcher icon. </li>
+<li>This allow the app to be run at boot. </li>
+<li>Create the <code>~/.termux/boot/</code> directory.</li>
+<li>Put scripts you want to execute inside the <code>~/.termux/boot/</code> directory. </li>
+<li>If there are multiple files, they will be executed in a sorted order. </li>
+</ul>
+<p>Note that you may want to run <code>termux-wake-lock</code> as first thing want to ensure that the device is prevented from sleeping.</p>
+<h3 id="termuxfloat">Termux:Float</h3>
+<p>This plugin for <strong>Termux</strong> provides a floating terminal window which is shown above other apps. </p>
+<p>Long-press on the floating window to move or resize it and tap on the notification to temporarily hide it.</p>
+<h3 id="termuxapi">Termux:API</h3>
+<p>Expose basic Android functionality like sending SMS or accessing GPS data to the <strong>Termux</strong> app. This is an add-on which requires that the main Termux app is installed to use. </p>
+<ul>
+<li>Read and send sms messages from your terminal. </li>
+<li>Access device GPS location sensor from scripts. </li>
+<li>Pipe the result of commands into the device text-to-speech engine. </li>
+<li>Vibrate the device when something interesting happens. </li>
+<li>Access the system clipboard from shell scripts. </li>
+<li>List contacts from the system contact list. </li>
+</ul>
+<p>Besides installing this app an additional package is required to install inside <strong>Termux</strong>: </p>
+<pre><code>apt install termux-api
+</code></pre>
 <hr />
 <h2 id="termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment">Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</h2>
 <h3 id="enable-the-x11-repository-of-termux">Enable the X11 Repository of Termux</h3>
@@ -648,10 +689,10 @@ MATE will start automatically on VNC server startup.</p>
 <hr />
 <h2 id="andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices">Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices</h2>
 <h3 id="optional-but-recommended-install-andronix-app">Optional but Recommended: Install Andronix App</h3>
-<p>Install Andronix from Google Play: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</p>
+<p>Install Andronix from <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</p>
 <h3 id="introduction-of-andronix-and-proot">Introduction of Andronix and PRoot</h3>
 <ul>
-<li><strong>Andronix</strong> is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in <strong>Termux</strong> on non-rooted Android devices with <strong>PRoot</strong>. <strong>Andronix</strong> provide paid, close-source modded OS too, which won't be mentioned in this tutorial.</li>
+<li><strong>Andronix</strong> is an app that lets you install <strong>Linux</strong> distributions like <strong>Ubuntu</strong>, <strong>Debian</strong>, Manjaro etc. in <strong>Termux</strong> on non-rooted Android devices with <strong>PRoot</strong>. <strong>Andronix</strong> provide paid, close-source modded OS too, which won't be mentioned in this tutorial.</li>
 <li><strong>PRoot</strong> is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.</li>
 <li>chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.</li>
 <li>Further readings and references:</li>
@@ -662,10 +703,10 @@ MATE will start automatically on VNC server startup.</p>
 <ul>
 <li>Open <strong>Andronix</strong> app.</li>
 <li>Click the <strong>Linux Distribution</strong> card.</li>
-<li>Click on the Linux distribution you want to install. It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.</li>
-<li>Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your Linux distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your Linux distribution.</li>
-<li>Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you've little or no experience with Linux.</li>
-<li>Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage Windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive.</li>
+<li>Click on the <strong>Linux</strong> distribution you want to install. It is recommended to get started with <strong>Ubuntu</strong> or <strong>Debian</strong> if you are overwhelmed by the options.</li>
+<li>Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your <strong>Linux</strong> distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your <strong>Linux</strong> distribution.</li>
+<li>Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you've little or no experience with <strong>Linux</strong>.</li>
+<li>Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive.</li>
 <li>CLI Only: If you don't want a Graphical User-interface, you can go ahead with the Command Line Interface. You'll have a terminal, which is enough if you know what you're doing in your session.</li>
 <li><strong>Andronix</strong> will automatically copy the command to your clipboard.</li>
 <li>Paste and run in <strong>Termux</strong>.</li>
@@ -674,14 +715,14 @@ MATE will start automatically on VNC server startup.</p>
 <ul>
 <li>Open <strong>Andronix</strong> app.</li>
 <li>Click the <strong>Linux Distribution</strong> card.</li>
-<li>Long press on the Linux distribution you want to uninstall.</li>
+<li>Long press on the <strong>Linux</strong> distribution you want to uninstall.</li>
 <li>Select<strong>Uninstall</strong>.</li>
 <li><strong>Andronix</strong> will automatically copy the command to your clipboard.</li>
-<li>Paste and run in <strong>Termux</strong> (Not inside Linux).</li>
+<li>Paste and run in <strong>Termux</strong> (Not inside <strong>Linux</strong>).</li>
 </ul>
 <h3 id="sound-output-from-proot-os">Sound Output from PRoot OS</h3>
 <h4 id="install-and-setup-sound-output-from-proot-os">Install and Setup Sound Output from PRoot OS</h4>
-<p>Run the following command in Termux (Not inside Linux):</p>
+<p>Run the following command in <strong>Termux</strong> (Not inside <strong>Linux</strong>):</p>
 <pre><code>pkg install wget &amp;&amp; wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh &amp;&amp; chmod +x setup-audio.sh &amp;&amp; ./setup-audio.sh
 </code></pre>
 <h4 id="start-pulseaudio-server">Start PulseAudio Server</h4>
@@ -691,7 +732,7 @@ MATE will start automatically on VNC server startup.</p>
 <h4 id="install-debian-with-xfce">Install Debian with XFCE</h4>
 <pre><code>pkg update -y &amp;&amp; pkg install wget curl proot tar -y &amp;&amp; wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh &amp;&amp; chmod +x debian-xfce.sh &amp;&amp;  bash debian-xfce.sh
 </code></pre>
-<p>The file directory of the Debian OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in <strong>Termux</strong> or in the Debian OS.</p>
+<p>The file directory of the <strong>Debian</strong> OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in <strong>Termux</strong> or in the <strong>Debian</strong> OS.</p>
 <h4 id="turn-on-the-os-cli">Turn on the OS (CLI)</h4>
 <pre><code>./start-debian.sh
 </code></pre>
@@ -707,7 +748,7 @@ MATE will start automatically on VNC server startup.</p>
 <h4 id="install-debian">Install Debian</h4>
 <pre><code>pkg update -y &amp;&amp; pkg install wget curl proot tar -y &amp;&amp; wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh &amp;&amp; chmod +x debian.sh &amp;&amp; bash debian.sh
 </code></pre>
-<p>The file directory of the Debian OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in <strong>Termux</strong> or in the Debian OS.</p>
+<p>The file directory of the <strong>Debian</strong> OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in <strong>Termux</strong> or in the <strong>Debian</strong> OS.</p>
 <h4 id="turn-on-the-os-cli-1">Turn on the OS (CLI)</h4>
 <pre><code>./start-debian.sh
 </code></pre>
@@ -722,9 +763,9 @@ MATE will start automatically on VNC server startup.</p>
 </code></pre>
 <h3 id="iso-image-method">ISO Image method</h3>
 <p>This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This tutorial assumes no such problems are encounter.<br />
-It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.</p>
+It is recommended to get started with <strong>Ubuntu</strong> or <strong>Debian</strong> if you are overwhelmed by the options.</p>
 <h4 id="prepare-the-iso-image">Prepare the ISO Image</h4>
-<p>Prepare the ISO image. Here takes Debian AMD64 for example. Change the URL to the download link of the ISO image you want or <code>cp</code> or <code>mv</code> the ISO image you want to the directory you want.</p>
+<p>Prepare the ISO image. Here takes <strong>Debian</strong> AMD64 for example. Change the URL to the download link of the ISO image you want or <code>cp</code> or <code>mv</code> the ISO image you want to the directory you want.</p>
 <pre><code>wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.7.0-amd64-netinst.iso
 </code></pre>
 <h4 id="create-a-virtual-disk-image-where-the-operating-system-will-be-installed">Create a Virtual Disk Image Where the Operating System Will Be Installed</h4>
@@ -896,9 +937,9 @@ Make it executable:</p>
 <p>Connect to the VNC server from a VNC viewer.</p>
 <h3 id="qcow2-image-method">QCOW2 Image Method</h3>
 <p>This method is more easy but less customizable.<br />
-It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.</p>
+It is recommended to get started with <strong>Ubuntu</strong> or <strong>Debian</strong> if you are overwhelmed by the options.</p>
 <h4 id="prepare-the-qcow2-image">Prepare the QCOW2 Image</h4>
-<p>Prepare the qcow2 image. Here takes Debian AMD64 qcow2 cloud image for example. Change the URL to the download link of the qcow2 image you want or <code>cp</code> or <code>mv</code> the qcow2 image you want to the directory you want.</p>
+<p>Prepare the qcow2 image. Here takes <strong>Debian</strong> AMD64 qcow2 cloud image for example. Change the URL to the download link of the qcow2 image you want or <code>cp</code> or <code>mv</code> the qcow2 image you want to the directory you want.</p>
 <pre><code>wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-amd64.qcow2
 </code></pre>
 <h4 id="boot-with-cli">Boot with CLI</h4>
@@ -989,19 +1030,19 @@ sudo resize2fs /dev/sda1
 <pre><code>lsblk
 </code></pre>
 <h3 id="openssh">OpenSSH</h3>
-<p>You can start a SSH server in QEMU VM and start a client in another <strong>Termux</strong> session with <code>openssh</code>.</p>
+<p>You can start a SSH server in QEMU VM and start a client in another <strong>Termux</strong> session with <code>openssh</code>. See <a href="#openssh-with-linux-or-termux-and-sftp-server-mount-on-material-files-secure-remote-access">OpenSSH with Linux or Termux and SFTP Server Mount on Material Files: Secure Remote Access</a> for more information.</p>
 <h3 id="further-readings-and-references-about-qemu">Further Readings and References about QEMU</h3>
 <ul>
-<li><a href="https://ivonblog.com/posts/termux-qemu-system-linux/">https://ivonblog.com/posts/termux-qemu-system-linux/</a></li>
+<li><a href="https://ivonblog.com/posts/termux-qemu-system-linux">https://ivonblog.com/posts/termux-qemu-system-linux</a></li>
 <li><a href="https://www.qemu.org/docs/master/index.html">https://www.qemu.org/docs/master/index.html</a></li>
 <li><a href="https://www.debian.org/distrib/index.en.html">https://www.debian.org/distrib/index.en.html</a></li>
-<li><a href="https://chatgpt.com/">https://chatgpt.com/</a></li>
+<li><a href="https://chatgpt.com">https://chatgpt.com</a></li>
 <li><a href="https://www.reddit.com/r/debian/s/s871vXlGRI">https://www.reddit.com/r/debian/s/s871vXlGRI</a></li>
 </ul>
 <hr />
 <h2 id="avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</h2>
 <h3 id="install-avnc">Install AVNC</h3>
-<p>You can install AVNC from F-Droid: <a href="https://f-droid.org/packages/com.gaurav.avnc/">https://f-droid.org/packages/com.gaurav.avnc/</a>.</p>
+<p>You can install AVNC from <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/com.gaurav.avnc">https://f-droid.org/packages/com.gaurav.avnc</a>.</p>
 <h3 id="connect-a-vnc-server">Connect a VNC Server</h3>
 <ul>
 <li>Tap the <strong>+</strong> sign in the lower right corner,</li>
@@ -1032,16 +1073,16 @@ sudo resize2fs /dev/sda1
 <h2 id="shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h2>
 <h3 id="install-shizuku">Install Shizuku</h3>
 <ul>
-<li>Install <strong>Shizuku</strong> from Google Play: <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api</a>.</li>
+<li>Install <strong>Shizuku</strong> from <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api</a>.</li>
 <li>Official tutorial of Shizuku: <a href="https://shizuku.rikka.app/guide/setup/?night=1">https://shizuku.rikka.app/guide/setup/?night=1</a></li>
 </ul>
 <h3 id="introduction-of-shizuku-and-adb">Introduction of Shizuku and ADB</h3>
 <ul>
 <li><strong>Shizuku</strong> is An open-source app for serving multiple apps that require root/adb.</li>
-<li>The Android Debug Bridge (commonly abbreviated as adb) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google since 2007, its features include a shell and the possibility to make backups. The adb software is available for Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</li>
+<li>The <strong>Android Debug Bridge</strong> (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by <strong>Google</strong>, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as <strong>Windows</strong>, <strong>Linux</strong> and <strong>macOS</strong>. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</li>
 <li>Further readings and references:</li>
 <li><a href="https://developer.android.com/tools/adb">https://developer.android.com/tools/adb</a>.</li>
-<li><a href="https://android.googlesource.com/platform/packages/modules/adb/">https://android.googlesource.com/platform/packages/modules/adb/</a>.</li>
+<li><a href="https://android.googlesource.com/platform/packages/modules/adb">https://android.googlesource.com/platform/packages/modules/adb</a>.</li>
 </ul>
 <h3 id="connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</h3>
 <ol>
@@ -1063,10 +1104,10 @@ sudo resize2fs /dev/sda1
 <li>Where used to be <code>~ $</code> should become <code>e2q:/ $</code> or something similar if <code>sh rish</code> succeeded. Write ADB commands here. Note that there is no need to use <code>adb</code> or <code>adb shell</code> prefixes before commands and that <code>devices</code> command gets <code>/system/bin/sh: devices: inaccessible or not found</code>.</li>
 <li>You can turn WiFi off after ADB is connected. The notification of <strong>Shizuku</strong> may say <strong>Paring failed</strong> after that, but you can check <strong>Shizuku</strong> app to check whether there's a block read <strong>Shizuku is running</strong> on the top.</li>
 <li>Optionally, create a <code>.sh</code> file (<code>nano ~/shizuku.sh</code> for example), paste the following code block, save it, and make it executable with <code>chmod +x shizuku.sh</code> so that you can run this shortcut to start <strong>Shizuku</strong> on your terminal afterward.<code>#!/data/data/com.termux/files/usr/bin/bash cd shizuku sh rish</code></li>
-<li><strong>Note</strong>: It is recommended to use <strong>Termux</strong>'s F-Droid version and avoid using Google Play version because the latter is depreciated. F-Droid: <a href="https://f-droid.org/packages/com.termux/">https://f-droid.org/packages/com.termux/</a>.</li>
+<li><strong>Note</strong>: It is recommended to use <strong>Termux</strong>'s <strong>F-Droid</strong> version and avoid using <strong>Google Play</strong> version because the latter is depreciated. <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a>.</li>
 </ol>
 <h3 id="install-systemui-tuner">Install SystemUI Tuner</h3>
-<p>Install <strong>SystemUI Tuner</strong> (pub: <strong>Zachary Wander</strong>) from Google Play: <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner</a>.</p>
+<p>Install <strong>SystemUI Tuner</strong> (pub: <strong>Zachary Wander</strong>) from <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner</a>.</p>
 <h3 id="to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb">To Leave Developer Options off When Using Shizuku to Connect to ADB</h3>
 <p>Some financial apps may require Developer Options to be off when using them. This section is the tutorial about how to turn Developer Options off while still using Shizuku ADB Shell.</p>
 <ol>
@@ -1097,7 +1138,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <h3 id="using-ashell">Using aShell</h3>
 <ul>
 <li><strong>aShell</strong> has features like autocomplete suggestions and optional log.</li>
-<li>Download and Install <strong>aShell</strong> from F-droid. F-droid: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell/">https://f-droid.org/packages/in.sunilpaulmathew.ashell/</a>.</li>
+<li>Download and Install <strong>aShell</strong> from <strong>F-Droid</strong>. <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">https://f-droid.org/packages/in.sunilpaulmathew.ashell</a>.</li>
 <li>Give <strong>aShell</strong> the permission <code>moe.shizuku.manager.permission.API_V23</code>.</li>
 <li>Connect <strong>Shizuku</strong> to local ADB according to above guide.</li>
 <li>Use <strong>aShell</strong>.</li>
@@ -1106,12 +1147,12 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <h2 id="trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-and-block-trackers">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers</h2>
 <h3 id="install-invizible-pro">Install InviZible Pro</h3>
 <ul>
-<li>Download and install <strong>InviZible Pro</strong> from F-Droid or Google Play. F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/</a>. Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</li>
+<li>Download and install <strong>InviZible Pro</strong> from <strong>F-Droid</strong> or <strong>Google Play</strong>. <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a>. <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</li>
 </ul>
 <h3 id="install-trackercontrol">Install TrackerControl</h3>
 <ul>
-<li>Download and install <strong>TrackerControl</strong> (also known as <strong>TC</strong>) from F-Droid. F-Droid: <a href="https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/">https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/</a>.</li>
-<li><strong>Note</strong>: Avoid use the Google Play version because it doesn't have the feature like trackers blocking in order to comply with Google's terms.</li>
+<li>Download and install <strong>TrackerControl</strong> (also known as <strong>TC</strong>) from <strong>F-Droid</strong>. <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid">https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid</a>.</li>
+<li><strong>Note</strong>: Avoid use the <strong>Google Play</strong> version because it doesn't have the feature like trackers blocking in order to comply with Google's terms.</li>
 </ul>
 <h3 id="use-trackercontrol-to-block-trackers">Use TrackerControl to Block Trackers</h3>
 <ul>
@@ -1124,78 +1165,76 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <ul>
 <li>Turn on <strong>TrackerControl</strong> as the VPN service of the entire device.</li>
 <li>Disable monitoring of <strong>InviZible Pro</strong> (<code>pan.alexander.tordnscrypt.stable</code>) within <strong>TrackerControl</strong>.</li>
-<li>Go to the Advanced options in <strong>Settings</strong>.  </li>
-<li>Turn on <strong>Block Trackers on UDP</strong>.  </li>
-<li>Set the <strong>SOCKS5 address</strong> to <code>127.0.0.1</code>.  </li>
-<li>Set the <strong>SOCKS port</strong> to the port you've configured Tor to use in <strong>InviZible Pro</strong> (<code>9050</code> by default).  </li>
-<li>Enable the <strong>Use SOCKS5 proxy</strong> option.  </li>
-<li>Go to <strong>Port forwarding</strong>.  </li>
-<li>Add <code>UDP 53&gt;/127.0.0.1:</code>the port you configure DNSCrypt to listen to in <strong>DNSCrypt Settings</strong> in <strong>InviZible Pro</strong> (<code>5354</code> by default) <code>nobody</code>.  </li>
-<li>Add <code>TCP 53&gt;/127.0.0.1:</code>the port you configure DNSCrypt to listen to in <strong>DNSCrypt Settings</strong> in <strong>InviZible Pro</strong> (<code>5354</code> by default) <code>nobody</code>.  </li>
-<li>Set first (above) <strong>VPN DNS</strong> as <code>9.9.9.9</code>.  </li>
-<li>Set second (below) <strong>VPN DNS</strong> as <code>149.112.112.112</code>.  </li>
+<li>Go to the Advanced options in <strong>Settings</strong>.</li>
+<li>Turn on <strong>Block Trackers on UDP</strong>.</li>
+<li>Set the <strong>SOCKS5 address</strong> to <code>127.0.0.1</code>.</li>
+<li>Set the <strong>SOCKS port</strong> to the port you've configured Tor to use in <strong>InviZible Pro</strong> (<code>9050</code> by default).</li>
+<li>Enable the <strong>Use SOCKS5 proxy</strong> option.</li>
+<li>Go to <strong>Port forwarding</strong>.</li>
+<li>Add <code>UDP 53&gt;/127.0.0.1:</code>the port you configure DNSCrypt to listen to in <strong>DNSCrypt Settings</strong> in <strong>InviZible Pro</strong> (<code>5354</code> by default) <code>nobody</code>.</li>
+<li>Add <code>TCP 53&gt;/127.0.0.1:</code>the port you configure DNSCrypt to listen to in <strong>DNSCrypt Settings</strong> in <strong>InviZible Pro</strong> (<code>5354</code> by default) <code>nobody</code>.</li>
+<li>Set first (above) <strong>VPN DNS</strong> as <code>9.9.9.9</code>.</li>
+<li>Set second (below) <strong>VPN DNS</strong> as <code>149.112.112.112</code>.</li>
 <li>Set where to validate the internet connection in <strong>Validate at</strong> if you want, <code>www.f-droid.org</code> for example.</li>
 <li>Set other things if you want.</li>
 <li>Block unwanted trackers.</li>
-<li><strong>Note</strong>: If you export settings and import it on another device, the blocklist won't be able to be configured as that in the previous device.
-You can apply some of the above settings with the <code>.xml</code> below (assuming the configuration of <strong>Invizible Pro</strong> is as in this guide) by coping it, storing it in a <code>.xml</code> file and going to <strong>Settings > Backup > Import settings</strong> to import this file. However, it just contains some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case. </li>
+<li><strong>Note</strong>: If you export settings and import it on another device, the blocklist won't be able to be configured as that in the previous device. You can apply some of the above settings with the <code>.xml</code> below (assuming the configuration of <strong>Invizible Pro</strong> is as in this guide) by coping it, storing it in a <code>.xml</code> file and going to <strong>Settings > Backup > Import settings</strong> to import this file. However, it just contains some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.</li>
 </ul>
 <pre><code>&lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
 &lt;trackercontrol&gt;
   &lt;application&gt;
-    &lt;setting key="dns2" type="string" value="149.112.112.112" /&gt;
-    &lt;setting key="filter_udp" type="boolean" value="true" /&gt;
-    &lt;setting key="domain_based_blocking" type="boolean" value="true" /&gt;
-    &lt;setting key="dark_theme" type="boolean" value="true" /&gt;
-    &lt;setting key="dns" type="string" value="9.9.9.9" /&gt;
-    &lt;setting key="hosts_url_new" type="string" value="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" /&gt;
-    &lt;setting key="wifi_homes" type="set" value="" /&gt;
-    &lt;setting key="traffic_blocked" type="boolean" value="true" /&gt;
-    &lt;setting key="hosts_url" type="string" value="https://www.netguard.me/hosts" /&gt;
-    &lt;setting key="socks5_addr" type="string" value="127.0.0.1" /&gt;
-    &lt;setting key="socks5_port" type="string" value="9050" /&gt;
-    &lt;setting key="proto_tcp" type="boolean" value="true" /&gt;
-    &lt;setting key="manage_system" type="boolean" value="true" /&gt;
-    &lt;setting key="validate" type="string" value="www.f-droid.org" /&gt;
-    &lt;setting key="update_check" type="boolean" value="true" /&gt;
-    &lt;setting key="socks5_enabled" type="boolean" value="true" /&gt;
-    &lt;setting key="filter" type="boolean" value="true" /&gt;
+    &lt;setting key="dns2" type="string" value="149.112.112.112" &gt;
+    &lt;setting key="filter_udp" type="boolean" value="true" &gt;
+    &lt;setting key="domain_based_blocking" type="boolean" value="true" &gt;
+    &lt;setting key="dark_theme" type="boolean" value="true" &gt;
+    &lt;setting key="dns" type="string" value="9.9.9.9" &gt;
+    &lt;setting key="hosts_url_new" type="string" value="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" &gt;
+    &lt;setting key="wifi_homes" type="set" value="" &gt;
+    &lt;setting key="traffic_blocked" type="boolean" value="true" &gt;
+    &lt;setting key="hosts_url" type="string" value="https://www.netguard.me/hosts" &gt;
+    &lt;setting key="socks5_addr" type="string" value="127.0.0.1" &gt;
+    &lt;setting key="socks5_port" type="string" value="9050" &gt;
+    &lt;setting key="proto_tcp" type="boolean" value="true" &gt;
+    &lt;setting key="manage_system" type="boolean" value="true" &gt;
+    &lt;setting key="validate" type="string" value="www.f-droid.org" &gt;
+    &lt;setting key="update_check" type="boolean" value="true" &gt;
+    &lt;setting key="socks5_enabled" type="boolean" value="true" &gt;
+    &lt;setting key="filter" type="boolean" value="true" &gt;
   &lt;/application&gt;
   &lt;apply&gt;
-    &lt;setting key="com.termux" type="boolean" value="false" /&gt;
-    &lt;setting key="pan.alexander.tordnscrypt.stable" type="boolean" value="false" /&gt;
+    &lt;setting key="com.termux" type="boolean" value="false" &gt;
+    &lt;setting key="pan.alexander.tordnscrypt.stable" type="boolean" value="false" &gt;
   &lt;/apply&gt;
   &lt;forward&gt;
-    &lt;port pkg="nobody" protocol="17" dport="53" raddr="127.0.0.1" rport="5354" /&gt;
-    &lt;port pkg="nobody" protocol="6" dport="53" raddr="127.0.0.1" rport="5354" /&gt;
+    &lt;port pkg="nobody" protocol="17" dport="53" raddr="127.0.0.1" rport="5354" &gt;
+    &lt;port pkg="nobody" protocol="6" dport="53" raddr="127.0.0.1" rport="5354" &gt;
   &lt;/forward&gt;
 &lt;/trackercontrol&gt;
 </code></pre>
 <ul>
 <li><strong>Note</strong>: <strong>TrackerControl</strong> has a <strong>Traffic log</strong> feature for free, which can help a lot in identifying which trackers should be unblocked when the services crash.</li>
-<li><strong>Note</strong>: The above guide, including the setting <code>.xml</code>, can be used in <strong>NetGuard</strong> as well because <strong>TrackerControl</strong> uses <strong>NetGuard</strong>'s code. However, <strong>Traffic log</strong> feature is not available in <strong>NetGuard</strong>'s free version but only available in <strong>TrackerControl</strong> and <strong>NetGuard</strong>'s <strong>Pro</strong> version. <strong>NetGuard</strong> is available on Google Play and F-Droid. Google Play: <a href="https://play.google.com/store/apps/details?id=eu.faircode.netguard">https://play.google.com/store/apps/details?id=eu.faircode.netguard</a>. F-Droid: <a href="https://f-droid.org/packages/eu.faircode.netguard/">https://f-droid.org/packages/eu.faircode.netguard/</a>.</li>
+<li><strong>Note</strong>: The above guide, including the setting <code>.xml</code>, can be used in <strong>NetGuard</strong> as well because <strong>TrackerControl</strong> uses <strong>NetGuard</strong>'s code. However, <strong>Traffic log</strong> feature is not available in <strong>NetGuard</strong>'s free version but only available in <strong>TrackerControl</strong> and <strong>NetGuard</strong>'s <strong>Pro</strong> version. <strong>NetGuard</strong> is available on <strong>Google Play</strong> and <strong>F-Droid</strong>. <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=eu.faircode.netguard">https://play.google.com/store/apps/details?id=eu.faircode.netguard</a>. <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/eu.faircode.netguard">https://f-droid.org/packages/eu.faircode.netguard</a>.</li>
 <li><strong>Note</strong>: You may have to disable monitoring of apps route traffic through Tor itself within <strong>TrackerControl</strong>, like <strong>Tor Browser</strong>, and <strong>Termux</strong> if you're using <code>tor</code>, <code>torsocks</code>, or similar things.</li>
 </ul>
 <h3 id="configure-invizible-pro-to-be-used-with-trackercontrol">Configure InviZible Pro to be used with TrackerControl</h3>
 <ul>
 <li>Change to <strong>Proxy mode</strong> by tapping the 3-point button in the upper right corner.</li>
-<li>Go to <strong>Fast settings</strong>.  </li>
-<li>Turn on <strong>Autostart DNSCrypt</strong> and <strong>Autostart Tor</strong> if you want.  </li>
+<li>Go to <strong>Fast settings</strong>.</li>
+<li>Turn on <strong>Autostart DNSCrypt</strong> and <strong>Autostart Tor</strong> if you want.</li>
 <li>Set Delay, DNSCrypr servers, bridges, whether to spoof SNI, etc. if needed.</li>
 <li>Go to <strong>Common Settings</strong> and turn on <strong>Prevent device sleep</strong> if needed.</li>
-<li>Go to <strong>DNSCrypt Settings</strong>  </li>
-<li>Go to <strong>Listen port</strong> and set it to the port <strong>TrackerControl</strong> forwarding UDP and TCP of port <code>53</code> to (<code>5354</code> by default).  </li>
-<li>Set requirements if you want.  </li>
-<li>Turn on <strong>Force TCP</strong>.  </li>
-<li>Turn on <strong>Outbound proxy</strong> in <strong>SOCKS proxy</strong> section.  </li>
-<li>Set <strong>Proxy port</strong> as the port you want to configure Tor to use in <strong>InviZible Pro</strong> (<code>9050</code> by default).  </li>
-<li>Ensure the <strong>Forwarding rules</strong> is coordinate with the <strong>DNS port</strong> in <strong>Tor settings</strong> (<code>onion 127.0.0.1:5400</code> by default).  </li>
+<li>Go to <strong>DNSCrypt Settings</strong></li>
+<li>Go to <strong>Listen port</strong> and set it to the port <strong>TrackerControl</strong> forwarding UDP and TCP of port <code>53</code> to (<code>5354</code> by default).</li>
+<li>Set requirements if you want.</li>
+<li>Turn on <strong>Force TCP</strong>.</li>
+<li>Turn on <strong>Outbound proxy</strong> in <strong>SOCKS proxy</strong> section.</li>
+<li>Set <strong>Proxy port</strong> as the port you want to configure Tor to use in <strong>InviZible Pro</strong> (<code>9050</code> by default).</li>
+<li>Ensure the <strong>Forwarding rules</strong> is coordinate with the <strong>DNS port</strong> in <strong>Tor settings</strong> (<code>onion 127.0.0.1:5400</code> by default).</li>
 <li>Turn on <strong>Query logging</strong> and <strong>Suspicious logging</strong> if you want.</li>
-<li>Go to <strong>Tor settings</strong>.  </li>
+<li>Go to <strong>Tor settings</strong>.</li>
 <li>Set Nodes, Proxy, etc. if you want. Make sure the <strong>SOCKS port</strong> is coordinated with the <strong>SOCKS proxy</strong> in <strong>TrackerControl</strong> and the <strong>DNS port</strong> is coordinated with the <strong>Forwarding rules</strong> in <strong>DNSCrypt Settings</strong> (<code>onion 127.0.0.1:5400</code> by default).</li>
-<li>Set other things if you want.
-You can apply some of the above settings with the files below (assuming the configuration of <strong>TrackerControl</strong> is as in this guide). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case. </li>
-<li><code>dns-proxy.toml</code>: Copy the text in the below block, tap <code>Edit dns-proxy.toml</code> in <strong>DNSCrypt Settings</strong>, and paste.  </li>
+<li>Set other things if you want. You can apply some of the above settings with the files below (assuming the configuration of <strong>TrackerControl</strong> is as in this guide). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.</li>
+<li><code>dns-proxy.toml</code>: Copy the text in the below block, tap <code>Edit dns-proxy.toml</code> in <strong>DNSCrypt Settings</strong>, and paste.</li>
 </ul>
 <pre><code>ipv4_servers = true  
 ipv6_servers = true  
@@ -1346,10 +1385,10 @@ UseBridges 0
 <h3 id="use-tor-but-not-dnscrypr-of-invizible-pro">Use Tor but not DNSCrypr of InviZible Pro</h3>
 <p>If you want to use Tor but not DNSCrypr of <strong>InviZible Pro</strong> with <strong>TrackerControl</strong>, do below modification on configuration of both DNSCrypt and Tor above:</p>
 <ul>
-<li>Go to <strong>Port forwarding</strong> in <strong>TrackerControl</strong><br />
-     * Delete all forwardings to port <code>5354</code>.<br />
-     * Add <code>UDP 53&gt;/127.0.0.1:</code>the port you configure <strong>Resolve DNS</strong> to listen to in <strong>Tor Settings</strong> in <strong>InviZible Pro</strong> (<code>5400</code> by default) <code>nobody</code>.<br />
-     * Add <code>TCP 53&gt;/127.0.0.1:</code>the port you configure <strong>Resolve DNS</strong> to listen to in <strong>Tor Settings</strong> in <strong>InviZible Pro</strong> (<code>5400</code> by default) <code>nobody</code>.</li>
+<li>Go to <strong>Port forwarding</strong> in <strong>TrackerControl</strong>  </li>
+<li>Delete all forwardings to port <code>5354</code>.  </li>
+<li>Add <code>UDP 53&gt;/127.0.0.1:</code>the port you configure <strong>Resolve DNS</strong> to listen to in <strong>Tor Settings</strong> in <strong>InviZible Pro</strong> (<code>5400</code> by default) <code>nobody</code>.  </li>
+<li>Add <code>TCP 53&gt;/127.0.0.1:</code>the port you configure <strong>Resolve DNS</strong> to listen to in <strong>Tor Settings</strong> in <strong>InviZible Pro</strong> (<code>5400</code> by default) <code>nobody</code>.</li>
 <li>Delete (set to empty) both <strong>VPN DNS</strong> in <strong>TrackerControl</strong>.</li>
 <li>Turn on Tor but not DNSCrypt in <strong>InviZible Pro</strong>.</li>
 </ul>
@@ -1362,9 +1401,9 @@ UseBridges 0
 </ul>
 <h3 id="check-whether-the-tor-route-setup-is-successful">Check Whether the Tor Route Setup Is Successful</h3>
 <ul>
-<li>Go to <a href="https://check.torproject.org/">https://check.torproject.org/</a> to check if your Tor route succeeded. If yes, you will see "Congratulations. This browser is configured to use Tor." (assume the page's language is set to English).</li>
-<li>Go to <a href="https://whatismyipaddress.com">https://whatismyipaddress.com</a> (not open source), <a href="https://ipcheck.ing/">https://ipcheck.ing/</a>, or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.</li>
-<li>Go to <a href="https://www.dnsleaktest.com">https://www.dnsleaktest.com</a> (not open source), <a href="https://ipcheck.ing/">https://ipcheck.ing/</a>, or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in <strong>DNSCrypt Settings</strong> in <strong>InviZible Pro</strong> instead of your ISP's servers if there's no DNS leak.</li>
+<li>Go to <a href="https://check.torproject.org">https://check.torproject.org</a> to check if your Tor route succeeded. If yes, you will see "Congratulations. This browser is configured to use Tor." (assume the page's language is set to English).</li>
+<li>Go to <a href="https://whatismyipaddress.com">https://whatismyipaddress.com</a> (not open source), <a href="https://ipcheck.ing">https://ipcheck.ing</a>, or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.</li>
+<li>Go to <a href="https://www.dnsleaktest.com">https://www.dnsleaktest.com</a> (not open source), <a href="https://ipcheck.ing">https://ipcheck.ing</a>, or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in <strong>DNSCrypt Settings</strong> in <strong>InviZible Pro</strong> instead of your ISP's servers if there's no DNS leak.</li>
 </ul>
 <h3 id="use-invizible-pro-without-trackercontrol">Use Invizible Pro without TrackerControl</h3>
 <ul>
@@ -1373,7 +1412,7 @@ UseBridges 0
 <hr />
 <h2 id="tor-browser">Tor Browser</h2>
 <h3 id="install-tor-browser">Install Tor Browser</h3>
-<p>You can install <strong>Tor Browser</strong> from Google Play: <a href="https://play.google.com/store/apps/details?id=org.torproject.torbrowser">https://play.google.com/store/apps/details?id=org.torproject.torbrowser</a>.</p>
+<p>You can install <strong>Tor Browser</strong> from <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=org.torproject.torbrowser">https://play.google.com/store/apps/details?id=org.torproject.torbrowser</a>.</p>
 <h3 id="introduction-of-tor">Introduction of Tor</h3>
 <p>Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.<br />
 Using Tor makes it more difficult to trace a user's Internet activity by preventing any single point on the Internet (other than the user's device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user's location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user's freedom and ability to communicate confidentially.<br />
@@ -1712,98 +1751,93 @@ RSA is employed in various applications that require secure communication and da
 </ul>
 <hr />
 <h2 id="file-and-directory-management-of-termux-and-linux">File and Directory Management of Termux and Linux</h2>
-<h3 id="cp-copy-files-and-directories"><code>cp</code> (Copy files and directories)</h3>
+<h3 id="cp-copy-files-and-directories"><code>cp</code>: Copy Files And Directories</h3>
 <ul>
 <li><strong>Examples</strong>:</li>
 <li><code>cp -r dir1/ dir2/</code>: Recursively copy <code>dir1</code> to <code>dir2</code>.</li>
 <li><code>cp -i file1.txt file2.txt</code>: Prompt before overwriting <code>file2.txt</code>.</li>
 </ul>
-<h3 id="mv-move-or-rename-files-and-directories"><code>mv</code> (Move or rename files and directories)</h3>
+<h3 id="mv-move-or-rename-files-and-directories"><code>mv</code>: Move or Rename Files and Directories</h3>
 <ul>
 <li><strong>Examples</strong>:</li>
 <li><code>mv file1.txt /home/user/</code>: Move <code>file1.txt</code> to <code>/home/user/</code>.</li>
 <li><code>mv oldname.txt newname.txt</code>: Rename <code>oldname.txt</code> to <code>newname.txt</code>.</li>
 </ul>
-<h3 id="rm-remove-files-or-directories"><code>rm</code> (Remove files or directories)</h3>
+<h3 id="rm-remove-files-or-directories"><code>rm</code>: Remove Files or Directories</h3>
 <ul>
 <li><strong>Examples</strong>:</li>
 <li><code>rm file1.txt</code>: Remove <code>file1.txt</code>.</li>
 <li><code>rm -r dir1/</code>: Recursively remove <code>dir1</code> and its contents.</li>
 <li><code>rm -rf dir1/</code>: Forcefully remove <code>dir1</code> and its contents without prompts.</li>
 </ul>
-<h3 id="mkdir-create-directories"><code>mkdir</code> (Create directories)</h3>
+<h3 id="mkdir-create-directories"><code>mkdir</code>: Create Directories</h3>
 <ul>
 <li><strong>Examples</strong>:</li>
 <li><code>mkdir newdir</code>: Create a directory named <code>newdir</code>.</li>
 <li><code>mkdir -p parentdir/childdir</code>: Create <code>parentdir</code> and <code>childdir</code> if they don't exist.</li>
 </ul>
-<h3 id="ls-list-directory-contents"><code>ls</code> (List directory contents)</h3>
+<h3 id="ls-list-directory-contents"><code>ls</code>: List Directory Contents</h3>
 <ul>
 <li><strong>Examples</strong>:</li>
 <li><code>ls -l</code>: List with detailed information (permissions, ownership, size).</li>
 <li><code>ls -a</code>: List all files, including hidden ones (starting with <code>.</code>).</li>
 <li><code>ls -lh</code>: List with human-readable file sizes.</li>
 </ul>
-<h3 id="rmdir-remove-empty-directories"><code>rmdir</code> (Remove empty directories)</h3>
+<h3 id="rmdir-remove-empty-directories"><code>rmdir</code>: Remove Empty Directories</h3>
 <ul>
 <li><strong>Syntax</strong>: <code>rmdir [options] directory</code></li>
 <li><strong>Examples</strong>:</li>
 <li><code>rmdir emptydir</code>: Remove <code>emptydir</code> if it's empty.</li>
 <li><code>rmdir -p parentdir/childdir</code>: Remove <code>childdir</code> and <code>parentdir</code> if they are empty.</li>
 </ul>
-<h3 id="find-search-for-files-and-directories"><code>find</code> (Search for files and directories)</h3>
+<h3 id="find-search-for-files-and-directories"><code>find</code>: Search for Files and Directories</h3>
 <ul>
 <li><strong>Syntax</strong>: <code>find [path] [options] [expression]</code></li>
 <li><strong>Examples</strong>:</li>
 <li><code>find /home/user/ -name '*.txt'</code>: Find all <code>.txt</code> files under <code>/home/user/</code>.</li>
 <li><code>find . -type d -name 'dir*'</code>: Find directories starting with <code>dir</code>.</li>
 </ul>
-<h3 id="touch-create-or-update-file-timestamps"><code>touch</code> (Create or update file timestamps)</h3>
+<h3 id="touch-create-or-update-file-timestamps"><code>touch</code>: Create or Update File Timestamps</h3>
 <ul>
 <li><strong>Syntax</strong>: <code>touch [options] file</code></li>
 <li><strong>Examples</strong>:</li>
 <li><code>touch newfile.txt</code>: Create an empty <code>newfile.txt</code> or update its timestamp.</li>
 <li><code>touch -c non_existent_file.txt</code>: Don’t create <code>non_existent_file.txt</code> if it doesn’t exist.</li>
 </ul>
-<h3 id="chmod-change-file-permissions"><code>chmod</code> (Change File Permissions)</h3>
-<p><code>chmod</code> can use both numeric (octal) and symbolic modes to set file permissions.</p>
-<h4 id="numeric-octal-mode">Numeric (Octal) Mode</h4>
+<h3 id="chmod-change-file-permissions"><code>chmod</code>: Change File Permissions</h3>
+<p><code>chmod</code> can use both numeric and symbolic modes to set file permissions.</p>
+<h4 id="numeric-mode">Numeric Mode</h4>
 <ul>
 <li><strong>Syntax</strong>: <code>chmod [permissions] file</code></li>
-<li><strong>Examples</strong>:</li>
-<li><code>chmod 755 file.txt</code>:<br />
-     * <code>7</code> (rwx) for owner<br />
-     * <code>5</code> (r-x) for group<br />
-     * <code>5</code> (r-x) for others</li>
-<li><code>chmod 644 file.txt</code>:<br />
-     * <code>6</code> (rw-) for owner<br />
-     * <code>4</code> (r--) for group<br />
-     * <code>4</code> (r--) for others<strong>Numeric Permission Values</strong>:</li>
-<li><code>4</code> = Read (r)</li>
-<li><code>2</code> = Write (w)</li>
-<li><code>1</code> = Execute (x)</li>
-<li>Permissions are additive. For example, <code>7</code> = <code>4</code> (r) + <code>2</code> (w) + <code>1</code> (x).</li>
+<li>First number in permissions is for user (owner), second is for group, third is for others.</li>
+<li>Permissions:</li>
+<li><code>4</code>: read.</li>
+<li><code>2</code>: write.</li>
+<li><code>1</code>: execute.</li>
+<li>Permissions are additive. For example, <code>7</code> = <code>4</code> + <code>2</code> + <code>1</code>.</li>
 </ul>
 <h4 id="symbolic-mode">Symbolic Mode</h4>
 <ul>
-<li><strong>Syntax</strong>: <code>chmod [who][+/-][permissions] file</code></li>
-<li><strong>Examples</strong>:</li>
-<li><code>chmod u+x file.txt</code>: Add execute permission for the user (owner).</li>
-<li><code>chmod g-w file.txt</code>: Remove write permission for the group.</li>
-<li><code>chmod o=r file.txt</code>: Set others' permissions to read-only.<strong>Symbolic Permission Characters</strong>:</li>
-<li><code>u</code> = User (owner)</li>
-<li><code>g</code> = Group</li>
-<li><code>o</code> = Others</li>
-<li><code>a</code> = All (user, group, and others)</li>
-<li><code>+</code> = Add permission</li>
-<li><code>-</code> = Remove permission</li>
-<li><code>=</code> = Set exact permission</li>
+<li><strong>Syntax</strong>: <code>chmod [who][+/-/=][permissions] file</code></li>
+<li>Who:</li>
+<li><code>u</code>: User (owner)</li>
+<li><code>g</code>: Group</li>
+<li><code>o</code>: Others</li>
+<li><code>a</code>: All (user, group, and others)</li>
+<li>Operators</li>
+<li><code>+</code>: Add permission</li>
+<li><code>-</code>: Remove permission</li>
+<li><code>=</code>: Set exact permission</li>
+<li>Permissions:</li>
+<li><code>r</code>: read.</li>
+<li><code>w</code>: write.</li>
+<li><code>x</code>: execute.</li>
 </ul>
 <h4 id="options">Options</h4>
 <ul>
 <li><code>-R</code> or <code>--recursive</code>: Apply changes recursively to directories and their contents.</li>
 </ul>
-<h3 id="chown-change-file-ownership"><code>chown</code> (Change File Ownership)</h3>
+<h3 id="chown-change-file-ownership"><code>chown</code>: Change File Ownership</h3>
 <ul>
 <li><strong>Syntax</strong>: <code>chown [options] user[:group] file</code></li>
 <li><strong>Examples</strong>:</li>
@@ -1813,7 +1847,7 @@ RSA is employed in various applications that require secure communication and da
 <li>Options</li>
 <li><code>-R</code> or <code>--recursive</code>: Apply changes recursively to directories and their contents.</li>
 </ul>
-<h3 id="df-disk-space-usage"><code>df</code> (Disk Space Usage)</h3>
+<h3 id="df-disk-space-usage"><code>df</code>: Disk Space Usage</h3>
 <ul>
 <li><strong>Syntax</strong>: <code>df [options] [file]</code></li>
 <li><strong>Examples</strong>:</li>
@@ -1821,7 +1855,7 @@ RSA is employed in various applications that require secure communication and da
 <li><code>df -T</code>: Show the filesystem type along with space usage.</li>
 <li><code>df --total</code>: Show a grand total of all file systems.</li>
 </ul>
-<h3 id="du-disk-usage"><code>du</code> (Disk Usage)</h3>
+<h3 id="du-disk-usage"><code>du</code>: Disk Usage</h3>
 <ul>
 <li><strong>Syntax</strong>: <code>du [options] [file]</code></li>
 <li><strong>Examples</strong>:</li>
@@ -1830,230 +1864,92 @@ RSA is employed in various applications that require secure communication and da
 <li><code>du -a</code>: Show the size of all files and directories.</li>
 <li><code>du --max-depth=1</code>: Limit the depth of directory traversal to 1 level.</li>
 </ul>
-<h3 id="pwd-check-current-directory">pwd (Check Current Directory)</h3>
+<h3 id="pwd-check-current-directory"><code>pwd</code>: Check Current Directory</h3>
 <ul>
 <li><strong>Syntax</strong>: <code>pwd</code></li>
 </ul>
 <hr />
-<h2 id="openssh-with-linux-or-termux-and-sftp-server-mount-on-material-files-secure-remote-access">OpenSSH with Linux or Termux and SFTP Server Mount on Material Files: Secure Remote Access</h2>
+<h2 id="openssh-with-linux-or-termux-secure-remote-access">OpenSSH with Linux or Termux: Secure Remote Access</h2>
 <h3 id="introduction-of-ssh-and-openssh">Introduction of SSH and OpenSSH</h3>
-<p>SSH provides a secure way for accessing remote hosts and replaces tools such as telnet, rlogin, rsh, ftp.<br />
-OpenSSH (also known as OpenBSD Secure Shell) is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.<br />
-Default SSH port in <strong>Termux</strong> is <code>8022</code>.<br />
-Default SSH port in Linux is usually <code>22</code>.</p>
-<h3 id="openssh-server-in-linux">OpenSSH Server in Linux</h3>
-<h4 id="install-and-setup">Install and Setup</h4>
+<ul>
+<li>SSH provides a secure way for accessing remote hosts and replaces tools such as telnet, rlogin, rsh, ftp. </li>
+<li><strong>OpenSSH</strong> (also known as OpenBSD Secure Shell) is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.</li>
+<li>Default SSH port in <strong>Termux</strong> is <code>8022</code>.</li>
+<li>Default SSH port in Linux is usually <code>22</code>.</li>
+</ul>
+<h3 id="openssh-server">OpenSSH Server</h3>
+<h4 id="install-in-debian-derivatives">Install in Debian Derivatives</h4>
 <pre><code>sudo apt install openssh-server
-sudo systemctl enable --now ssh
+</code></pre>
+<h4 id="install-in-termux">Install in Termux</h4>
+<pre><code>pkg install openssh
 </code></pre>
 <h4 id="edit-configuration">Edit Configuration</h4>
 <pre><code>sudo nano /etc/ssh/sshd_config
 </code></pre>
-<p>Edit as your need.<br />
-If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, <code>hostfwd=tcp::2222-:22</code>, and you hope to connect it from outside of the VM (e.g. <strong>Termux</strong>), then you can edit the configuration as the following:</p>
-<pre><code>sudo rm /etc/ssh/sshd_config
-sudo nano /etc/ssh/sshd_config
+<h5 id="listening-port">Listening Port</h5>
+<p>Edit</p>
+<pre><code>#Port 22
 </code></pre>
-<p>Copy below and paste to it:</p>
-<pre><code># This is the sshd server system-wide configuration file.  See
-# sshd_config(5) for more information.
-
-# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
-
-# The strategy used for options in the default sshd_config shipped with
-# OpenSSH is to specify options with their default value where
-# possible, but leave them commented.  Uncommented options override the
-# default value.
-
-Port 22
-#AddressFamily any
-ListenAddress 0.0.0.0
+<p>line to change the listening port. </p>
+<p>Note that you may need to set it to higher port in VMs.</p>
+<h5 id="ports-listening-to">Ports Listening to</h5>
+<p>Edit</p>
+<pre><code>#AddressFamily any
+#ListenAddress 0.0.0.0
 #ListenAddress ::
-
-# The default requires explicit activation of protocol 1
-#Protocol 2
-
-# HostKey for protocol version 1
-#HostKey /etc/ssh/ssh_host_key
-# HostKeys for protocol version 2
-#HostKey /etc/ssh/ssh_host_rsa_key
-#HostKey /etc/ssh/ssh_host_dsa_key
-#HostKey /etc/ssh/ssh_host_ecdsa_key
-
-# Lifetime and size of ephemeral version 1 server key
-#KeyRegenerationInterval 1h
-#ServerKeyBits 1024
-
-# Logging
-# obsoletes QuietMode and FascistLogging
-#SyslogFacility AUTH
-#LogLevel INFO
-
-# Authentication:
-
-#LoginGraceTime 2m
-PermitRootLogin yes
-#StrictModes yes
-#MaxAuthTries 6
-#MaxSessions 10
-
-#RSAAuthentication yes
-#PubkeyAuthentication yes
-
-# The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
-# but this is overridden so installations will only check .ssh/authorized_keys
-AuthorizedKeysFile    .ssh/authorized_keys
-
-#AuthorizedPrincipalsFile none
-
-#AuthorizedKeysCommand none
-#AuthorizedKeysCommandUser nobody
-
-# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
-#RhostsRSAAuthentication no
-# similar for protocol version 2
-#HostbasedAuthentication no
-# Change to yes if you don't trust ~/.ssh/known_hosts for
-# RhostsRSAAuthentication and HostbasedAuthentication
-#IgnoreUserKnownHosts no
-# Don't read the user's ~/.rhosts and ~/.shosts files
-#IgnoreRhosts yes
-
-# To disable tunneled clear text passwords, change to no here!
-PasswordAuthentication yes
-#PermitEmptyPasswords no
-
-# Change to no to disable s/key passwords
-ChallengeResponseAuthentication no
-
-# Kerberos options
-#KerberosAuthentication no
-#KerberosOrLocalPasswd yes
-#KerberosTicketCleanup yes
-#KerberosGetAFSToken no
-
-# GSSAPI options
-#GSSAPIAuthentication no
-#GSSAPICleanupCredentials yes
-
-# Set this to 'yes' to enable PAM authentication, account processing,
-# and session processing. If this is enabled, PAM authentication will
-# be allowed through the ChallengeResponseAuthentication and
-# PasswordAuthentication.  Depending on your PAM configuration,
-# PAM authentication via ChallengeResponseAuthentication may bypass
-# the setting of "PermitRootLogin without-password".
-# If you just want the PAM account and session checks to run without
-# PAM authentication, then enable this but set PasswordAuthentication
-# and ChallengeResponseAuthentication to 'no'.
-UsePAM yes
-
-#AllowAgentForwarding yes
-#AllowTcpForwarding yes
-#GatewayPorts no
-#X11Forwarding no
-#X11DisplayOffset 10
-#X11UseLocalhost yes
-PrintMotd no # pam does that
-#PrintLastLog yes
-#TCPKeepAlive yes
-#UseLogin no
-UsePrivilegeSeparation sandbox        # Default for new installations.
-#PermitUserEnvironment no
-#Compression delayed
-#ClientAliveInterval 0
-#ClientAliveCountMax 3
-#UseDNS yes
-#PidFile /run/sshd.pid
-#MaxStartups 10:30:100
-#PermitTunnel no
-#ChrootDirectory none
-#VersionAddendum none
-
-# no default banner path
-#Banner none
-
-# override default of no subsystems
-Subsystem    sftp    /usr/lib/ssh/sftp-server
-
-# Example of overriding settings on a per-user basis
-#Match User anoncvs
-#    X11Forwarding no
-#    AllowTcpForwarding no
-#    ForceCommand cvs server
 </code></pre>
-<p>Run:</p>
-<pre><code>sudo nano /etc/hosts .deny
+<p>lines to change ports listening to.</p>
+<h5 id="permitrootlogin">PermitRootLogin</h5>
+<p>Change the <code>PermitRootLogin</code> line to</p>
+<pre><code>PermitRootLogin yes
 </code></pre>
-<p>and delete all lines in it.</p>
-<h4 id="start">Start</h4>
-<pre><code>sudo service ssh start
+<p>if you want to permit login as root. In Termux, this is common, but in normal Linux, this is not discouraged.</p>
+<h5 id="passwordauthentication">PasswordAuthentication</h5>
+<p>Change the <code>PasswordAuthentication</code> line to</p>
+<pre><code>PasswordAuthentication yes
 </code></pre>
-<h4 id="restart">Restart</h4>
-<pre><code>sudo service ssh restart
+<p>to permit password authentication. Password can be set by running <code>passwd</code>.</p>
+<h4 id="usage-in-linux-with-systemctl">Usage in Linux with Systemctl</h4>
+<pre><code>sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl restart ssh
+sudo systemctl status ssh
+sudo systemctl disable ssh
 </code></pre>
-<h4 id="stop">Stop</h4>
-<pre><code>sudo service ssh stop
-</code></pre>
-<h4 id="disable">Disable</h4>
-<pre><code>sudo systemctl disable ssh
-</code></pre>
-<h4 id="enable">Enable</h4>
-<pre><code>sudo systemctl enable ssh
-</code></pre>
-<h4 id="check-status">Check Status</h4>
-<pre><code>sudo service ssh status
-</code></pre>
-<h3 id="openssh-server-in-termux">OpenSSH Server in Termux</h3>
-<h4 id="install">Install</h4>
-<pre><code>apt install openssh
-</code></pre>
-<h4 id="start-1">Start</h4>
+<h4 id="usage-in-termux">Usage in Termux</h4>
+<h5 id="start">Start</h5>
 <pre><code>sshd
 </code></pre>
-<h4 id="stop-1">Stop</h4>
+<h5 id="stop">Stop</h5>
 <pre><code>pkill sshd
 </code></pre>
-<hr />
-<h3 id="openssh-client-in-linux-or-termux">OpenSSH Client in Linux or Termux</h3>
-<h4 id="install-in-linux">Install in Linux</h4>
+<h4 id="deny">Deny</h4>
+<pre><code>nano /etc/hosts .deny
+</code></pre>
+<h4 id="ubuntu-firewall">Ubuntu Firewall</h4>
+<pre><code>sudo ufw enable
+sudo ufw allow ssh
+</code></pre>
+<h3 id="openssh-client">OpenSSH Client</h3>
+<h4 id="install-in-debian-derivatives-1">Install in Debian Derivatives</h4>
 <pre><code>sudo apt install openssh-client
 </code></pre>
-<h4 id="install-in-termux">Install in Termux</h4>
-<pre><code>apt install openssh
+<h4 id="install-in-termux-1">Install in Termux</h4>
+<pre><code>pkg install openssh
 </code></pre>
-<h4 id="key-generation">Key Generation</h4>
-<p>If you plan to use key authentication, you have to generate key by:</p>
-<pre><code>mkdir -p ~/.ssh
-ssh-keygen -t rsa -b 4096
+<h4 id="connect">Connect</h4>
+<pre><code>ssh [user]@[ssh_server] -p [port] -L [local_port]:[remote_host]:[remote_port]
 </code></pre>
-<p>If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, use password authentication (with password set by running <code>passwd</code>), you won't need to generate key.</p>
-<h4 id="run">Run</h4>
-<pre><code>ssh root@localhost
-</code></pre>
-<p>Change the <code>root@localhost</code> to the actual user name and address. Port will be set as default.<br />
-Run with port specified:</p>
-<pre><code>ssh root@localhost -p 2222
-</code></pre>
-<p>Change <code>2222</code> to the port of the server.<br />
-If you're setting OpenSSH server for QEMU VM with same setup as this tutorial, namely, <code>hostfwd=tcp::2222-:22</code> and <code>Port 22</code>, then you can run:</p>
-<pre><code>ssh root@localhost -p 2222
-</code></pre>
-<p>on client side.</p>
-<h4 id="exit">Exit</h4>
-<pre><code>exit
-</code></pre>
-<h4 id="kex_exchange_identification-read-connection-reset-by-peer-error"><code>kex_exchange_identification: read: Connection reset by peer</code> Error</h4>
-<p>To solve this error, try:</p>
 <ul>
-<li>Run <code>ssh-keygen -R [localhost]:2222</code> on the client side. Change <code>[localhost]:2222</code> to the actual address and port of the server.</li>
-<li>Use <code>ssh -v root@localhost -p port</code>, <code>ssh -vv root@localhost -p port</code>, <code>ssh -vvv root@localhost -p port</code> to debug.</li>
-<li>Ensure that no firewall or VPN service is blocking the connections.</li>
-<li>Ensure the configuration in <code>/etc/ssh/sshd_config</code> is correct.</li>
-<li>Ensure the authentication is correct.</li>
-<li>Restart SSH server.</li>
-<li>Check SSH log file.</li>
-<li>Reboot.</li>
+<li><code>-p</code>: Port. Default is 22.</li>
+<li><code>-L</code>: Local port forwarding.</li>
 </ul>
+<h4 id="key">Key</h4>
+<pre><code>ssh-keygen -R [localhost]:2222
+</code></pre>
+<p>You need to delete the original key if the server is reset.</p>
+<p>If you're using password authentication, you won't need to generate key.</p>
 <h3 id="scp-secure-copy-protocol">SCP (Secure Copy Protocol)</h3>
 <p>You can use <code>scp</code> on the client side to transfer files between the server side and the client side.<br />
 The syntax of <code>scp</code> is the same as that of <code>cp</code>, but with the <code>username@host:</code> added before the path to copy to or from the server. For example:</p>
@@ -2061,17 +1957,17 @@ The syntax of <code>scp</code> is the same as that of <code>cp</code>, but with 
 </code></pre>
 <p>Use SFTP server mount if you encounter errors in this method.</p>
 <h3 id="sftp-server-mound-on-material-files">SFTP Server Mound on Material Files</h3>
-<h4 id="install-material-files">Install Material Files</h4>
-<p>You can install <strong>Material Files</strong> from Google Play: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a> or F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files/">https://f-droid.org/packages/me.zhanghai.android.files/</a>.</p>
 <h4 id="introduction-of-sftp">Introduction of SFTP</h4>
 <p>SFTP, or Secure File Transfer Protocol, is a secure network protocol used for transferring files over a secure connection. It is an extension of the SSH (Secure Shell) protocol, which means it provides the same level of security and encryption that SSH offers. Here are some key points about SFTP:</p>
-<ol>
+<ul>
 <li>Security: SFTP encrypts both commands and data. This makes it more secure than traditional FTP (File Transfer Protocol).</li>
 <li>Authentication: SFTP supports various password-based and key-based authentication.</li>
 <li>File Management: SFTP allows for various file management operations, such as listing files, changing directories, and deleting files.</li>
 <li>Port: SFTP typically operates over the same port used by SSH.</li>
 <li>Cross-Platform: SFTP is supported on various platforms, making it a versatile option for file transfers across different systems.</li>
-</ol>
+</ul>
+<h4 id="install-material-files">Install Material Files</h4>
+<p>You can install <strong>Material Files</strong> from <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a> or <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/me.zhanghai.android.files">https://f-droid.org/packages/me.zhanghai.android.files</a>.</p>
 <h4 id="mount-sftp-server">Mount SFTP Server</h4>
 <ul>
 <li>Connect to the SSH server with <strong>Termux</strong> or other clients on your Android device.</li>
@@ -2083,18 +1979,18 @@ The syntax of <code>scp</code> is the same as that of <code>cp</code>, but with 
 </ul>
 <h3 id="further-readings-and-references-about-openssh-with-linux-and-termux">Further Readings and References about OpenSSH with Linux and Termux</h3>
 <ul>
-<li><a href="https://www.openssh.com/">https://www.openssh.com/</a></li>
-<li><a href="https://ivonblog.com/posts/termux-qemu-system-linux/">https://ivonblog.com/posts/termux-qemu-system-linux/</a></li>
+<li><a href="https://www.openssh.com">https://www.openssh.com</a>.</li>
+<li><a href="https://ivonblog.com/posts/termux-qemu-system-linux">https://ivonblog.com/posts/termux-qemu-system-linux</a>.</li>
 <li><a href="https://wiki.termux.com/wiki/Remote%5FAccess">https://wiki.termux.com/wiki/Remote%5FAccess</a>.</li>
-<li><a href="https://ivonblog.com/posts/termux-openssh/">https://ivonblog.com/posts/termux-openssh/</a>.</li>
+<li><a href="https://ivonblog.com/posts/termux-openssh">https://ivonblog.com/posts/termux-openssh</a>.</li>
 </ul>
 <hr />
 <h2 id="droidvnc-ng-vnc-server-app-for-android-that-does-not-require-root-privileges">droidVNC-NG: VNC server app for Android that does not require root privileges</h2>
 <h3 id="install-droidvnc-ng">Install droidVNC-NG</h3>
 <p>You can install droidVNC-NG on:</p>
 <ul>
-<li>F-droid: <a href="https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng/">https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng/</a>.</li>
-<li>Google Play: [https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc<em>ng](https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc</em>ng ).</li>
+<li><strong>F-Droid</strong>: <a href="https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng">https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng</a>.</li>
+<li><strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc_ng">https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc_ng</a>.</li>
 </ul>
 <h3 id="features-of-droidvnc-ng">Features of droidVNC-NG</h3>
 <p>Remote Control &amp; Interaction</p>
@@ -2127,8 +2023,8 @@ The syntax of <code>scp</code> is the same as that of <code>cp</code>, but with 
 <h3 id="install-sd-maid-se">Install SD Maid SE</h3>
 <p>You can install SD Maid SE on:</p>
 <ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/eu.darken.sdmse">https://f-droid.org/packages/eu.darken.sdmse</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=eu.darken.sdmse">https://play.google.com/store/apps/details?id=eu.darken.sdmse</a>.</li>
+<li><strong>F-Droid</strong>: <a href="https://f-droid.org/packages/eu.darken.sdmse">https://f-droid.org/packages/eu.darken.sdmse</a>.</li>
+<li><strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=eu.darken.sdmse">https://play.google.com/store/apps/details?id=eu.darken.sdmse</a>.</li>
 </ul>
 <h3 id="introduction-of-sd-maid-se">Introduction of SD Maid SE</h3>
 <p><strong>SD Maid SE</strong> (also known as SD Maid 2 or SD Maid 2/SE) is a file management tool and system cleaner for Android that specializes in maintenance, freeing up space, and removing unwanted data.<br />
@@ -2151,9 +2047,9 @@ Features include:</p>
 <hr />
 <h2 id="linux-command-library">Linux Command Library</h2>
 <h3 id="introduction-of-linux-command-library">Introduction of Linux Command Library</h3>
-<p>The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in Linux are available in <strong>Termux</strong> too, such as <code>cp</code>, <code>mv</code>, <code>ls</code>, <code>mkdir</code>, <code>apt</code>, and <code>apt-get</code>.</p>
+<p>The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about <strong>Linux</strong> (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in <strong>Linux</strong> are available in <strong>Termux</strong> too, such as <code>cp</code>, <code>mv</code>, <code>ls</code>, <code>mkdir</code>, <code>apt</code>, and <code>apt-get</code>.</p>
 <h3 id="install-and-use-linux-command-library">Install and Use Linux Command Library</h3>
-<p>You can install <strong>Linux Command Library</strong> in Google Play: <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca">https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca</a> or F-Droid: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/</a>, or browse it on its official website: <a href="https://linuxcommandlibrary.com/">https://linuxcommandlibrary.com/</a>.</p>
+<p>You can install <strong>Linux Command Library</strong> in <strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca">https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca</a> or <strong>F-Droid</strong>: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca</a>, or browse it on its official website: <a href="https://linuxcommandlibrary.com">https://linuxcommandlibrary.com</a>.</p>
 <hr />
 <h2 id="linux-and-termux-odds-and-ends">Linux and Termux Odds and Ends</h2>
 <h3 id="apt-termux-debian-etc">apt (Termux, Debian, etc.)</h3>
@@ -2230,10 +2126,10 @@ pip3 install numpy sympy matplotlib setuptools selenium jupyter pandas
 <h2 id="promoted-or-related-works-references-and-bibliography">Promoted or Related Works, References, and Bibliography</h2>
 <h3 id="termux-by-fredrik-fornwall--termux--termux">Termux by Fredrik Fornwall / Termux / termux</h3>
 <ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.termux/">https://f-droid.org/packages/com.termux/</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a>.</li>
 <li>GitHub of termux-app: <a href="https://github.com/termux/termux-app">https://github.com/termux/termux-app</a>.</li>
 <li>GitHub of x11-packages: <a href="https://github.com/termux/x11-packages">https://github.com/termux/x11-packages</a>.</li>
-<li>Official wiki: <a href="https://wiki.termux.com/">https://wiki.termux.com/</a>.</li>
+<li>Official wiki: <a href="https://wiki.termux.com">https://wiki.termux.com</a>.</li>
 <li>Official Reddit community: <a href="https://termux.com/community">https://termux.com/community</a>.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.termux">https://play.google.com/store/apps/details?id=com.termux</a>.</li>
 </ul>
@@ -2241,7 +2137,7 @@ pip3 install numpy sympy matplotlib setuptools selenium jupyter pandas
 <ul>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</li>
 <li>GitHub: <a href="https://github.com/AndronixApp/AndronixOrigin">https://github.com/AndronixApp/AndronixOrigin</a>.</li>
-<li>Official website: <a href="https://docs.andronix.app/">https://docs.andronix.app/</a>.</li>
+<li>Official website: <a href="https://docs.andronix.app">https://docs.andronix.app</a>.</li>
 </ul>
 <h3 id="shizuku-by-xingchen--rikka--rikkaapps">Shizuku by Xingchen &amp; Rikka / RikkaApps</h3>
 <ul>
@@ -2256,83 +2152,83 @@ pip3 install numpy sympy matplotlib setuptools selenium jupyter pandas
 </ul>
 <h3 id="invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</h3>
 <ul>
-<li>Official website: <a href="https://invizible.net/en/">https://invizible.net/en/</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable/</a>.</li>
+<li>Official website: <a href="https://invizible.net/en">https://invizible.net/en</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a>.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</li>
 <li>GitHub: <a href="https://github.com/Gedsh/InviZible">https://github.com/Gedsh/InviZible</a>.</li>
 </ul>
 <h3 id="trackercontrol--tc-by-trackercontrol--oxford-hcc">TrackerControl / TC by TrackerControl / Oxford HCC</h3>
 <ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/">https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid/</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid">https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid</a>.</li>
 <li>GitHub: <a href="https://github.com/TrackerControl/tracker-control-android">https://github.com/TrackerControl/tracker-control-android</a>.</li>
-<li>Official website: <a href="https://trackercontrol.org/">https://trackercontrol.org/</a>.</li>
+<li>Official website: <a href="https://trackercontrol.org">https://trackercontrol.org</a>.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play">https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play</a>.</li>
 </ul>
 <h3 id="netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv">NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV</h3>
 <ul>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=eu.faircode.netguard">https://play.google.com/store/apps/details?id=eu.faircode.netguard</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/eu.faircode.netguard/">https://f-droid.org/packages/eu.faircode.netguard/</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/eu.faircode.netguard">https://f-droid.org/packages/eu.faircode.netguard</a>.</li>
 <li>GitHub: <a href="https://github.com/M66B/NetGuard">https://github.com/M66B/NetGuard</a>.</li>
-<li>Official website of NetGuard: <a href="https://netguard.me/">https://netguard.me/</a>.</li>
-<li>Official website of FairCode: <a href="https://www.faircode.eu/">https://www.faircode.eu/</a>.</li>
+<li>Official website of NetGuard: <a href="https://netguard.me">https://netguard.me</a>.</li>
+<li>Official website of FairCode: <a href="https://www.faircode.eu">https://www.faircode.eu</a>.</li>
 </ul>
 <h3 id="dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nálevka-urbandroid">DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</h3>
 <ul>
-<li>Official website: <a href="https://dontkillmyapp.com/">https://dontkillmyapp.com/</a>.</li>
+<li>Official website: <a href="https://dontkillmyapp.com">https://dontkillmyapp.com</a>.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp">https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.urbandroid.dontkillmyapp/">https://f-droid.org/packages/com.urbandroid.dontkillmyapp/</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.urbandroid.dontkillmyapp">https://f-droid.org/packages/com.urbandroid.dontkillmyapp</a>.</li>
 <li>GitHub: <a href="https://github.com/urbandroid-team/dontkillmy-app">https://github.com/urbandroid-team/dontkillmy-app</a>.</li>
 </ul>
 <h3 id="ashell-by-sunil-paul-mathew-m--sunilpaulmathew">aShell by Sunil Paul Mathew M. / sunilpaulmathew</h3>
 <ul>
-<li>F-droid: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell/">https://f-droid.org/packages/in.sunilpaulmathew.ashell/</a>.</li>
-<li>GitLab: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell/">https://gitlab.com/sunilpaulmathew/ashell</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">https://f-droid.org/packages/in.sunilpaulmathew.ashell</a>.</li>
+<li>GitLab: <a href="https://gitlab.com/sunilpaulmathew/ashell">https://gitlab.com/sunilpaulmathew/ashell</a>.</li>
 </ul>
 <h3 id="qemu-by-qemu-project--qemu">QEMU by Qemu Project / QEMU</h3>
 <ul>
 <li>GitLab: <a href="https://gitlab.com/qemu-project/qemu">https://gitlab.com/qemu-project/qemu</a>.</li>
-<li>Official website: <a href="https://www.qemu.org/">https://www.qemu.org/</a>.</li>
+<li>Official website: <a href="https://www.qemu.org">https://www.qemu.org</a>.</li>
 </ul>
 <h3 id="tor-and-tor-browser-by-the-tor-project">Tor and Tor Browser by The Tor Project</h3>
 <ul>
 <li>Google Play of Tor Browser: <a href="https://play.google.com/store/apps/details?id=org.torproject.torbrowser">https://play.google.com/store/apps/details?id=org.torproject.torbrowser</a>.</li>
 <li>GitLab of Tor Browser: <a href="https://gitlab.torproject.org/tpo/applications/tor-browser">https://gitlab.torproject.org/tpo/applications/tor-browser</a>.</li>
 <li>GitLab of The Tor Project: <a href="https://gitlab.torproject.org/tpo">https://gitlab.torproject.org/tpo</a>.</li>
-<li>GitLab of the Debian package tor:<a href="https://gitlab.torproject.org/tpo/core/debian/tor">https://gitlab.torproject.org/tpo/core/debian/tor</a>.</li>
-<li>Official website: <a href="https://www.torproject.org/">https://www.torproject.org/</a>.</li>
-<li>Check Tor Project: <a href="https://check.torproject.org/">https://check.torproject.org/</a>.</li>
+<li>GitLab of the Debian package tor: <a href="https://gitlab.torproject.org/tpo/core/debian/tor">https://gitlab.torproject.org/tpo/core/debian/tor</a>.</li>
+<li>Official website: <a href="https://www.torproject.org">https://www.torproject.org</a>.</li>
+<li>Check Tor Project: <a href="https://check.torproject.org">https://check.torproject.org</a>.</li>
 </ul>
 <h3 id="myip--ipchecking-by-jason-ng--jason5ng32">MyIP / IPCheck.ing by Jason Ng / jason5ng32</h3>
 <ul>
-<li>Official website: <a href="https://ipcheck.ing/">https://ipcheck.ing/</a>.</li>
+<li>Official website: <a href="https://ipcheck.ing">https://ipcheck.ing</a>.</li>
 <li>GitHub: <a href="https://github.com/jason5ng32/MyIP">https://github.com/jason5ng32/MyIP</a>.</li>
 </ul>
 <h3 id="debian">Debian</h3>
 <ul>
-<li>Official website: <a href="https://www.debian.org/">https://www.debian.org/</a>.</li>
+<li>Official website: <a href="https://www.debian.org">https://www.debian.org</a>.</li>
 <li>GitLab: <a href="https://salsa.debian.org/public">https://salsa.debian.org/public</a>.</li>
 </ul>
 <h3 id="linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</h3>
 <ul>
 <li>GitHub: <a href="https://github.com/SimonSchubert/LinuxCommandLibrary">https://github.com/SimonSchubert/LinuxCommandLibrary</a>.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca">https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca/</a>.</li>
-<li>Official website: <a href="https://linuxcommandlibrary.com/">https://linuxcommandlibrary.com/</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca</a>.</li>
+<li>Official website: <a href="https://linuxcommandlibrary.com">https://linuxcommandlibrary.com</a>.</li>
 </ul>
 <h3 id="openssl-by-openssl--openssl">OpenSSL by OpenSSL / openssl</h3>
 <ul>
-<li>Official website: <a href="https://www.openssl.org/">https://www.openssl.org/</a>.</li>
+<li>Official website: <a href="https://www.openssl.org">https://www.openssl.org</a>.</li>
 <li>GitHub: <a href="https://github.com/openssl/openssl">https://github.com/openssl/openssl</a>.</li>
 </ul>
 <h3 id="anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</h3>
 <ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.gaurav.avnc/">https://f-droid.org/packages/com.gaurav.avnc/</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.gaurav.avnc">https://f-droid.org/packages/com.gaurav.avnc</a>.</li>
 <li>GitHub: <a href="https://github.com/gujjwal00/avnc">https://github.com/gujjwal00/avnc</a>.</li>
 </ul>
 <h3 id="material-files--materialfiles-by-hai-zhang--zhanghai">Material Files / MaterialFiles by Hai Zhang / zhanghai</h3>
 <ul>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files/">https://f-droid.org/packages/me.zhanghai.android.files/</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files">https://f-droid.org/packages/me.zhanghai.android.files</a>.</li>
 <li>GitHub: <a href="https://github.com/zhanghai/MaterialFiles">https://github.com/zhanghai/MaterialFiles</a>.</li>
 </ul>
 <h3 id="sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development">SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</h3>
@@ -2343,16 +2239,16 @@ pip3 install numpy sympy matplotlib setuptools selenium jupyter pandas
 </ul>
 <h3 id="droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138">droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</h3>
 <ul>
-<li>F-droid: <a href="https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng/">https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng/</a>.</li>
-<li>Google Play: [https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc<em>ng](https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc</em>ng ).</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng">https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc_ng">https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc_ng</a>.</li>
 <li>GitHub: <a href="https://github.com/bk138/droidVNC-NG">https://github.com/bk138/droidVNC-NG</a>.</li>
 </ul>
 <h3 id="others">Others</h3>
 <ul>
-<li>ChatGPT by OpenAI: <a href="https://openai.com/chatgpt/">https://openai.com/chatgpt/</a>.</li>
+<li>ChatGPT by OpenAI: <a href="https://openai.com/chatgpt">https://openai.com/chatgpt</a>.</li>
 <li>awesome-shizuku by Tim Schneeberger / timschneeb: <a href="https://github.com/timschneeb/awesome-shizuku">https://github.com/timschneeb/awesome-shizuku</a>.</li>
 <li>shizuku-apps by Souvik Bagchi (Mr HyperIon) / MrHyperlon101: <a href="https://github.com/MrHyperIon101/shizuku-apps">https://github.com/MrHyperIon101/shizuku-apps</a>.</li>
-<li>Wikipedia: <a href="https://en.m.wikipedia.org/">https://en.m.wikipedia.org/</a>.</li>
+<li>Wikipedia: <a href="https://en.m.wikipedia.org">https://en.m.wikipedia.org</a>.</li>
 <li>DNS leak test: <a href="https://www.dnsleaktest.com">https://www.dnsleaktest.com</a>.</li>
 <li>What Is My IP Address: <a href="https://whatismyipaddress.com">https://whatismyipaddress.com</a>.</li>
 <li>freshtermux by Miranda / cyb0rgdoll: <a href="https://github.com/cyb0rgdoll/freshtermux">https://github.com/cyb0rgdoll/freshtermux</a>.</li>
@@ -2384,7 +2280,7 @@ pip3 install numpy sympy matplotlib setuptools selenium jupyter pandas
 <li><strong>ShareAlike</strong> — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.</li>
 </ul>
 <p>No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
-<p>You should have received a copy of the Creative Commons Attribution-ShareAlike 4.0 International License along with this program. If not, see <a href="https://www.gnu.org/licenses/fdl-1.3.html">https://creativecommons.org/licenses/by-sa/4.0/</a>.</p>
+<p>You should have received a copy of the Creative Commons Attribution-ShareAlike 4.0 International License along with this program. If not, see <a href="https://creativecommons.org/licenses/by-sa/4.0">https://creativecommons.org/licenses/by-sa/4.0</a>.</p>
 </div>
 <button id="backToTopBtn" onclick="scrollToTop()">↑ Back to Top</button>
 </body>
