@@ -10,9 +10,9 @@
 * The app version: <https://github.com/Willie169/Android-Non-Root-App>.
 * App download link: <https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk>.
 
-Some Shell scripts for setup, PRoot, QEMU, shortcuts, etc. for **Termux** are available from my another repository: [**termux-sh**](https://github.com/Willie169/termux-sh).
+My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts and instructions for Termux.
 
-In this tutorial, we'll explore a range of powerful, open-source tools such as [Termux](https://github.com/termux/termux-app), [Shizuku](https://github.com/RikkaApps/Shizuku), [Tor](https://www.torproject.org), [TrackerControl](https://github.com/TrackerControl/tracker-control-android), [InviZible Pro](https://github.com/Gedsh/InviZible), and [QEMU](https://github.com/qemu/qemu) to enhance your **Android** device’s functionality, security, privacy, and customization without the need for root access.
+In this tutorial, we'll explore a range of powerful, open-source tools such as [Termux](https://github.com/termux/termux-app), [Shizuku](https://github.com/RikkaApps/Shizuku), [Tor](https://www.torproject.org), [TrackerControl](https://github.com/TrackerControl/tracker-control-android), [InviZible Pro](https://github.com/Gedsh/InviZible), and [QEMU](https://github.com/qemu/qemu) to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.
 
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
 
@@ -24,234 +24,150 @@ Please read the [Global Note](#global-note) before you start or you may encounte
 * [Author Information](#author-information)
 * [Global Note](#global-note)
 * [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
-* [Install Termux](#install-termux)
-* [Introduction of Termux](#introduction-of-termux)
-* [Official Wiki and Community of Termux](#official-wiki-and-community-of-termux)
-* [Termux App User Interface](#termux-app-user-interface)
-* [Shortcuts](#shortcuts)
-* [Grant Termux Storage Permission](#grant-termux-storage-permission)
-* [Termux-Properties](#termux-properties)
-* [Termux PKG Package Manager](#termux-pkg-package-manager)
-* [Package Command Error](#package-command-error)  
-   * [Command Solution](#command-solution)  
-   * [Manual Solution](#manual-solution)  
-   * [Further Readings and References about Package Command Error](#further-readings-and-references-about-package-command-error)
-* [Debian Derivatives and Termux APT Package Manager](#debian-derivatives-and-termux-apt-package-manager)
-* [Process completed (signal 9) \* press Enter Error](#process-completed-signal-9---press-enter-error)  
-   * [Fix for Stock Android 12L and beyond](#fix-for-stock-android-12l-and-beyond)  
-   * [Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond](#fix-for-qems-like-oneui-miui-samsung-etc-and-other-non-stock-android-12l-and-beyond)  
-   * [Further Readings and References about Process completed (signal 9) \* press Enter error](#further-readings-and-references-about-process-completed-signal-9---press-enter-error)
-* [Termux:Styling](#termuxstyling)
-* [Termux:Widget](#termuxwidget)
-* [Termux:Boot](#termuxboot)
-* [Termux:Float](#termuxfloat)
-* [Termux:API](#termuxapi)
+  * [Install Termux](#install-termux)
+  * [Introduction of Termux](#introduction-of-termux)
+  * [Official Wiki and Community of Termux](#official-wiki-and-community-of-termux)
+  * [Termux App User Interface](#termux-app-user-interface)
+  * [Shortcuts](#shortcuts)
+  * [File and Directory Management Commands](#file-and-directory-management-commands)
+  * [Grant Termux Storage Permission](#grant-termux-storage-permission)
+  * [Termux-Properties](#termux-properties)
+  * [Termux PKG Package Manager](#termux-pkg-package-manager)
+  * [Termux Change Repo](#termux-change-repo)
+  * [Package Command Error](#package-command-error)
+  * [Debian Derivatives and Termux APT Package Manager](#debian-derivatives-and-termux-apt-package-manager)
+  * [Process completed (signal 9) - press Enter Error](#process-completed-signal-9---press-enter-error)
+  * [Termux:Styling](#termuxstyling)
+  * [Termux:Widget](#termuxwidget)
+  * [Termux:Boot](#termuxboot)
+  * [Termux:Float](#termuxfloat)
+  * [Termux:API](#termuxapi)
 * [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment)
-* [Enable the X11 Repository of Termux](#enable-the-x11-repository-of-termux)
-* [VNC Server in Termux](#vnc-server-in-termux)  
-   * [Install TigerVNC](#install-tigervnc)  
-   * [Start a VNC Server](#start-a-vnc-server)  
-   * [Kill All VNC Servers](#kill-all-vnc-servers)
-* [Fluxbox in Termux](#fluxbox-in-termux)  
-   * [Install Fluxbox](#install-fluxbox)  
-   * [Setup](#setup)
-* [Openbox in Termux](#openbox-in-termux)  
-   * [Install Openbox](#install-openbox)  
-   * [Setup](#setup-1)
-* [XFCE in Termux](#xfce-in-termux)  
-   * [Install XFCE](#install-xfce)  
-   * [Setup](#setup-2)  
-   * [Additional Recommended Packages for Installation](#additional-recommended-packages-for-installation)
-* [LXQt in Termux](#lxqt-in-termux)  
-   * [Install LXQt](#install-lxqt)  
-   * [Setup](#setup-3)  
-   * [Additional Recommended Packages for Installation](#additional-recommended-packages-for-installation-1)
-* [MATE in Termux](#mate-in-termux)  
-   * [Install MATE](#install-mate)  
-   * [Setup](#setup-4)  
-   * [Additional Recommended Packages for Installation](#additional-recommended-packages-for-installation-2)
-* [Further Readings and References about Termux Graphical Environment](#further-readings-and-references-about-termux-graphical-environment)
-* [Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices](#andronix-with-termux-install-linux-distributions-in-termux-on-non-rooted-android-devices)
-* [Optional but Recommended: Install Andronix App](#optional-but-recommended-install-andronix-app)
-* [Introduction of Andronix and PRoot](#introduction-of-andronix-and-proot)
-* [Install an OS with Andronix](#install-an-os-with-andronix)
-* [Uninstall an OS (Not Modded) with Andronix](#uninstall-an-os-not-modded-with-andronix)
-* [Sound Output from PRoot OS](#sound-output-from-proot-os)  
-   * [Install and Setup Sound Output from PRoot OS](#install-and-setup-sound-output-from-proot-os)  
-   * [Start PulseAudio Server](#start-pulseaudio-server)
-* [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)  
-   * [Install Debian with XFCE](#install-debian-with-xfce)  
-   * [Turn on the OS (CLI)](#turn-on-the-os-cli)  
-   * [VNC Server](#vnc-server)
-* [Example: Debian with CLI Only](#example-debian-with-cli-only)  
-   * [Install Debian](#install-debian)  
-   * [Turn on the OS (CLI)](#turn-on-the-os-cli-1)
-* [Example: Uninstall Debian OS (Not Modded)](#example-uninstall-debian-os-not-modded)
-* [Further Readings and References about Chroot, Proot, and Andronix](#further-readings-and-references-about-chroot-proot-and-andronix)
-* [QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image](#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-image-method-or-qcow2-cloud-image)
-* [Install QEMU](#install-qemu)
-* [ISO Image method](#iso-image-method)  
-   * [Prepare the ISO Image](#prepare-the-iso-image)  
-   * [Create a Virtual Disk Image Where the Operating System Will Be Installed](#create-a-virtual-disk-image-where-the-operating-system-will-be-installed)  
-   * [Install VM with CLI](#install-vm-with-cli)  
-   * [Install VM with GUI](#install-vm-with-gui)  
-   * [Boot VM with CLI](#boot-vm-with-cli)  
-   * [Boot with GUI](#boot-with-gui)
-* [QCOW2 Image Method](#qcow2-image-method)  
-   * [Prepare the QCOW2 Image](#prepare-the-qcow2-image)  
-   * [Boot with CLI](#boot-with-cli)  
-   * [Boot with GUI](#boot-with-gui-1)
-* [Window Managers or Desktop Environments](#window-managers-or-desktop-environments)
-* [Login](#login)
-* [Resize Disk Space](#resize-disk-space)
-* [Check Image Info](#check-image-info)
-* [Check VM Disk](#check-vm-disk)
-* [OpenSSH](#openssh)
-* [Further Readings and References about QEMU](#further-readings-and-references-about-qemu)
+  * [Enable the X11 Repository of Termux](#enable-the-x11-repository-of-termux)
+  * [VNC Server in Termux](#vnc-server-in-termux)
+  * [Fluxbox in Termux](#fluxbox-in-termux)
+  * [Openbox in Termux](#openbox-in-termux)
+  * [XFCE in Termux](#xfce-in-termux)
+  * [LXQt in Termux](#lxqt-in-termux)
+  * [MATE in Termux](#mate-in-termux)
+  * [Further Readings and References about Termux Graphical Environment](#further-readings-and-references-about-termux-graphical-environment)
+* [PRoot-Distro with Termux: Install Linux Distributions in Termux (No Root Required)](#proot-distro-with-termux-install-linux-distributions-in-termux-no-root-required)
+  * [Introduction of Chroot, PRoot, PRoot-Distro](#introduction-of-chroot-proot-proot-distro)
+  * [PRoot-Distro Usage](#proot-distro-usage)
+  * [Supported Distributions](#supported-distributions)
+  * [Hint to Install Linux OS with PRoot-Distro](#hint-to-install-linux-os-with-proot-distro)
+* [Andronix with Termux: Install Linux Distributions in Termux (No Root Required)](#andronix-with-termux-install-linux-distributions-in-termux-no-root-required)
+  * [Optional: Install Andronix App](#optional-install-andronix-app)
+  * [Install an OS Following Andronix App Instructions](#install-an-os-following-andronix-app-instructions)
+  * [Uninstall an Not Modded OS Following Andronix App Instructions](#uninstall-an-not-modded-os-following-andronix-app-instructions)
+  * [Sound Output from PRoot OS](#sound-output-from-proot-os)
+  * [Example: Debian with XFCE Desktop Environment](#example-debian-with-xfce-desktop-environment)
+  * [Example: Debian with CLI Only](#example-debian-with-cli-only)
+  * [Example: Uninstall Debian OS (Not Modded)](#example-uninstall-debian-os-not-modded)
+  * [Further Readings and References about Chroot, Proot, and Andronix](#further-readings-and-references-about-chroot-proot-and-andronix)
+* [QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO or QCOW2 Image](#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-or-qcow2-image)
+  * [Install QEMU System Emulation for x86-64](#install-qemu-system-emulation-for-x86-64)
+  * [Install QEMU System Emulation for AArch64](#install-qemu-system-emulation-for-aarch64)
+  * [ISO and QCOW2 Image Methods](#iso-and-qcow2-image-methods)
+  * [Host Port Forwarding](#host-port-forwarding)
+  * [Alpine Linux x86-64 ISO Image](#alpine-linux-x86-64-iso-image)
+  * [Alpine Linux AArch64 ISO Image](#alpine-linux-aarch64-iso-image)
+  * [Debian Linux AMD64 QCOW2 Image](#debian-linux-amd64-qcow2-image)
+  * [Debian Linux ARM64 QCOW2 Image](#debian-linux-arm64-qcow2-image)
+  * [Check Image Info](#check-image-info)
+  * [Check VM Disk](#check-vm-disk)
+  * [Resize Image](#resize-image)
+  * [Resize Partition in Debian AMD64](#resize-partition-in-debian-amd64)
+  * [Resize Partition in Debian ARM64](#resize-partition-in-debian-arm64)
+  * [Further Readings and References about QEMU](#further-readings-and-references-about-qemu)
 * [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android)
-* [Install AVNC](#install-avnc)
-* [Connect a VNC Server](#connect-a-vnc-server)
-* [Features of AVNC](#features-of-avnc)
+  * [Install AVNC](#install-avnc)
+  * [Connect a VNC Server](#connect-a-vnc-server)
+  * [Features of AVNC](#features-of-avnc)
 * [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
-* [Install Shizuku](#install-shizuku)
-* [Introduction of Shizuku and ADB](#introduction-of-shizuku-and-adb)
-* [Connect Shizuku to Wireless ADB](#connect-shizuku-to-wireless-adb)
-* [Use Shizuku in a Terminal Application for the First Time (Termux for Example)](#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example)
-* [Install SystemUI Tuner](#install-systemui-tuner)
-* [To Leave Developer Options off When Using Shizuku to Connect to ADB](#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb)
-* [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner)
-* [Other SystemUI Tuner Usage](#other-systemui-tuner-usage)
-* [Using aShell](#using-ashell)
-* [Further Readings and References about ADB and Shizuku](#further-readings-and-references-about-adb-and-shizuku)
-* [TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers](#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-and-block-trackers)
-* [Install InviZible Pro](#install-invizible-pro)
-* [Install TrackerControl](#install-trackercontrol)
-* [Use TrackerControl to Block Trackers](#use-trackercontrol-to-block-trackers)
-* [Configure TrackerControl (TC) to be used with InviZible Pro](#configure-trackercontrol-tc-to-be-used-with-invizible-pro)
-* [Configure InviZible Pro to be used with TrackerControl](#configure-invizible-pro-to-be-used-with-trackercontrol)
-* [Use Tor but not DNSCrypr of InviZible Pro](#use-tor-but-not-dnscrypr-of-invizible-pro)
-* [Use DNSCrypr But not Tor of InviZible Pro](#use-dnscrypr-but-not-tor-of-invizible-pro)
-* [Check Whether the Tor Route Setup Is Successful](#check-whether-the-tor-route-setup-is-successful)
-* [Use Invizible Pro without TrackerControl](#use-invizible-pro-without-trackercontrol)
+  * [Install Shizuku](#install-shizuku)
+  * [Introduction of ADB and Shizuku](#introduction-of-adb-and-shizuku)
+  * [Connect Shizuku to Wireless ADB](#connect-shizuku-to-wireless-adb)
+  * [Use Shizuku in a Terminal Application for the First Time (Termux for Example)](#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example)
+  * [Install SystemUI Tuner](#install-systemui-tuner)
+  * [To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner](#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner)
+  * [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner)
+  * [Other SystemUI Tuner Usage](#other-systemui-tuner-usage)
+  * [aShell](#ashell)
+  * [Further Readings and References about ADB and Shizuku](#further-readings-and-references-about-adb-and-shizuku)
 * [Tor Browser](#tor-browser)
-* [Install Tor Browser](#install-tor-browser)
-* [Introduction of Tor](#introduction-of-tor)
-* [NoScript Security Suite](#noscript-security-suite)
+  * [Install Tor Browser](#install-tor-browser)
+  * [Introduction of Tor](#introduction-of-tor)
+  * [NoScript Security Suite](#noscript-security-suite)
+* [TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.](#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc)
+  * [Install InviZible Pro](#install-invizible-pro)
+  * [Install TrackerControl](#install-trackercontrol)
+  * [Configure TrackerControl to Block Trackers without InviZible Pro](#configure-trackercontrol-to-block-trackers-without-invizible-pro)
+  * [Configure TrackerControl and InviZible Pro for DNSCrypt and Tor](#configure-trackercontrol-and-invizible-pro-for-dnscrypt-and-tor)
+  * [Configure TrackerControl and InviZible Pro for DNSCrypt Only](#configure-trackercontrol-and-invizible-pro-for-dnscrypt-only)
+  * [Configure TrackerControl and InviZible Pro for Tor Only](#configure-trackercontrol-and-invizible-pro-for-tor-only)
+  * [Check Whether the Tor Route Setup Is Successful](#check-whether-the-tor-route-setup-is-successful)
+  * [Configure InviZible Pro to Block Trackers without TrackerControl](#configure-invizible-pro-to-block-trackers-without-trackercontrol)
 * [OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation](#openssl-secure-sockets-layer-ssl-and-transport-layer-security-tls-protocols-and-cryptography-library-implementation)
-* [Introduction of OpenSSL](#introduction-of-openssl)
-* [Installation of OpenSSL in Termux](#installation-of-openssl-in-termux)
-* [Installation of OpenSSL in Debian](#installation-of-openssl-in-debian)
-* [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)  
-   * [Introduction of RSA](#introduction-of-rsa)  
-   * [Generate New Private Key](#generate-new-private-key)  
-   * [Generate Public Key from Private Key](#generate-public-key-from-private-key)  
-   * [Encrypt with Public Key](#encrypt-with-public-key)  
-   * [Decrypt with Public Key](#decrypt-with-public-key)  
-   * [Encrypt with Private Key](#encrypt-with-private-key)  
-   * [Decrypt with Private Key](#decrypt-with-private-key)  
-   * [Sign a Raw File](#sign-a-raw-file)  
-   * [Sign a Hex File](#sign-a-hex-file)  
-   * [Verify a Signature Against a Raw File](#verify-a-signature-against-a-raw-file)  
-   * [Verify a Signature Against a Hex File](#verify-a-signature-against-a-hex-file)  
-   * [All Command Options of Pkeyutl](#all-command-options-of-pkeyutl)
-* [Symmetric Encryption](#symmetric-encryption)  
-   * [Introduction of Symmetric Encryption](#introduction-of-symmetric-encryption)  
-   * [AES-256-CBC Encryption](#aes-256-cbc-encryption)  
-   * [AES-256-CBC Decryption](#aes-256-cbc-decryption)  
-   * [All Command Options of Enc / Cipher](#all-command-options-of-enc--cipher)
-* [File and Directory Management of Termux and Linux](#file-and-directory-management-of-termux-and-linux)
-* [cp: Copy Files And Directories](#cp-copy-files-and-directories)
-* [mv: Move or Rename Files and Directories](#mv-move-or-rename-files-and-directories)
-* [rm: Remove Files or Directories](#rm-remove-files-or-directories)
-* [mkdir: Create Directories](#mkdir-create-directories)
-* [ls: List Directory Contents](#ls-list-directory-contents)
-* [rmdir: Remove Empty Directories](#rmdir-remove-empty-directories)
-* [find: Search for Files and Directories](#find-search-for-files-and-directories)
-* [touch: Create or Update File Timestamps](#touch-create-or-update-file-timestamps)
-* [chmod: Change File Permissions](#chmod-change-file-permissions)  
-   * [Numeric Mode](#numeric-mode)  
-   * [Symbolic Mode](#symbolic-mode)  
-   * [Options](#options)
-* [chown: Change File Ownership](#chown-change-file-ownership)
-* [df: Disk Space Usage](#df-disk-space-usage)
-* [du: Disk Usage](#du-disk-usage)
-* [pwd: Check Current Directory](#pwd-check-current-directory)
+  * [Introduction of OpenSSL](#introduction-of-openssl)
+  * [Install OpenSSL in Termux](#install-openssl-in-termux)
+  * [Install of OpenSSL in Debian Derivatives](#install-of-openssl-in-debian-derivatives)
+  * [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)
+  * [Symmetric Encryption](#symmetric-encryption)
 * [OpenSSH, SCP, SFTP, and Material Files: Secure Remote Access](#openssh-scp-sftp-and-material-files-secure-remote-access)
-* [Introduction of SSH and OpenSSH](#introduction-of-ssh-and-openssh)
-* [OpenSSH Server](#openssh-server)  
-   * [Install in Debian Derivatives](#install-in-debian-derivatives)  
-   * [Install in Termux](#install-in-termux)  
-   * [Edit Configuration](#edit-configuration)  
-   * [Listening Port](#listening-port)  
-   * [Ports Listening to](#ports-listening-to)  
-   * [PermitRootLogin](#permitrootlogin)  
-   * [PasswordAuthentication](#passwordauthentication)  
-   * [Usage in Linux with Systemctl](#usage-in-linux-with-systemctl)  
-   * [Usage in Termux](#usage-in-termux)  
-   * [Start](#start)  
-   * [Stop](#stop)  
-   * [Deny](#deny)  
-   * [Ubuntu Firewall](#ubuntu-firewall)
-* [OpenSSH Client](#openssh-client)  
-   * [Install in Debian Derivatives](#install-in-debian-derivatives-1)  
-   * [Install in Termux](#install-in-termux-1)  
-   * [Connect](#connect)  
-   * [Key](#key)
-* [SCP (Secure Copy Protocol)](#scp-secure-copy-protocol)
-* [SFTP Server Mound on Material Files](#sftp-server-mound-on-material-files)  
-   * [Introduction of SFTP](#introduction-of-sftp)  
-   * [Install Material Files](#install-material-files)  
-   * [Mount SFTP Server](#mount-sftp-server)
-* [Further Readings and References about OpenSSH with Linux and Termux](#further-readings-and-references-about-openssh-with-linux-and-termux)
+  * [Introduction of SSH and OpenSSH](#introduction-of-ssh-and-openssh)
+  * [OpenSSH Server](#openssh-server)
+  * [OpenSSH Client](#openssh-client)
+  * [SCP (Secure Copy Protocol)](#scp-secure-copy-protocol)
+  * [SFTP Server Mound on Material Files](#sftp-server-mound-on-material-files)
+  * [Further Readings and References about OpenSSH with Linux and Termux](#further-readings-and-references-about-openssh-with-linux-and-termux)
 * [droidVNC-NG: VNC Server App for Android That Does Not Require Root Privileges](#droidvnc-ng-vnc-server-app-for-android-that-does-not-require-root-privileges)
-* [Install droidVNC-NG](#install-droidvnc-ng)
-* [Features of droidVNC-NG](#features-of-droidvnc-ng)
+  * [Install droidVNC-NG](#install-droidvnc-ng)
+  * [Features of droidVNC-NG](#features-of-droidvnc-ng)
 * [SD Maid SE: A File Management Tool and System Cleaner](#sd-maid-se-a-file-management-tool-and-system-cleaner)
-* [Install SD Maid SE](#install-sd-maid-se)
-* [Introduction of SD Maid SE](#introduction-of-sd-maid-se)
-* [Use SD Maid SE with Shizuku](#use-sd-maid-se-with-shizuku)
+  * [Install SD Maid SE](#install-sd-maid-se)
+  * [Introduction of SD Maid SE](#introduction-of-sd-maid-se)
+  * [Use SD Maid SE with Shizuku](#use-sd-maid-se-with-shizuku)
 * [Linux Command Library](#linux-command-library)
-* [Introduction of Linux Command Library](#introduction-of-linux-command-library)
-* [Install and Use Linux Command Library](#install-and-use-linux-command-library)
+  * [Introduction of Linux Command Library](#introduction-of-linux-command-library)
+  * [Install and Use Linux Command Library](#install-and-use-linux-command-library)
 * [PipePipe: A FLOSS Android App to Let You Browse YouTube, NicoNico and BiliBili Freely.](#pipepipe-a-floss-android-app-to-let-you-browse-youtube-niconico-and-bilibili-freely)
-* [Install PipePipe](#install-pipepipe)
-* [Features of PipePipe](#features-of-pipepipe)
-* [VLC for Android: Open Source Media Player and Multimedia Engine](#vlc-for-android-open-source-media-player-and-multimedia-engine)  
-   * [Introduction of VLC](#introduction-of-vlc)  
-   * [Install VLC for Android](#install-vlc-for-android)
+  * [Install PipePipe](#install-pipepipe)
+  * [Features of PipePipe](#features-of-pipepipe)
+  * [VLC for Android: Open Source Media Player and Multimedia Engine](#vlc-for-android-open-source-media-player-and-multimedia-engine)
 * [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
-* [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
-* [Termux:Styling](#termuxstyling-1)
-* [Termux:Widget](#termuxwidget-1)
-* [Termux:Boot](#termuxboot-1)
-* [Termux:Float](#termuxfloat-1)
-* [Termux:API](#termuxapi-1)
-* [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
-* [Shizuku by Xingchen & Rikka / RikkaApps](#shizuku-by-xingchen--rikka--rikkaapps)
-* [SystemUI Tuner by Zachary Wander / zacharee](#systemui-tuner-by-zachary-wander--zacharee)
-* [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
-* [TrackerControl / TC by TrackerControl / Oxford HCC](#trackercontrol--tc-by-trackercontrol--oxford-hcc)
-* [NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV](#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv)
-* [DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid)
-* [aShell by Sunil Paul Mathew M. / sunilpaulmathew](#ashell-by-sunil-paul-mathew-m--sunilpaulmathew)
-* [QEMU by Qemu Project / QEMU](#qemu-by-qemu-project--qemu)
-* [Tor and Tor Browser by The Tor Project](#tor-and-tor-browser-by-the-tor-project)
-* [MyIP / IPCheck.ing by Jason Ng / jason5ng32](#myip--ipchecking-by-jason-ng--jason5ng32)
-* [Debian](#debian)
-* [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
-* [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
-* [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
-* [Material Files / MaterialFiles by Hai Zhang / zhanghai](#material-files--materialfiles-by-hai-zhang--zhanghai)
-* [SD Maid SE / SD Maid 2/SE \* System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development](#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development)
-* [droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138](#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138)
-* [PipePipe by InfinityLoop1309 / InfinityLoop1308](#pipepipe-by-infinityloop1309--infinityloop1308)
-* [NewPipe by Team NewPipe / TeamNewPipe](#newpipe-by-team-newpipe--teamnewpipe)
-* [VLC for Android / vlc-android by Videolabs / VLC Mobile Team / VideoLAN / videolan](#vlc-for-android--vlc-android-by-videolabs--vlc-mobile-team--videolan--videolan)
-* [Others](#others)
+  * [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
+  * [Termux:Styling by Fredrik Fornwall / Termux / termux](#termuxstyling-by-fredrik-fornwall--termux--termux)
+  * [Termux:Widget by Fredrik Fornwall / Termux / termux](#termuxwidget-by-fredrik-fornwall--termux--termux)
+  * [Termux:Boot by Fredrik Fornwall / Termux / termux](#termuxboot-by-fredrik-fornwall--termux--termux)
+  * [Termux:Float by Fredrik Fornwall / Termux / termux](#termuxfloat-by-fredrik-fornwall--termux--termux)
+  * [Termux:API by Fredrik Fornwall / Termux / termux](#termuxapi-by-fredrik-fornwall--termux--termux)
+  * [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
+  * [Shizuku by Xingchen & Rikka / RikkaApps](#shizuku-by-xingchen--rikka--rikkaapps)
+  * [SystemUI Tuner by Zachary Wander / zacharee](#systemui-tuner-by-zachary-wander--zacharee)
+  * [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
+  * [TrackerControl / TC by TrackerControl / Oxford HCC](#trackercontrol--tc-by-trackercontrol--oxford-hcc)
+  * [NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV](#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv)
+  * [DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid)
+  * [aShell by Sunil Paul Mathew M. / sunilpaulmathew](#ashell-by-sunil-paul-mathew-m--sunilpaulmathew)
+  * [QEMU by Qemu Project / QEMU](#qemu-by-qemu-project--qemu)
+  * [Tor and Tor Browser by The Tor Project](#tor-and-tor-browser-by-the-tor-project)
+  * [MyIP / IPCheck.ing by Jason Ng / jason5ng32](#myip--ipchecking-by-jason-ng--jason5ng32)
+  * [Debian](#debian)
+  * [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
+  * [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
+  * [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
+  * [Material Files / MaterialFiles by Hai Zhang / zhanghai](#material-files--materialfiles-by-hai-zhang--zhanghai)
+  * [SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development](#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development)
+  * [droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138](#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138)
+  * [PipePipe by InfinityLoop1309 / InfinityLoop1308](#pipepipe-by-infinityloop1309--infinityloop1308)
+  * [NewPipe by Team NewPipe / TeamNewPipe](#newpipe-by-team-newpipe--teamnewpipe)
+  * [VLC for Android / vlc-android by Videolabs / VLC Mobile Team / VideoLAN / videolan](#vlc-for-android--vlc-android-by-videolabs--vlc-mobile-team--videolan--videolan)
+  * [Others](#others)
 * [Contribution](#contribution)
 * [License](#license)
-* [GNU Free Documentation License, Version 1.3 (GFDL 1.3)](#gnu-free-documentation-license-version-13-gfdl-13)
-* [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](#creative-commons-attribution-sharealike-40-international-license-cc-by-sa-40)
+  * [GNU Free Documentation License, Version 1.3 (GFDL 1.3)](#gnu-free-documentation-license-version-13-gfdl-13)
+  * [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](#creative-commons-attribution-sharealike-40-international-license-cc-by-sa-40)
 
 ---
 
@@ -273,48 +189,56 @@ If for whatever reason you want to send me money, here are where you may do so:
 ## Global Note
 
 * This tutorial is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-* Many sections of the tutorial mention **Termux** and **Linux**. For people who are new to **Termux**, please refer to [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection), [Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment](#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-window-manager-or-xfce-lxqt-or-mate-desktop-environment) section. Some Shell scripts for setup, PRoot, QEMU, shortcuts, etc. for **Termux** are available from my another repository: [**termux-sh**](https://github.com/Willie169/termux-sh).
-* Run update command, such as `pkg update` and `apt update`, before install command, such as `pkg install` and `apt install` to update available packages.
-* Add `sudo` at the beginning of commands in **Linux** if root permission is needed. Remove `sudo` from the beginning of commands in **Termux** if the device is not rooted. **Termux** doesn't need root permission to install packages etc.
+* Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See [DontKillMyApp](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid).
+* Many sections of the tutorial mention Termux. For people who are new to it, please refer to [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection) section.
+* My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts and instructions for Termux.
+* Run update command (such as `pkg update` and `apt update`) before install command (such as `pkg install` and `apt install`) to update available packages.
+* Add `sudo` at the beginning of commands in Linux if root permission is needed. Remove `sudo` from the beginning of commands in Termux if the device is not rooted. Termux doesn't need root permission to install packages etc.
 * Type `Y`, `y`, `Yes`, `yes`, etc. as asked for in response to any prompts that request confirmation during command execution to confirm execution.
+* Change the file names, directories, paths, addresses, ports, variables, etc. in the commands provided in the tutorial to the actual ones of yours.
 * Most of the software mentioned in this tutorial is open source.
-* Some sections about **Linux** usages are included since we also cover methods to build a **Linux** VM in **Android** device, most of which assumes the **Linux** distribution is **Debian** derived.
-* Change the file names, directories, paths, addresses, ports, etc. in the commands in the tutorial to the actual ones of yours.
-* Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on many devices such as **Linux**, **Windows**, **macOS**, **Android**, **iOS**, etc. Read the tutorial about **AVNC**, a VNC client for **Android**, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
-* You may encounter `Process completed (signal 9) press Enter` error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) press Enter Error](#process-completed-signal-9-press-enter-error).
-* Many sections of the tutorial mention **Android Debug Bridge** (ADB). You can connect to an **Android** device's ADB shell from another device via **Android SDK Platform Tools** or from the same device via **Shizuku**. Read the tutorial about **Shizuku** ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
-* Many sections of the tutorial mention **Tor**. Read the tutorial about it in [Introduction of Tor](#introduction-of-tor).
+* Some sections about Linux usages are included, some of which assumes the Linux distribution is Debian derived.
 * Uncommenting a line means to remove the comment signs (`#` for bash) from the beginning of the line.
 * When the tutorial uses text editor such as `nano`, `vim`, or `vi` to edit a file, you can use any text editor you want.
-* Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See [**DontKillMyApp**](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid).
+* Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on many devices such as Linux, Windows, macOS, Android, iOS, etc. Read the tutorial about AVNC, a VNC client for Android, in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
+* You may encounter `Process completed (signal 9) press Enter` error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) press Enter Error](#process-completed-signal-9-press-enter-error).
+* In Linux, you can install a window manager such as Fluxbox or Openbox, or desktop environment such as XFCE, LXQt, or MATE for your GUI.
+* In Linux, `root` is usually the password for root for the first time. You can usually set password latter by `passwd`.
+* Many sections of the tutorial mention Android Debug Bridge (ADB). You can connect to an Android device's ADB shell from another device via Android SDK Platform Tools or from the same device via Shizuku. Read the tutorial about Shizuku ADB connection in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
+* Many sections of the tutorial mention Tor. Read the tutorial about it in [Introduction of Tor](#introduction-of-tor).
 
 ---
 
 ## Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection
 
+My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts and instructions for Termux.
+
 ### Install Termux
 
-* Download and Install **Termux** from **F-Droid**: <https://f-droid.org/packages/com.termux>.
-* **Note**: It is recommended to use **Termux**'s **F-Droid** version and avoid using **Google Play** version because the latter is depreciated.
-* Many of the following guides work on or depend on **Termux**.
-* If you installed termux from **Google Play** or a very old version, then you will receive package command errors. **Google Play** builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html>. It is recommended that you shift to **F-Droid** or **GitHub** releases.
+Termux can be installed from F-Droid: <https://f-droid.org/packages/com.termux>.
+
+**WARNING**: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html>. It is recommended that you shift to F-Droid or GitHub releases.
 
 ### Introduction of Termux
 
-* **Termux** is an **Android** terminal application and **Linux** environment. **Termux** combines powerful terminal emulation with an extensive **Linux** package collection. Some of the commands available in **Linux** are available in **Termux** too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
+Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package collection. Some of the commands available in Linux are available in Termux too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
 
 Features:
 
-* Enjoy the bash and zsh shells.
-* Edit files with nano and vim.
-* Access servers over ssh.
-* Compile code with gcc and clang.
-* Use the python console as a pocket calculator.
-* Check out projects with git and subversion.
-* Run text-based games with frotz.
-* and more
+* Shells: bash, zsh etc.
+* Editors: nano, vi, vim, neovim, emac, etc.
+* Connection: openssh, tor, iproute2, net-tools, curl, wget, tigervnc, x11vnc, etc.
+* Development: gcc, g++, clang, gdb, openjdk-17, openjdk-21, python2, python3, nodejs, go, rust, perl, ruby, cmake, maven, git, subversion, gh, glab-cli, apksigner, android-tools, fdroidcl, etc.
+* Emulation: proot, proot-distro, qemu-system, qemu-user, etc.
+* Encryption: openssl, etc.
+* Multimedia: ffmpeg, etc.
+* Archiving: bzip, tar, etc.
+* Graphical environment: fluxbox, openbox,xfce4, lxqt, mate, etc.
+* Textual user interface: frotz, ncurses-utils, etc.
 
-At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the **Debian** and **Ubuntu Linux** distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.
+and more.
+
+At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the Debian and Ubuntu Linux distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.
 
 `$PREFIX` and `~` refer to `/data/data/com.termux/files/home`.
 
@@ -326,18 +250,18 @@ At first startup, a small base system is downloaded. Desired packages can then b
 ### Termux App User Interface
 
 * Pinch to zoom in or out.
-* Swipe right from the left edge of the screen to drag out the navigation bar, where you can open **Termux Settings**, start another **NEW SESSION**, switch to another session, or launch **KEYBOARD**.
+* Swipe right from the left edge of the screen to drag out the navigation bar, where you can open Termux Settings, start another NEW SESSION, switch to another session, or launch KEYBOARD.
 * Long press on screen to:
-* COPY: Copy
-* PASTE: Paste
-* More: More
-* Select URL: Select URL
-* Share transcipt: transfer all output of the current session (via **Android** api)
-* Reset: Reset
-* Kill process: Kill the current terminal session process
-* Style: Style (requires **Termux:Styling** plugin)
-* Keep screen on:
-* Help: Help documentation (**Termux** Wiki)
+  * COPY
+  * PASTE
+  * More
+  * Select URL
+  * Share transcipt: transfer all output of the current session (via Android api)
+  * Reset: Reset
+  * Kill process: Kill the current terminal session process
+  * Style: Style (requires Termux:Styling plugin)
+  * Keep screen on
+  * Help: Help documentation (Termux Wiki)
 
 ### Shortcuts
 
@@ -381,46 +305,168 @@ The following are some of the shortcuts commonly used in the terminal, and they 
 * Volume + V - Show volume control
 * Volume + Q / Volume + K - Show extra button view
 
+### File and Directory Management Commands
+
+File and directory management commands in Termux is the same as in Linux. Below is a brief of them.
+
+#### `cp`: Copy Files And Directories
+
+* `cp -r dir1/ dir2/`: Recursively copy `dir1` to `dir2`.
+* `cp -i file1.txt file2.txt`: Prompt before overwriting `file2.txt`.
+
+#### `mv`: Move or Rename Files and Directories
+
+* `mv file1.txt /home/user/`: Move `file1.txt` to `/home/user/`.
+* `mv oldname.txt newname.txt`: Rename `oldname.txt` to `newname.txt`.
+
+#### `rm`: Remove Files or Directories
+
+* `rm file1.txt`: Remove `file1.txt`.
+* `rm -r dir1/`: Recursively remove `dir1` and its contents.
+* `rm -rf dir1/`: Forcefully remove `dir1` and its contents without prompts.
+
+#### `mkdir`: Create Directories
+
+* `mkdir newdir`: Create a directory named `newdir`.
+* `mkdir -p parentdir/childdir`: Create `parentdir` and `childdir` if they don't exist.
+
+#### `ls`: List Directory Contents
+
+* `ls -l`: List with detailed information (permissions, ownership, size).
+* `ls -a`: List all files, including hidden ones (starting with `.`).
+* `ls -h`: List with human-readable file sizes.
+
+#### `rmdir`: Remove Empty Directories
+
+* Syntax: `rmdir [options] directory`
+* `rmdir emptydir`: Remove `emptydir` if it's empty.
+* `rmdir -p parentdir/childdir`: Remove `childdir` and `parentdir` if they are empty.
+
+#### `find`: Search for Files and Directories
+
+* Syntax: `find [path] [options] [expression]`
+* `find /home/user/ -name '*.txt'`: Find all `.txt` files under `/home/user/`.
+* `find . -type d -name 'dir*'`: Find directories starting with `dir`.
+
+#### `touch`: Create or Update File Timestamps
+
+* Syntax: `touch [options] file`
+* `touch newfile.txt`: Create an empty `newfile.txt` or update its timestamp.
+* `touch -c non_existent_file.txt`: Don’t create `non_existent_file.txt` if it doesn’t exist.
+
+#### `chmod`: Change File Permissions
+
+`chmod` can use both numeric and symbolic modes to set file permissions.
+
+##### Numeric Mode
+
+* Syntax: `chmod [permissions] file`
+* First number in permissions is for user (owner), second is for group, third is for others.
+* Permissions:
+* `4`: read.
+* `2`: write.
+* `1`: execute.
+* Permissions are additive. For example, `7` \= `4` \+ `2` \+ `1`.
+
+##### Symbolic Mode
+
+* Syntax: `chmod [who][+/-/=][permissions] file`
+* Who:
+* `u`: User (owner)
+* `g`: Group
+* `o`: Others
+* `a`: All (user, group, and others)
+* Operators
+* `+`: Add permission
+* `-`: Remove permission
+* `=`: Set exact permission
+* Permissions:
+* `r`: read.
+* `w`: write.
+* `x`: execute.
+
+##### Options
+
+* `-R` or `--recursive`: Apply changes recursively to directories and their contents.
+
+#### `chown`: Change File Ownership
+
+* Syntax: `chown [options] user[:group] file`
+* `chown user file.txt`: Change the owner to `user`.
+* `chown user:group file.txt`: Change the owner to `user` and the group to `group`.
+* `chown :group file.txt`: Change the group to `group` without changing the owner.
+* Options
+* `-R` or `--recursive`: Apply changes recursively to directories and their contents.
+
+#### `df`: Disk Space Usage
+
+* Syntax: `df [options] [file]`
+* `df -h`: Display disk space in a human-readable format (e.g., MB, GB).
+* `df -T`: Show the filesystem type along with space usage.
+* `df --total`: Show a grand total of all file systems.
+
+#### `du`: Disk Usage
+
+* Syntax: `du [options] [file]`
+* `du -h`: Show disk usage in human-readable format.
+* `du -sh /path/to/dir`: Show the total size of `/path/to/dir`.
+* `du -a`: Show the size of all files and directories.
+* `du --max-depth=1`: Limit the depth of directory traversal to 1 level.
+
+#### `pwd`: Check Current Directory
+
+* Syntax: `pwd`
+
 ### Grant Termux Storage Permission
 
-Run the following command **Termux**:
+Run the following command Termux:
+
 ```
 termux-setup-storage
 ```
 
-and tap **Allow**. Many processes mentioned in this tutorial need **Termux** to have this permission.
+and tap Allow. Many processes in Termux need Termux to have this permission.
 
 ### Termux-Properties
 
-You can edit properties of **Termux** by:
+You can edit properties of Termux by:
+
 ```
 nano ~/.termux/termux-properties
 ```
 
-Properties can be changed including `default-working-directory`, `allow-external-apps`, `volume-keys`, etc.
+Properties that can be changed include `default-working-directory`, `allow-external-apps`, `volume-keys`, etc.
 
 ### Termux PKG Package Manager
 
-pkg is a tool for managing apt packages. Usage: `pkg [--check-mirror] command [arguments]`.
+`pkg` is a tool for managing `apt` packages in Termux. 
 
+* Usage: `pkg [--check-mirror] command [arguments]`.
 * `--check-mirror` \- forces a re-check of availability of mirrors
 * Commands:
-* `autoclean` \- Remove all outdated packages from apt cache.
-* `clean` \- Remove all packages from apt cache.
-* `files <packages>` \- Show all files installed by packages.
-* `install <packages>` \- Install specified packages.
-* `list-all` \- List all packages available in repositories.
-* `list-installed` \- List installed packages.
-* `reinstall <packages>` \- Reinstall specified installed packages at the latest version.
-* `search <query>` \- Search package by query, for example by name or description part.
-* `show <packages>` \- Show basic metadata, such as dependencies.
-* `uninstall <packages>` \- Uninstall specified packages. Configuration files will be left intact.
-* `upgrade` \- Upgrade all installed packages to the latest version.
-* `update` \- Update apt databases from configured repositories.
+  * `autoclean` \- Remove all outdated packages from apt cache.
+  * `clean` \- Remove all packages from apt cache.
+  * `files <packages>` \- Show all files installed by packages.
+  * `install <packages>` \- Install specified packages.
+  * `list-all` \- List all packages available in repositories.
+  * `list-installed` \- List installed packages.
+  * `reinstall <packages>` \- Reinstall specified installed packages at the latest version.
+  * `search <query>` \- Search package by query, for example by name or description part.
+  * `show <packages>` \- Show basic metadata, such as dependencies.
+  * `uninstall <packages>` \- Uninstall specified packages. Configuration files will be left intact.
+  * `upgrade` \- Upgrade all installed packages to the latest version.
+  * `update` \- Update apt databases from configured repositories.
+
+### Termux Change Repo
+
+* Run `termux-change-repo` command.
+* Select one or more repositories for which you want to change mirror by tapping "space" and navigating over list by up/down arrow keys. Tap enter to confirm the choice.
+* Pick a mirror. Control method is same as the last step.
 
 ### Package Command Error
 
-**Termux** had to move the primary **Termux** package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:
+Termux had to move the primary Termux package repository hosting from Bintray to Fosshost since Bintray shut down on May 1st, 2021 which created problems for users while running package installation and update commands with pkg or apt and their commands would fail with errors similar to the following:
+
 ```
 E: The repository 'https://termux.org/packages stable Release' does no longer have a Release file.
 N: Metadata integrity can't be verified, repository is disabled now.
@@ -441,17 +487,16 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 
 * Run `termux-change-repo` command.
 * Select one or more repositories for which you want to change mirror by tapping "space" and navigating over list by up/down arrow keys. Tap enter to confirm the choice.
-* Pick a mirror, it is recommended to begin with mirror hosted by Grimler. Same as previously, navigate over list by arrow keys, pick mirror by space key and confirm choice by pressing "enter".
-* If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the `termux-info` command. Note that the science and game repos have been merged into main repo and should be removed with apt remove science-repo game-repo if you have them installed.
-* If you receive errors like:
+* Pick a mirror. Control method is same as the last step.
+* If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the `termux-info` command. Note that the science and game repos have been merged into main repo and should be removed with `apt remove science-repo game-repo` if you have them installed.
+* Accept them by answering `y` if you receive errors like:
+
 ```
 E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Origin' value from 'Bintray' to 'termux-root-packages-24 root'
 E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Label' value from 'Bintray' to 'termux-root-packages-24 root'
 N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
 Do you want to accept these changes and continue updating from this repository? [y/N]
 ```
-
-, then accept them by typing `y`.
 
 * After changing the mirror, it is highly advisable to run `pkg upgrade` command to update all packages to the latest available versions, or at least update `termux-tools` package with `pkg install termux-tools` command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.
 
@@ -472,58 +517,63 @@ Do you want to accept these changes and continue updating from this repository? 
 
 ### Debian Derivatives and Termux APT Package Manager
 
-apt is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.
+`apt` is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.
 
 * Usage: `apt [options] command`
 * Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
 * Most used commands:
-* `list` \- list packages based on package names
-* `search` \- search in package descriptions
-* `show` \- show package details
-* `install` \- install packages
-* `reinstall` \- reinstall packages
-* `remove` \- remove packages
-* `autoremove` \- automatically remove all unused packages
-* `update` \- update list of available packages
-* `upgrade` \- upgrade the system by installing/upgrading packages
-* `full-upgrade` \- upgrade the system by removing/installing/upgrading packages
-* `edit-sources` \- edit the source information file
-* `satisfy` \- satisfy dependency strings
+  * `list` \- list packages based on package names
+  * `search` \- search in package descriptions
+  * `show` \- show package details
+  * `install` \- install packages
+  * `reinstall` \- reinstall packages
+  * `remove` \- remove packages
+  * `autoremove` \- automatically remove all unused packages
+  * `update` \- update list of available packages
+  * `upgrade` \- upgrade the system by installing/upgrading packages
+  * `full-upgrade` \- upgrade the system by removing/installing/upgrading packages
+  * `edit-sources` \- edit the source information file
+  * `satisfy` \- satisfy dependency strings
 * See apt(8) for more information about the available commands: <https://manpages.debian.org/unstable/apt/apt.8.en.html>.
 * Configuration options and syntax is detailed in apt.conf(5): <https://manpages.debian.org/unstable/apt/apt.conf.5.en.html>.
 * Information about how to configure sources can be found in sources.list(5): <https://manpages.debian.org/unstable/apt/sources.list.5.en.html>.
-* Package and version choices can be expressed via apt\_preferences(5): [https://manpages.debian.org/unstable/apt/aptpreferences.5.en.html](https://manpages.debian.org/unstable/apt/apt%5Fpreferences.5.en.html).
+* Package and version choices can be expressed via apt\_preferences(5): <https://manpages.debian.org/unstable/apt/aptpreferences.5.en.html>.
 * Security details are available in apt-secure(8): <https://manpages.debian.org/unstable/apt/apt-secure.8.en.html>.
 
 ### Process completed (signal 9) - press Enter Error
 
-Some **Android** OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU. You may get `Process completed (signal 9) - press Enter` message in the terminal without actually exiting the shell process yourself. Here is the guide of how to turn it off.
+Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU.
+
+You may get `Process completed (signal 9) - press Enter` message in the terminal without actually exiting the shell process yourself. 
+
+Here is the guide of how to turn it off.
 
 #### Fix for Stock Android 12L and beyond
 
-* In phone's **Settings** or something similar, go to **About Phone > Software Information** or something similar, and tap the **Version Number** seven times to enable **Developer Options**. Some phones may have different methods to enable **Developer Options**.
-* Find the section named **Feature Flags**, enter via clicking it.
-* Find the switch to toggle off **settings_enable_monitor_phantom_procs** to disable phantom process killer.
-* To enable phantom process killer again, just toggle on the switch.
+1. In phone's Settings or something similar, go to About Phone > Software Information or something similar, and tap the Version Number seven times to enable Developer Options. Some phones may have different methods to enable Developer Options.
+2. Find the section named Feature Flags, enter via clicking it.
+3. Find the switch to toggle off settings_enable_monitor_phantom_procs to disable phantom process killer.
+4. To enable phantom process killer again, just toggle on the switch.
 
 #### Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond
 
-* Connect to **Android Debug Bridge** (ADB) of your **Android** device from **Linux**, **Windows**, **macOS**, etc. or via **Shizuku**.
-* Type `adb shell` to enter `adb shell`.
-* Run the following commands inside `adb shell`:
+1. Connect to Android Debug Bridge (ADB) of your Android device from another device or via Shizuku.
+2. Type `adb shell` to enter `adb shell`.
+3. Run the following commands inside `adb shell`:
+
 ```
 /system/bin/device_config set_sync_disabled_for_tests persistent
 /system/bin/device_config put activity_manager max_phantom_processes 2147483647
 settings put global settings_enable_monitor_phantom_procs false
 ```
+4. To check the status of whether phantom process killer is disabled, run the following commands inside `adb shell`:
 
-* To check the status of whether phantom process killer is disabled, run the following commands inside `adb shell`:
 ```
 /system/bin/dumpsys activity settings | grep max_phantom_processes
 /system/bin/device_config get activity_manager max_phantom_processes
 ```
 
-* To enable phantom process killer again, run the following commands inside `adb shell`:
+5. To enable phantom process killer again, run the following commands inside `adb shell`:
 ```
 /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
 settings put global settings_enable_monitor_phantom_procs true
@@ -543,9 +593,9 @@ settings put global settings_enable_monitor_phantom_procs true
 
 ### Termux:Styling
 
-**Termux:Styling** can be installed from **F-Droid**: <https://f-droid.org/packages/com.termux.styling>.
+Termux:Styling can be installed from F-Droid: <https://f-droid.org/packages/com.termux.styling>.
 
-This plugin for **Termux** provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.
+This plugin for Termux provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.
 
 Long-press anywhere on the Termux terminal and use the "Style" menu entry to use after installation.
 
@@ -553,21 +603,21 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:Styling> for more i
 
 ### Termux:Widget
 
-**Termux:Widget** can be installed from **F-Droid**: <https://f-droid.org/packages/com.termux.widget>.
+Termux:Widget can be installed from F-Droid: <https://f-droid.org/packages/com.termux.widget>.
 
-Add-on app which adds shortcuts to **Termux** scripts and commands on the home screen. Scripts should be placed in the `$HOME/.shortcuts/` folder to allow quick access to frequently used commands without typing.
+Add-on app which adds shortcuts to Termux scripts and commands on the home screen. Scripts should be placed in the `$HOME/.shortcuts/` folder to allow quick access to frequently used commands without typing.
 
 Read the official wiki: <https://wiki.termux.com/wiki/Termux:Widget> for more information.
 
 ### Termux:Boot
 
-**Termux:Boot** can be installed from **F-Droid**: <https://f-droid.org/packages/com.termux.boot>.
+Termux:Boot can be installed from F-Droid: <https://f-droid.org/packages/com.termux.boot>.
 
-This plugin for **Termux** allows programs to be run at boot.
+This plugin for Termux allows programs to be run at boot.
 
 Instructions:
 
-* Start the **Termux:Boot** app once by clicking on its launcher icon.
+* Start the Termux:Boot app once by clicking on its launcher icon.
 * This allow the app to be run at boot.
 * Create the `~/.termux/boot/` directory.
 * Put scripts you want to execute inside the `~/.termux/boot/` directory.
@@ -579,9 +629,9 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:Boot> for more info
 
 ### Termux:Float
 
-**Termux:Float** can be installed from **F-Droid**: <https://f-droid.org/packages/com.termux.float>.
+Termux:Float can be installed from F-Droid: <https://f-droid.org/packages/com.termux.float>.
 
-This plugin for **Termux** provides a floating terminal window which is shown above other apps.
+This plugin for Termux provides a floating terminal window which is shown above other apps.
 
 Long-press on the floating window to move or resize it and tap on the notification to temporarily hide it.
 
@@ -589,9 +639,9 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:Float> for more inf
 
 ### Termux:API
 
-**Termux:API** can be installed from **F-Droid**: <https://f-droid.org/packages/com.termux.api>.
+Termux:API can be installed from F-Droid: <https://f-droid.org/packages/com.termux.api>.
 
-Expose basic Android functionality like sending SMS or accessing GPS data to the **Termux** app. This is an add-on which requires that the main Termux app is installed to use.
+Expose basic Android functionality like sending SMS or accessing GPS data to the Termux app. This is an add-on which requires that the main Termux app is installed to use.
 
 * Read and send sms messages from your terminal.
 * Access device GPS location sensor from scripts.
@@ -600,7 +650,8 @@ Expose basic Android functionality like sending SMS or accessing GPS data to the
 * Access the system clipboard from shell scripts.
 * List contacts from the system contact list.
 
-Besides installing this app an additional package is required to install inside **Termux**:
+Besides installing this app an additional package is required to install inside Termux:
+
 ```
 apt install termux-api
 ```
@@ -611,23 +662,28 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:API> for more infor
 
 ## Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment
 
+My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts and instructions for Termux.
+
 ### Enable the X11 Repository of Termux
 
 X11 packages are available in a separate APT repository. You can enable it by running the following command:
+
 ```
 pkg install x11-repo
 ```
 
 It will automatically add appropriate sources.list file and PGP key. You can disable this repository by running the following command:
+
 ```
 pkg uninstall x11-repo
 ```
 
 ### VNC Server in Termux
 
-In this section, you will learn how to set up a VNC server in **Termux** for graphical output.
+In this section, you will learn how to set up a VNC server in Termux for graphical output.
 
 #### Install TigerVNC
+
 ```
 pkg install tigervnc
 ```
@@ -635,21 +691,25 @@ pkg install tigervnc
 #### Start a VNC Server
 
 Not specifying port:
+
 ```
 vncserver -localhost
 ```
 
 VNC server will start on unused port with the smallest positive integer number, like `localhost:1` if port 1 is not used. Specifying port:
+
 ```
 vncserver :1
 ```
 
 VNC server will start on the port you specified. Specifying resolution:
+
 ```
 vncserver :1 -geometry 1920x1080
 ```
 
 You can specify resolution with `-geometry`. At first time, you will be prompted for setting up passwords:
+
 ```
 You will require a password to access your desktops.
 
@@ -659,6 +719,7 @@ Would you like to enter a view-only password (y/n)? n
 ```
 
 Note that passwords are not visible when you are typing them and maximal password length is 8 characters. If everything is okay, you will see this message:
+
 ```
 New 'localhost:1 ()' desktop is localhost:1
 
@@ -671,6 +732,7 @@ Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
 It means that the server is available on display `localhost:1`.
 
 To make programs do graphical output to the display `localhost:1`, set environment variable like shown here (yes, without specifying `localhost`):
+
 ```
 export DISPLAY=":1"
 ```
@@ -680,6 +742,7 @@ You may even put this variable to your bashrc or profile so you don't have to al
 Connect to the VNC server from a VNC viewer to view the output, you will not see anything except your mouse pointer if no windows manager or desktop environment is started.
 
 #### Kill All VNC Servers
+
 ```
 vncserver -kill localhost:1
 ```
@@ -689,16 +752,19 @@ Change the port with the actual port your VNC server started on.
 ### Fluxbox in Termux
 
 #### Install Fluxbox
+
 ```
 pkg install fluxbox
 ```
 
 #### Setup
+
 ```
 nano ~/.vnc/xstartup
 ```
 
-Copy below command and paste to it:
+Copy below and paste to it:
+
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 
@@ -725,7 +791,8 @@ pkg install openbox pypanel xorg-xsetroot
 nano ~/.vnc/xstartup
 ```
 
-Copy below command and paste to it:
+Copy below and paste to it:
+
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 
@@ -734,11 +801,13 @@ openbox-session &
 ```
 
 Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above since Openbox has its own autostart script, which is located at `${PREFIX}/etc/xdg/openbox/autostart`.
+
 ```
 nano ~/etc/xdg/openbox/autostart
 ```
 
-Copy below command and paste to it:
+Copy below and paste to it:
+
 ```
 # Make background gray.
 xsetroot -solid gray
@@ -752,16 +821,19 @@ Openbox will start automatically on VNC server startup.
 ### XFCE in Termux
 
 #### Install XFCE
+
 ```
 pkg install xfce4
 ```
 
 #### Setup
+
 ```
 nano ~/.vnc/xstartup
 ```
 
-Copy below command and paste to it:
+Copy below and paste to it:
+
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 xfce4-session &
@@ -777,16 +849,19 @@ Don't put any other command to the file `~/.vnc/xstartup` but only the lines sho
 ### LXQt in Termux
 
 #### Install LXQt
+
 ```
 pkg install lxqt
 ```
 
 #### Setup
+
 ```
 nano ~/.vnc/xstartup
 ```
 
-Copy below command and paste to it:
+Copy below and paste to it:
+
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 startlxqt &
@@ -804,16 +879,19 @@ LXQt will start automatically on VNC server startup.
 ### MATE in Termux
 
 #### Install MATE
+
 ```
 pkg install mate-* marco
 ```
 
 #### Setup
+
 ```
 nano ~/.vnc/xstartup
 ```
 
-Copy below command and paste to it:
+Copy below and paste to it:
+
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 mate-session &
@@ -835,51 +913,111 @@ MATE will start automatically on VNC server startup.
 
 ---
 
-## Andronix with Termux: Install Linux Distributions in Termux on Non-Rooted Android Devices
+## PRoot-Distro with Termux: Install Linux Distributions in Termux (No Root Required)
 
-My main development about Linux VMs in **Termux** has been moved to [**termux-sh**](https://github.com/Willie169/termux-sh). See it for more scripts and instructions.
+My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts and instructions for Termux.
 
-### Optional but Recommended: Install Andronix App
+### Introduction of Chroot, PRoot, PRoot-Distro
 
-Install Andronix from **Google Play**: <https://play.google.com/store/apps/details?id=studio.com.techriz.andronix>.
+* Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
+* PRoot is a user-space implementation of chroot, mount --bind, and binfmt\_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
+* PRoot-Distro is a Bash script wrapper for PRoot. It provides a set of functions with standardized command line interface to let user easily manage Linux PRoot containers. By default it supports a number of well known Linux distributions such Alpine Linux, Debian or openSUSE. However it is possible to add others with a help of plug-ins.
 
-### Introduction of Andronix and PRoot
+### PRoot-Distro Usage
 
-* **Andronix** is an app that lets you install **Linux** distributions like **Ubuntu**, **Debian**, Manjaro etc. in **Termux** on non-rooted Android devices with **PRoot**. **Andronix** provide paid, close-source modded OS too, which won't be mentioned in this tutorial.
-* **PRoot** is a user-space implementation of chroot, mount --bind, and binfmt\_misc. This means that users don't need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
-* chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
+* Usage: proot-distro [COMMAND] [ARGUMENTS]
+* Commands:
+  * help \- Show this help information.
+  * backup \- Backup a specified distribution.
+  * install \- Install a specified distribution.
+  * list \- List supported distributions and their installation status.
+  * login \- Start login shell for the specified distribution.
+  * remove \- Delete a specified distribution. WARNING: this command destroys data!
+  * rename \- Rename installed distribution.
+  * reset \- Reinstall from scratch a specified distribution. WARNING: this command destroys data!
+  * restore \- Restore a specified distribution. WARNING: this command destroys data!
+  * clear-cache \- Clear cache of downloaded files.
 
-### Install an OS with Andronix
+### Supported Distributions
 
-* Open **Andronix** app.
-* Click the **Linux Distribution** card.
-* Click on the **Linux** distribution you want to install. It is recommended to get started with **Ubuntu** or **Debian** if you are overwhelmed by the options.
-* Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your **Linux** distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your **Linux** distribution.
-* Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you've little or no experience with **Linux**.
-* Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive.
-* CLI Only: If you don't want a Graphical User-interface, you can go ahead with the Command Line Interface. You'll have a terminal, which is enough if you know what you're doing in your session.
-* **Andronix** will automatically copy the command to your clipboard.
-* Paste and run in **Termux**.
+Here are the supported distributions (alias: name):
 
-### Uninstall an OS (Not Modded) with Andronix
+* alpine: Alpine Linux (edge)
+* archlinux: Arch Linux ARM
+* artix: Artix Linux (AArch64 only)
+* debian: Debian (stable)
+* deepin: Deepin (beige)
+* fedora: Fedora 39 (AArch64 only)
+* manjaro: Manjaro (AArch64 only)
+* openkylin: OpenKylin (Yangtze)
+* opensuse: OpenSUSE (Tumbleweed)
+* pardus: Pardus (yirmibir)
+* ubuntu: Ubuntu (23.10)
+* void: Void Linux
 
-* Open **Andronix** app.
-* Click the **Linux Distribution** card.
-* Long press on the **Linux** distribution you want to uninstall.
-* Select**Uninstall**.
-* **Andronix** will automatically copy the command to your clipboard.
-* Paste and run in **Termux** (Not inside **Linux**).
+### Hint to Install Linux OS with PRoot-Distro
+
+Type command `proot-distro list` to get a list of the supported distributions.
+
+Pick a distro alias and run the next command to install it: 
+
+```
+proot-distro install <alias> [--override-alias <new alias>]
+```
+
+Runtime data is stored at this location:
+
+```
+/data/data/com.termux/files/usr/var/lib/proot-distro
+```
+
+If you have issues with proot during installation or login, try to set `PROOT_NO_SECCOMP=1` environment variable.
+
+---
+
+## Andronix with Termux: Install Linux Distributions in Termux (No Root Required)
+
+My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts and instructions for Termux.
+
+### Optional: Install Andronix App
+
+Andronix can be installed from Google Play: <https://play.google.com/store/apps/details?id=studio.com.techriz.andronix>.
+
+Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won't be mentioned in this tutorial.
+
+### Install an OS Following Andronix App Instructions
+
+1. Open Andronix app.
+2. Click the Linux Distribution card.
+3. Click on the Linux distribution you want to install. It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.
+4. Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your Linux distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your Linux distribution.
+5. Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you've little or no experience with Linux.
+6. Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive.
+7. CLI Only: If you don't want a Graphical User-interface, you can go ahead with the Command Line Interface.
+8. Andronix will automatically copy the command to your clipboard.
+9. Paste and run in Termux.
+
+### Uninstall an Not Modded OS Following Andronix App Instructions
+
+1. Open Andronix app.
+2. Click the Linux Distribution card.
+3. Long press on the Linux distribution you want to uninstall.
+4. Select Uninstall.
+5. Andronix will automatically copy the command to your clipboard.
+6. Paste and run in Termux (Not inside that OS).
 
 ### Sound Output from PRoot OS
 
 #### Install and Setup Sound Output from PRoot OS
 
-Run the following command in **Termux** (Not inside **Linux**):
+Run the following command in Termux (Not inside that OS):
+
 ```
 pkg install wget && wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh && chmod +x setup-audio.sh && ./setup-audio.sh
 ```
 
 #### Start PulseAudio Server
+
 ```
 pulseaudio --start
 ```
@@ -887,40 +1025,45 @@ pulseaudio --start
 ### Example: Debian with XFCE Desktop Environment
 
 #### Install Debian with XFCE
+
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh && chmod +x debian-xfce.sh &&  bash debian-xfce.sh
 ```
 
-The file directory of the **Debian** OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the **Debian** OS.
+The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in Termux or in the Debian OS.
 
 #### Turn on the OS (CLI)
+
 ```
 ./start-debian.sh
 ```
 
 #### VNC Server
 
-* Run `vncserver-start` in the OS to start the VNC server (default on port 1).
-* Get a VNC viewer.
-* Add a new connection with address `localhost:1`.
-* View GUI of the OS from VNC viewer.
-* Run `vncserver-start` in the OS to kill all VNC servers.
+1. Run `vncserver-start` in the OS to start the VNC server (default on port 1).
+2. Get a VNC viewer. AVNC is recommended for Android.
+3. Add a new connection with address `localhost:1`.
+4. View GUI of the OS from VNC viewer.
+5. Run `vncserver-start` in the OS to kill all VNC servers.
 
 ### Example: Debian with CLI Only
 
 #### Install Debian
+
 ```
 pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh && chmod +x debian.sh && bash debian.sh
 ```
 
-The file directory of the **Debian** OS will be `debian-fs`. You can read, write, and execute files in it both in **Termux** or in the **Debian** OS.
+The file directory of the Debian OS will be `debian-fs`. You can read, write, and execute files in it both in Termux or in the Debian OS.
 
 #### Turn on the OS (CLI)
+
 ```
 ./start-debian.sh
 ```
 
 ### Example: Uninstall Debian OS (Not Modded)
+
 ```
 wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh && chmod +x UNI-debian.sh && bash UNI-debian.sh
 ```
@@ -934,251 +1077,258 @@ wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninsta
 
 ---
 
-## QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO Image Method or QCOW2 Cloud Image
+## QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO or QCOW2 Image
 
-My main development about Linux VMs in **Termux** has been moved to [**termux-sh**](https://github.com/Willie169/termux-sh). See it for more scripts and instructions.
+My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts and instructions for Termux.
 
-### Install QEMU
+### Install QEMU System Emulation for x86-64
 
-Run the following command in **Termux**:
+Run the following command in Termux:
+
 ```
-pkg install qemu-system-x86_64 qemu-utils qemu-common openssl
-```
-
-### ISO Image method
-
-This method is more customizable but may encounter some issues like GRUB menu not showing on CLI or stuck at 79% or 83% of the installation of the base system. Use qcow2 cloud image method if you don't prepare to solve these problems. This tutorial assumes no such problems are encounter.
-
-It is recommended to get started with **Ubuntu** or **Debian** if you are overwhelmed by the options.
-
-#### Prepare the ISO Image
-
-Prepare the ISO image. Here takes **Debian** AMD64 for example. Change the URL to the download link of the ISO image you want or `cp` or `mv` the ISO image you want to the directory you want.
-```
-wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.7.0-amd64-netinst.iso
+pkg update && pkg install qemu-utils qemu-common qemu-system-x86-64-headless wget -y
 ```
 
-#### Create a Virtual Disk Image Where the Operating System Will Be Installed
+### Install QEMU System Emulation for AArch64
+
+Run the following command in Termux:
+
 ```
-qemu-img create -f qcow2 debian_amd64.qcow2 20G
+pkg update && pkg install qemu-utils qemu-common qemu-system-aarch64-headless wget -y
 ```
 
-Change the `debian_amd64.qcow2` to the file name you want. `20G` indicates 20GB disk image. You can adjust the size as needed.
+### ISO and QCOW2 Image Methods
 
-#### Install VM with CLI
-```
-nano install-qemu.sh
-```
+For more complex distribution like Debian and Ubuntu, using ISO image method is easier to encounter some issues like GRUB menu not showing on CLI or stuck in the middle of the installation process which QCOW2 image method usually doesn't cause.
 
-Copy below command and paste to it:
-```
-qemu-system-x86_64 -machine q35 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -m 2G -accel tcg,thread=multi -smp sockets=1,cores=4,threads=1 -cpu qemu64 -vga std -netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -device intel-hda -device qemu-xhci -boot d -boot menu=on -drive file=debian_amd64.qcow2 -nographic -serial mon:stdio -display none -cdrom ~/debian-12.7.0-amd64-DVD-1.iso
-```
+### Host Port Forwarding
 
-Adjust `hostfwd` as needed. In the above command, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine. Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed. Make it executable:
-```
-chmod +x install-qemu.sh
-```
+Set `hostfwd` to set host port forwarding. Take `hostfwd=tcp::2222-:22` for example, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine. 
 
-Run it:
-```
-./install-qemu.sh
-```
+### Alpine Linux x86-64 ISO Image
 
-Follow the screen guide to install.
+#### Installation
 
-#### Install VM with GUI
 ```
-nano install-qemu.sh
+size='5G'
+memory='1024'
+cpu='2'
+pkg update && pkg install qemu-utils qemu-common qemu-system-x86-64-headless wget -y
+mkdir ~/alpine-x86_64 && cd ~/alpine-x86_64
+wget https://dl-cdn.alpinelinux.org/v3.21/releases/x86_64/alpine-virt-3.21.0-x86_64.iso
+qemu-img create -f qcow2 alpine-x86_64.img $size
+qemu-system-x86_64 -machine q35 -m $memory -smp cpus=$cpu -cpu qemu64 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -cdrom alpine-virt-3.21.0-x86_64.iso -drive file=alpine-x86_64.img,format=qcow2 -nographic
 ```
 
-Copy below command and paste to it:
+Run below in the Alpine Linux VM to setup:
+
 ```
-qemu-system-x86_64 -machine q35 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -m 2G -accel tcg,thread=multi -smp sockets=1,cores=4,threads=1 -cpu qemu64 -vga std -netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -device intel-hda -device usb-tablet -boot menu=on -drive file=debian_amd64.qcow2 --vnc :0 -cdrom ~/debian-12.7.0-amd64-netinst.iso
+setup-alpine
 ```
 
-Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. Change the `debian-12.7.0-amd64-netinst.iso` to the real ISO path. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use. Make it executable:
+#### CLI Only
+
 ```
-chmod +x install-qemu.sh
+memory='1024'
+cpu='2'
+qemu-system-x86_64 -machine q35 -m $memory -smp cpus=$cpu -cpu qemu64 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/alpine-x86_64/alpine-x86_64.img,format=qcow2 -nographic
 ```
 
-Run it:
+#### With VNC Display
+
 ```
-./install-qemu.sh
+memory='1024'
+cpu='2'
+qemu-system-x86_64 -machine q35 -m $memory -smp cpus=$cpu -cpu qemu64 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/alpine-x86_64/alpine-x86_64.img,format=qcow2 -vnc :0
 ```
 
-Connect to the VNC server from a VNC viewer and follow the screen guide on the VNC viewer to install.
+### Alpine Linux AArch64 ISO Image
 
-#### Boot VM with CLI
-```
-nano qemu-cli.sh
-```
+#### Installation
 
-Copy below command and paste to it:
 ```
-qemu-system-x86_64 -machine q35 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -m 2G -accel tcg,thread=multi -smp sockets=1,cores=4,threads=1 -cpu qemu64 -vga std -netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -device intel-hda -device usb-tablet -boot menu=on -drive file=debian_amd64.qcow2 -serial mon:stdio -display none
-```
-
-Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Make it executable:
-```
-chmod +x qemu-cli.sh
+size='5G'
+memory='1024'
+cpu='2'
+pkg update && pkg install qemu-utils qemu-common qemu-system-aarch64-headless wget -y
+mkdir ~/alpine-aarch64 && cd ~/alpine-aarch64
+wget https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/aarch64/alpine-virt-3.21.0-aarch64.iso
+qemu-img create -f qcow2 alpine-aarch64.img $size
+qemu-system-aarch64 -machine virt -m $memory -smp cpus=$cpu -cpu cortex-a72 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-aarch64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -cdrom alpine-virt-3.21.0-aarch64.iso -drive file=alpine-aarch64.img,format=qcow2 -nographic
 ```
 
-Run it to boot the VM with CLI:
+Run below in the Alpine Linux VM to setup:
+
 ```
-./qemu-cli.sh
+setup-alpine
 ```
 
-#### Boot with GUI
-```
-nano qemu-gui.sh
-```
+#### CLI Only
 
-Copy below command and paste to it:
 ```
-qemu-system-x86_64 -machine q35 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -m 2G -accel tcg,thread=multi -smp sockets=1,cores=4,threads=1 -cpu qemu64 -vga std -netdev user,id=n1,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -device intel-hda -device usb-tablet -boot menu=on -drive file=debian_amd64.qcow2 --vnc :0
+memory='1024'
+cpu='2'
+qemu-system-aarch64 -machine virt -m $memory -smp cpus=$cpu -cpu cortex-a72 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-aarch64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/alpine-aarch64/alpine-aarch64.img,format=qcow2 -nographic
 ```
 
-Adjust `hostfwd` as needed. Change the `debian_amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use. Make it executable:
-```
-chmod +x qemu-cli.sh
-```
+#### With VNC Display
 
-Run it to boot the VM with GUI:
 ```
-./qemu-gui.sh
+memory='1024'
+cpu='2'
+qemu-system-aarch64 -machine virt -m $memory -smp cpus=$cpu -cpu cortex-a72 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-aarch64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/alpine-aarch64/alpine-aarch64.img,format=qcow2 -vnc :0
 ```
 
-Connect to the VNC server from a VNC viewer.
+### Debian Linux AMD64 QCOW2 Image
 
-### QCOW2 Image Method
+#### Installation
 
-This method is more easy but less customizable.
-
-It is recommended to get started with **Ubuntu** or **Debian** if you are overwhelmed by the options.
-
-#### Prepare the QCOW2 Image
-
-Prepare the qcow2 image. Here takes **Debian** AMD64 qcow2 cloud image for example. Change the URL to the download link of the qcow2 image you want or `cp` or `mv` the qcow2 image you want to the directory you want.
 ```
+size='5G'
+memory='1024'
+cpu='2'
+pkg update && pkg install qemu-utils qemu-common qemu-system-x86-64-headless wget -y
+mkdir ~/debian-amd64 && cd ~/debian-amd64
 wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-amd64.qcow2
+qemu-img resize debian-12-nocloud-amd64.qcow2 +$size
+qemu-system-x86_64 -machine q35 -m $memory -smp cpus=$cpu -cpu qemu64 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/debian-amd64/debian-12-nocloud-amd64.qcow2,format=qcow2 -nographic
 ```
 
-#### Boot with CLI
+#### CLI Only
+
 ```
-nano qemu-cli.sh
+memory='1024'
+cpu='2'
+qemu-system-x86_64 -machine q35 -m $memory -smp cpus=$cpu -cpu qemu64 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/debian-amd64/debian-12-nocloud-amd64.qcow2,format=qcow2 -nographic
 ```
 
-Copy below command and paste to it:
+#### With VNC Display
+
 ```
-qemu-system-x86_64 -m 2G -drive file=debian-12-nocloud-amd64.qcow2,format=qcow2 -nographic -serial mon:stdio -display none -netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0
+memory='1024'
+cpu='2'
+qemu-system-x86_64 -machine q35 -m $memory -smp cpus=$cpu -cpu qemu64 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-x86_64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/debian-amd64/debian-12-nocloud-amd64.qcow2,format=qcow2 -vnc :0
 ```
 
-Change the `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Adjust `hostfwd` as needed. Make it executable:
+### Debian Linux ARM64 QCOW2 Image
+
+#### Installation
+
 ```
-chmod +x qemu-cli.sh
+size='5G'
+memory='1024'
+cpu='2'
+pkg update && pkg install qemu-utils qemu-common qemu-system-aarch64-headless wget -y
+mkdir ~/debian-arm64 && cd ~/debian-arm64
+wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-arm64.qcow2
+qemu-img resize debian-12-nocloud-arm64.qcow2 +$size
+qemu-system-aarch64 -machine virt -m $memory -smp cpus=$cpu -cpu cortex-a72 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-aarch64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/debian-arm64/debian-12-nocloud-arm64.qcow2,format=qcow2 -nographic
 ```
 
-Run it to boot the VM with CLI:
+#### CLI Only
+
 ```
-./qemu-cli.sh
+memory='1024'
+cpu='2'
+qemu-system-aarch64 -machine virt -m $memory -smp cpus=$cpu -cpu cortex-a72 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-aarch64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/debian-arm64/debian-12-nocloud-arm64.qcow2,format=qcow2 -nographic
 ```
 
-#### Boot with GUI
-```
-nano qemu-gui.sh
-```
+#### With VNC Display
 
-Copy below command and paste to it:
 ```
-qemu-system-x86_64 -m 2G -drive file=debian-12-nocloud-amd64.qcow2,format=qcow2 -vnc :0 -netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0
-```
-
-Change `debian-12-nocloud-amd64.qcow2` to the real file name. `20G` indicates 20GB disk image. You can adjust the size as needed. Change the numerical value after `--vnc :` to the port you want to use. Adjust `hostfwd` as needed.
-
-Make it executable:
-```
-chmod +x qemu-cli.sh
-```
-
-Run it to boot the VM with GUI:
-```
-./qemu-gui.sh
-```
-
-Connect to the VNC server from a VNC viewer.
-
-### Window Managers or Desktop Environments
-
-You can install a window manager such as Fluxbox or Openbox, or desktop environment such as XFCE, LXQt, or MATE for your GUI.
-
-### Login
-
-When you see something similar to the below in the VM:
-```
-Debian GNU/Linux 12 localhost ttyS0
-
-localhost login:
-```
-
-In the first time, type `root` and you will be logged in without a password. You can set password latter by:
-```
-passwd
-```
-
-The password should be at least 4 letters long. If you don't want to set a password, just type `root` and you will be logged in without a password every time.
-
-### Resize Disk Space
-
-In **Termux** (outside VM), run:
-```
-qemu-img resize debian-12-nocloud-amd64.qcow2 +30G
-```
-
-Change `debian-12-nocloud-amd64.qcow2` to the real file name. `+30G` indicates increasing 30GB disk image. You can adjust the size as needed. Inside VM, run:
-```
-sudo apt update
-sudo apt install parted e2fsprogs
-sudo parted /dev/sda
-print
-fix
-resizepart 1 100%
-quit
-sudo resize2fs /dev/sda1
+memory='1024'
+cpu='2'
+qemu-system-aarch64 -machine virt -m $memory -smp cpus=$cpu -cpu cortex-a72 -drive if=pflash,format=raw,read-only=on,file=$PREFIX/share/qemu/edk2-aarch64-code.fd -netdev user,id=n1,dns=8.8.8.8,hostfwd=tcp::2222-:22 -device virtio-net,netdev=n1 -drive file=~/debian-arm64/debian-12-nocloud-arm64.qcow2,format=qcow2 -vnc :0
 ```
 
 ### Check Image Info
 
-In **Termux** (outside VM), run:
-```
-qemu-img info debian-12-nocloud-amd64.qcow2
-```
+In host, run:
 
-Change `debian-12-nocloud-amd64.qcow2` to the real file name.
+```
+qemu-img info <image>
+```
 
 ### Check VM Disk
 
-Inside VM, run:
+Inside guest, run:
+
 ```
 df -h
 ```
 
 and for partition, run:
+
 ```
 lsblk
 ```
 
-### OpenSSH
+### Resize Image
 
-You can start a SSH server in QEMU VM and start a client in another **Termux** session with `openssh`. See [OpenSSH with Linux or Termux and SFTP Server Mount on Material Files: Secure Remote Access](#openssh-with-linux-or-termux-and-sftp-server-mount-on-material-files-secure-remote-access) for more information.
+In host, run:
+
+```
+qemu-img resize <image> +5G
+```
+
+`+5G` indicates increasing 5GB disk image. You can adjust the size as needed.
+
+### Resize Partition in Debian AMD64
+
+In Debian guest, run:
+
+```
+sudo apt update
+sudo apt install parted e2fsprogs -y
+sudo parted /dev/sda
+```
+
+In `(parted)`, run:
+
+```
+print
+fix
+resizepart 1 100%
+quit
+```
+
+and then in Debian guest run:
+
+```
+sudo resize2fs /dev/sda1
+```
+
+### Resize Partition in Debian ARM64
+
+In Debian guest, run:
+
+```
+sudo apt update
+sudo apt install parted e2fsprogs -y
+sudo parted /dev/vda
+```
+
+In `(parted)`, run:
+
+```
+print
+fix
+resizepart 1 100%
+quit
+```
+
+and then in Debian guest run:
+
+```
+sudo resize2fs /dev/vda1
+```
 
 ### Further Readings and References about QEMU
 
-* <https://ivonblog.com/posts/termux-qemu-system-linux>
-* <https://www.qemu.org/docs/master/index.html>
-* <https://www.debian.org/distrib/index.en.html>
-* <https://chatgpt.com>
-* <https://www.reddit.com/r/debian/s/s871vXlGRI>
+* <https://ivonblog.com/posts/termux-qemu-system-linux>.
+* <https://www.qemu.org/docs/master/index.html>.
+* <https://www.debian.org/distrib/index.en.html>.
+* <https://www.reddit.com/r/debian/s/s871vXlGRI>.
 
 ---
 
@@ -1186,14 +1336,14 @@ You can start a SSH server in QEMU VM and start a client in another **Termux** s
 
 ### Install AVNC
 
-You can install AVNC from **F-Droid**: <https://f-droid.org/packages/com.gaurav.avnc>.
+You can install AVNC from F-Droid: <https://f-droid.org/packages/com.gaurav.avnc>.
 
 ### Connect a VNC Server
 
-* Tap the **+** sign in the lower right corner,
-* Input **Name** (arbitrary name), **Host** address (`localhost` for localhost), and **Port**, input **Username** and **Password** if needed, adjust **ADVANCED** options if needed, and then tap **SAVE**.
-* Tap the Server name to connect.
-* If you encounter incorrect mouse display or recieving, going to **Settings => Input => Mouse** and toggling on **Hide local pointer** may help.
+* Tap the `+` sign in the lower right corner,
+* Input `Name` (arbitrary name), `Host address` (`localhost` for localhost), and `Port`, input `Username` and `Password` if needed, adjust `ADVANCED` options if needed, and then tap `SAVE`.
+* Tap the `Server` name to connect to it.
+* If you encounter incorrect mouse display or recieving, going to `Settings` > `Input` > `Mouse` and toggling on `Hide local pointer` may help.
 
 ### Features of AVNC
 
@@ -1201,7 +1351,7 @@ You can install AVNC from **F-Droid**: <https://f-droid.org/packages/com.gaurav.
 * Material Design: Dark theme and light theme.
 * Configurable gestures: Configure the meaning of each gesture.
 * Tight encoding.
-* Virtual Keys: Go to **Settings => Input => Virtual keys => Customize keys** to customize Virtual Key layout.
+* Virtual Keys: Go to Settings => Input => Virtual keys => Customize keys to customize Virtual Key layout.
 * Picture-in-Picture mode.
 * View-only mode.
 * Zeroconf Server Discovery.
@@ -1220,79 +1370,86 @@ You can install AVNC from **F-Droid**: <https://f-droid.org/packages/com.gaurav.
 
 ### Install Shizuku
 
-* Install **Shizuku** from **Google Play**: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
-* Official tutorial of Shizuku: <https://shizuku.rikka.app/guide/setup/?night=1>
+Shizuku from installed from Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
 
-### Introduction of Shizuku and ADB
+### Introduction of ADB and Shizuku
 
-* **Shizuku** is An open-source app for serving multiple apps that require root/adb.
-* The **Android Debug Bridge** (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by **Google**, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as **Windows**, **Linux** and **macOS**. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
+* The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
+* Shizuku is an open-source app for serving multiple apps that require root/adb. If your "root required app" only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell.
 
 ### Connect Shizuku to Wireless ADB
 
-1. Grant **Shizuku** notification permission.
-2. Tap **Pairing** in **Start via Wireless debugging** block in **Shizuku**.
-3. Connect to a WiFi you trust. You don't need to log in to the WiFi if the WiFi needs that. You just need to let your phone think that you're connected to WiFi.
-4. In phone's **Settings** or something similar, go to **About Phone > Software Information** or something similar, and tap the **Version Number** seven times to enable **Developer Options**. Some phones may have different methods to enable **Developer Options**.
-5. In the **Developer Options**, enable **Wireless ADB** and tap **Pair with a pairing code**.
-6. Input the pairing code in the notification of **Shizuku**.
-7. In the **Developer Options**, togle on **Disable adb authorization timeout** if you don't want to do all the above again every few times using **Shizuku**. If the connection is disconnected due to whatever reason, follow [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner) to reconnect if you're using **SystemUI Tuner**, or follow above guide again to reconnect if not.
-8. Back to **Shizuku** and tap **Start** in **Start via Wireless debugging** block. You all see **Shizuku is running** on the top of the interface of **Shizuku**.
+1. Grant Shizuku notification permission.
+2. Tap `Pairing` in `Start via Wireless debugging` block in Shizuku.
+3. Connect to a WiFi you trust. You don't need to log in to the WiFi though. You just need to let your phone think that you're connected to WiFi.
+4. In phone's `Settings` or something similar, go to `About Phone` > `Software Information` or something similar, and tap the `Version Number` seven times to enable `Developer Options`. Some phones may have different methods to enable `Developer Options`.
+5. In the `Developer Options`, enable `Wireless ADB` and tap `Pair with a pairing code`.
+6. Input the pairing code in the notification of Shizuku.
+7. In the `Developer Options`, togle on `Disable adb authorization timeout` if you don't want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner) to reconnect if you're using SystemUI Tuner, or follow above guide again to reconnect.
+8. Back to Shizuku and tap `Start` in `Start via Wireless debugging` block. You all see Shizuku is running on the top of the app interface of Shizuku.
 
 ### Use Shizuku in a Terminal Application for the First Time (Termux for Example)
 
-1. Tap **Use Shizuku in terminal applications** in **Shizuku** and export files `rish` and `rish_shizuku.dex` to somewhere on your phone.
-2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take **Termux** for example, **Termux**'s package name is `com.termux`. Run `termux-setup-storage` and tap **Allow** to grant **Termux** storage permission if you want to use it to run ADB commands (and many other commands).
-3. Open your terminal application and move the exported files to somewhere it can access with `mv old_location new_location`. The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of **Termux** is `/data/data/com.termux/home`, which is abbreviated as `~` in **Termux**.
+1. Tap `Use Shizuku in terminal applications` in Shizuku and export files `rish` and `rish_shizuku.dex` to somewhere on your phone.
+2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take Termux for example, Termux's package name is `com.termux`. Run `termux-setup-storage` and tap `Allow to grant Termux storage permission`.
+3. Open your terminal application and move the exported files to somewhere it can access (with `mv old_location new_location`). The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of Termux is `/data/data/com.termux/home`, which is abbreviated as `$PREFIX` or `~` in Termux.
 4. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
-5. Where used to be `~ $` should become `e2q:/ $` or something similar if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
-6. You can turn WiFi off after ADB is connected. The notification of **Shizuku** may say **Paring failed** after that, but you can check **Shizuku** app to check whether there's a block read **Shizuku is running** on the top.
-7. Optionally, create a `.sh` file (`nano ~/shizuku.sh` for example), paste the following code block, save it, and make it executable with `chmod +x shizuku.sh` so that you can run this shortcut to start **Shizuku** on your terminal afterward.`#!/data/data/com.termux/files/usr/bin/bash cd shizuku sh rish`
-8. **Note**: It is recommended to use **Termux**'s **F-Droid** version and avoid using **Google Play** version because the latter is depreciated. **F-Droid**: <https://f-droid.org/packages/com.termux>.
+5. `~ $` should become `<device>:/ $` (such as `e2q:/ $`) if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
+6. You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there's a block that reads `Shizuku is running` on the top.
+7. Optionally, create a `.sh` file (`nano ~/shizuku.sh` for example), paste `cd shizuku && sh rish`, save it, and make it executable with `chmod +x shizuku.sh` so that you can run this shortcut to start Shizuku on your terminal afterward.
+8. Note: It is recommended to use Termux's F-Droid version: <https://f-droid.org/packages/com.termux> and avoid using Google Play version because the latter is depreciated.
 
 ### Install SystemUI Tuner
 
-Install **SystemUI Tuner** (pub: **Zachary Wander**) from **Google Play**: <https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner>.
+SystemUI Tuner (pub: Zachary Wander) can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner>.
 
-### To Leave Developer Options off When Using Shizuku to Connect to ADB
+### To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner
 
-Some financial apps may require Developer Options to be off when using them. This section is the tutorial about how to turn Developer Options off while still using Shizuku ADB Shell.
+**WARNING**: In Android 14's latest update, now Enable ADB can't be persistently on unless USB connected.
 
-1. Follow the screen instructions of **SystemUI Tuner**.
-2. Run `adb shell` command `pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS` (you can do it with **Shizuku** and a terminal such as **Termux** or **aShell**).
-3. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
-4. Turn off **Developer Options** if it's on. The toggle switch is usually on the top of **Developer Options**.
-5. In **SystemUI Tuner**, go to **Developer** and turn on **Enable ADB** and **Enable Wireless ADB**.
-6. Go to **Persistent Options** and select **Enable ADB**.
-7. Press **Start** on **Shizuku**.
-8. Turn off WiFi. **Enable Wireless ADB** will be turned off automatically by system settings. You can check that in **SystemUI Tuner**.
+Some apps (such as many financial apps) may require `Developer Options` to be off when using them. This section is the tutorial about how to turn `Developer Options` off while still using ADB Shell with Shizuku.
+
+1. Run `adb shell` command `pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS` (you can do it with Shizuku and a terminal such as Termux or aShell).
+2. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
+3. Turn off `Developer Options` if it's on. The toggle switch is usually on the top of `Developer Options`.
+4. In SystemUI Tuner, go to `Developer` and turn on `Enable ADB` and `Enable Wireless ADB`.
+5. In SystemUI Tuner, go to `Persistent Options` and select `Enable ADB`.
+7. Press `Start` on Shizuku.
+8. Turn off WiFi. `Enable Wireless ADB` will be turned off automatically by system settings. You can check that in `SystemUI Tuner`.
 
 ### Reconnect Shizuku in Case it Stops with SystemUI Tuner
 
 1. Connect to a WiFi. You don't need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.
-2. Turn off **Developer Options** if it's on. The toggle switch is usually on the top of **Developer Options**.
-3. In **SystemUI Tuner**, go to **Developer** and turn on **Enable Wireless ADB**.
-4. Press **Start** on **Shizuku**.
-5. Turn off WiFi. **Enable Wireless ADB** will be turned off automatically by system settings. You can check that in **SystemUI Tuner**.
+2. Turn off `Developer Options` if it's on. The toggle switch is usually on the top of `Developer Options`.
+3. In SystemUI Tuner, go to `Developer` and turn on `Enable Wireless ADB`.
+4. Press `Start` on Shizuku.
+5. Turn off WiFi. `Enable Wireless ADB` will be turned off automatically by system settings. You can check that in SystemUI Tuner.
 
 ### Other SystemUI Tuner Usage
 
-**SystemUI Tuner** exposes some hidden options in Android. You can set them, add them to **Persistent Options** to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner CANNOT work around.
+SystemUI Tuner exposes some hidden options in Android. You can set them, add them to `Persistent Options` to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner may not work around.
 
-You may need to run the following `adb shell` command (you can do it with **Shizuku** and a terminal such as **Termux** or **aShell**) in order to change the settings:
+You may need to run the following `adb shell` command (you can do it with Shizuku and a terminal such as Termux or aShell) in order to change the settings:
+
 ```
 pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS
 pm grant com.zacharee1.systemuituner android.permission.PACKAGE_USAGE_STATS
 pm grant com.zacharee1.systemuituner android.permission.DUMP
 ```
 
-### Using aShell
+### aShell
 
-* **aShell** has features like autocomplete suggestions and optional log.
-* Download and Install **aShell** from **F-Droid**. **F-Droid**: <https://f-droid.org/packages/in.sunilpaulmathew.ashell>.
-* Give **aShell** the permission `moe.shizuku.manager.permission.API_V23`.
-* Connect **Shizuku** to local ADB according to above guide.
-* Use **aShell**.
+#### Install aShell
+
+aShell can be installed from F-Droid: <https://f-droid.org/packages/in.sunilpaulmathew.ashell>.
+
+aShell has features like autocomplete suggestions and optional log.
+
+#### Usage of aShell
+
+1. Give aShell the permission `moe.shizuku.manager.permission.API_V23`.
+2. Connect to ADB.
+3. Use aShell.
 
 ### Further Readings and References about ADB and Shizuku
 
@@ -1302,42 +1459,81 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 
 ---
 
-## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, and Block Trackers
+## Tor Browser
+
+### Install Tor Browser
+
+You can install Tor Browser from Google Play: <https://play.google.com/store/apps/details?id=org.torproject.torbrowser>.
+
+### Introduction of Tor
+
+Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.
+
+Using Tor makes it more difficult to trace a user's Internet activity by preventing any single point on the Internet (other than the user's device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user's location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user's freedom and ability to communicate confidentially.
+
+Key Features of Tor:
+
+* Anonymity: Tor allows users to browse the internet anonymously by routing their internet traffic through a network of volunteer-operated servers called nodes or relays. Each relay only knows the IP address of the previous and next node, making it difficult to trace the origin of the traffic.
+* Onion Routing: The name "Onion Router" comes from the way data is encrypted in layers, similar to the layers of an onion. When data is sent through the Tor network, it is encrypted multiple times, and each node decrypts a layer before passing it on to the next, protecting user privacy.
+* Access to .onion Sites: Tor allows users to access hidden services with .onion domain names, which are not reachable through standard web browsers. These sites often provide additional privacy and anonymity.
+* Bypass Censorship: Tor can help users bypass censorship and access restricted content by routing traffic through nodes in different countries.
+* Privacy Tools: The Tor Browser, based on Mozilla Firefox, comes preconfigured with privacy enhancements, making it easier for users to maintain anonymity while browsing.
+
+The Tor Browser for Android is a mobile version of the Tor Browser that utilizes Mozilla Firefox for Android codebase.
+
+Some services may crash when routing traffic through Tor, changing the Exit nodes may help.
+
+### NoScript Security Suite
+
+NoScript (or NoScript Security Suite) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension's toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.
+
+---
+
+## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.
 
 ### Install InviZible Pro
 
-* Download and install **InviZible Pro** from **F-Droid** or **Google Play**. **F-Droid**: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable>. **Google Play**: <https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp>.
+InviZible Pro can be installed from F-Droid: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable> or Google Play: <https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp>.
 
 ### Install TrackerControl
 
-* Download and install **TrackerControl** (also known as **TC**) from **F-Droid**. **F-Droid**: <https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid>.
-* **Note**: Avoid use the **Google Play** version because it doesn't have the feature like trackers blocking in order to comply with Google's terms.
+TrackerControl (also known as TC) can be installed from F-Droid: <https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid>.
 
-### Use TrackerControl to Block Trackers
+**WARNING**: Please avoid use the Google Play version because it doesn't have the feature like trackers blocking in order to comply with Google's terms.
+
+* Blocking trackers can be used independently or with proxy (such as Prxoy mode of InviZible Pro).
+* TrackerControl has a `Traffic log` feature for free, which can help a lot in identifying which trackers should be unblocked when the services crash.
+* This tutorial section, including the setting `.xml`, can be used in NetGuard as well because TrackerControl uses NetGuard's code. However, `Traffic log` feature is not available in NetGuard's free version but only available in Pro version. NetGuard is available on F-Droid: <https://f-droid.org/packages/eu.faircode.netguard> or Google Play: <https://play.google.com/store/apps/details?id=eu.faircode.netguard>.
+* You have to disable monitoring of apps route traffic through Tor itself within TrackerControl, such as Tor Browser, and Termux if you're using `tor`, `torsocks`, or similar things.
+
+### Configure TrackerControl to Block Trackers without InviZible Pro
 
 * Block unwanted trackers in the main interface of the apps.
-* **Note**: **TrackerControl** categorizes trackers by port, corporation, category, etc. You can easily block and allow connections. You may have to try several time to figure out what trackers to allow in order to prevent apps from crashing in few cases.
-* Turn on **TrackerControl** as the VPN service of the entire device.
-* Blocking trackers can be used independently or with **Prxoy mode** of **InviZible Pro**.
+* TrackerControl categorizes trackers by port, corporation, category, etc. You can easily block and allow connections. You may have to try several time to figure out what trackers to allow in order to prevent apps from crashing in few cases.
+* Turn on TrackerControl as the VPN service of the device.
 
-### Configure TrackerControl (TC) to be used with InviZible Pro
+### Configure TrackerControl and InviZible Pro for DNSCrypt and Tor
 
-* Turn on **TrackerControl** as the VPN service of the entire device.
-* Disable monitoring of **InviZible Pro** (`pan.alexander.tordnscrypt.stable`) within **TrackerControl**.
-* Go to the Advanced options in **Settings**.
-* Turn on **Block Trackers on UDP**.
-* Set the **SOCKS5 address** to `127.0.0.1`.
-* Set the **SOCKS port** to the port you've configured Tor to use in **InviZible Pro** (`9050` by default).
-* Enable the **Use SOCKS5 proxy** option.
-* Go to **Port forwarding**.
-* Add `UDP 53>/127.0.0.1:`the port you configure DNSCrypt to listen to in **DNSCrypt Settings** in **InviZible Pro** (`5354` by default) `nobody`.
-* Add `TCP 53>/127.0.0.1:`the port you configure DNSCrypt to listen to in **DNSCrypt Settings** in **InviZible Pro** (`5354` by default) `nobody`.
-* Set first (above) **VPN DNS** as `9.9.9.9`.
-* Set second (below) **VPN DNS** as `149.112.112.112`.
-* Set where to validate the internet connection in **Validate at** if you want, `www.f-droid.org` for example.
-* Set other things if you want.
-* Block unwanted trackers.
-* **Note**: If you export settings and import it on another device, the blocklist won't be able to be configured as that in the previous device. You can apply some of the above settings with the `.xml` below (assuming the configuration of **Invizible Pro** is as in this guide) by coping it, storing it in a `.xml` file and going to **Settings > Backup > Import settings** to import this file. However, it just contains some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.
+#### Configure TrackerControl
+
+1. Turn on TrackerControl as the VPN service of the device.
+2. Go to TrackerControl.
+3. Disable `Monitoring` of InviZible Pro (`pan.alexander.tordnscrypt.stable`).
+4. Go to the `Settings` > `Advanced options`.
+5. Turn on `Block Trackers on UDP`.
+6. Set the `SOCKS5 address` to `127.0.0.1`.
+7. Set the `SOCKS port` to the port you've configured Tor to use in InviZible Pro (`9050` by default).
+8. Enable the `Use SOCKS5 proxy` option.
+9. Tap `Port forwarding`.
+10. Tap `⊕`. Set `protocol` as `UDP`, `Source port` to `53`, `Destination address` to `127.0.0.1`, `Destination port` to the port you configure DNSCrypt of InviZible pro to listen to (`5354` by default), and `Destination app` to `nobody`.
+11. Tap `⊕`. Set `protocol` as `TCP`, `Source port` to `53`, `Destination address` to `127.0.0.1`, `Destination port` to the port you configure DNSCrypt of InviZible pro to listen to (`5354` by default), and `Destination app` to `nobody`.
+12. Set first (above)` VPN DNS` as `9.9.9.9`.
+13. Set second (below) `VPN DNS` as `149.112.112.112`.
+14. Set where to validate the internet connection in `Validate at` if you want, `www.f-droid.org` for example.
+15. Block unwanted trackers and set other things if you want.
+
+If you export settings and import it on another device, the blocklist may not be able to be configured as that in the previous device. You can apply some of the above settings with the `.xml` below (assuming the configuration of Invizible Pro is as in this tutorial) by coping it, storing it in a `.xml` file and going to `Settings` > `Backup` > `Import settings` of TrackerControl to import this file. However, it just contains some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.
+
 ```
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <trackercontrol>
@@ -1371,29 +1567,28 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 </trackercontrol>
 ```
 
-* **Note**: **TrackerControl** has a **Traffic log** feature for free, which can help a lot in identifying which trackers should be unblocked when the services crash.
-* **Note**: The above guide, including the setting `.xml`, can be used in **NetGuard** as well because **TrackerControl** uses **NetGuard**'s code. However, **Traffic log** feature is not available in **NetGuard**'s free version but only available in **TrackerControl** and **NetGuard**'s **Pro** version. **NetGuard** is available on **Google Play** and **F-Droid**. **Google Play**: <https://play.google.com/store/apps/details?id=eu.faircode.netguard>. **F-Droid**: <https://f-droid.org/packages/eu.faircode.netguard>.
-* **Note**: You may have to disable monitoring of apps route traffic through Tor itself within **TrackerControl**, like **Tor Browser**, and **Termux** if you're using `tor`, `torsocks`, or similar things.
+#### Configure InviZible Pro
 
-### Configure InviZible Pro to be used with TrackerControl
+1. Change to `Proxy mode` by tapping the `⋮` button in the upper right corner and select that option.
+2. Go to `Fast settings`.
+3. Turn on `Autostart DNSCrypt` and `Autostart Tor` if you want.
+4. Set `Delay`, `DNSCrypr servers`, `Bridges`, whether to `Spoof SNI`, etc. if needed.
+5. Go to `Common Settings` and turn on `Prevent device sleep` if needed.
+6. Go to `DNSCrypt Settings`.
+7. Go to `Listen port` and set it to the port TrackerControl forwarding UDP and TCP of port `53` to (`5354` by default).
+8. Set `Require DNSSEC`, `Require no log`, and `Require no filter` if you want.
+9. Turn on `Force TCP` because Tor doesn't support UDP.
+10. Turn on `SOCKS proxy` > `Outbound proxy`.
+11. Set `Proxy port` as the port you want to configure Tor to use in InviZible Pro (`9050` by default).
+12. Turn on `Query logging` and `Suspicious logging` if you want.
+13. Go to `Tor settings`.
+14. Set `Nodes`, `Proxy`, etc. if you want. Make sure the `SOCKS port` is coordinated with the `SOCKS proxy` in TrackerControl and the `DNS port` is coordinated with the `Forwarding rules` in `DNSCrypt Settings` (`onion 127.0.0.1:5400` by default).
+15. Set other things if you want.
+16. Turn on `DNSCrypt` and `Tor`.
 
-* Change to **Proxy mode** by tapping the 3-point button in the upper right corner.
-* Go to **Fast settings**.
-* Turn on **Autostart DNSCrypt** and **Autostart Tor** if you want.
-* Set Delay, DNSCrypr servers, bridges, whether to spoof SNI, etc. if needed.
-* Go to **Common Settings** and turn on **Prevent device sleep** if needed.
-* Go to **DNSCrypt Settings**
-* Go to **Listen port** and set it to the port **TrackerControl** forwarding UDP and TCP of port `53` to (`5354` by default).
-* Set requirements if you want.
-* Turn on **Force TCP**.
-* Turn on **Outbound proxy** in **SOCKS proxy** section.
-* Set **Proxy port** as the port you want to configure Tor to use in **InviZible Pro** (`9050` by default).
-* Ensure the **Forwarding rules** is coordinate with the **DNS port** in **Tor settings** (`onion 127.0.0.1:5400` by default).
-* Turn on **Query logging** and **Suspicious logging** if you want.
-* Go to **Tor settings**.
-* Set Nodes, Proxy, etc. if you want. Make sure the **SOCKS port** is coordinated with the **SOCKS proxy** in **TrackerControl** and the **DNS port** is coordinated with the **Forwarding rules** in **DNSCrypt Settings** (`onion 127.0.0.1:5400` by default).
-* Set other things if you want. You can apply some of the above settings with the files below (assuming the configuration of **TrackerControl** is as in this guide). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.
-* `dns-proxy.toml`: Copy the text in the below block, tap `Edit dns-proxy.toml` in **DNSCrypt Settings**, and paste.
+You can apply some of the above settings with the files below (assuming the configuration of TrackerControl is as in this tutorial). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.
+
+* `dns-proxy.toml`: Copy the text in the below block, tap `Edit dns-proxy.toml` in `DNSCrypt Settings`, and paste.
 ```
 ipv4_servers = true
 ipv6_servers = true
@@ -1496,8 +1691,7 @@ routes = [
 ]
 [static]
 ```
-
-`tor.conf`: Copy the text in the below block, tap `Edit tor.conf` in **Tor Settings**, and paste.
+* `tor.conf`: Copy the text in the below block, tap `Edit tor.conf` in `Tor Settings`, and paste.
 ```
 RunAsDaemon 0
 AvoidDiskWrites 1
@@ -1540,65 +1734,85 @@ ClientUseIPv6 1
 UseBridges 0
 ```
 
-* Turn both **Tor** and **DNSCrypt** of **InviZible Pro** on.
-* **Note**: Some services may crash when routing traffic through `tor` (set in **Using SOCKS5 proxy** in **TrackerControl**), change the **Exit nodes** to the service's country or region of publication in **InviZible Pro** may help. Otherwise, you may try disabling monitoring that app or stopping **Using SOCKS5 proxy** in **TrackerControl**, which compromise your privacy to some degree.
+Some services may crash when routing traffic through Tor, changing the `Exit nodes` in InviZible Pro may help; otherwise, you may try to disable monitoring that app or toggle off `Use SOCKS5 proxy` in TrackerControl, which however compromise your privacy to some degree.
 
-### Use Tor but not DNSCrypr of InviZible Pro
+### Configure TrackerControl and InviZible Pro for DNSCrypt Only
 
-If you want to use Tor but not DNSCrypr of **InviZible Pro** with **TrackerControl**, do below modification on configuration of both DNSCrypt and Tor above:
+To use DNSCrypt but not Tor of InviZible Pro with TrackerControl, there are below differences in the configuration compared with both DNSCrypt and Tor in above section.
 
-* Go to **Port forwarding** in **TrackerControl**
-* Delete all forwardings to port `5354`.
-* Add `UDP 53>/127.0.0.1:`the port you configure **Resolve DNS** to listen to in **Tor Settings** in **InviZible Pro** (`5400` by default) `nobody`.
-* Add `TCP 53>/127.0.0.1:`the port you configure **Resolve DNS** to listen to in **Tor Settings** in **InviZible Pro** (`5400` by default) `nobody`.
-* Delete (set to empty) both **VPN DNS** in **TrackerControl**.
-* Turn on Tor but not DNSCrypt in **InviZible Pro**.
+#### Configure TrackerControl
 
-### Use DNSCrypr But not Tor of InviZible Pro
+1. Turn on TrackerControl as the VPN service of the device.
+2. Go to TrackerControl.
+3. Disable `Monitoring` of InviZible Pro (`pan.alexander.tordnscrypt.stable`).
+4. Go to the `Settings` > `Advanced options`.
+5. Turn on `Block Trackers on UDP`.
+6. Tap `Port forwarding`.
+7. Tap `⊕`. Set `protocol` as `UDP`, `Source port` to `53`, `Destination address` to `127.0.0.1`, `Destination port` to the port you configure DNSCrypt of InviZible pro to listen to (`5354` by default), and `Destination app` to `nobody`.
+8. Tap `⊕`. Set `protocol` as `TCP`, `Source port` to `53`, `Destination address` to `127.0.0.1`, `Destination port` to the port you configure DNSCrypt of InviZible pro to listen to (`5354` by default), and `Destination app` to `nobody`.
+9. Set first (above)` VPN DNS` as `9.9.9.9`.
+10. Set second (below) `VPN DNS` as `149.112.112.112`.
+11. Set where to validate the internet connection in `Validate at` if you want, `www.f-droid.org` for example.
+12. Block unwanted trackers and set other things if you want.
 
-If you want to use DNSCrypr But not Tor of **InviZible Pro** with **TrackerControl**, do below modification on configuration of both DNSCrypt and Tor above:
+#### Configure InviZible Pro
 
-* Turn off **Use SOCKS5 proxy** in **TrackerControl**.
-* Turn off **Outbound prxoy** in **DNSCrypt Settings** in **InviZible Pro**.
-* Turn on DNSCrypt but not Tor in **InviZible Pro**.
+1. Change to `Proxy mode` by tapping the `⋮` button in the upper right corner and select that option.
+2. Go to `Fast settings`.
+3. Turn on `Autostart DNSCrypt` if you want.
+4. Set `Delay`, `DNSCrypr servers`, `Bridges`, whether to `Spoof SNI`, etc. if needed.
+5. Go to `Common Settings` and turn on `Prevent device sleep` if needed.
+6. Go to `DNSCrypt Settings`.
+7. Go to `Listen port` and set it to the port TrackerControl forwarding UDP and TCP of port `53` to (`5354` by default).
+8. Set `Require DNSSEC`, `Require no log`, and `Require no filter` if you want.
+9. Turn on `Force TCP` if you want.
+10. Turn on `Query logging` and `Suspicious logging` if you want.
+16. Turn on `DNSCrypt`.
+
+### Configure TrackerControl and InviZible Pro for Tor Only
+
+To use Tor but not DNSCrypr of InviZible Pro with TrackerControl, there are below differences in the configuration compared with both DNSCrypt and Tor in above section.
+
+#### Configure TrackerControl
+
+1. Turn on TrackerControl as the VPN service of the device.
+2. Go to TrackerControl.
+3. Disable `Monitoring` of InviZible Pro (`pan.alexander.tordnscrypt.stable`).
+4. Go to the `Settings` > `Advanced options`.
+5. Turn on `Block Trackers on UDP`.
+6. Set the `SOCKS5 address` to `127.0.0.1`.
+7. Set the `SOCKS port` to the port you've configured Tor to use in InviZible Pro (`9050` by default).
+8. Enable the `Use SOCKS5 proxy` option.
+9. Tap `Port forwarding`.
+10. Tap `⊕`. Set `protocol` as `UDP`, `Source port` to `53`, `Destination address` to `127.0.0.1`, `Destination port` to the `Forwarding rules` in `DNSCrypt Settings` of InviZible Pro (`5400` by default), and `Destination app` to `nobody`.
+11. Tap `⊕`. Set `protocol` as `TCP`, `Source port` to `53`, `Destination address` to `127.0.0.1`, `Destination port` to the `Forwarding rules` in `DNSCrypt Settings` of InviZible Pro (`5400` by default), and `Destination app` to `nobody`.
+12. Set first (above)` VPN DNS` as `9.9.9.9`.
+13. Set second (below) `VPN DNS` as `149.112.112.112`.
+14. Set where to validate the internet connection in `Validate at` if you want, `www.f-droid.org` for example.
+15. Block unwanted trackers and set other things if you want.
+
+#### Configure InviZible Pro
+
+1. Change to `Proxy mode` by tapping the `⋮` button in the upper right corner and select that option.
+2. Go to `Fast settings`.
+3. Turn on `Autostart Tor` if you want.
+4. Set `Delay`, `DNSCrypr servers`, `Bridges`, whether to `Spoof SNI`, etc. if needed.
+5. Go to `Common Settings` and turn on `Prevent device sleep` if needed.
+6. Go to `Tor settings`.
+14. Set `Nodes`, `Proxy`, etc. if you want. Make sure the `SOCKS port` is coordinated with the `SOCKS proxy` in TrackerControl and the `DNS port` is coordinated with the `Port forwarding` rules in TrackerControl.
+15. Set other things if you want.
+16. Turn on `Tor`.
 
 ### Check Whether the Tor Route Setup Is Successful
 
-* Go to <https://check.torproject.org> to check if your Tor route succeeded. If yes, you will see "Congratulations. This browser is configured to use Tor." (assume the page's language is set to English).
-* Go to <https://whatismyipaddress.com> (not open source), <https://ipcheck.ing>, or other IP checking websites to see wether it's your device's IP. If not, your Tor route is successful.
-* Go to <https://www.dnsleaktest.com> (not open source), <https://ipcheck.ing>, or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in **DNSCrypt Settings** in **InviZible Pro** instead of your ISP's servers if there's no DNS leak.
+* Go to <https://check.torproject.org> to check if your Tor route succeeded. If yes, you will see "Congratulations. This browser is configured to use Tor." or similar massage in other languages.
+* Go to <https://whatismyipaddress.com> (not open source), <https://ipcheck.ing>, or other IP checking websites to see wether it's your device's IP. If not, your Tor route is probably successful.
+* Go to <https://www.dnsleaktest.com> (not open source), <https://ipcheck.ing>, or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in DNSCrypt Settings in InviZible Pro instead of your ISP's servers if there's no DNS leak.
 
-### Use Invizible Pro without TrackerControl
+### Configure InviZible Pro to Block Trackers without TrackerControl
 
-* Change to **VPN mode** by tap the 3-point button in the upper right corner.
-
----
-
-## Tor Browser
-
-### Install Tor Browser
-
-You can install **Tor Browser** from **Google Play**: <https://play.google.com/store/apps/details?id=org.torproject.torbrowser>.
-
-### Introduction of Tor
-
-Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.
-
-Using Tor makes it more difficult to trace a user's Internet activity by preventing any single point on the Internet (other than the user's device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user's location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user's freedom and ability to communicate confidentially.
-
-Key Features of Tor:
-
-* Anonymity: Tor allows users to browse the internet anonymously by routing their internet traffic through a network of volunteer-operated servers called nodes or relays. Each relay only knows the IP address of the previous and next node, making it difficult to trace the origin of the traffic.
-* Onion Routing: The name "Onion Router" comes from the way data is encrypted in layers, similar to the layers of an onion. When data is sent through the Tor network, it is encrypted multiple times, and each node decrypts a layer before passing it on to the next, protecting user privacy.
-* Access to .onion Sites: Tor allows users to access hidden services with .onion domain names, which are not reachable through standard web browsers. These sites often provide additional privacy and anonymity.
-* Bypass Censorship: Tor can help users bypass censorship and access restricted content by routing traffic through nodes in different countries.
-* Privacy Tools: The Tor Browser, based on Mozilla Firefox, comes preconfigured with privacy enhancements, making it easier for users to maintain anonymity while browsing.
-
-The **Tor Browser** for Android is a mobile version of the Tor Browser that utilizes **Mozilla Firefox** for Android codebase.
-
-### NoScript Security Suite
-
-**NoScript** (or **NoScript Security Suite**) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension's toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.
+* Change to `VPN mode` by tapping the `⋮` button in the upper right corner and select that option.
+* Settings for DNSCRypt and Tor, DNSCrypr only, and Tor only remain the same as the above counterparts that is used with TrackerControl except that those parts coordinated with `Port forwarding` of TrackerControl are no longer needed.
 
 ---
 
@@ -1606,14 +1820,16 @@ The **Tor Browser** for Android is a mobile version of the Tor Browser that util
 
 ### Introduction of OpenSSL
 
-**OpenSSL** is an open-source library that provides a comprehensive suite of cryptographic tools for securing communications over computer networks. It implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols and includes a general-purpose cryptographic library that supports a variety of encryption algorithms, hashing functions, digital signatures, key generation, certificate management, and secure random number generation.
+OpenSSL is an open-source library that provides a comprehensive suite of cryptographic tools for securing communications over computer networks. It implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols and includes a general-purpose cryptographic library that supports a variety of encryption algorithms, hashing functions, digital signatures, key generation, certificate management, and secure random number generation.
 
-### Installation of OpenSSL in Termux
+### Install OpenSSL in Termux
+
 ```
 pkg install openssl openssl-tool
 ```
 
-### Installation of OpenSSL in Debian
+### Install of OpenSSL in Debian Derivatives
+
 ```
 sudo apt install openssl libssl-dev
 ```
@@ -1624,16 +1840,20 @@ sudo apt install openssl libssl-dev
 
 RSA is a widely used asymmetric encryption algorithm that underpins many security protocols. Its strength lies in the difficulty of factoring large prime numbers. The algorithm involves key generation, encryption, and decryption processes utilizing a pair of keys: a public key, shared openly, and a private key, kept secret.
 
-1. **Mathematical Foundation and Key Generation:**The algorithm begins by selecting two large prime numbers, ( p ) and ( q ). These are multiplied to produce ( n = p \\times q ), the modulus for both keys. The totient function ( \\phi(n) = (p-1)(q-1) ) is computed. A public exponent ( e ), typically 65537, is chosen, which is coprime to ( \\phi(n) ). The public key is ( (n, e) ). The private exponent ( d ) is calculated such that ( d \\cdot e \\equiv 1 \\mod \\phi(n) ), making ( (n, d) ) the private key. RSA's security relies on the ease of multiplying primes and the difficulty of factoring their product.
-2. **Public Encryption and Private Decryption (Communication):**After generating the keys, RSA can be used for secure communication. To encrypt a message ( m ), the sender uses the recipient's public key ( (n, e) ) with the formula ( c \\equiv m^e \\mod n ), where ( c ) is the ciphertext. Only the intended recipient, with the private key ( (n, d) ), can decrypt it using ( m \\equiv c^d \\mod n ).
-3. **Private Encryption and Public Decryption (Signature):**RSA can also create digital signatures for authenticity and non-repudiation. The sender encrypts a hash ( h ) of the message with their private key ( (n, d) ): ( s \\equiv h^d \\mod n ). This signature ( s ) accompanies the original message ( m ). The recipient verifies the signature by decrypting it with the sender's public key ( (n, e) ): ( h' \\equiv s^e \\mod n ). If ( h' ) matches the hash of the received message ( m ), it confirms the message's authenticity.
-4. **Applications:**RSA is employed in various applications that require secure communication and data integrity:
-* **Secure Web Communications (HTTPS):** RSA is commonly used in SSL/TLS protocols to establish secure connections between web browsers and servers.
-* **Email Encryption:** Services like PGP (Pretty Good Privacy) use RSA for encrypting emails, ensuring only intended recipients can read them.
-* **Digital Signatures:** RSA is used to sign software and documents, verifying the identity of the sender and ensuring the content hasn't been altered.
-* **Secure Key Exchange:** RSA can facilitate the secure exchange of symmetric keys for faster encryption methods, allowing secure communication without the need for shared secrets.
+1. Key Generation: The algorithm begins by selecting two large prime numbers. The totient function, equal to the product of the decrements of the two large prime numbers by one, is computed. A public exponent, typically 65537, is chosen, which is coprime to the totient function of the product of the two large prime numbers. The public key is the array of the product of the two large prime numbers and the public exponent. The private exponent is calculated such that the product of the public exponent and the private exponent is congruent to 1 modulo the totient function of the product of the two large prime numbers. The private key is the array of the product of the two large prime numbers and the private exponent. RSA's security relies on the ease of multiplying primes and the difficulty of factoring their product.
+2. Public Encryption and Private Decryption (Communication): After generating the keys, RSA can be used for secure communication. To encrypt a message, which should be less than the product of the two large prime numbers, the sender uses the recipient's public key with the formula that the ciphertext equals the message to the power of the public exponent modulo the product of the two large prime numbers. Only the intended recipient, with the private key, can decrypt it using the formula that the message equals the cyphertext to the power of the private exponent modulo the product of the two large prime numbers.
+3. Private Encryption and Public Decryption (Signature): RSA can also create digital signatures for authenticity and non-repudiation. The sender encrypts a hash of the message with their private key with the formula that the signature equals the hash to the power of the private exponent modulo the product of the two large prime numbers. The signature is sent accompanying the original message. The recipient verifies the signature by decrypting it with the sender's public key with the formula that the hash equals the signature to the power of the public exponent modulo the product of the two large prime numbers. If hash obtained from the formula matches the hash of the received message, it confirms the message's authenticity.
+
+Applications: 
+
+* RSA is employed in various applications that require secure communication and data integrity:
+* Secure Web Communications (HTTPS): RSA is commonly used in SSL/TLS protocols to establish secure connections between web browsers and servers.
+* Email Encryption: Services like PGP (Pretty Good Privacy) use RSA for encrypting emails, ensuring only intended recipients can read them.
+* Digital Signatures: RSA is used to sign software and documents, verifying the identity of the sender and ensuring the content hasn't been altered.
+* Secure Key Exchange: RSA can facilitate the secure exchange of symmetric keys for faster encryption methods, allowing secure communication without the need for shared secrets.
 
 #### Generate New Private Key
+
 ```
 openssl genrsa -out /path/privatekeyfilename.pem 2048
 ```
@@ -1641,97 +1861,111 @@ openssl genrsa -out /path/privatekeyfilename.pem 2048
 `2048` means 2048 iterations, change the number as needed.
 
 #### Generate Public Key from Private Key
+
 ```
 openssl rsa -pubout -in /path/privatekeyfilename.pem -out /path/publickeyfilename.pem
 ```
 
 #### Encrypt with Public Key
+
 ```
 openssl pkeyutl -in /path/filename.txt -out /path/publickeyencryptedfilename.txt -inkey /path/publickeyfilename.pem -pubin -encrypt
 ```
 
 #### Decrypt with Public Key
+
 ```
 openssl pkeyutl -in /path/publickeyencryptedfilename.txt -out /path/filename.txt -inkey /path/privatekeyfilename.pem -decrypt
 ```
 
 #### Encrypt with Private Key
+
 ```
 openssl pkeyutl -in /path/filename.txt -out /path/privatekeyencryptedfilename.txt -inkey /path/privatekeyfilename.pem -encrypt
 ```
 
 #### Decrypt with Private Key
+
 ```
 openssl pkeyutl -in /path/privatekeyencryptedfilename.txt -out /path/filename.txt -inkey /path/publickeyfilename.pem -pubin -decrypt
 ```
 
 #### Sign a Raw File
+
 ```
 openssl pkeyutl -in filename.txt -rawin -out signed_filename.txt -inkey keyfile/privatekeyfile.pem -sign
 ```
 
 #### Sign a Hex File
+
 ```
 openssl pkeyutl -in hexfilename.txt -out signed_filename.txt -inkey keyfile/privatekeyfile.pem -sign
 ```
 
 #### Verify a Signature Against a Raw File
+
 ```
 openssl pkeyutl -in filename.txt -rawin -out verification.txt -sigfile signed_filename.txt -inkey keyfile/publickeyfile.pem -pubin -verify
 ```
 
 #### Verify a Signature Against a Hex File
+
 ```
 openssl pkeyutl -in hexfilename.txt -rawin -out verification.txt -sigfile signed_filename.txt -inkey keyfile/publickeyfile.pem -pubin -verify
 ```
 
-#### All Command Options of Pkeyutl
+#### All Command Options of Pkeyutl from Official Doc
+
 ```
 openssl pkeyutl [-help] [-in file] [-rawin] [-digest algorithm] [-out file] [-sigfile file] [-inkey filename|uri] [-keyform DER|PEM|P12|ENGINE] [-passin arg] [-peerkey file] [-peerform DER|PEM|P12|ENGINE] [-pubin] [-certin] [-rev] [-sign] [-verify] [-verifyrecover] [-encrypt] [-decrypt] [-derive] [-kdf algorithm] [-kdflen length] [-pkeyopt opt:value] [-pkeyopt_passin opt[:passarg]] [-hexdump] [-asn1parse] [-engine id] [-engine_impl] [-rand files] [-writerand file] [-provider name] [-provider-path path] [-propquery propq] [-config configfile]
 ```
 
-**DESCRIPTION**: This command can be used to perform low-level public key operations using any supported algorithm.**OPTIONS**:
+DESCRIPTION: This command can be used to perform low-level public key operations using any supported algorithm.
 
-* \-help: Print out a usage message.
-* \-in filename: This specifies the input filename to read data from or standard input if this option is not specified.
-* \-rawin: This indicates that the input data is raw data, which is not hashed by any message digest algorithm. The user can specify a digest algorithm by using the -digest option. This option can only be used with -sign and -verify and must be used with the Ed25519 and Ed448 algorithms.
-* \-digest algorithm: This specifies the digest algorithm which is used to hash the input data before signing or verifying it with the input key. This option could be omitted if the signature algorithm does not require one (for instance, EdDSA). If this option is omitted but the signature algorithm requires one, a default value will be used. For signature algorithms like RSA, DSA and ECDSA, SHA-256 will be the default digest algorithm. For SM2, it will be SM3\. If this option is present, then the -rawin option must be also specified.
-* \-out filename: Specifies the output filename to write to or standard output by default.
-* \-sigfile file: Signature file, required for -verify operations only
-* \-inkey filename|uri: The input key, by default it should be a private key.
-* \-keyform DER|PEM|P12|ENGINE: The key format; unspecified by default. See openssl-format-options(1) for details.
-* \-passin arg: The input key password source. For more information about the format of arg see openssl-passphrase-options(1).
-* \-peerkey file: The peer key file, used by key derivation (agreement) operations.
-* \-peerform DER|PEM|P12|ENGINE: The peer key format; unspecified by default. See openssl-format-options(1) for details.
-* \-pubin: By default a private key is read from the key input. With this option a public key is read instead. If the input contains no public key but a private key, its public part is used.
-* \-certin: The input is a certificate containing a public key.
-* \-rev: Reverse the order of the input buffer. This is useful for some libraries (such as CryptoAPI) which represent the buffer in little endian format.
-* \-sigfile file: Signature file, required for -verify operations only
-* \-inkey filename|uri: The input key, by default it should be a private key.
-* \-keyform DER|PEM|P12|ENGINE: The key format; unspecified by default. See openssl-format-options(1) for details.
-* \-passin arg: The input key password source. For more information about the format of arg see openssl-passphrase-options(1).
-* \-peerkey file: The peer key file, used by key derivation (agreement) operations.
-* \-peerform DER|PEM|P12|ENGINE: The peer key format; unspecified by default. See openssl-format-options(1) for details.
-* \-pubin: By default a private key is read from the key input. With this option a public key is read instead. If the input contains no public key but a private key, its public part is used.
-* \-certin: The input is a certificate containing a public key.
-* \-rev: Reverse the order of the input buffer. This is useful for some libraries (such as CryptoAPI) which represent the buffer in little endian format.
-* \-sign: Sign the input data (which must be a hash) and output the signed result. This requires a private key.
-* \-verify: Verify the input data (which must be a hash) against the signature file and indicate if the verification succeeded or failed.
-* \-verifyrecover: Verify the input data (which must be a hash) and output the recovered data.
-* \-encrypt: Encrypt the input data using a public key.
-* \-decrypt: Decrypt the input data using a private key.
-* \-derive: Derive a shared secret using the peer key.
-* \-kdf algorithm: Use key derivation function algorithm. The supported algorithms are at present TLS1-PRF and HKDF. Note: additional parameters and the KDF output length will normally have to be set for this to work. See EVP_PKEY_CTX_set_hkdf_md(3) and EVP_PKEY_CTX_set_tls1_prf\_md(3) for the supported string parameters of each algorithm.
-* \-kdflen length: Set the output length for KDF.
-* \-pkeyopt opt:value: Public key options specified as opt:value. See NOTES below for more details.
-* \-pkeyopt\_passin opt\[:passarg\]: Allows reading a public key option opt from stdin or a password source. If only opt is specified, the user will be prompted to enter a password on stdin. Alternatively, passarg can be specified which can be any value supported by openssl-passphrase-options(1).
-* \-hexdump: hex dump the output data.
-* \-asn1parse: Parse the ASN.1 output data, this is useful when combined with the -verifyrecover option when an ASN1 structure is signed.
-* \-engine id: See "Engine Options" in openssl(1). This option is deprecated.
-* \-engine\_impl: When used with the -engine option, it specifies to also use engine id for crypto operations.
-* \-rand files, -writerand file: See "Random State Options" in openssl(1) for details.
-* \-provider name: -provider-path path: -propquery propq: See "Provider Options" in openssl(1), provider(7), and property(7).
-* \-config configfile: See "Configuration Option" in openssl(1).
+OPTIONS:
+
+* `-help`: Print out a usage message.
+* `-in filename`: This specifies the input filename to read data from or standard input if this option is not specified.
+* `-rawin`: This indicates that the input data is raw data, which is not hashed by any message digest algorithm. The user can specify a digest algorithm by using the `-digest` option. This option can only be used with `-sign` and `-verify` and must be used with the Ed25519 and Ed448 algorithms.
+* `-digest algorithm`: This specifies the digest algorithm which is used to hash the input data before signing or verifying it with the input key. This option could be omitted if the signature algorithm does not require one  (for instance, EdDSA). If this option is omitted but the signature algorithm requires one, a default value will be used. For signature algorithms like RSA, DSA and ECDSA, SHA-256 will be the default digest algorithm. For SM2, it will be SM3. If this option is present, then the `-rawin` option must be also specified.
+* `-out filename`: Specifies the output filename to write to or standard output by default.
+* `-sigfile file`: Signature file, required for `-verify` operations only.
+* `-inkey filename|uri`: The input key, by default it should be a private key.
+* `-keyform DER|PEM|P12|ENGINE`: The key format; unspecified by default. See openssl-format-options (1) for details.
+* `-passin arg`: The input key password source. For more information about the format of arg see openssl-passphrase-options (1).
+* `-peerkey file`: The peer key file, used by key derivation  (agreement) operations.
+* `-peerform DER|PEM|P12|ENGINE`: The peer key format; unspecified by default. See openssl-format-options (1) for details.
+* `-pubin`: By default a private key is read from the key input. With this option a public key is read instead. If the input contains no public key but a private key, its public part is used.
+* `-certin`: The input is a certificate containing a public key.
+* `-rev`: Reverse the order of the input buffer. This is useful for some libraries  (such as CryptoAPI) which represent the buffer in little endian format.
+* `-sigfile file`: Signature file, required for `-verify` operations only.
+* `-inkey filename|uri`: The input key, by default it should be a private key.
+* `-keyform DER|PEM|P12|ENGINE`: The key format; unspecified by default. See openssl-format-options (1) for details.
+* `-passin arg`: The input key password source. For more information about the format of arg see openssl-passphrase-options (1).
+* `-peerkey file`: The peer key file, used by key derivation  (agreement) operations.
+* `-peerform DER|PEM|P12|ENGINE`: The peer key format; unspecified by default. See openssl-format-options (1) for details.
+* `-pubin`: By default a private key is read from the key input. With this option a public key is read instead. If the input contains no public key but a private key, its public part is used.
+* `-certin`: The input is a certificate containing a public key.
+* `-rev`: Reverse the order of the input buffer. This is useful for some libraries  (such as CryptoAPI) which represent the buffer in little endian format.
+* `-sign`: Sign the input data  (which must be a hash) and output the signed result. This requires a private key.
+* `-verify`: Verify the input data  (which must be a hash) against the signature file and indicate if the verification succeeded or failed.
+* `-verifyrecover`: Verify the input data  (which must be a hash) and output the recovered data.
+* `-encrypt`: Encrypt the input data using a public key.
+* `-decrypt`: Decrypt the input data using a private key.
+* `-derive`: Derive a shared secret using the peer key.
+* `-kdf algorithm`: Use key derivation function algorithm. The supported algorithms are at present TLS1-PRF and HKDF. Note: additional parameters and the KDF output length will normally have to be set for this to work. See EVP_PKEY_CTX_set_hkdf_md (3) and EVP_PKEY_CTX_set_tls1_prf_md (3) for the supported string parameters of each algorithm.
+* `-kdflen length`: Set the output length for KDF.
+* `-pkeyopt opt:value`: Public key options specified as `opt:value`. See NOTES below for more details.
+* `-pkeyopt_passin opt[:passarg]`: Allows reading a public key option opt from stdin or a password source. If only opt is specified, the user will be prompted to enter a password on stdin. Alternatively, passarg can be specified which can be any value supported by openssl-passphrase-options (1).
+* `-hexdump`: hex dump the output data.
+* `-asn1parse`: Parse the ASN.1 output data, this is useful when combined with the `-verifyrecover` option when an ASN1 structure is signed.
+* `-engine id`: See "Engine Options" in openssl (1). This option is deprecated.
+* `-engine_impl`: When used with the `-engine` option, it specifies to also use engine id for crypto operations.
+* `-rand files`, `-writerand file`: See "Random State Options" in openssl (1) for details.
+* `-provider name`: See "Provider Options" in openssl (1), provider (7), and property (7).
+* `-provider-path path`: See "Provider Options" in openssl (1), provider (7), and property (7).
+* `-propquery propq`: See "Provider Options" in openssl (1), provider (7), and property (7).
+* `-config configfile`: See "Configuration Option" in openssl (1).
 
 ### Symmetric Encryption
 
@@ -1739,63 +1973,76 @@ openssl pkeyutl [-help] [-in file] [-rawin] [-digest algorithm] [-out file] [-si
 
 Symmetric encryption uses the same key for both encryption and decryption, requiring both parties to possess and keep the key confidential.
 
-* **Single Key**: Both parties use the same key, making key management critical. If the key is compromised, the encrypted data is at risk.
-* **Speed**: Symmetric algorithms are faster than asymmetric ones, making them ideal for encrypting large amounts of data, particularly in real-time applications.
-* **Confidentiality**: Only authorized parties with the correct key can decrypt the data, maintaining its confidentiality.
-* **Common Algorithms**:
-* **AES**: Secure and efficient, with key sizes of 128, 192, or 256 bits.
-* **DES**: Uses a 56-bit key; now considered insecure.
-* **3DES**: Applies DES three times with different keys but slower than AES.
-* **Blowfish**: A fast cipher with key lengths of 32 to 448 bits.
-* **Twofish**: A more advanced version of Blowfish, supporting keys up to 256 bits.
-* **RC4**: A stream cipher known for speed but now insecure in many uses.
-* **Applications**:
-* **Data Encryption**: Secures data in storage and transmission (e.g., SSL/TLS).
-* **VPNs**: Encrypts data over public networks to protect privacy.
-* **Disk Encryption**: Protects data on devices, ensuring confidentiality if lost or stolen.
-* **Secure Communications**: Used in messaging apps and secure protocols.
-* **Cloud Storage Security**: Encrypts data in the cloud, protecting it from unauthorized access.
+Features:
+
+* Single Key: Both parties use the same key, making key management critical. If the key is compromised, the encrypted data is at risk.
+* Speed: Symmetric algorithms are faster than asymmetric ones, making them ideal for encrypting large amounts of data, particularly in real-time applications.
+* Confidentiality: Only authorized parties with the correct key can decrypt the data, maintaining its confidentiality.
+
+Common Algorithms:
+
+* AES: Secure and efficient, with key sizes of 128, 192, or 256 bits.
+* DES: Uses a 56-bit key; now considered insecure.
+* 3DES: Applies DES three times with different keys but slower than AES.
+* Blowfish: A fast cipher with key lengths of 32 to 448 bits.
+* Twofish: A more advanced version of Blowfish, supporting keys up to 256 bits.
+* RC4: A stream cipher known for speed but now insecure in many uses.
+
+Applications:
+
+* Data Encryption: Secures data in storage and transmission (e.g., SSL/TLS).
+* VPNs: Encrypts data over public networks to protect privacy.
+* Disk Encryption: Protects data on devices, ensuring confidentiality if lost or stolen.
+* Secure Communications: Used in messaging apps and secure protocols.
+* Cloud Storage Security: Encrypts data in the cloud, protecting it from unauthorized access.
 
 #### AES-256-CBC Encryption
+
 ```
 openssl enc -aes-256-cbc -in file.rar -out encfile.rar -pass pass:1234567890123456789012345678901234567890123456789012345678901234 -base64 -iv 12345678901234567890123456789012 -S 1234567890123456 -md sha-256 -iter 2048 -pbkdf2 -p
 ```
 
 #### AES-256-CBC Decryption
+
 ```
 openssl enc -aes-256-cbc -in encfile.rar -out file.rar -pass pass:1234567890123456789012345678901234567890123456789012345678901234 -d -base64 -iv 12345678901234567890123456789012 -S 1234567890123456 -md sha-256 -iter 2048 -pbkdf2
 ```
 
 #### All Command Options of Enc / Cipher
+
 ```
 openssl enc|cipher [-cipher] [-help] [-list] [-ciphers] [-in filename] [-out filename] [-pass arg] [-e] [-d] [-a] [-base64] [-A] [-k password] [-kfile filename] [-K key] [-iv IV] [-S salt] [-salt] [-nosalt] [-z] [-md digest] [-iter count] [-pbkdf2] [-saltlen size] [-p] [-P] [-bufsize number] [-nopad] [-v] [-debug] [-none] [-engine id] [-rand files] [-writerand file] [-provider name] [-provider-path path] [-propquery propq]
 ```
 
-**DESCRIPTION**: The symmetric cipher commands allow data to be encrypted or decrypted using various block and stream ciphers using keys based on passwords or explicitly provided. Base64 encoding or decoding can also be performed either by itself or in addition to the encryption or decryption.**OPTIONS**:
+DESCRIPTION: The symmetric cipher commands allow data to be encrypted or decrypted using various block and stream ciphers using keys based on passwords or explicitly provided. Base64 encoding or decoding can also be performed either by itself or in addition to the encryption or decryption.
 
-* \-help: Print out a usage message.
-* \-list: List all supported ciphers.
-* \-ciphers: Alias of -list to display all supported ciphers.
-* \-in filename: The input filename, standard input by default.
-* \-out filename: The output filename, standard output by default.
-* \-pass arg: The password source. For more information about the format of arg see "Pass Phrase Options" in openssl(1).
-* \-e: Encrypt the input data: this is the default.
-* \-d: Decrypt the input data.
-* \-a: Base64 process the data. This means that if encryption is taking place the data is base64 encoded after encryption. If decryption is set then the input data is base64 decoded before being decrypted.
-* \-base64: Same as -a
-* \-A: If the -a option is set then base64 process the data on one line.
-* \-k password: The password to derive the key from. This is for compatibility with previous versions of OpenSSL. Superseded by the -pass argument.
-* \-kfile filename: Read the password to derive the key from the first line of filename. This is for compatibility with previous versions of OpenSSL. Superseded by the -pass argument.
-* \-md digest: Use the specified digest to create the key from the passphrase. The default algorithm is sha-256.
-* \-iter count: Use a given number of iterations on the password in deriving the encryption key. High values increase the time required to brute-force the resulting file. This option enables the use of PBKDF2 algorithm to derive the key.
-* \-pbkdf2: Use PBKDF2 algorithm with a default iteration count of 10000 unless otherwise specified by the -iter command line option.
-* \-saltlen: Set the salt length to use when using the -pbkdf2 option. For compatibility reasons, the default is 8 bytes. The maximum value is currently 16 bytes. If the -pbkdf2 option is not used, then this option is ignored and a fixed salt length of 8 is used. The salt length used when encrypting must also be used when decrypting.
-* \-nosalt: Don't use a salt in the key derivation routines. This option SHOULD NOT be used except for test purposes or compatibility with ancient versions of OpenSSL.
-* \-z: Compress or decompress encrypted data using zlib after encryption or before decryption. This option exists only if OpenSSL was compiled with the zlib or zlib-dynamic option.
-* \-none: Use NULL cipher (no encryption or decryption of input).
-* \-rand files, -writerand file: See "Random State Options" in openssl(1) for details.
-* \-provider name: -provider-path path: -propquery propq: See "Provider Options" in openssl(1), provider(7), and property(7).
-* \-engine id: See "Engine Options" in openssl(1). This option is deprecated.
+OPTIONS:
+
+* `-help`: Print out a usage message.
+* `-list`: List all supported ciphers.
+* `-ciphers`: Alias of `-list` to display all supported ciphers.
+* `-in filename`: The input filename, standard input by default.
+* `-out filename`: The output filename, standard output by default.
+* `-pass arg`: The password source. For more information about the format of arg see "Pass Phrase Options" in openssl (1).
+* `-e`: Encrypt the input data. This is the default.
+* `-d`: Decrypt the input data.
+* `-a`: Base64 process the data. This means that if encryption is taking place the data is base64 encoded after encryption. If decryption is set then the input data is base64 decoded before being decrypted.
+* `-base64`: Same as `-a`.
+* `-A`: If the `-a` option is set then base64 process the data on one line.
+* `-k password`: The password to derive the key from. This is for compatibility with previous versions of OpenSSL. Superseded by the `-pass` argument.
+* `-kfile filename`: Read the password to derive the key from the first line of filename. This is for compatibility with previous versions of OpenSSL. Superseded by the `-pass` argument.
+* `-md digest`: Use the specified digest to create the key from the passphrase. The default algorithm is sha-256.
+* `-iter count`: Use a given number of iterations on the password in deriving the encryption key. High values increase the time required to brute-force the resulting file. This option enables the use of PBKDF2 algorithm to derive the key.
+* `-pbkdf2`: Use PBKDF2 algorithm with a default iteration count of 10000 unless otherwise specified by the `-iter` command line option.
+* `-saltlen`: Set the salt length to use when using the `-pbkdf2` option. For compatibility reasons, the default is 8 bytes. The maximum value is currently 16 bytes. If the `-pbkdf2` option is not used, then this option is ignored and a fixed salt length of 8 is used. The salt length used when encrypting must also be used when decrypting.
+* `-nosalt`: Don't use a salt in the key derivation routines. This option SHOULD NOT be used except for test purposes or compatibility with ancient versions of OpenSSL.
+* `-z`: Compress or decompress encrypted data using zlib after encryption or before decryption. This option exists only if OpenSSL was compiled with the zlib or zlib-dynamic option.
+* `-none`: Use NULL cipher  (no encryption or decryption of input).
+* `-rand files`, `-writerand file`: See "Random State Options" in openssl (1) for details.
+* `-provider name`: See "Provider Options" in openssl (1), provider (7), and property (7).
+* `-provider-path path`: See "Provider Options" in openssl (1), provider (7), and property (7).
+* `-propquery propq`: See "Provider Options" in openssl (1), provider (7), and property (7).
+* `-engine id`: See "Engine Options" in openssl (1). This option is deprecated.
 
 Supported ciphers:
 
@@ -1951,125 +2198,13 @@ Supported ciphers:
 
 ---
 
-## File and Directory Management of Termux and Linux
-
-### `cp`: Copy Files And Directories
-
-* `cp -r dir1/ dir2/`: Recursively copy `dir1` to `dir2`.
-* `cp -i file1.txt file2.txt`: Prompt before overwriting `file2.txt`.
-
-### `mv`: Move or Rename Files and Directories
-
-* `mv file1.txt /home/user/`: Move `file1.txt` to `/home/user/`.
-* `mv oldname.txt newname.txt`: Rename `oldname.txt` to `newname.txt`.
-
-### `rm`: Remove Files or Directories
-
-* `rm file1.txt`: Remove `file1.txt`.
-* `rm -r dir1/`: Recursively remove `dir1` and its contents.
-* `rm -rf dir1/`: Forcefully remove `dir1` and its contents without prompts.
-
-### `mkdir`: Create Directories
-
-* `mkdir newdir`: Create a directory named `newdir`.
-* `mkdir -p parentdir/childdir`: Create `parentdir` and `childdir` if they don't exist.
-
-### `ls`: List Directory Contents
-
-* `ls -l`: List with detailed information (permissions, ownership, size).
-* `ls -a`: List all files, including hidden ones (starting with `.`).
-* `ls -h`: List with human-readable file sizes.
-
-### `rmdir`: Remove Empty Directories
-
-* **Syntax**: `rmdir [options] directory`
-* `rmdir emptydir`: Remove `emptydir` if it's empty.
-* `rmdir -p parentdir/childdir`: Remove `childdir` and `parentdir` if they are empty.
-
-### `find`: Search for Files and Directories
-
-* **Syntax**: `find [path] [options] [expression]`
-* `find /home/user/ -name '*.txt'`: Find all `.txt` files under `/home/user/`.
-* `find . -type d -name 'dir*'`: Find directories starting with `dir`.
-
-### `touch`: Create or Update File Timestamps
-
-* **Syntax**: `touch [options] file`
-* `touch newfile.txt`: Create an empty `newfile.txt` or update its timestamp.
-* `touch -c non_existent_file.txt`: Don’t create `non_existent_file.txt` if it doesn’t exist.
-
-### `chmod`: Change File Permissions
-
-`chmod` can use both numeric and symbolic modes to set file permissions.
-
-#### Numeric Mode
-
-* **Syntax**: `chmod [permissions] file`
-* First number in permissions is for user (owner), second is for group, third is for others.
-* Permissions:
-* `4`: read.
-* `2`: write.
-* `1`: execute.
-* Permissions are additive. For example, `7` \= `4` \+ `2` \+ `1`.
-
-#### Symbolic Mode
-
-* **Syntax**: `chmod [who][+/-/=][permissions] file`
-* Who:
-* `u`: User (owner)
-* `g`: Group
-* `o`: Others
-* `a`: All (user, group, and others)
-* Operators
-* `+`: Add permission
-* `-`: Remove permission
-* `=`: Set exact permission
-* Permissions:
-* `r`: read.
-* `w`: write.
-* `x`: execute.
-
-#### Options
-
-* `-R` or `--recursive`: Apply changes recursively to directories and their contents.
-
-### `chown`: Change File Ownership
-
-* **Syntax**: `chown [options] user[:group] file`
-* `chown user file.txt`: Change the owner to `user`.
-* `chown user:group file.txt`: Change the owner to `user` and the group to `group`.
-* `chown :group file.txt`: Change the group to `group` without changing the owner.
-* Options
-* `-R` or `--recursive`: Apply changes recursively to directories and their contents.
-
-### `df`: Disk Space Usage
-
-* **Syntax**: `df [options] [file]`
-* `df -h`: Display disk space in a human-readable format (e.g., MB, GB).
-* `df -T`: Show the filesystem type along with space usage.
-* `df --total`: Show a grand total of all file systems.
-
-### `du`: Disk Usage
-
-* **Syntax**: `du [options] [file]`
-* `du -h`: Show disk usage in human-readable format.
-* `du -sh /path/to/dir`: Show the total size of `/path/to/dir`.
-* `du -a`: Show the size of all files and directories.
-* `du --max-depth=1`: Limit the depth of directory traversal to 1 level.
-
-### `pwd`: Check Current Directory
-
-* **Syntax**: `pwd`
-
----
-
 ## OpenSSH, SCP, SFTP, and Material Files: Secure Remote Access
 
 ### Introduction of SSH and OpenSSH
 
 * SSH provides a secure way for accessing remote hosts and replaces tools such as telnet, rlogin, rsh, ftp.
-* **OpenSSH** (also known as OpenBSD Secure Shell) is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.
-* Default SSH port in **Termux** is `8022`.
+* OpenSSH (also known as OpenBSD Secure Shell) is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.
+* Default SSH port in Termux is `8022`.
 * Default SSH port in Linux is usually `22`.
 
 ### OpenSSH Server
@@ -2215,14 +2350,14 @@ SFTP, or Secure File Transfer Protocol, is a secure network protocol used for tr
 
 #### Install Material Files
 
-You can install **Material Files** from **Google Play**: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files> or **F-Droid**: <https://f-droid.org/packages/me.zhanghai.android.files>.
+You can install Material Files from Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files> or F-Droid: <https://f-droid.org/packages/me.zhanghai.android.files>.
 
 #### Mount SFTP Server
 
-* Connect to the SSH server with **Termux** or other clients on your Android device.
+* Connect to the SSH server with Termux or other clients on your Android device.
 * Open the left menu.
-* Tap **Add storage …**.
-* Tap **SFTP server**.
+* Tap Add storage ….
+* Tap SFTP server.
 * Input necessary information. Hostname, Port, etc. means those of the SSH server. Leave path empty to mount the whole file system of the server side.
 * You can manage the file system of the SSH server like managing local storage now.
 
@@ -2241,8 +2376,8 @@ You can install **Material Files** from **Google Play**: <https://play.google.co
 
 You can install droidVNC-NG on:
 
-* **F-Droid**: <https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng>.
-* **Google Play**: <https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng>.
+* F-Droid: <https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng>.
+* Google Play: <https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng>.
 
 ### Features of droidVNC-NG
 
@@ -2279,12 +2414,12 @@ Advanced VNC Features
 
 You can install SD Maid SE on:
 
-* **F-Droid**: <https://f-droid.org/packages/eu.darken.sdmse>.
-* **Google Play**: <https://play.google.com/store/apps/details?id=eu.darken.sdmse>.
+* F-Droid: <https://f-droid.org/packages/eu.darken.sdmse>.
+* Google Play: <https://play.google.com/store/apps/details?id=eu.darken.sdmse>.
 
 ### Introduction of SD Maid SE
 
-**SD Maid SE** (also known as SD Maid 2 or SD Maid 2/SE) is a file management tool and system cleaner for Android that specializes in maintenance, freeing up space, and removing unwanted data.
+SD Maid SE (also known as SD Maid 2 or SD Maid 2/SE) is a file management tool and system cleaner for Android that specializes in maintenance, freeing up space, and removing unwanted data.
 
 Features include:
 
@@ -2296,11 +2431,11 @@ Features include:
 
 ### Use SD Maid SE with Shizuku
 
-* Setup **Shizuku**. You can follow the guide in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizukusystemuitunerandashelluselocaladbofandroiddeviceonterminalssuchastermuxwithoutanotherdevicewithshizukuleavedeveloperoptionsoffwhendoingsowithsystemuituneranduseadbwithfeatureslikeautocompletesuggestionwithashell). The part about using **SystemUI Tuner** to enable ADB persistently in order to keep **Shizuku** running when Developer Options is turned off isn't necessary here but recommended if you want to keep **SD Maid SE** using **Shizuku**.
-* Give consent for **SD Maid SE** to use **Shizuku** inside **SD Maid SE**, you can use it to enable/disable **SD Maid SE**'s use of **Shizuku**.
-* After giving consent, a Grant access dialog from **Shizuku** should show.
+* Setup Shizuku. You can follow the guide in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizukusystemuitunerandashelluselocaladbofandroiddeviceonterminalssuchastermuxwithoutanotherdevicewithshizukuleavedeveloperoptionsoffwhendoingsowithsystemuituneranduseadbwithfeatureslikeautocompletesuggestionwithashell). The part about using SystemUI Tuner to enable ADB persistently in order to keep Shizuku running when Developer Options is turned off isn't necessary here but recommended if you want to keep SD Maid SE using Shizuku.
+* Give consent for SD Maid SE to use Shizuku inside SD Maid SE, you can use it to enable/disable SD Maid SE's use of Shizuku.
+* After giving consent, a Grant access dialog from Shizuku should show.
 * Confirm the dialog.
-* **SD Maid SE** should display a new status indicator that show whether **SD Maid SE** can connect to the **Shizuku** service.
+* SD Maid SE should display a new status indicator that show whether SD Maid SE can connect to the Shizuku service.
 
 ---
 
@@ -2308,11 +2443,11 @@ Features include:
 
 ### Introduction of Linux Command Library
 
-The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about **Linux** (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in **Linux** are available in **Termux** too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
+The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in Linux are available in Termux too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
 
 ### Install and Use Linux Command Library
 
-You can install **Linux Command Library** in **Google Play**: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca> or **F-Droid**: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca>, or browse it on its official website: <https://linuxcommandlibrary.com>.
+You can install Linux Command Library in Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca> or F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca>, or browse it on its official website: <https://linuxcommandlibrary.com>.
 
 ---
 
@@ -2320,13 +2455,13 @@ You can install **Linux Command Library** in **Google Play**: <https://play.goog
 
 ### Install PipePipe
 
-**PipePipe** can be installed from **F-Droid**: <https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced> or **GitHub**: <https://github.com/InfinityLoop1308/PipePipe> release.
+PipePipe can be installed from F-Droid: <https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced> or GitHub: <https://github.com/InfinityLoop1308/PipePipe> release.
 
-Note that because **YouTube** is trying to block third-party clients, especially for anonymous access, **PipePipe** sometimes has to be updated frequently to address issues that arise. You can receive the latest update from **GitHub** release without waiting for **F-Droid** update building process.
+Note that because YouTube is trying to block third-party clients, especially for anonymous access, PipePipe sometimes has to be updated frequently to address issues that arise. You can receive the latest update from GitHub release without waiting for F-Droid update building process.
 
 ### Features of PipePipe
 
-* Browse **YouTube**, **YouTube Music**, **BiliBili**, **NicoNico**, **SoundCloud**, **media.ccc.de**, **FramaTube**, and **Bandcamp**.
+* Browse YouTube, YouTube Music, BiliBili, NicoNico, SoundCloud, media.ccc.de, FramaTube, and Bandcamp.
 * Watch videos at different resolutions up to 4K.
 * Watch live streams.
 * Show or hide subtitles.
@@ -2358,15 +2493,15 @@ Note that because **YouTube** is trying to block third-party clients, especially
 
 #### Introduction of VLC
 
-**VLC** is a libre and open source media player and multimedia engine, focused on playing everything, and running everywhere.
+VLC is a libre and open source media player and multimedia engine, focused on playing everything, and running everywhere.
 
-**VLC** can play most multimedia files, discs, streams, devices and is also able to convert, encode, stream and manipulate streams into numerous formats.
+VLC can play most multimedia files, discs, streams, devices and is also able to convert, encode, stream and manipulate streams into numerous formats.
 
-**VLC** is available on **Windows**, **macOS**, **Linux**, **BSD**, **Android**, **iOS**, and **Haiku**.
+VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.
 
 #### Install VLC for Android
 
-VLC for Android can be installed from **F-Droid**: <https://f-droid.org/packages/org.videolan.vlc> or **Google Play**: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
+VLC for Android can be installed from F-Droid: <https://f-droid.org/packages/org.videolan.vlc> or Google Play: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
 
 ---
 
@@ -2381,31 +2516,31 @@ VLC for Android can be installed from **F-Droid**: <https://f-droid.org/packages
 * Official Reddit community: <https://termux.com/community>.
 * Google Play (deprecated): <https://play.google.com/store/apps/details?id=com.termux>.
 
-### Termux:Styling
+### Termux:Styling by Fredrik Fornwall / Termux / termux
 
 * F-Droid: <https://f-droid.org/packages/com.termux.styling>.
 * GitHub: <https://github.com/termux/termux-styling>.
 * Official wiki: <https://wiki.termux.com/wiki/Termux:Styling>.
 
-### Termux:Widget
+### Termux:Widget by Fredrik Fornwall / Termux / termux
 
 * F-Droid: <https://f-droid.org/packages/com.termux.widget>.
 * GitHub: <https://github.com/termux/termux-widget>.
 * Official wiki: <https://wiki.termux.com/wiki/Termux:Widget>.
 
-### Termux:Boot
+### Termux:Boot by Fredrik Fornwall / Termux / termux
 
 * F-Droid: <https://f-droid.org/packages/com.termux.boot>.
 * GitHub: <https://github.com/termux/termux-boot>.
 * Official wiki: <https://wiki.termux.com/wiki/Termux:Boot>.
 
-### Termux:Float
+### Termux:Float by Fredrik Fornwall / Termux / termux
 
 * F-Droid: <https://f-droid.org/packages/com.termux.float>.
 * GitHub: <https://github.com/termux/termux-float>.
 * Official wiki: <https://wiki.termux.com/wiki/Termux:Float>.
 
-### Termux:API
+### Termux:API by Fredrik Fornwall / Termux / termux
 
 * F-Droid: <https://f-droid.org/packages/com.termux.api>.
 * GitHub: <https://github.com/termux/termux-api>.
@@ -2496,6 +2631,7 @@ VLC for Android can be installed from **F-Droid**: <https://f-droid.org/packages
 ### OpenSSL by OpenSSL / openssl
 
 * Official website: <https://www.openssl.org>.
+* Official doc: <https://docs.openssl.org>.
 * GitHub: <https://github.com/openssl/openssl>.
 
 ### ANC by Gaurav Ujwal / gujjwal00
