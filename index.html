@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Android-Non-Root</title>
-<link rel="stylesheet" href="styles.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
-<script src="script.js" defer></script>
-</head>
-<body>
-<div class="navbar">
-<div class="container">
-<a href="https://willie169.github.io"><img src="img/willie169.jpeg" alt="Willie169" style="height: 40px;"></a>
-<a href="https://willie169.github.io/Android-Non-Root"><img src="img/Android_Non_Root.png" alt="Android Non Root" style="height: 40px;"></a>
-</div>
-</div>
-<div id="top"></div>
-<div class="content">
+<!-- HTML parts: pictures in the beginning, the table in [Types of Storage in Termux](#types-of-storage-in-termuc) in [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection). -->
+
+<p><a href="https://willie169.github.io"><img src="img/willie169.jpeg" alt="Willie169" style="height: 40px;"></a>
+<a href="https://willie169.github.io/Android-Non-Root"><img src="img/Android_Non_Root.png" alt="Android Non Root" style="height: 40px;"></a></p>
 <h1>Android Non Root</h1>
 <p><strong>Android Non Root</strong> has three versions:</p>
 <ul>
@@ -25,39 +10,47 @@
 <li>The app version: <a href="https://github.com/Willie169/Android-Non-Root-App">https://github.com/Willie169/Android-Non-Root-App</a>.</li>
 <li>App download link: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk</a>.</li>
 </ul>
-<p>My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts and instructions for Termux.</p>
-<p>In this tutorial, we&#39;ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, and <a href="https://github.com/qemu/qemu">QEMU</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
+<p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
+<p>In this tutorial, we&#39;ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
 <p>Please read the <a href="#global-note">Global Note</a> before you start or you may encounter errors.</p>
+<p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <hr>
 <h2>Table of Contents</h2>
 <ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#author-information">Author Information</a></li>
 <li><a href="#global-note">Global Note</a></li>
-<li><a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a><ul>
+<li><a href="#f-droid">F-Droid</a><ul>
+<li><a href="#install-f-droid">Install F-Droid</a></li>
+<li><a href="#introduction-of-f-droid">Introduction of F-Droid</a></li>
+<li><a href="#f-droid-repositories">F-Droid Repositories</a></li>
+</ul>
+</li>
+<li><a href="#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a><ul>
 <li><a href="#install-termux">Install Termux</a></li>
 <li><a href="#introduction-of-termux">Introduction of Termux</a></li>
-<li><a href="#official-wiki-and-community-of-termux">Official Wiki and Community of Termux</a></li>
+<li><a href="#termuxstyling">Termux:Styling</a></li>
+<li><a href="#termuxwidget">Termux:Widget</a></li>
+<li><a href="#termuxboot">Termux:Boot</a></li>
+<li><a href="#termuxfloat">Termux:Float</a></li>
+<li><a href="#termuxapi">Termux:API</a></li>
 <li><a href="#termux-app-user-interface">Termux App User Interface</a></li>
-<li><a href="#shortcuts">Shortcuts</a></li>
+<li><a href="#shortcuts-in-termux">Shortcuts in Termux</a></li>
+<li><a href="#environment-variables-in-termux">Environment Variables in Termux</a></li>
+<li><a href="#types-of-storage-in-termux">Types of Storage in Termux</a></li>
+<li><a href="#utilities-regarding-storages-in-termux">Utilities Regarding Storages in Termux</a></li>
 <li><a href="#file-and-directory-management-commands">File and Directory Management Commands</a></li>
-<li><a href="#grant-termux-storage-permission">Grant Termux Storage Permission</a></li>
 <li><a href="#termux-properties">Termux-Properties</a></li>
 <li><a href="#termux-pkg-package-manager">Termux PKG Package Manager</a></li>
 <li><a href="#termux-change-repo">Termux Change Repo</a></li>
 <li><a href="#package-command-error">Package Command Error</a></li>
 <li><a href="#debian-derivatives-and-termux-apt-package-manager">Debian Derivatives and Termux APT Package Manager</a></li>
 <li><a href="#process-completed-signal-9---press-enter-error">Process completed (signal 9) - press Enter Error</a></li>
-<li><a href="#termuxstyling">Termux:Styling</a></li>
-<li><a href="#termuxwidget">Termux:Widget</a></li>
-<li><a href="#termuxboot">Termux:Boot</a></li>
-<li><a href="#termuxfloat">Termux:Float</a></li>
-<li><a href="#termuxapi">Termux:API</a></li>
 </ul>
 </li>
-<li><a href="#termux-graphical-environment-with-vnc-server-and-fluxbox-or-openbox-windows-manager-or-xfce-lxqt-or-mate-desktop-environment">Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</a><ul>
+<li><a href="#tigervnc-fluxbox-openbox-xfce-lxqt-and-mate-termux-graphical-environment">TigerVNC, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment</a><ul>
 <li><a href="#enable-the-x11-repository-of-termux">Enable the X11 Repository of Termux</a></li>
-<li><a href="#vnc-server-in-termux">VNC Server in Termux</a></li>
+<li><a href="#tigervnc-server-in-termux">TigerVNC Server in Termux</a></li>
 <li><a href="#fluxbox-in-termux">Fluxbox in Termux</a></li>
 <li><a href="#openbox-in-termux">Openbox in Termux</a></li>
 <li><a href="#xfce-in-termux">XFCE in Termux</a></li>
@@ -66,25 +59,25 @@
 <li><a href="#further-readings-and-references-about-termux-graphical-environment">Further Readings and References about Termux Graphical Environment</a></li>
 </ul>
 </li>
-<li><a href="#proot-distro-with-termux-install-linux-distributions-in-termux-no-root-required">PRoot-Distro with Termux: Install Linux Distributions in Termux (No Root Required)</a><ul>
+<li><a href="#proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</a><ul>
 <li><a href="#introduction-of-chroot-proot-proot-distro">Introduction of Chroot, PRoot, PRoot-Distro</a></li>
 <li><a href="#proot-distro-usage">PRoot-Distro Usage</a></li>
 <li><a href="#supported-distributions">Supported Distributions</a></li>
 <li><a href="#hint-to-install-linux-os-with-proot-distro">Hint to Install Linux OS with PRoot-Distro</a></li>
 </ul>
 </li>
-<li><a href="#andronix-with-termux-install-linux-distributions-in-termux-no-root-required">Andronix with Termux: Install Linux Distributions in Termux (No Root Required)</a><ul>
+<li><a href="#andronix-with-termux-install-linux-distributions-in-termux">Andronix with Termux: Install Linux Distributions in Termux</a><ul>
 <li><a href="#optional-install-andronix-app">Optional: Install Andronix App</a></li>
 <li><a href="#install-an-os-following-andronix-app-instructions">Install an OS Following Andronix App Instructions</a></li>
 <li><a href="#uninstall-an-not-modded-os-following-andronix-app-instructions">Uninstall an Not Modded OS Following Andronix App Instructions</a></li>
-<li><a href="#sound-output-from-proot-os">Sound Output from PRoot OS</a></li>
+<li><a href="#pulseaudio-server-sound-output">PulseAudio Server Sound Output</a></li>
 <li><a href="#example-debian-with-xfce-desktop-environment">Example: Debian with XFCE Desktop Environment</a></li>
 <li><a href="#example-debian-with-cli-only">Example: Debian with CLI Only</a></li>
 <li><a href="#example-uninstall-debian-os-not-modded">Example: Uninstall Debian OS (Not Modded)</a></li>
 <li><a href="#further-readings-and-references-about-chroot-proot-and-andronix">Further Readings and References about Chroot, Proot, and Andronix</a></li>
 </ul>
 </li>
-<li><a href="#qemu-system-emulation-with-termux-full-system-emulation-of-multiple-cpu-architectures-and-operating-systems-with-iso-or-qcow2-image">QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO or QCOW2 Image</a><ul>
+<li><a href="#qemu-system-emulation-with-termux-full-system-emulation">QEMU System Emulation with Termux: Full System Emulation</a><ul>
 <li><a href="#install-qemu-system-emulation-for-x86-64">Install QEMU System Emulation for x86-64</a></li>
 <li><a href="#install-qemu-system-emulation-for-aarch64">Install QEMU System Emulation for AArch64</a></li>
 <li><a href="#iso-and-qcow2-image-methods">ISO and QCOW2 Image Methods</a></li>
@@ -120,9 +113,9 @@
 <li><a href="#further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</a></li>
 </ul>
 </li>
-<li><a href="#tor-browser">Tor Browser</a><ul>
-<li><a href="#install-tor-browser">Install Tor Browser</a></li>
+<li><a href="#tor-tor-browser-and-noscript-security-suite">Tor, Tor Browser, and NoScript Security Suite</a><ul>
 <li><a href="#introduction-of-tor">Introduction of Tor</a></li>
+<li><a href="#install-tor-browser">Install Tor Browser</a></li>
 <li><a href="#noscript-security-suite">NoScript Security Suite</a></li>
 </ul>
 </li>
@@ -137,7 +130,7 @@
 <li><a href="#configure-invizible-pro-to-block-trackers-without-trackercontrol">Configure InviZible Pro to Block Trackers without TrackerControl</a></li>
 </ul>
 </li>
-<li><a href="#openssl-secure-sockets-layer-ssl-and-transport-layer-security-tls-protocols-and-cryptography-library-implementation">OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation</a><ul>
+<li><a href="#openssl-ssl-and-tls-protocals-and-cryptography-library-implementation">OpenSSL: SSL and TLS Protocals and Cryptography Library Implementation</a><ul>
 <li><a href="#introduction-of-openssl">Introduction of OpenSSL</a></li>
 <li><a href="#install-openssl-in-termux">Install OpenSSL in Termux</a></li>
 <li><a href="#install-of-openssl-in-debian-derivatives">Install of OpenSSL in Debian Derivatives</a></li>
@@ -145,12 +138,12 @@
 <li><a href="#symmetric-encryption">Symmetric Encryption</a></li>
 </ul>
 </li>
-<li><a href="#openssh-scp-sftp-and-material-files-secure-remote-access">OpenSSH, SCP, SFTP, and Material Files: Secure Remote Access</a><ul>
-<li><a href="#introduction-of-ssh-and-openssh">Introduction of SSH and OpenSSH</a></li>
+<li><a href="#openssh-secure-remote-access-with-ssh-scp-and-sftp">OpenSSH: Secure Remote Access with SSH, SCP, and SFTP</a><ul>
+<li><a href="#introduction-of-ssh-secure-shell-and-openssh">Introduction of SSH (Secure Shell) and OpenSSH</a></li>
 <li><a href="#openssh-server">OpenSSH Server</a></li>
 <li><a href="#openssh-client">OpenSSH Client</a></li>
 <li><a href="#scp-secure-copy-protocol">SCP (Secure Copy Protocol)</a></li>
-<li><a href="#sftp-server-mound-on-material-files">SFTP Server Mound on Material Files</a></li>
+<li><a href="#sftp-secure-file-transfer-protocol">SFTP (Secure File Transfer Protocol)</a></li>
 <li><a href="#further-readings-and-references-about-openssh-with-linux-and-termux">Further Readings and References about OpenSSH with Linux and Termux</a></li>
 </ul>
 </li>
@@ -170,39 +163,51 @@
 <li><a href="#install-and-use-linux-command-library">Install and Use Linux Command Library</a></li>
 </ul>
 </li>
+<li><a href="#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support">Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support</a><ul>
+<li><a href="#install-material-files">Install Material Files</a></li>
+<li><a href="#features-of-material-files">Features of Material Files</a></li>
+<li><a href="#mount-external-storage-or-nas-network-attached-storage-server">Mount External Storage or NAS (Network-Attached Storage) Server</a></li>
+</ul>
+</li>
 <li><a href="#pipepipe-a-floss-android-app-to-let-you-browse-youtube-niconico-and-bilibili-freely">PipePipe: A FLOSS Android App to Let You Browse YouTube, NicoNico and BiliBili Freely.</a><ul>
 <li><a href="#install-pipepipe">Install PipePipe</a></li>
 <li><a href="#features-of-pipepipe">Features of PipePipe</a></li>
-<li><a href="#vlc-for-android-open-source-media-player-and-multimedia-engine">VLC for Android: Open Source Media Player and Multimedia Engine</a></li>
+</ul>
+</li>
+<li><a href="#vlc-for-android-open-source-media-player-and-multimedia-engine">VLC for Android: Open Source Media Player and Multimedia Engine</a><ul>
+<li><a href="#introduction-of-vlc">Introduction of VLC</a></li>
+<li><a href="#install-vlc-for-android">Install VLC for Android</a></li>
 </ul>
 </li>
 <li><a href="#promoted-or-related-works-references-and-bibliography">Promoted or Related Works, References, and Bibliography</a><ul>
-<li><a href="#termux-by-fredrik-fornwall--termux--termux">Termux by Fredrik Fornwall / Termux / termux</a></li>
-<li><a href="#termuxstyling-by-fredrik-fornwall--termux--termux">Termux:Styling by Fredrik Fornwall / Termux / termux</a></li>
-<li><a href="#termuxwidget-by-fredrik-fornwall--termux--termux">Termux:Widget by Fredrik Fornwall / Termux / termux</a></li>
-<li><a href="#termuxboot-by-fredrik-fornwall--termux--termux">Termux:Boot by Fredrik Fornwall / Termux / termux</a></li>
-<li><a href="#termuxfloat-by-fredrik-fornwall--termux--termux">Termux:Float by Fredrik Fornwall / Termux / termux</a></li>
-<li><a href="#termuxapi-by-fredrik-fornwall--termux--termux">Termux:API by Fredrik Fornwall / Termux / termux</a></li>
+<li><a href="#anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</a></li>
 <li><a href="#andronix-by-devriz-technologies-llp--andronix-app-andronixapp">Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</a></li>
+<li><a href="#ashell-by-sunil-paul-mathew-m--sunilpaulmathew">aShell by Sunil Paul Mathew M. / sunilpaulmathew</a></li>
+<li><a href="#debian">Debian</a></li>
+<li><a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid">DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</a></li>
+<li><a href="#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138">droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</a></li>
+<li><a href="#f-droid-by-f-droid">F-Droid by F-Droid</a></li>
+<li><a href="#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</a></li>
+<li><a href="#linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</a></li>
+<li><a href="#material-files">Material Files</a></li>
+<li><a href="#material-files--materialfiles-by-hai-zhang--zhanghai">Material Files / MaterialFiles by Hai Zhang / zhanghai</a></li>
+<li><a href="#myip--ipchecking-by-jason-ng--jason5ng32">MyIP / IPCheck.ing by Jason Ng / jason5ng32</a></li>
+<li><a href="#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv">NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV</a></li>
+<li><a href="#newpipe-by-team-newpipe--teamnewpipe">NewPipe by Team NewPipe / TeamNewPipe</a></li>
+<li><a href="#openssl-by-openssl--openssl">OpenSSL by OpenSSL / openssl</a></li>
+<li><a href="#pipepipe-by-infinityloop1309--infinityloop1308">PipePipe by InfinityLoop1309 / InfinityLoop1308</a></li>
+<li><a href="#qemu-by-qemu-project--qemu">QEMU by Qemu Project / QEMU</a></li>
+<li><a href="#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development">SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</a></li>
 <li><a href="#shizuku-by-xingchen--rikka--rikkaapps">Shizuku by Xingchen &amp; Rikka / RikkaApps</a></li>
 <li><a href="#systemui-tuner-by-zachary-wander--zacharee">SystemUI Tuner by Zachary Wander / zacharee</a></li>
-<li><a href="#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</a></li>
-<li><a href="#trackercontrol--tc-by-trackercontrol--oxford-hcc">TrackerControl / TC by TrackerControl / Oxford HCC</a></li>
-<li><a href="#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv">NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV</a></li>
-<li><a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid">DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</a></li>
-<li><a href="#ashell-by-sunil-paul-mathew-m--sunilpaulmathew">aShell by Sunil Paul Mathew M. / sunilpaulmathew</a></li>
-<li><a href="#qemu-by-qemu-project--qemu">QEMU by Qemu Project / QEMU</a></li>
+<li><a href="#termux-by-fredrik-fornwall--termux--termux">Termux by Fredrik Fornwall / Termux / termux</a></li>
+<li><a href="#termuxapi-by-fredrik-fornwall--termux--termux">Termux:API by Fredrik Fornwall / Termux / termux</a></li>
+<li><a href="#termuxboot-by-fredrik-fornwall--termux--termux">Termux:Boot by Fredrik Fornwall / Termux / termux</a></li>
+<li><a href="#termuxfloat-by-fredrik-fornwall--termux--termux">Termux:Float by Fredrik Fornwall / Termux / termux</a></li>
+<li><a href="#termuxstyling-by-fredrik-fornwall--termux--termux">Termux:Styling by Fredrik Fornwall / Termux / termux</a></li>
+<li><a href="#termuxwidget-by-fredrik-fornwall--termux--termux">Termux:Widget by Fredrik Fornwall / Termux / termux</a></li>
 <li><a href="#tor-and-tor-browser-by-the-tor-project">Tor and Tor Browser by The Tor Project</a></li>
-<li><a href="#myip--ipchecking-by-jason-ng--jason5ng32">MyIP / IPCheck.ing by Jason Ng / jason5ng32</a></li>
-<li><a href="#debian">Debian</a></li>
-<li><a href="#linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</a></li>
-<li><a href="#openssl-by-openssl--openssl">OpenSSL by OpenSSL / openssl</a></li>
-<li><a href="#anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</a></li>
-<li><a href="#material-files--materialfiles-by-hai-zhang--zhanghai">Material Files / MaterialFiles by Hai Zhang / zhanghai</a></li>
-<li><a href="#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development">SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</a></li>
-<li><a href="#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138">droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</a></li>
-<li><a href="#pipepipe-by-infinityloop1309--infinityloop1308">PipePipe by InfinityLoop1309 / InfinityLoop1308</a></li>
-<li><a href="#newpipe-by-team-newpipe--teamnewpipe">NewPipe by Team NewPipe / TeamNewPipe</a></li>
+<li><a href="#trackercontrol--tc-by-trackercontrol--oxford-hcc">TrackerControl / TC by TrackerControl / Oxford HCC</a></li>
 <li><a href="#vlc-for-android--vlc-android-by-videolabs--vlc-mobile-team--videolan--videolan">VLC for Android / vlc-android by Videolabs / VLC Mobile Team / VideoLAN / videolan</a></li>
 <li><a href="#others">Others</a></li>
 </ul>
@@ -231,8 +236,8 @@
 <ul>
 <li>This tutorial is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</li>
 <li>Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See <a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid">DontKillMyApp</a>.</li>
-<li>Many sections of the tutorial mention Termux. For people who are new to it, please refer to <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a> section.</li>
-<li>My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts and instructions for Termux.</li>
+<li>Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in <a href="#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>. My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</li>
+<li>More instructions for Linux commands are available in <a href="#linux-command-library">Linux Command Library</a>.</li>
 <li>Run update command (such as <code>pkg update</code> and <code>apt update</code>) before install command (such as <code>pkg install</code> and <code>apt install</code>) to update available packages.</li>
 <li>Add <code>sudo</code> at the beginning of commands in Linux if root permission is needed. Remove <code>sudo</code> from the beginning of commands in Termux if the device is not rooted. Termux doesn&#39;t need root permission to install packages etc.</li>
 <li>Type <code>Y</code>, <code>y</code>, <code>Yes</code>, <code>yes</code>, etc. as asked for in response to any prompts that request confirmation during command execution to confirm execution.</li>
@@ -241,16 +246,53 @@
 <li>Some sections about Linux usages are included, some of which assumes the Linux distribution is Debian derived.</li>
 <li>Uncommenting a line means to remove the comment signs (<code>#</code> for bash) from the beginning of the line.</li>
 <li>When the tutorial uses text editor such as <code>nano</code>, <code>vim</code>, or <code>vi</code> to edit a file, you can use any text editor you want.</li>
-<li>Many sections of the tutorial mention VNC server. You can connect VNC server with a VNC client on many devices such as Linux, Windows, macOS, Android, iOS, etc. Read the tutorial about AVNC, a VNC client for Android, in <a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a>.</li>
 <li>You may encounter <code>Process completed (signal 9) press Enter</code> error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in <a href="#process-completed-signal-9-press-enter-error">Process completed (signal 9) press Enter Error</a>.</li>
 <li>In Linux, you can install a window manager such as Fluxbox or Openbox, or desktop environment such as XFCE, LXQt, or MATE for your GUI.</li>
 <li>In Linux, <code>root</code> is usually the password for root for the first time. You can usually set password latter by <code>passwd</code>.</li>
-<li>Many sections of the tutorial mention Android Debug Bridge (ADB). You can connect to an Android device&#39;s ADB shell from another device via Android SDK Platform Tools or from the same device via Shizuku. Read the tutorial about Shizuku ADB connection in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>.</li>
-<li>Many sections of the tutorial mention Tor. Read the tutorial about it in <a href="#introduction-of-tor">Introduction of Tor</a>.</li>
+<li>Many sections of the tutorial mention VNC. You can connect to a VNC server with a VNC client. One recommended one for Android is AVNC. Read the tutorial for it in <a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a>.</li>
 </ul>
 <hr>
-<h2>Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</h2>
-<p>My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts and instructions for Termux.</p>
+<h2>F-Droid</h2>
+<h3>Install F-Droid</h3>
+<p>F-Droid can be installed from their official website: <a href="https://f-droid.org">https://f-droid.org</a>.</p>
+<h3>Introduction of F-Droid</h3>
+<p>F-Droid is an installable catalogue of FOSS (Free and Open Source Software) applications for the Android platform. The client makes it easy to browse, install, and keep track of updates on your device.</p>
+<p>F-Droid is both a repository of verified free software Android apps as well as a whole “app store kit”, providing all the tools needed to setup and run an app store. It is a community-run free software project developed by a wide range of contributors. It also includes complete build and release tools for managing the process of turning app source code into published builds.</p>
+<p>The F-Droid server tools provide various scripts and tools that are used to maintain the main F-Droid application repository. You can use these same tools to create your own additional or alternative repository for publishing, or to assist in creating, testing and submitting metadata to the main repository.</p>
+<h3>F-Droid Repositories</h3>
+<p>F-Droid repositories are compatible with an F-Droid client application. To add a repository, go to F-Droid app&#39;s <code>Settings</code> page tap <code>My Apps &gt; Repositories</code>, tap the plus sign in the lower right corner, and scan QR code or enter or paste repository URL. </p>
+<p>The Offical F-Droid repository is <a href="http://f-droid.org/repo">http://f-droid.org/repo</a>, which is pre-added in the app by default.</p>
+<p>One of the most popular unofficial F-Droid repository is IzzyOnDroid: <a href="http://apt.izzysoft.de/fdroid/repo">http://apt.izzysoft.de/fdroid/repo</a>.</p>
+<p>A list of some known F-Droid repositories:</p>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/repo">https://f-droid.org/repo</a>.</li>
+<li>F-Droid Archive: <a href="https://f-droid.org/archive">https://f-droid.org/archive</a>.</li>
+<li>Guardian Project: <a href="https://guardianproject.info/fdroid/repo">https://guardianproject.info/fdroid/repo</a>.</li>
+<li>Guardian Project Archive: <a href="https://guardianproject.info/fdroid/archive">https://guardianproject.info/fdroid/archive</a>.</li>
+<li>IzzyOnDroid: <a href="https://apt.izzysoft.de/fdroid/repo">https://apt.izzysoft.de/fdroid/repo</a>.</li>
+<li>microG: <a href="https://microg.org/fdroid/repo">https://microg.org/fdroid/repo</a>.</li>
+<li>Netsyms: <a href="https://repo.netsyms.com/fdroid/repo">https://repo.netsyms.com/fdroid/repo</a>.</li>
+<li>Bromite: <a href="https://fdroid.bromite.org/fdroid/repo">https://fdroid.bromite.org/fdroid/repo</a>.</li>
+<li>Molly: <a href="https://molly.im/fdroid/foss/fdroid/repo">https://molly.im/fdroid/foss/fdroid/repo</a>.</li>
+<li>NewPipe: <a href="https://archive.newpipe.net/fdroid/repo">https://archive.newpipe.net/fdroid/repo</a>.</li>
+<li>Collabora Office: <a href="https://www.collaboraoffice.com/downloads/fdroid/repo">https://www.collaboraoffice.com/downloads/fdroid/repo</a>.</li>
+<li>LibRetro: <a href="https://fdroid.libretro.com/repo">https://fdroid.libretro.com/repo</a>.</li>
+<li>KDE Android: <a href="https://cdn.kde.org/android/stable-releases/fdroid/repo">https://cdn.kde.org/android/stable-releases/fdroid/repo</a>.</li>
+<li>KDE Android Nightly: <a href="https://cdn.kde.org/android/fdroid/repo">https://cdn.kde.org/android/fdroid/repo</a>.</li>
+<li>Calyx Institute (testing): <a href="https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo">https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo</a>.</li>
+<li>DivestOS Official: <a href="https://divestos.org/fdroid/official">https://divestos.org/fdroid/official</a>.</li>
+<li>DivestOS Unofficial: <a href="https://divestos.org/fdroid/unofficial">https://divestos.org/fdroid/unofficial</a>.</li>
+<li>Fedilab Apps: <a href="https://fdroid.fedilab.app/repo">https://fdroid.fedilab.app/repo</a>.</li>
+<li>Kali Nethunter App Store: <a href="https://store.nethunter.com/repo">https://store.nethunter.com/repo</a>.</li>
+<li>Umbrella: <a href="https://secfirst.org/fdroid/repo">https://secfirst.org/fdroid/repo</a>.</li>
+<li>Patched Apps: <a href="https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo">https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo</a>.</li>
+<li>Bitwarden: <a href="https://mobileapp.bitwarden.com/fdroid/repo">https://mobileapp.bitwarden.com/fdroid/repo</a>.</li>
+<li>Briar Project: <a href="https://briarproject.org/fdroid/repo">https://briarproject.org/fdroid/repo</a>.</li>
+<li>Wind Offline: <a href="https://guardianproject-wind.s3.amazonaws.com/fdroid/repo">https://guardianproject-wind.s3.amazonaws.com/fdroid/repo</a>.</li>
+</ul>
+<hr>
+<h2>Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection</h2>
+<p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3>Install Termux</h3>
 <p>Termux can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a>.</p>
 <p><strong>WARNING</strong>: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <a href="https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html">https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html</a>. It is recommended that you shift to F-Droid or GitHub releases.</p>
@@ -271,31 +313,72 @@
 </ul>
 <p>and more.</p>
 <p>At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the Debian and Ubuntu Linux distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.</p>
-<p><code>$PREFIX</code> and <code>~</code> refer to <code>/data/data/com.termux/files/home</code>.</p>
-<h3>Official Wiki and Community of Termux</h3>
+<p>Official Wiki and Reddit community:</p>
 <ul>
 <li>Wiki: <a href="https://wiki.termux.com">https://wiki.termux.com</a>.</li>
-<li>Reddit Community: <a href="https://termux.com/community">https://termux.com/community</a>.</li>
+<li>Reddit community: <a href="https://termux.com/community">https://termux.com/community</a>.</li>
 </ul>
+<h3>Termux:Styling</h3>
+<p>Termux:Styling can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.styling">https://f-droid.org/packages/com.termux.styling</a>.</p>
+<p>This plugin for Termux provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.</p>
+<p>Long-press anywhere on the Termux terminal and use the &quot;Style&quot; menu entry to use after installation.</p>
+<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Styling">https://wiki.termux.com/wiki/Termux:Styling</a> for more information.</p>
+<h3>Termux:Widget</h3>
+<p>Termux:Widget can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.widget">https://f-droid.org/packages/com.termux.widget</a>.</p>
+<p>Add-on app which adds shortcuts to Termux scripts and commands on the home screen. Scripts should be placed in the <code>$HOME/.shortcuts/</code> folder to allow quick access to frequently used commands without typing.</p>
+<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Widget">https://wiki.termux.com/wiki/Termux:Widget</a> for more information.</p>
+<h3>Termux:Boot</h3>
+<p>Termux:Boot can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.boot">https://f-droid.org/packages/com.termux.boot</a>.</p>
+<p>This plugin for Termux allows programs to be run at boot.</p>
+<p>Instructions:</p>
+<ul>
+<li>Start the Termux:Boot app once by clicking on its launcher icon.</li>
+<li>This allow the app to be run at boot.</li>
+<li>Create the <code>~/.termux/boot/</code> directory.</li>
+<li>Put scripts you want to execute inside the <code>~/.termux/boot/</code> directory.</li>
+<li>If there are multiple files, they will be executed in a sorted order.</li>
+</ul>
+<p>Note that you may want to run <code>termux-wake-lock</code> as first thing want to ensure that the device is prevented from sleeping.</p>
+<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Boot">https://wiki.termux.com/wiki/Termux:Boot</a> for more information.</p>
+<h3>Termux:Float</h3>
+<p>Termux:Float can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.float">https://f-droid.org/packages/com.termux.float</a>.</p>
+<p>This plugin for Termux provides a floating terminal window which is shown above other apps.</p>
+<p>Long-press on the floating window to move or resize it and tap on the notification to temporarily hide it.</p>
+<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Float">https://wiki.termux.com/wiki/Termux:Float</a> for more information.</p>
+<h3>Termux:API</h3>
+<p>Termux:API can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.api">https://f-droid.org/packages/com.termux.api</a>.</p>
+<p>Expose basic Android functionality like sending SMS or accessing GPS data to the Termux app. This is an add-on which requires that the main Termux app is installed to use.</p>
+<ul>
+<li>Read and send sms messages from your terminal.</li>
+<li>Access device GPS location sensor from scripts.</li>
+<li>Pipe the result of commands into the device text-to-speech engine.</li>
+<li>Vibrate the device when something interesting happens.</li>
+<li>Access the system clipboard from shell scripts.</li>
+<li>List contacts from the system contact list.</li>
+</ul>
+<p>Besides installing this app an additional package is required to install inside Termux:</p>
+<pre><code>apt install termux-api
+</code></pre>
+<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:API">https://wiki.termux.com/wiki/Termux:API</a> for more information.</p>
 <h3>Termux App User Interface</h3>
 <ul>
 <li>Pinch to zoom in or out.</li>
 <li>Swipe right from the left edge of the screen to drag out the navigation bar, where you can open Termux Settings, start another NEW SESSION, switch to another session, or launch KEYBOARD.</li>
-<li>Long press on screen to:<ul>
-<li>COPY</li>
-<li>PASTE</li>
-<li>More</li>
-<li>Select URL</li>
-<li>Share transcipt: transfer all output of the current session (via Android api)</li>
-<li>Reset: Reset</li>
-<li>Kill process: Kill the current terminal session process</li>
-<li>Style: Style (requires Termux:Styling plugin)</li>
-<li>Keep screen on</li>
+<li>Long press on screen to:  <ul>
+<li>COPY  </li>
+<li>PASTE  </li>
+<li>More  </li>
+<li>Select URL  </li>
+<li>Share transcipt: transfer all output of the current session (via Android api)  </li>
+<li>Reset: Reset  </li>
+<li>Kill process: Kill the current terminal session process  </li>
+<li>Style: Style (requires Termux:Styling plugin)  </li>
+<li>Keep screen on  </li>
 <li>Help: Help documentation (Termux Wiki)</li>
 </ul>
 </li>
 </ul>
-<h3>Shortcuts</h3>
+<h3>Shortcuts in Termux</h3>
 <p>The following are some of the shortcuts commonly used in the terminal, and they also work in Ter­mux. The volume plus button (abbreviated to Volume below) can be used as a special key to generate a specific input, which can be roughly understood as the Fn key on a laptop.</p>
 <ul>
 <li>Ctrl + A - Move cursor to the start position</li>
@@ -335,6 +418,57 @@
 <li>Volume + . / Ctrl + \ - Signal Quit (SIGQUIT)</li>
 <li>Volume + V - Show volume control</li>
 <li>Volume + Q / Volume + K - Show extra button view</li>
+</ul>
+<h3>Environment Variables in Termux</h3>
+<ul>
+<li><code>$HOME</code> and <code>~</code> refer to <code>/data/data/com.termux/files/home</code>.</li>
+<li><code>$PREFIX</code> refers to <code>/data/data/com.termux/files/usr</code>.</li>
+</ul>
+<h3>Types of Storage in Termux</h3>
+<p>There are three main types of storage in Termux:</p>
+<ul>
+<li>Internal storage: files put in <code>$HOME</code>, available from inside Termux or when explictly picked in an app compatible with Storage Access Framework (SAF).</li>
+<li>Shared storage: general purpose file storage available for the all applications allowed by user.</li>
+<li>External storage: external SD cards or USB hard drives. Typically read-only, except the Termux private directory. Full read-write access to external SD cards and USB drives is available only on rooted devices.</li>
+</ul>
+<p>Feature comparison between storage types:</p>
+<table>
+<thead><tr><th title="Field #1">Storage type</th>
+<th title="Field #2">chmod/chown support</th>
+<th title="Field #3">Special files support</th>
+<th title="Field #4">Executables support</th>
+<th title="Field #5">Access mode</th>
+</tr></thead>
+<tbody><tr>
+<td>Internal ($HOME/$PREFIX)</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>RW (app dir)</td>
+</tr>
+<tr>
+<td>Shared storage</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>RW</td>
+</tr>
+<tr>
+<td>External storage</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>RO / RW (app dir)</td>
+</tr>
+</tbody></table>
+
+<h3>Utilities Regarding Storages in Termux</h3>
+<ul>
+<li>To access shared and external storage you need to run <code>termux-setup-storage</code>. You will then be prompted to <code>Allow Termux access photos, media and files on your device</code>, which you should tap <code>Allow</code>.</li>
+<li>The contents of the created <code>~/storage</code> folder are symlinks to different storage folders. Run <code>termux-setup-storage</code> to rebuild its structure.</li>
+<li>After creating directory <code>Android/data/com.termux</code>, through file manager or by <code>termux-setup-storage</code>, you can access your external SD directly in this folder. The remainder of the external SD card will not be accessable from Termux unless you grant storage permission for Termux in Android. The symlink to the Termux-private folder on external storage will be <code>~/storage/external-1</code> or something similar. <strong>WANRNING</strong>: Please remember that if you uninstall Termux app or clear Termux application data through Android Settings (or Something similar), this directory will be deleted!</li>
+<li>If you have Termux:API application and <code>termux-api</code> package installed, you can use Android file picker to get any file from either shared or external storage by using utility <code>termux-storage-get</code>. For example, <code>termux-storage-get filename.txt</code> will save the file that has been chosen through file picker as <code>filename.txt</code>.</li>
+<li>You can access Termux home directory (<code>$HOME</code>) from the file manager using Storage Access Framework (SAF) and capable of accessing drives like USB or external SD-card in read-write mode. One recommended file manager which can access Termux home directory is <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">Material Files</a>. My tutorial for it is available in <a href="#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support">Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support</a>.</li>
 </ul>
 <h3>File and Directory Management Commands</h3>
 <p>File and directory management commands in Termux is the same as in Linux. Below is a brief of them.</p>
@@ -385,7 +519,7 @@
 </ul>
 <h4><code>chmod</code>: Change File Permissions</h4>
 <p><code>chmod</code> can use both numeric and symbolic modes to set file permissions.</p>
-<h5>Numeric Mode</h5>
+<p>Numeric Mode:</p>
 <ul>
 <li>Syntax: <code>chmod [permissions] file</code></li>
 <li>First number in permissions is for user (owner), second is for group, third is for others.</li>
@@ -395,7 +529,7 @@
 <li><code>1</code>: execute.</li>
 <li>Permissions are additive. For example, <code>7</code> = <code>4</code> + <code>2</code> + <code>1</code>.</li>
 </ul>
-<h5>Symbolic Mode</h5>
+<p>Symbolic Mode:</p>
 <ul>
 <li>Syntax: <code>chmod [who][+/-/=][permissions] file</code></li>
 <li>Who:</li>
@@ -412,7 +546,7 @@
 <li><code>w</code>: write.</li>
 <li><code>x</code>: execute.</li>
 </ul>
-<h5>Options</h5>
+<p>Options:</p>
 <ul>
 <li><code>-R</code> or <code>--recursive</code>: Apply changes recursively to directories and their contents.</li>
 </ul>
@@ -444,11 +578,6 @@
 <ul>
 <li>Syntax: <code>pwd</code></li>
 </ul>
-<h3>Grant Termux Storage Permission</h3>
-<p>Run the following command Termux:</p>
-<pre><code>termux-setup-storage
-</code></pre>
-<p>and tap Allow. Many processes in Termux need Termux to have this permission.</p>
 <h3>Termux-Properties</h3>
 <p>You can edit properties of Termux by:</p>
 <pre><code>nano ~/.termux/termux-properties
@@ -459,18 +588,18 @@
 <ul>
 <li>Usage: <code>pkg [--check-mirror] command [arguments]</code>.</li>
 <li><code>--check-mirror</code> - forces a re-check of availability of mirrors</li>
-<li>Commands:<ul>
-<li><code>autoclean</code> - Remove all outdated packages from apt cache.</li>
-<li><code>clean</code> - Remove all packages from apt cache.</li>
-<li><code>files &lt;packages&gt;</code> - Show all files installed by packages.</li>
-<li><code>install &lt;packages&gt;</code> - Install specified packages.</li>
-<li><code>list-all</code> - List all packages available in repositories.</li>
-<li><code>list-installed</code> - List installed packages.</li>
-<li><code>reinstall &lt;packages&gt;</code> - Reinstall specified installed packages at the latest version.</li>
-<li><code>search &lt;query&gt;</code> - Search package by query, for example by name or description part.</li>
-<li><code>show &lt;packages&gt;</code> - Show basic metadata, such as dependencies.</li>
-<li><code>uninstall &lt;packages&gt;</code> - Uninstall specified packages. Configuration files will be left intact.</li>
-<li><code>upgrade</code> - Upgrade all installed packages to the latest version.</li>
+<li>Commands:  <ul>
+<li><code>autoclean</code> - Remove all outdated packages from apt cache.  </li>
+<li><code>clean</code> - Remove all packages from apt cache.  </li>
+<li><code>files &lt;packages&gt;</code> - Show all files installed by packages.  </li>
+<li><code>install &lt;packages&gt;</code> - Install specified packages.  </li>
+<li><code>list-all</code> - List all packages available in repositories.  </li>
+<li><code>list-installed</code> - List installed packages.  </li>
+<li><code>reinstall &lt;packages&gt;</code> - Reinstall specified installed packages at the latest version.  </li>
+<li><code>search &lt;query&gt;</code> - Search package by query, for example by name or description part.  </li>
+<li><code>show &lt;packages&gt;</code> - Show basic metadata, such as dependencies.  </li>
+<li><code>uninstall &lt;packages&gt;</code> - Uninstall specified packages. Configuration files will be left intact.  </li>
+<li><code>upgrade</code> - Upgrade all installed packages to the latest version.  </li>
 <li><code>update</code> - Update apt databases from configured repositories.</li>
 </ul>
 </li>
@@ -531,18 +660,18 @@ Do you want to accept these changes and continue updating from this repository? 
 <ul>
 <li>Usage: <code>apt [options] command</code></li>
 <li>Synopsys: <code>apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}</code></li>
-<li>Most used commands:<ul>
-<li><code>list</code> - list packages based on package names</li>
-<li><code>search</code> - search in package descriptions</li>
-<li><code>show</code> - show package details</li>
-<li><code>install</code> - install packages</li>
-<li><code>reinstall</code> - reinstall packages</li>
-<li><code>remove</code> - remove packages</li>
-<li><code>autoremove</code> - automatically remove all unused packages</li>
-<li><code>update</code> - update list of available packages</li>
-<li><code>upgrade</code> - upgrade the system by installing/upgrading packages</li>
-<li><code>full-upgrade</code> - upgrade the system by removing/installing/upgrading packages</li>
-<li><code>edit-sources</code> - edit the source information file</li>
+<li>Most used commands:  <ul>
+<li><code>list</code> - list packages based on package names  </li>
+<li><code>search</code> - search in package descriptions  </li>
+<li><code>show</code> - show package details  </li>
+<li><code>install</code> - install packages  </li>
+<li><code>reinstall</code> - reinstall packages  </li>
+<li><code>remove</code> - remove packages  </li>
+<li><code>autoremove</code> - automatically remove all unused packages  </li>
+<li><code>update</code> - update list of available packages  </li>
+<li><code>upgrade</code> - upgrade the system by installing/upgrading packages  </li>
+<li><code>full-upgrade</code> - upgrade the system by removing/installing/upgrading packages  </li>
+<li><code>edit-sources</code> - edit the source information file  </li>
 <li><code>satisfy</code> - satisfy dependency strings</li>
 </ul>
 </li>
@@ -556,16 +685,17 @@ Do you want to accept these changes and continue updating from this repository? 
 <p>Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU.</p>
 <p>You may get <code>Process completed (signal 9) - press Enter</code> message in the terminal without actually exiting the shell process yourself. </p>
 <p>Here is the guide of how to turn it off.</p>
-<h4>Fix for Stock Android 12L and beyond</h4>
+<h4>Graphical Fix</h4>
+<p>This fix is generally available for Stock Android 12L and beyond, and often unavailable for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android. If this fix is not available for your phone, please refer to the command line solution in next section.</p>
 <ol>
-<li>In phone&#39;s Settings or something similar, go to About Phone &gt; Software Information or something similar, and tap the Version Number seven times to enable Developer Options. Some phones may have different methods to enable Developer Options.</li>
-<li>Find the section named Feature Flags, enter via clicking it.</li>
-<li>Find the switch to toggle off settings_enable_monitor_phantom_procs to disable phantom process killer.</li>
-<li>To enable phantom process killer again, just toggle on the switch.</li>
+<li>In phone&#39;s Settings or something similar, go to <code>About Phone &gt; Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
+<li>Click the section named <code>Feature Flags</code>.</li>
+<li>Toggle off <code>settings_enable_monitor_phantom_procs</code> to disable phantom process killer.</li>
+<li>To enable phantom process killer again, just toggle on <code>settings_enable_monitor_phantom_procs</code>.</li>
 </ol>
-<h4>Fix for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android 12L and beyond</h4>
+<h4>Command Line Fix</h4>
 <ol>
-<li>Connect to Android Debug Bridge (ADB) of your Android device from another device or via Shizuku.</li>
+<li>Connect to Android Debug Bridge (ADB) of your Android device from another device or via Shizuku. For people who are new to them, please refer to the tutorial for them in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>.</li>
 <li>Type <code>adb shell</code> to enter <code>adb shell</code>.</li>
 <li>Run the following commands inside <code>adb shell</code>:</li>
 </ol>
@@ -573,13 +703,13 @@ Do you want to accept these changes and continue updating from this repository? 
 /system/bin/device_config put activity_manager max_phantom_processes 2147483647
 settings put global settings_enable_monitor_phantom_procs false
 </code></pre>
-<ol start="4">
+<ol>
 <li>To check the status of whether phantom process killer is disabled, run the following commands inside <code>adb shell</code>:</li>
 </ol>
 <pre><code>/system/bin/dumpsys activity settings | grep max_phantom_processes
 /system/bin/device_config get activity_manager max_phantom_processes
 </code></pre>
-<ol start="5">
+<ol>
 <li>To enable phantom process killer again, run the following commands inside <code>adb shell</code>:</li>
 </ol>
 <pre><code>/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
@@ -597,51 +727,9 @@ settings put global settings_enable_monitor_phantom_procs true
 <li><a href="https://issuetracker.google.com/u/1/issues/205156966">https://issuetracker.google.com/u/1/issues/205156966</a>.</li>
 <li><a href="https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md">https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md</a>.</li>
 </ul>
-<h3>Termux:Styling</h3>
-<p>Termux:Styling can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.styling">https://f-droid.org/packages/com.termux.styling</a>.</p>
-<p>This plugin for Termux provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.</p>
-<p>Long-press anywhere on the Termux terminal and use the &quot;Style&quot; menu entry to use after installation.</p>
-<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Styling">https://wiki.termux.com/wiki/Termux:Styling</a> for more information.</p>
-<h3>Termux:Widget</h3>
-<p>Termux:Widget can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.widget">https://f-droid.org/packages/com.termux.widget</a>.</p>
-<p>Add-on app which adds shortcuts to Termux scripts and commands on the home screen. Scripts should be placed in the <code>$HOME/.shortcuts/</code> folder to allow quick access to frequently used commands without typing.</p>
-<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Widget">https://wiki.termux.com/wiki/Termux:Widget</a> for more information.</p>
-<h3>Termux:Boot</h3>
-<p>Termux:Boot can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.boot">https://f-droid.org/packages/com.termux.boot</a>.</p>
-<p>This plugin for Termux allows programs to be run at boot.</p>
-<p>Instructions:</p>
-<ul>
-<li>Start the Termux:Boot app once by clicking on its launcher icon.</li>
-<li>This allow the app to be run at boot.</li>
-<li>Create the <code>~/.termux/boot/</code> directory.</li>
-<li>Put scripts you want to execute inside the <code>~/.termux/boot/</code> directory.</li>
-<li>If there are multiple files, they will be executed in a sorted order.</li>
-</ul>
-<p>Note that you may want to run <code>termux-wake-lock</code> as first thing want to ensure that the device is prevented from sleeping.</p>
-<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Boot">https://wiki.termux.com/wiki/Termux:Boot</a> for more information.</p>
-<h3>Termux:Float</h3>
-<p>Termux:Float can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.float">https://f-droid.org/packages/com.termux.float</a>.</p>
-<p>This plugin for Termux provides a floating terminal window which is shown above other apps.</p>
-<p>Long-press on the floating window to move or resize it and tap on the notification to temporarily hide it.</p>
-<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:Float">https://wiki.termux.com/wiki/Termux:Float</a> for more information.</p>
-<h3>Termux:API</h3>
-<p>Termux:API can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux.api">https://f-droid.org/packages/com.termux.api</a>.</p>
-<p>Expose basic Android functionality like sending SMS or accessing GPS data to the Termux app. This is an add-on which requires that the main Termux app is installed to use.</p>
-<ul>
-<li>Read and send sms messages from your terminal.</li>
-<li>Access device GPS location sensor from scripts.</li>
-<li>Pipe the result of commands into the device text-to-speech engine.</li>
-<li>Vibrate the device when something interesting happens.</li>
-<li>Access the system clipboard from shell scripts.</li>
-<li>List contacts from the system contact list.</li>
-</ul>
-<p>Besides installing this app an additional package is required to install inside Termux:</p>
-<pre><code>apt install termux-api
-</code></pre>
-<p>Read the official wiki: <a href="https://wiki.termux.com/wiki/Termux:API">https://wiki.termux.com/wiki/Termux:API</a> for more information.</p>
 <hr>
-<h2>Termux Graphical Environment with VNC Server, and Fluxbox or Openbox Windows Manager or XFCE, LXQt, or MATE Desktop Environment</h2>
-<p>My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts and instructions for Termux.</p>
+<h2>TigerVNC, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment</h2>
+<p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3>Enable the X11 Repository of Termux</h3>
 <p>X11 packages are available in a separate APT repository. You can enable it by running the following command:</p>
 <pre><code>pkg install x11-repo
@@ -649,8 +737,7 @@ settings put global settings_enable_monitor_phantom_procs true
 <p>It will automatically add appropriate sources.list file and PGP key. You can disable this repository by running the following command:</p>
 <pre><code>pkg uninstall x11-repo
 </code></pre>
-<h3>VNC Server in Termux</h3>
-<p>In this section, you will learn how to set up a VNC server in Termux for graphical output.</p>
+<h3>TigerVNC Server in Termux</h3>
 <h4>Install TigerVNC</h4>
 <pre><code>pkg install tigervnc
 </code></pre>
@@ -685,7 +772,7 @@ Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
 </code></pre>
 <p>You may even put this variable to your bashrc or profile so you don&#39;t have to always set it manually unless display address will be changed.</p>
 <p>Connect to the VNC server from a VNC viewer to view the output, you will not see anything except your mouse pointer if no windows manager or desktop environment is started.</p>
-<h4>Kill All VNC Servers</h4>
+<h4>Kill VNC Server</h4>
 <pre><code>vncserver -kill localhost:1
 </code></pre>
 <p>Change the port with the actual port your VNC server started on.</p>
@@ -698,13 +785,7 @@ Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
 </code></pre>
 <p>Copy below and paste to it:</p>
 <pre><code>#!/data/data/com.termux/files/usr/bin/sh
-
-## Fluxbox desktop.
-
-# Generate menu.
 fluxbox-generate_menu
-
-# Start fluxbox.
 fluxbox &amp;
 </code></pre>
 <p>Fluxbox will start automatically on VNC server startup.</p>
@@ -717,8 +798,6 @@ fluxbox &amp;
 </code></pre>
 <p>Copy below and paste to it:</p>
 <pre><code>#!/data/data/com.termux/files/usr/bin/sh
-
-# Start Openbox.
 openbox-session &amp;
 </code></pre>
 <p>Don&#39;t put any else command to the file <code>~/.vnc/xstartup</code> but only the lines shown above since Openbox has its own autostart script, which is located at <code>${PREFIX}/etc/xdg/openbox/autostart</code>.</p>
@@ -727,8 +806,6 @@ openbox-session &amp;
 <p>Copy below and paste to it:</p>
 <pre><code># Make background gray.
 xsetroot -solid gray
-
-# Launch PyPanel.
 pypanel &amp;
 </code></pre>
 <p>Openbox will start automatically on VNC server startup.</p>
@@ -791,8 +868,8 @@ mate-session &amp;
 <li><a href="https://github.com/termux/x11-packages">https://github.com/termux/x11-packages</a>.</li>
 </ul>
 <hr>
-<h2>PRoot-Distro with Termux: Install Linux Distributions in Termux (No Root Required)</h2>
-<p>My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts and instructions for Termux.</p>
+<h2>PRoot-Distro with Termux: Install Linux Distributions in Termux</h2>
+<p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3>Introduction of Chroot, PRoot, PRoot-Distro</h3>
 <ul>
 <li>Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.</li>
@@ -802,16 +879,16 @@ mate-session &amp;
 <h3>PRoot-Distro Usage</h3>
 <ul>
 <li>Usage: proot-distro [COMMAND] [ARGUMENTS]</li>
-<li>Commands:<ul>
-<li>help - Show this help information.</li>
-<li>backup - Backup a specified distribution.</li>
-<li>install - Install a specified distribution.</li>
-<li>list - List supported distributions and their installation status.</li>
-<li>login - Start login shell for the specified distribution.</li>
-<li>remove - Delete a specified distribution. WARNING: this command destroys data!</li>
-<li>rename - Rename installed distribution.</li>
-<li>reset - Reinstall from scratch a specified distribution. WARNING: this command destroys data!</li>
-<li>restore - Restore a specified distribution. WARNING: this command destroys data!</li>
+<li>Commands:  <ul>
+<li>help - Show this help information.  </li>
+<li>backup - Backup a specified distribution.  </li>
+<li>install - Install a specified distribution.  </li>
+<li>list - List supported distributions and their installation status.  </li>
+<li>login - Start login shell for the specified distribution.  </li>
+<li>remove - Delete a specified distribution. WARNING: this command destroys data!  </li>
+<li>rename - Rename installed distribution.  </li>
+<li>reset - Reinstall from scratch a specified distribution. WARNING: this command destroys data!  </li>
+<li>restore - Restore a specified distribution. WARNING: this command destroys data!  </li>
 <li>clear-cache - Clear cache of downloaded files.</li>
 </ul>
 </li>
@@ -842,8 +919,8 @@ mate-session &amp;
 </code></pre>
 <p>If you have issues with proot during installation or login, try to set <code>PROOT_NO_SECCOMP=1</code> environment variable.</p>
 <hr>
-<h2>Andronix with Termux: Install Linux Distributions in Termux (No Root Required)</h2>
-<p>My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts and instructions for Termux.</p>
+<h2>Andronix with Termux: Install Linux Distributions in Termux</h2>
+<p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3>Optional: Install Andronix App</h3>
 <p>Andronix can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</p>
 <p>Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won&#39;t be mentioned in this tutorial.</p>
@@ -868,8 +945,8 @@ mate-session &amp;
 <li>Andronix will automatically copy the command to your clipboard.</li>
 <li>Paste and run in Termux (Not inside that OS).</li>
 </ol>
-<h3>Sound Output from PRoot OS</h3>
-<h4>Install and Setup Sound Output from PRoot OS</h4>
+<h3>PulseAudio Server Sound Output</h3>
+<h4>Install and Setup</h4>
 <p>Run the following command in Termux (Not inside that OS):</p>
 <pre><code>pkg install wget &amp;&amp; wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh &amp;&amp; chmod +x setup-audio.sh &amp;&amp; ./setup-audio.sh
 </code></pre>
@@ -911,8 +988,8 @@ mate-session &amp;
 <li><a href="https://wiki.termux.com/wiki/PRoot">https://wiki.termux.com/wiki/PRoot</a>.</li>
 </ul>
 <hr>
-<h2>QEMU System Emulation with Termux: Full System Emulation of Multiple CPU Architectures and Operating Systems with ISO or QCOW2 Image</h2>
-<p>My main development about emulation (proot, proot-distro, qemu-system, box64, wine64, etc.) and developement tools in Termux has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts and instructions for Termux.</p>
+<h2>QEMU System Emulation with Termux: Full System Emulation</h2>
+<p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3>Install QEMU System Emulation for x86-64</h3>
 <p>Run the following command in Termux:</p>
 <pre><code>pkg update &amp;&amp; pkg install qemu-utils qemu-common qemu-system-x86-64-headless wget -y
@@ -1175,9 +1252,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <li><a href="https://shizuku.rikka.app">https://shizuku.rikka.app</a>.</li>
 </ul>
 <hr>
-<h2>Tor Browser</h2>
-<h3>Install Tor Browser</h3>
-<p>You can install Tor Browser from Google Play: <a href="https://play.google.com/store/apps/details?id=org.torproject.torbrowser">https://play.google.com/store/apps/details?id=org.torproject.torbrowser</a>.</p>
+<h2>Tor, Tor Browser, and NoScript Security Suite</h2>
 <h3>Introduction of Tor</h3>
 <p>Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.</p>
 <p>Using Tor makes it more difficult to trace a user&#39;s Internet activity by preventing any single point on the Internet (other than the user&#39;s device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user&#39;s location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user&#39;s freedom and ability to communicate confidentially.</p>
@@ -1189,12 +1264,15 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <li>Bypass Censorship: Tor can help users bypass censorship and access restricted content by routing traffic through nodes in different countries.</li>
 <li>Privacy Tools: The Tor Browser, based on Mozilla Firefox, comes preconfigured with privacy enhancements, making it easier for users to maintain anonymity while browsing.</li>
 </ul>
-<p>The Tor Browser for Android is a mobile version of the Tor Browser that utilizes Mozilla Firefox for Android codebase.</p>
 <p>Some services may crash when routing traffic through Tor, changing the Exit nodes may help.</p>
+<h3>Install Tor Browser</h3>
+<p>Tor Browser can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=org.torproject.torbrowser">https://play.google.com/store/apps/details?id=org.torproject.torbrowser</a> or the F-Droid repository of the Guardian Project: <a href="https://guardianproject.info/fdroid/repo">https://guardianproject.info/fdroid/repo</a>. For the latter, please refer to <a href="#f-droid-repositories">F-Droid Repositories</a> for more information about how to add a F-Droid repository to your F-Droid client app.</p>
+<p>The Tor Browser for Android is a mobile version of the Tor Browser that utilizes Mozilla Firefox for Android codebase.</p>
 <h3>NoScript Security Suite</h3>
 <p>NoScript (or NoScript Security Suite) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension&#39;s toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.</p>
 <hr>
 <h2>TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</h2>
+<p>This section mentions Tor, for people who are new to it, please refer to the tutorial for it in <a href="#tor-tor-browser-and-noscript-security-suite">Tor, Tor Browser, and NoScript Security Suite</a>.</p>
 <h3>Install InviZible Pro</h3>
 <p>InviZible Pro can be installed from F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</p>
 <h3>Install TrackerControl</h3>
@@ -1506,7 +1584,7 @@ UseBridges 0
 <li>Settings for DNSCRypt and Tor, DNSCrypr only, and Tor only remain the same as the above counterparts that is used with TrackerControl except that those parts coordinated with <code>Port forwarding</code> of TrackerControl are no longer needed.</li>
 </ul>
 <hr>
-<h2>OpenSSL: Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Protocols and Cryptography Library Implementation</h2>
+<h2>OpenSSL: SSL and TLS Protocals and Cryptography Library Implementation</h2>
 <h3>Introduction of OpenSSL</h3>
 <p>OpenSSL is an open-source library that provides a comprehensive suite of cryptographic tools for securing communications over computer networks. It implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols and includes a general-purpose cryptographic library that supports a variety of encryption algorithms, hashing functions, digital signatures, key generation, certificate management, and secure random number generation.</p>
 <h3>Install OpenSSL in Termux</h3>
@@ -1571,29 +1649,29 @@ UseBridges 0
 <li><code>-help</code>: Print out a usage message.</li>
 <li><code>-in filename</code>: This specifies the input filename to read data from or standard input if this option is not specified.</li>
 <li><code>-rawin</code>: This indicates that the input data is raw data, which is not hashed by any message digest algorithm. The user can specify a digest algorithm by using the <code>-digest</code> option. This option can only be used with <code>-sign</code> and <code>-verify</code> and must be used with the Ed25519 and Ed448 algorithms.</li>
-<li><code>-digest algorithm</code>: This specifies the digest algorithm which is used to hash the input data before signing or verifying it with the input key. This option could be omitted if the signature algorithm does not require one  (for instance, EdDSA). If this option is omitted but the signature algorithm requires one, a default value will be used. For signature algorithms like RSA, DSA and ECDSA, SHA-256 will be the default digest algorithm. For SM2, it will be SM3. If this option is present, then the <code>-rawin</code> option must be also specified.</li>
+<li><code>-digest algorithm</code>: This specifies the digest algorithm which is used to hash the input data before signing or verifying it with the input key. This option could be omitted if the signature algorithm does not require one (for instance, EdDSA). If this option is omitted but the signature algorithm requires one, a default value will be used. For signature algorithms like RSA, DSA and ECDSA, SHA-256 will be the default digest algorithm. For SM2, it will be SM3. If this option is present, then the <code>-rawin</code> option must be also specified.</li>
 <li><code>-out filename</code>: Specifies the output filename to write to or standard output by default.</li>
 <li><code>-sigfile file</code>: Signature file, required for <code>-verify</code> operations only.</li>
 <li><code>-inkey filename|uri</code>: The input key, by default it should be a private key.</li>
 <li><code>-keyform DER|PEM|P12|ENGINE</code>: The key format; unspecified by default. See openssl-format-options (1) for details.</li>
 <li><code>-passin arg</code>: The input key password source. For more information about the format of arg see openssl-passphrase-options (1).</li>
-<li><code>-peerkey file</code>: The peer key file, used by key derivation  (agreement) operations.</li>
+<li><code>-peerkey file</code>: The peer key file, used by key derivation (agreement) operations.</li>
 <li><code>-peerform DER|PEM|P12|ENGINE</code>: The peer key format; unspecified by default. See openssl-format-options (1) for details.</li>
 <li><code>-pubin</code>: By default a private key is read from the key input. With this option a public key is read instead. If the input contains no public key but a private key, its public part is used.</li>
 <li><code>-certin</code>: The input is a certificate containing a public key.</li>
-<li><code>-rev</code>: Reverse the order of the input buffer. This is useful for some libraries  (such as CryptoAPI) which represent the buffer in little endian format.</li>
+<li><code>-rev</code>: Reverse the order of the input buffer. This is useful for some libraries (such as CryptoAPI) which represent the buffer in little endian format.</li>
 <li><code>-sigfile file</code>: Signature file, required for <code>-verify</code> operations only.</li>
 <li><code>-inkey filename|uri</code>: The input key, by default it should be a private key.</li>
 <li><code>-keyform DER|PEM|P12|ENGINE</code>: The key format; unspecified by default. See openssl-format-options (1) for details.</li>
 <li><code>-passin arg</code>: The input key password source. For more information about the format of arg see openssl-passphrase-options (1).</li>
-<li><code>-peerkey file</code>: The peer key file, used by key derivation  (agreement) operations.</li>
+<li><code>-peerkey file</code>: The peer key file, used by key derivation (agreement) operations.</li>
 <li><code>-peerform DER|PEM|P12|ENGINE</code>: The peer key format; unspecified by default. See openssl-format-options (1) for details.</li>
 <li><code>-pubin</code>: By default a private key is read from the key input. With this option a public key is read instead. If the input contains no public key but a private key, its public part is used.</li>
 <li><code>-certin</code>: The input is a certificate containing a public key.</li>
-<li><code>-rev</code>: Reverse the order of the input buffer. This is useful for some libraries  (such as CryptoAPI) which represent the buffer in little endian format.</li>
-<li><code>-sign</code>: Sign the input data  (which must be a hash) and output the signed result. This requires a private key.</li>
-<li><code>-verify</code>: Verify the input data  (which must be a hash) against the signature file and indicate if the verification succeeded or failed.</li>
-<li><code>-verifyrecover</code>: Verify the input data  (which must be a hash) and output the recovered data.</li>
+<li><code>-rev</code>: Reverse the order of the input buffer. This is useful for some libraries (such as CryptoAPI) which represent the buffer in little endian format.</li>
+<li><code>-sign</code>: Sign the input data (which must be a hash) and output the signed result. This requires a private key.</li>
+<li><code>-verify</code>: Verify the input data (which must be a hash) against the signature file and indicate if the verification succeeded or failed.</li>
+<li><code>-verifyrecover</code>: Verify the input data (which must be a hash) and output the recovered data.</li>
 <li><code>-encrypt</code>: Encrypt the input data using a public key.</li>
 <li><code>-decrypt</code>: Decrypt the input data using a private key.</li>
 <li><code>-derive</code>: Derive a shared secret using the peer key.</li>
@@ -1668,7 +1746,7 @@ UseBridges 0
 <li><code>-saltlen</code>: Set the salt length to use when using the <code>-pbkdf2</code> option. For compatibility reasons, the default is 8 bytes. The maximum value is currently 16 bytes. If the <code>-pbkdf2</code> option is not used, then this option is ignored and a fixed salt length of 8 is used. The salt length used when encrypting must also be used when decrypting.</li>
 <li><code>-nosalt</code>: Don&#39;t use a salt in the key derivation routines. This option SHOULD NOT be used except for test purposes or compatibility with ancient versions of OpenSSL.</li>
 <li><code>-z</code>: Compress or decompress encrypted data using zlib after encryption or before decryption. This option exists only if OpenSSL was compiled with the zlib or zlib-dynamic option.</li>
-<li><code>-none</code>: Use NULL cipher  (no encryption or decryption of input).</li>
+<li><code>-none</code>: Use NULL cipher (no encryption or decryption of input).</li>
 <li><code>-rand files</code>, <code>-writerand file</code>: See &quot;Random State Options&quot; in openssl (1) for details.</li>
 <li><code>-provider name</code>: See &quot;Provider Options&quot; in openssl (1), provider (7), and property (7).</li>
 <li><code>-provider-path path</code>: See &quot;Provider Options&quot; in openssl (1), provider (7), and property (7).</li>
@@ -1828,11 +1906,11 @@ UseBridges 0
 <li>sm4-ofb</li>
 </ul>
 <hr>
-<h2>OpenSSH, SCP, SFTP, and Material Files: Secure Remote Access</h2>
-<h3>Introduction of SSH and OpenSSH</h3>
+<h2>OpenSSH: Secure Remote Access with SSH, SCP, and SFTP</h2>
+<h3>Introduction of SSH (Secure Shell) and OpenSSH</h3>
 <ul>
 <li>SSH provides a secure way for accessing remote hosts and replaces tools such as telnet, rlogin, rsh, ftp.</li>
-<li>OpenSSH (also known as OpenBSD Secure Shell) is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.</li>
+<li>OpenSSH, also known as OpenBSD Secure Shell, is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.</li>
 <li>Default SSH port in Termux is <code>8022</code>.</li>
 <li>Default SSH port in Linux is usually <code>22</code>.</li>
 </ul>
@@ -1910,32 +1988,17 @@ sudo ufw allow ssh
 <p>You need to delete the original key if the server is reset.</p>
 <p>If you&#39;re using password authentication, you won&#39;t need to generate key.</p>
 <h3>SCP (Secure Copy Protocol)</h3>
+<p>SCP is a simple command-line tool for securely copying files between local and remote systems based on the <code>rcp</code> (remote copy) command but uses SSH for security. It is faster but less flexible than SFTP.</p>
 <p>You can use <code>scp</code> on the client side to transfer files between the server side and the client side.</p>
-<p>The syntax of <code>scp</code> is the same as that of <code>cp</code>, but with the <code>username@host:</code> added before the path to copy to or from the server. For example:</p>
-<pre><code>scp -r root@localhost:/root/Desktop /data/data/com.termux/files/home/
+<p>The syntax of <code>scp</code> is generally the same as that of <code>cp</code>, but with the <code>&lt;user@remote&gt;:</code> added before the path from the server and optional <code>-P &lt;port&gt;</code> to specify the port. For example:</p>
+<pre><code>scp -r root@localhost:/root/Desktop /data/data/com.termux/files/home -P 22
 </code></pre>
-<p>Use SFTP server mount if you encounter errors in this method.</p>
-<h3>SFTP Server Mound on Material Files</h3>
-<h4>Introduction of SFTP</h4>
-<p>SFTP, or Secure File Transfer Protocol, is a secure network protocol used for transferring files over a secure connection. It is an extension of the SSH (Secure Shell) protocol, which means it provides the same level of security and encryption that SSH offers. Here are some key points about SFTP:</p>
-<ul>
-<li>Security: SFTP encrypts both commands and data. This makes it more secure than traditional FTP (File Transfer Protocol).</li>
-<li>Authentication: SFTP supports various password-based and key-based authentication.</li>
-<li>File Management: SFTP allows for various file management operations, such as listing files, changing directories, and deleting files.</li>
-<li>Port: SFTP typically operates over the same port used by SSH.</li>
-<li>Cross-Platform: SFTP is supported on various platforms, making it a versatile option for file transfers across different systems.</li>
-</ul>
-<h4>Install Material Files</h4>
-<p>You can install Material Files from Google Play: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a> or F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files">https://f-droid.org/packages/me.zhanghai.android.files</a>.</p>
-<h4>Mount SFTP Server</h4>
-<ul>
-<li>Connect to the SSH server with Termux or other clients on your Android device.</li>
-<li>Open the left menu.</li>
-<li>Tap Add storage ….</li>
-<li>Tap SFTP server.</li>
-<li>Input necessary information. Hostname, Port, etc. means those of the SSH server. Leave path empty to mount the whole file system of the server side.</li>
-<li>You can manage the file system of the SSH server like managing local storage now.</li>
-</ul>
+<h3>SFTP (Secure File Transfer Protocol)</h3>
+<p>SFTP is a full-fledged file transfer protocol that runs over SSH. This makes it more secure than traditional FTP (File Transfer Protocol). SFTP allows for various file management operations, such as listing, renaming, deleting directories and files, and changing directories.</p>
+<p>The syntax of <code>sftp</code>, which connects to the server from the client, is generally the same as that of <code>ssh</code>. For example:</p>
+<pre><code>sftp -p 2222 user@example.com
+</code></pre>
+<p>You can also connect to the sftp server from other clients. One recommended file manager for Android which can connect to sftp server is <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">Material Files</a>. My tutorial for it is available in <a href="#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support">Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support</a>.</p>
 <h3>Further Readings and References about OpenSSH with Linux and Termux</h3>
 <ul>
 <li><a href="https://www.openssh.com">https://www.openssh.com</a>.</li>
@@ -1989,15 +2052,15 @@ sudo ufw allow ssh
 <p>SD Maid SE (also known as SD Maid 2 or SD Maid 2/SE) is a file management tool and system cleaner for Android that specializes in maintenance, freeing up space, and removing unwanted data.</p>
 <p>Features include:</p>
 <ul>
-<li>CorpseFinder - Removing data that belongs to apps that are no longer installed</li>
-<li>SystemCleaner: User configurable filters for random files</li>
-<li>AppControl - Controling/disabling apps</li>
-<li>StorageAnalyzer - Storage overview</li>
+<li><code>CorpseFinder</code> - Removing data that belongs to apps that are no longer installed</li>
+<li><code>SystemCleaner</code>: User configurable filters for random files</li>
+<li><code>AppControl</code> - Controling/disabling apps</li>
+<li><code>StorageAnalyzer</code> - Storage overview</li>
 <li>Root and Shizuku support</li>
 </ul>
 <h3>Use SD Maid SE with Shizuku</h3>
 <ul>
-<li>Setup Shizuku. You can follow the guide in <a href="#shizukusystemuitunerandashelluselocaladbofandroiddeviceonterminalssuchastermuxwithoutanotherdevicewithshizukuleavedeveloperoptionsoffwhendoingsowithsystemuituneranduseadbwithfeatureslikeautocompletesuggestionwithashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>. The part about using SystemUI Tuner to enable ADB persistently in order to keep Shizuku running when Developer Options is turned off isn&#39;t necessary here but recommended if you want to keep SD Maid SE using Shizuku.</li>
+<li>Setup Shizuku. For people who are new to it, please refer to the tutorial for it in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>. The part about using SystemUI Tuner to enable ADB persistently in order to keep Shizuku running when Developer Options is turned off isn&#39;t necessary here but recommended if you want to keep SD Maid SE using Shizuku.</li>
 <li>Give consent for SD Maid SE to use Shizuku inside SD Maid SE, you can use it to enable/disable SD Maid SE&#39;s use of Shizuku.</li>
 <li>After giving consent, a Grant access dialog from Shizuku should show.</li>
 <li>Confirm the dialog.</li>
@@ -2009,6 +2072,31 @@ sudo ufw allow ssh
 <p>The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn&#39;t need an internet connection and has no tracking software. Some of the commands available in Linux are available in Termux too, such as <code>cp</code>, <code>mv</code>, <code>ls</code>, <code>mkdir</code>, <code>apt</code>, and <code>apt-get</code>.</p>
 <h3>Install and Use Linux Command Library</h3>
 <p>You can install Linux Command Library in Google Play: <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca">https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca</a> or F-Droid: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca</a>, or browse it on its official website: <a href="https://linuxcommandlibrary.com">https://linuxcommandlibrary.com</a>.</p>
+<hr>
+<h2>Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support</h2>
+<h3>Install Material Files</h3>
+<p>Material Files can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a> or F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files">https://f-droid.org/packages/me.zhanghai.android.files</a>.</p>
+<h3>Features of Material Files</h3>
+<ul>
+<li>Open source: Lightweight, clean and secure.</li>
+<li>Material Design: Follows Material Design guidelines, with attention into details.</li>
+<li>Breadcrumbs: Navigate in the filesystem with ease.</li>
+<li>Root support: View and manage files with root access.</li>
+<li>Archive support: View, extract and create common compressed files.</li>
+<li>NAS (Network-Attached Storage) support: View and manage files on FTP, SFTP, SMB and WebDAV servers.</li>
+<li>Themes: Customizable UI colors, plus night mode with optional true black.</li>
+<li>Linux-aware: Knows symbolic links, file permissions and SELinux context.</li>
+<li>Robust: Uses Linux system calls under the hood, not yet another ls parser.</li>
+<li>Well-implemented: Built upon the right things, including Java NIO2 File API and LiveData.</li>
+</ul>
+<h3>Mount External Storage or NAS (Network-Attached Storage) Server</h3>
+<ol>
+<li>Pull out the left sidebar.</li>
+<li>Tap <code>Add storage…</code>.</li>
+<li>Tap the option you want.</li>
+<li>For external storage such as Termux home folder ($HOME), select it from Storage Access Framework (SAF).</li>
+<li>For NAS server, input necessary information such as <code>Hostname</code>, <code>Port</code>, and <code>Path</code>. Leave <code>Path</code> empty to mount the whole file system of the server side.</li>
+</ol>
 <hr>
 <h2>PipePipe: A FLOSS Android App to Let You Browse YouTube, NicoNico and BiliBili Freely.</h2>
 <h3>Install PipePipe</h3>
@@ -2043,15 +2131,133 @@ sudo ufw allow ssh
 <li>Open in browser.</li>
 </ul>
 <hr>
-<h3>VLC for Android: Open Source Media Player and Multimedia Engine</h3>
-<h4>Introduction of VLC</h4>
+<h2>VLC for Android: Open Source Media Player and Multimedia Engine</h2>
+<h3>Introduction of VLC</h3>
 <p>VLC is a libre and open source media player and multimedia engine, focused on playing everything, and running everywhere.</p>
 <p>VLC can play most multimedia files, discs, streams, devices and is also able to convert, encode, stream and manipulate streams into numerous formats.</p>
 <p>VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.</p>
-<h4>Install VLC for Android</h4>
+<h3>Install VLC for Android</h3>
 <p>VLC for Android can be installed from F-Droid: <a href="https://f-droid.org/packages/org.videolan.vlc">https://f-droid.org/packages/org.videolan.vlc</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=org.videolan.vlc">https://play.google.com/store/apps/details?id=org.videolan.vlc</a>.</p>
 <hr>
 <h2>Promoted or Related Works, References, and Bibliography</h2>
+<h3>ANC by Gaurav Ujwal / gujjwal00</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.gaurav.avnc">https://f-droid.org/packages/com.gaurav.avnc</a>.</li>
+<li>GitHub: <a href="https://github.com/gujjwal00/avnc">https://github.com/gujjwal00/avnc</a>.</li>
+</ul>
+<h3>Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</h3>
+<ul>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</li>
+<li>GitHub: <a href="https://github.com/AndronixApp/AndronixOrigin">https://github.com/AndronixApp/AndronixOrigin</a>.</li>
+<li>Official website: <a href="https://docs.andronix.app">https://docs.andronix.app</a>.</li>
+</ul>
+<h3>aShell by Sunil Paul Mathew M. / sunilpaulmathew</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">https://f-droid.org/packages/in.sunilpaulmathew.ashell</a>.</li>
+<li>GitLab: <a href="https://gitlab.com/sunilpaulmathew/ashell">https://gitlab.com/sunilpaulmathew/ashell</a>.</li>
+</ul>
+<h3>Debian</h3>
+<ul>
+<li>Official website: <a href="https://www.debian.org">https://www.debian.org</a>.</li>
+<li>GitLab: <a href="https://salsa.debian.org/public">https://salsa.debian.org/public</a>.</li>
+</ul>
+<h3>DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</h3>
+<ul>
+<li>Official website: <a href="https://dontkillmyapp.com">https://dontkillmyapp.com</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp">https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.urbandroid.dontkillmyapp">https://f-droid.org/packages/com.urbandroid.dontkillmyapp</a>.</li>
+<li>GitHub: <a href="https://github.com/urbandroid-team/dontkillmy-app">https://github.com/urbandroid-team/dontkillmy-app</a>.</li>
+</ul>
+<h3>droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng">https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng">https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng</a>.</li>
+<li>GitHub: <a href="https://github.com/bk138/droidVNC-NG">https://github.com/bk138/droidVNC-NG</a>.</li>
+</ul>
+<h3>F-Droid by F-Droid</h3>
+<ul>
+<li>Official website: <a href="https://f-droid.org">https://f-droid.org</a>.</li>
+<li>GitLab: <a href="https://gitlab.com/fdroid">https://gitlab.com/fdroid</a>.</li>
+</ul>
+<h3>Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</h3>
+<ul>
+<li>Official website: <a href="https://invizible.net/en">https://invizible.net/en</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</li>
+<li>GitHub: <a href="https://github.com/Gedsh/InviZible">https://github.com/Gedsh/InviZible</a>.</li>
+</ul>
+<h3>Linux Command Library by Simon Schubert / SimonSchubert</h3>
+<ul>
+<li>GitHub: <a href="https://github.com/SimonSchubert/LinuxCommandLibrary">https://github.com/SimonSchubert/LinuxCommandLibrary</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca">https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca</a>.</li>
+<li>Official website: <a href="https://linuxcommandlibrary.com">https://linuxcommandlibrary.com</a>.</li>
+</ul>
+<h3>Material Files</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files">https://f-droid.org/packages/me.zhanghai.android.files</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a>.</li>
+<li>GitHub: <a href="https://github.com/zhanghai/MaterialFiles">https://github.com/zhanghai/MaterialFiles</a>.</li>
+</ul>
+<h3>Material Files / MaterialFiles by Hai Zhang / zhanghai</h3>
+<ul>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files">https://f-droid.org/packages/me.zhanghai.android.files</a>.</li>
+<li>GitHub: <a href="https://github.com/zhanghai/MaterialFiles">https://github.com/zhanghai/MaterialFiles</a>.</li>
+</ul>
+<h3>MyIP / IPCheck.ing by Jason Ng / jason5ng32</h3>
+<ul>
+<li>Official website: <a href="https://ipcheck.ing">https://ipcheck.ing</a>.</li>
+<li>GitHub: <a href="https://github.com/jason5ng32/MyIP">https://github.com/jason5ng32/MyIP</a>.</li>
+</ul>
+<h3>NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV</h3>
+<ul>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=eu.faircode.netguard">https://play.google.com/store/apps/details?id=eu.faircode.netguard</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/eu.faircode.netguard">https://f-droid.org/packages/eu.faircode.netguard</a>.</li>
+<li>GitHub: <a href="https://github.com/M66B/NetGuard">https://github.com/M66B/NetGuard</a>.</li>
+<li>Official website of NetGuard: <a href="https://netguard.me">https://netguard.me</a>.</li>
+<li>Official website of FairCode: <a href="https://www.faircode.eu">https://www.faircode.eu</a>.</li>
+</ul>
+<h3>NewPipe by Team NewPipe / TeamNewPipe</h3>
+<ul>
+<li>Official website: <a href="https://newpipe.net">https://newpipe.net</a>.</li>
+<li>NewPipe F-Droid repo: <a href="https://archive.newpipe.net/fdroid/repo">https://archive.newpipe.net/fdroid/repo</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/org.schabi.newpipe">https://f-droid.org/packages/org.schabi.newpipe</a></li>
+<li>GitHub: <a href="https://github.com/TeamNewPipe/NewPipe">https://github.com/TeamNewPipe/NewPipe</a>.</li>
+</ul>
+<h3>OpenSSL by OpenSSL / openssl</h3>
+<ul>
+<li>Official website: <a href="https://www.openssl.org">https://www.openssl.org</a>.</li>
+<li>Official doc: <a href="https://docs.openssl.org">https://docs.openssl.org</a>.</li>
+<li>GitHub: <a href="https://github.com/openssl/openssl">https://github.com/openssl/openssl</a>.</li>
+</ul>
+<h3>PipePipe by InfinityLoop1309 / InfinityLoop1308</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced">https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced</a>.</li>
+<li>GitHub: <a href="https://github.com/InfinityLoop1308/PipePipe">https://github.com/InfinityLoop1308/PipePipe</a>.</li>
+</ul>
+<h3>QEMU by Qemu Project / QEMU</h3>
+<ul>
+<li>GitLab: <a href="https://gitlab.com/qemu-project/qemu">https://gitlab.com/qemu-project/qemu</a>.</li>
+<li>Official website: <a href="https://www.qemu.org">https://www.qemu.org</a>.</li>
+</ul>
+<h3>SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/eu.darken.sdmse">https://f-droid.org/packages/eu.darken.sdmse</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=eu.darken.sdmse">https://play.google.com/store/apps/details?id=eu.darken.sdmse</a>.</li>
+<li>GitHub: <a href="https://github.com/d4rken-org/sdmaid-se">https://github.com/d4rken-org/sdmaid-se</a>.</li>
+</ul>
+<h3>Shizuku by Xingchen &amp; Rikka / RikkaApps</h3>
+<ul>
+<li>Official website: <a href="https://shizuku.rikka.app/guide/setup/?night=1">https://shizuku.rikka.app/guide/setup/?night=1</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api</a>.</li>
+<li>GitHub: <a href="https://github.com/RikkaApps/Shizuku">https://github.com/RikkaApps/Shizuku</a>.</li>
+</ul>
+<h3>SystemUI Tuner by Zachary Wander / zacharee</h3>
+<ul>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner</a>.</li>
+<li>GitHub: <a href="https://github.com/zacharee/Tweaker">https://github.com/zacharee/Tweaker</a>.</li>
+</ul>
 <h3>Termux by Fredrik Fornwall / Termux / termux</h3>
 <ul>
 <li>F-Droid: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a>.</li>
@@ -2061,17 +2267,11 @@ sudo ufw allow ssh
 <li>Official Reddit community: <a href="https://termux.com/community">https://termux.com/community</a>.</li>
 <li>Google Play (deprecated): <a href="https://play.google.com/store/apps/details?id=com.termux">https://play.google.com/store/apps/details?id=com.termux</a>.</li>
 </ul>
-<h3>Termux:Styling by Fredrik Fornwall / Termux / termux</h3>
+<h3>Termux:API by Fredrik Fornwall / Termux / termux</h3>
 <ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.termux.styling">https://f-droid.org/packages/com.termux.styling</a>.</li>
-<li>GitHub: <a href="https://github.com/termux/termux-styling">https://github.com/termux/termux-styling</a>.</li>
-<li>Official wiki: <a href="https://wiki.termux.com/wiki/Termux:Styling">https://wiki.termux.com/wiki/Termux:Styling</a>.</li>
-</ul>
-<h3>Termux:Widget by Fredrik Fornwall / Termux / termux</h3>
-<ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.termux.widget">https://f-droid.org/packages/com.termux.widget</a>.</li>
-<li>GitHub: <a href="https://github.com/termux/termux-widget">https://github.com/termux/termux-widget</a>.</li>
-<li>Official wiki: <a href="https://wiki.termux.com/wiki/Termux:Widget">https://wiki.termux.com/wiki/Termux:Widget</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.termux.api">https://f-droid.org/packages/com.termux.api</a>.</li>
+<li>GitHub: <a href="https://github.com/termux/termux-api">https://github.com/termux/termux-api</a>.</li>
+<li>Official wiki: <a href="https://wiki.termux.com/wiki/Termux:API">https://wiki.termux.com/wiki/Termux:API</a>.</li>
 </ul>
 <h3>Termux:Boot by Fredrik Fornwall / Termux / termux</h3>
 <ul>
@@ -2085,67 +2285,17 @@ sudo ufw allow ssh
 <li>GitHub: <a href="https://github.com/termux/termux-float">https://github.com/termux/termux-float</a>.</li>
 <li>Official wiki: <a href="https://wiki.termux.com/wiki/Termux:Float">https://wiki.termux.com/wiki/Termux:Float</a>.</li>
 </ul>
-<h3>Termux:API by Fredrik Fornwall / Termux / termux</h3>
+<h3>Termux:Styling by Fredrik Fornwall / Termux / termux</h3>
 <ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.termux.api">https://f-droid.org/packages/com.termux.api</a>.</li>
-<li>GitHub: <a href="https://github.com/termux/termux-api">https://github.com/termux/termux-api</a>.</li>
-<li>Official wiki: <a href="https://wiki.termux.com/wiki/Termux:API">https://wiki.termux.com/wiki/Termux:API</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.termux.styling">https://f-droid.org/packages/com.termux.styling</a>.</li>
+<li>GitHub: <a href="https://github.com/termux/termux-styling">https://github.com/termux/termux-styling</a>.</li>
+<li>Official wiki: <a href="https://wiki.termux.com/wiki/Termux:Styling">https://wiki.termux.com/wiki/Termux:Styling</a>.</li>
 </ul>
-<h3>Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</h3>
+<h3>Termux:Widget by Fredrik Fornwall / Termux / termux</h3>
 <ul>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</li>
-<li>GitHub: <a href="https://github.com/AndronixApp/AndronixOrigin">https://github.com/AndronixApp/AndronixOrigin</a>.</li>
-<li>Official website: <a href="https://docs.andronix.app">https://docs.andronix.app</a>.</li>
-</ul>
-<h3>Shizuku by Xingchen &amp; Rikka / RikkaApps</h3>
-<ul>
-<li>Official website: <a href="https://shizuku.rikka.app/guide/setup/?night=1">https://shizuku.rikka.app/guide/setup/?night=1</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api</a>.</li>
-<li>GitHub: <a href="https://github.com/RikkaApps/Shizuku">https://github.com/RikkaApps/Shizuku</a>.</li>
-</ul>
-<h3>SystemUI Tuner by Zachary Wander / zacharee</h3>
-<ul>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner</a>.</li>
-<li>GitHub: <a href="https://github.com/zacharee/Tweaker">https://github.com/zacharee/Tweaker</a>.</li>
-</ul>
-<h3>Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</h3>
-<ul>
-<li>Official website: <a href="https://invizible.net/en">https://invizible.net/en</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</li>
-<li>GitHub: <a href="https://github.com/Gedsh/InviZible">https://github.com/Gedsh/InviZible</a>.</li>
-</ul>
-<h3>TrackerControl / TC by TrackerControl / Oxford HCC</h3>
-<ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid">https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid</a>.</li>
-<li>GitHub: <a href="https://github.com/TrackerControl/tracker-control-android">https://github.com/TrackerControl/tracker-control-android</a>.</li>
-<li>Official website: <a href="https://trackercontrol.org">https://trackercontrol.org</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play">https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play</a>.</li>
-</ul>
-<h3>NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV</h3>
-<ul>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=eu.faircode.netguard">https://play.google.com/store/apps/details?id=eu.faircode.netguard</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/eu.faircode.netguard">https://f-droid.org/packages/eu.faircode.netguard</a>.</li>
-<li>GitHub: <a href="https://github.com/M66B/NetGuard">https://github.com/M66B/NetGuard</a>.</li>
-<li>Official website of NetGuard: <a href="https://netguard.me">https://netguard.me</a>.</li>
-<li>Official website of FairCode: <a href="https://www.faircode.eu">https://www.faircode.eu</a>.</li>
-</ul>
-<h3>DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</h3>
-<ul>
-<li>Official website: <a href="https://dontkillmyapp.com">https://dontkillmyapp.com</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp">https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.urbandroid.dontkillmyapp">https://f-droid.org/packages/com.urbandroid.dontkillmyapp</a>.</li>
-<li>GitHub: <a href="https://github.com/urbandroid-team/dontkillmy-app">https://github.com/urbandroid-team/dontkillmy-app</a>.</li>
-</ul>
-<h3>aShell by Sunil Paul Mathew M. / sunilpaulmathew</h3>
-<ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">https://f-droid.org/packages/in.sunilpaulmathew.ashell</a>.</li>
-<li>GitLab: <a href="https://gitlab.com/sunilpaulmathew/ashell">https://gitlab.com/sunilpaulmathew/ashell</a>.</li>
-</ul>
-<h3>QEMU by Qemu Project / QEMU</h3>
-<ul>
-<li>GitLab: <a href="https://gitlab.com/qemu-project/qemu">https://gitlab.com/qemu-project/qemu</a>.</li>
-<li>Official website: <a href="https://www.qemu.org">https://www.qemu.org</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.termux.widget">https://f-droid.org/packages/com.termux.widget</a>.</li>
+<li>GitHub: <a href="https://github.com/termux/termux-widget">https://github.com/termux/termux-widget</a>.</li>
+<li>Official wiki: <a href="https://wiki.termux.com/wiki/Termux:Widget">https://wiki.termux.com/wiki/Termux:Widget</a>.</li>
 </ul>
 <h3>Tor and Tor Browser by The Tor Project</h3>
 <ul>
@@ -2156,63 +2306,12 @@ sudo ufw allow ssh
 <li>Official website: <a href="https://www.torproject.org">https://www.torproject.org</a>.</li>
 <li>Check Tor Project: <a href="https://check.torproject.org">https://check.torproject.org</a>.</li>
 </ul>
-<h3>MyIP / IPCheck.ing by Jason Ng / jason5ng32</h3>
+<h3>TrackerControl / TC by TrackerControl / Oxford HCC</h3>
 <ul>
-<li>Official website: <a href="https://ipcheck.ing">https://ipcheck.ing</a>.</li>
-<li>GitHub: <a href="https://github.com/jason5ng32/MyIP">https://github.com/jason5ng32/MyIP</a>.</li>
-</ul>
-<h3>Debian</h3>
-<ul>
-<li>Official website: <a href="https://www.debian.org">https://www.debian.org</a>.</li>
-<li>GitLab: <a href="https://salsa.debian.org/public">https://salsa.debian.org/public</a>.</li>
-</ul>
-<h3>Linux Command Library by Simon Schubert / SimonSchubert</h3>
-<ul>
-<li>GitHub: <a href="https://github.com/SimonSchubert/LinuxCommandLibrary">https://github.com/SimonSchubert/LinuxCommandLibrary</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca">https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca</a>.</li>
-<li>Official website: <a href="https://linuxcommandlibrary.com">https://linuxcommandlibrary.com</a>.</li>
-</ul>
-<h3>OpenSSL by OpenSSL / openssl</h3>
-<ul>
-<li>Official website: <a href="https://www.openssl.org">https://www.openssl.org</a>.</li>
-<li>Official doc: <a href="https://docs.openssl.org">https://docs.openssl.org</a>.</li>
-<li>GitHub: <a href="https://github.com/openssl/openssl">https://github.com/openssl/openssl</a>.</li>
-</ul>
-<h3>ANC by Gaurav Ujwal / gujjwal00</h3>
-<ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/com.gaurav.avnc">https://f-droid.org/packages/com.gaurav.avnc</a>.</li>
-<li>GitHub: <a href="https://github.com/gujjwal00/avnc">https://github.com/gujjwal00/avnc</a>.</li>
-</ul>
-<h3>Material Files / MaterialFiles by Hai Zhang / zhanghai</h3>
-<ul>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=me.zhanghai.android.files">https://play.google.com/store/apps/details?id=me.zhanghai.android.files</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/me.zhanghai.android.files">https://f-droid.org/packages/me.zhanghai.android.files</a>.</li>
-<li>GitHub: <a href="https://github.com/zhanghai/MaterialFiles">https://github.com/zhanghai/MaterialFiles</a>.</li>
-</ul>
-<h3>SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</h3>
-<ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/eu.darken.sdmse">https://f-droid.org/packages/eu.darken.sdmse</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=eu.darken.sdmse">https://play.google.com/store/apps/details?id=eu.darken.sdmse</a>.</li>
-<li>GitHub: <a href="https://github.com/d4rken-org/sdmaid-se">https://github.com/d4rken-org/sdmaid-se</a>.</li>
-</ul>
-<h3>droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</h3>
-<ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng">https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng</a>.</li>
-<li>Google Play: <a href="https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng">https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng</a>.</li>
-<li>GitHub: <a href="https://github.com/bk138/droidVNC-NG">https://github.com/bk138/droidVNC-NG</a>.</li>
-</ul>
-<h3>PipePipe by InfinityLoop1309 / InfinityLoop1308</h3>
-<ul>
-<li>F-Droid: <a href="https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced">https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced</a>.</li>
-<li>GitHub: <a href="https://github.com/InfinityLoop1308/PipePipe">https://github.com/InfinityLoop1308/PipePipe</a>.</li>
-</ul>
-<h3>NewPipe by Team NewPipe / TeamNewPipe</h3>
-<ul>
-<li>Official website: <a href="https://newpipe.net">https://newpipe.net</a>.</li>
-<li>NewPipe F-Droid repo: <a href="https://archive.newpipe.net/fdroid/repo">https://archive.newpipe.net/fdroid/repo</a>.</li>
-<li>F-Droid: <a href="https://f-droid.org/packages/org.schabi.newpipe">https://f-droid.org/packages/org.schabi.newpipe</a></li>
-<li>GitHub: <a href="https://github.com/TeamNewPipe/NewPipe">https://github.com/TeamNewPipe/NewPipe</a>.</li>
+<li>F-Droid: <a href="https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid">https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid</a>.</li>
+<li>GitHub: <a href="https://github.com/TrackerControl/tracker-control-android">https://github.com/TrackerControl/tracker-control-android</a>.</li>
+<li>Official website: <a href="https://trackercontrol.org">https://trackercontrol.org</a>.</li>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play">https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play</a>.</li>
 </ul>
 <h3>VLC for Android / vlc-android by Videolabs / VLC Mobile Team / VideoLAN / videolan</h3>
 <ul>
@@ -2226,13 +2325,14 @@ sudo ufw allow ssh
 </ul>
 <h3>Others</h3>
 <ul>
-<li>ChatGPT by OpenAI: <a href="https://openai.com/chatgpt">https://openai.com/chatgpt</a>.</li>
 <li>awesome-shizuku by Tim Schneeberger / timschneeb: <a href="https://github.com/timschneeb/awesome-shizuku">https://github.com/timschneeb/awesome-shizuku</a>.</li>
-<li>shizuku-apps by Souvik Bagchi (Mr HyperIon) / MrHyperlon101: <a href="https://github.com/MrHyperIon101/shizuku-apps">https://github.com/MrHyperIon101/shizuku-apps</a>.</li>
-<li>Wikipedia: <a href="https://en.m.wikipedia.org">https://en.m.wikipedia.org</a>.</li>
+<li>ChatGPT by OpenAI: <a href="https://openai.com/chatgpt">https://openai.com/chatgpt</a>.</li>
 <li>DNS leak test: <a href="https://www.dnsleaktest.com">https://www.dnsleaktest.com</a>.</li>
-<li>What Is My IP Address: <a href="https://whatismyipaddress.com">https://whatismyipaddress.com</a>.</li>
+<li>FDroid-List-Repository by userkilled: <a href="https://github.com/userkilled/FDroid-List-Repository">https://github.com/userkilled/FDroid-List-Repository</a>.</li>
 <li>freshtermux by Miranda / cyb0rgdoll: <a href="https://github.com/cyb0rgdoll/freshtermux">https://github.com/cyb0rgdoll/freshtermux</a>.</li>
+<li>shizuku-apps by Souvik Bagchi (Mr HyperIon) / MrHyperlon101: <a href="https://github.com/MrHyperIon101/shizuku-apps">https://github.com/MrHyperIon101/shizuku-apps</a>.</li>
+<li>What Is My IP Address: <a href="https://whatismyipaddress.com">https://whatismyipaddress.com</a>.</li>
+<li>Wikipedia: <a href="https://en.m.wikipedia.org">https://en.m.wikipedia.org</a>.</li>
 </ul>
 <hr>
 <h2>Contribution</h2>
@@ -2262,7 +2362,3 @@ sudo ufw allow ssh
 </ul>
 <p>No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
 <p>You should have received a copy of the Creative Commons Attribution-ShareAlike 4.0 International License along with this program. If not, see <a href="https://creativecommons.org/licenses/by-sa/4.0">https://creativecommons.org/licenses/by-sa/4.0</a>.</p>
-</div>
-<button id="backToTopBtn" onclick="scrollToTop()">↑ Back to Top</button>
-</body>
-</html>
