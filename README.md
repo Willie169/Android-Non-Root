@@ -51,16 +51,22 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Package Command Error](#package-command-error)
   * [Debian Derivatives and Termux APT Package Manager](#debian-derivatives-and-termux-apt-package-manager)
   * [Process completed (signal 9) - press Enter Error](#process-completed-signal-9---press-enter-error)
-* [TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment](#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-graphical-environment)
-  * [Enable the X11 Repository of Termux](#enable-the-x11-repository-of-termux)
-  * [TigerVNC Server in Termux](#tigervnc-server-in-termux)
+* [TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment](#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-vnc-or-x-server-and-graphical-environment)
+  * [Introduction of VNC (Virtual Network Computing)](#introduction-of-vnc-virtual-network-computing)
+  * [Introduction of X Window System (X11, or X)](#introduction-of-x-window-system-x11-or-x)
+  * [Termux X11 Repository](#termux-x11-repository)
+  * [TigerVNC VNC Server in Termux](#tigervnc-vnc-server-in-termux)
   * [Termux-x11](#termux-x11)
   * [Fluxbox in Termux](#fluxbox-in-termux)
   * [Openbox in Termux](#openbox-in-termux)
   * [XFCE in Termux](#xfce-in-termux)
   * [LXQt in Termux](#lxqt-in-termux)
   * [MATE in Termux](#mate-in-termux)
-  * [Further Readings and References about Termux Graphical Environment](#further-readings-and-references-about-termux-graphical-environment)
+  * [Further Readings and References about Termux VNC or X Server and Graphical Environment](#further-readings-and-references-about-termux-vnc-or-x-server-and-graphical-environment)
+* [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android)
+  * [Install AVNC](#install-avnc)
+  * [Connect a VNC Server](#connect-a-vnc-server)
+  * [Features of AVNC](#features-of-avnc)
 * [PRoot-Distro with Termux: Install Linux Distributions in Termux](#proot-distro-with-termux-install-linux-distributions-in-termux)
   * [Introduction of Chroot, PRoot, PRoot-Distro](#introduction-of-chroot-proot-proot-distro)
   * [PRoot-Distro Usage](#proot-distro-usage)
@@ -90,10 +96,6 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Resize Partition in Debian AMD64](#resize-partition-in-debian-amd64)
   * [Resize Partition in Debian ARM64](#resize-partition-in-debian-arm64)
   * [Further Readings and References about QEMU](#further-readings-and-references-about-qemu)
-* [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android)
-  * [Install AVNC](#install-avnc)
-  * [Connect a VNC Server](#connect-a-vnc-server)
-  * [Features of AVNC](#features-of-avnc)
 * [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell)
   * [Install Shizuku](#install-shizuku)
   * [Introduction of ADB and Shizuku](#introduction-of-adb-and-shizuku)
@@ -139,8 +141,8 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Introduction of SD Maid SE](#introduction-of-sd-maid-se)
   * [Use SD Maid SE with Shizuku](#use-sd-maid-se-with-shizuku)
 * [Linux Command Library](#linux-command-library)
-  * [Introduction of Linux Command Library](#introduction-of-linux-command-library)
   * [Install Linux Command Library (Optional)](#install-linux-command-library-optional)
+  * [Features of Linux Command Library](#features-of-linux-command-library)
   * [Browse Linux Command Library](#browse-linux-command-library)
 * [Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support](#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support)
   * [Install Material Files](#install-material-files)
@@ -149,9 +151,15 @@ My main development for Termux setup scripts and virtual machines on Termux such
 * [PipePipe: A FLOSS Android App to Let You Browse YouTube, NicoNico and BiliBili Freely.](#pipepipe-a-floss-android-app-to-let-you-browse-youtube-niconico-and-bilibili-freely)
   * [Install PipePipe](#install-pipepipe)
   * [Features of PipePipe](#features-of-pipepipe)
+* [Xtra: Twitch Player and Browser](#xtra-twitch-player-and-browser)
+  * [Install Xtra](#install-xtra)
+  * [Features of Xtra](#features-of-xtra)
 * [VLC for Android: Open Source Media Player and Multimedia Engine](#vlc-for-android-open-source-media-player-and-multimedia-engine)
-  * [Introduction of VLC](#introduction-of-vlc)
   * [Install VLC for Android](#install-vlc-for-android)
+  * [Introduction of VLC](#introduction-of-vlc)
+* [DuckDuckGo: Privacy Browser](#duckduckgo-privacy-browser)
+  * [Install DuckDuckGo](#install-duckduckgo)
+  * [Features of DuckDuckGo](#features-of-duckduckgo)
 * [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   * [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
   * [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
@@ -159,10 +167,10 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Debian](#debian)
   * [DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid)
   * [droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138](#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138)
+  * [DuckDuckGo, DuckDuckGo Privacy Browser, or DuckDuckGo Private Browser by DuckDuckGo or duckduckgo](#duckduckgo-duckduckgo-privacy-browser-or-duckduckgo-private-browser-by-duckduckgo-or-duckduckgo)
   * [F-Droid by F-Droid](#f-droid-by-f-droid)
   * [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
   * [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
-  * [Material Files](#material-files)
   * [Material Files / MaterialFiles by Hai Zhang / zhanghai](#material-files--materialfiles-by-hai-zhang--zhanghai)
   * [MyIP / IPCheck.ing by Jason Ng / jason5ng32](#myip--ipchecking-by-jason-ng--jason5ng32)
   * [NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV](#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv)
@@ -179,9 +187,12 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Termux:Float by Fredrik Fornwall / Termux / termux](#termuxfloat-by-fredrik-fornwall--termux--termux)
   * [Termux:Styling by Fredrik Fornwall / Termux / termux](#termuxstyling-by-fredrik-fornwall--termux--termux)
   * [Termux:Widget by Fredrik Fornwall / Termux / termux](#termuxwidget-by-fredrik-fornwall--termux--termux)
+  * [Termux-x11 by Fredrik Fornwall / Termux / termux](#termux-x11-by-fredrik-fornwall--termux--termux)
+  * [TigerVNC or tigervnc by TigerVNC](#tigervnc-or-tigervnc-by-tigervnc)
   * [Tor and Tor Browser by The Tor Project](#tor-and-tor-browser-by-the-tor-project)
   * [TrackerControl / TC by TrackerControl / Oxford HCC](#trackercontrol--tc-by-trackercontrol--oxford-hcc)
   * [VLC for Android / vlc-android by Videolabs / VLC Mobile Team / VideoLAN / videolan](#vlc-for-android--vlc-android-by-videolabs--vlc-mobile-team--videolan--videolan)
+  * [Xtra by AndreyAsadchy or Andrey Asadchy and crackededed](#xtra-by-andreyasadchy-or-andrey-asadchy-and-crackededed)
   * [Others](#others)
 * [Contribution](#contribution)
 * [License](#license)
@@ -209,7 +220,7 @@ If for whatever reason you want to send me money, here are where you may do so:
 
 * This tutorial is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 * Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See [DontKillMyApp](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid).
-* Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection). My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
+* Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection) before exploring other sections related to Termux. My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
 * More instructions for Linux commands are available in [Linux Command Library](#linux-command-library).
 * Run update command (such as `pkg update` and `apt update`) before install command (such as `pkg install` and `apt install`) to update available packages.
 * Add `sudo` at the beginning of commands in Linux if root permission is needed. Remove `sudo` from the beginning of commands in Termux if the device is not rooted. Termux doesn't need root permission to install packages etc.
@@ -220,9 +231,8 @@ If for whatever reason you want to send me money, here are where you may do so:
 * Uncommenting a line means to remove the comment signs (`#` for bash) from the beginning of the line.
 * When the tutorial uses text editor such as `nano`, `vim`, or `vi` to edit a file, you can use any text editor you want.
 * You may encounter `Process completed (signal 9) press Enter` error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) press Enter Error](#process-completed-signal-9-press-enter-error).
-* In Linux, you can install a window manager such as Fluxbox or Openbox, or desktop environment such as XFCE, LXQt, or MATE for your GUI.
 * In Linux, `root` is usually the password for root for the first time. You can usually set password latter by `passwd`.
-* Many sections of the tutorial mention VNC. You can connect to a VNC server with a VNC client. One recommended one for Android is AVNC. Read the tutorial for it in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
+* Many sections of the tutorial mention VNC. Go to [Introduction of VNC (Virtual Network Computing)](introduction-of-vnc-virtual-network-computing) for introduction of VNC. You can connect to a VNC server with a VNC client. One recommended one for Android is AVNC. Read the tutorial for it in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
 
 ---
 
@@ -768,16 +778,24 @@ settings put global settings_enable_monitor_phantom_procs true
 * <https://docs.andronix.app/android-12/andronix-on-android-12-and-beyond>.
 * <https://www.xda-developers.com/android-13-phantom-process-toggle>.
 * <https://youtu.be/mjXSh3yq-I0>.
-* <https://ivonblog.com/en-us/posts/fix-termux-signal9-error>.
+* <https://ivonblog.com/posts/fix-termux-signal9-error>.
 * <https://kskroyal.com/disable-phantom-process-killer-in-android-12-13/#google%5Fvignette>.
 * <https://issuetracker.google.com/u/1/issues/205156966>.
 * <https://github.com/agnostic-apollo/Android-Docs/blob/master/en%2Fdocs%2Fapps%2Fprocesses%2Fphantom-cached-and-empty-processes.md>.
 
 ---
 
-## TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment
+## TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment
 
-### Enable the X11 Repository of Termux
+### Introduction of VNC (Virtual Network Computing)
+
+VNC (Virtual Network Computing) is a graphical desktop-sharing system that uses the Remote Frame Buffer protocol (RFB) to remotely control another computer. It transmits the keyboard and mouse input from one computer to another, relaying the graphical-screen updates, over a network.
+
+### Introduction of X Window System (X11, or X)
+
+The X Window System (X11, or simply X) is a windowing system for bitmap displays, common on Unix-like operating systems. X is an architecture-independent system for remote graphical user interfaces and input device capabilities. Each person using a networked terminal has the ability to interact with the display with any type of user input device. The X server is typically the provider of graphics resources and keyboard/mouse events to X clients.
+
+### Termux X11 Repository
 
 X11 packages are available in a separate APT repository. You can enable it by running the following command:
 
@@ -791,7 +809,9 @@ It will automatically add appropriate sources.list file and PGP key. You can dis
 pkg uninstall x11-repo
 ```
 
-### TigerVNC Server in Termux
+### TigerVNC VNC Server in Termux
+
+Go to their official website: <https://tigervnc.org> for more information.
 
 #### Install TigerVNC
 
@@ -1005,11 +1025,49 @@ MATE desktop environment will start automatically on VNC server startup.
 * `netsurf` \- Simple graphical web browser. Javascript is not supported.
 * `mate-terminal` \- Terminal emulator for MATE. It is not included as part of MATE installation to allow use of `aterm` or `st`.
 
-### Further Readings and References about Termux Graphical Environment
+### Further Readings and References about Termux VNC or X Server and Graphical Environment
 
 * <https://wiki.termux.com/wiki/Graphical%5FEnvironment>.
 * <https://github.com/termux/x11-packages>.
 * <https://github.com/termux/termux-x11>.
+* <https://en.wikipedia.org/wiki/VNC>.
+* <https://en.wikipedia.org/wiki/X_Window_System>.
+
+---
+
+## AVNC: A VNC Client for Android
+
+### Install AVNC
+
+AVNC (`com.gaurav.avnc`) can be installed from F-Droid: <https://f-droid.org/packages/com.gaurav.avnc>.
+
+### Connect a VNC Server
+
+* Tap the `+` sign in the lower right corner,
+* Input `Name` (arbitrary name), `Host address` (`localhost` for localhost), and `Port`, input `Username` and `Password` if needed, adjust `ADVANCED` options if needed, and then tap `SAVE`.
+* Tap the `Server` name to connect to it.
+* If you encounter incorrect mouse display or recieving, going to `Settings` \> `Input` \> `Mouse` and toggling on `Hide local pointer` may help.
+
+Go to [Introduction of VNC (Virtual Network Computing)](introduction-of-vnc-virtual-network-computing) for introduction of VNC.
+
+### Features of AVNC
+
+* Gesture styles: Automatic, Touchscreen (Do actions at touch-point), or Touchpad mode (Do actions at pointer).
+* Material Design: Dark theme and light theme.
+* Configurable gestures: Configure the meaning of each gesture.
+* Tight encoding.
+* Virtual Keys: Go to Settings => Input => Virtual keys => Customize keys to customize Virtual Key layout.
+* Picture-in-Picture mode.
+* View-only mode.
+* Zeroconf Server Discovery.
+* TLS support: AnonTLS and VeNCrypt.
+* SSH tunnel: VNC over SSH.
+* Import/Export servers.
+* VNC Repeater support.
+* Clipboard Sync with server.
+* Pause update in background.
+* Automatic reconnection.
+* Automatically find supported servers.
 
 ---
 
@@ -1170,7 +1228,7 @@ wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninsta
 
 ### Further Readings and References about Chroot, Proot, and Andronix
 
-* <https://en.m.wikipedia.org/wiki/Chroot>.
+* <https://en.wikipedia.org/wiki/Chroot>.
 * <https://github.com/AndronixApp/AndronixOrigin>.
 * <https://github.com/termux/proot>.
 * <https://wiki.termux.com/wiki/PRoot>.
@@ -1432,40 +1490,6 @@ sudo resize2fs /dev/vda1
 
 ---
 
-## AVNC: A VNC Client for Android
-
-### Install AVNC
-
-AVNC (`com.gaurav.avnc`) can be installed from F-Droid: <https://f-droid.org/packages/com.gaurav.avnc>.
-
-### Connect a VNC Server
-
-* Tap the `+` sign in the lower right corner,
-* Input `Name` (arbitrary name), `Host address` (`localhost` for localhost), and `Port`, input `Username` and `Password` if needed, adjust `ADVANCED` options if needed, and then tap `SAVE`.
-* Tap the `Server` name to connect to it.
-* If you encounter incorrect mouse display or recieving, going to `Settings` \> `Input` \> `Mouse` and toggling on `Hide local pointer` may help.
-
-### Features of AVNC
-
-* Gesture styles: Automatic, Touchscreen (Do actions at touch-point), or Touchpad mode (Do actions at pointer).
-* Material Design: Dark theme and light theme.
-* Configurable gestures: Configure the meaning of each gesture.
-* Tight encoding.
-* Virtual Keys: Go to Settings => Input => Virtual keys => Customize keys to customize Virtual Key layout.
-* Picture-in-Picture mode.
-* View-only mode.
-* Zeroconf Server Discovery.
-* TLS support: AnonTLS and VeNCrypt.
-* SSH tunnel: VNC over SSH.
-* Import/Export servers.
-* VNC Repeater support.
-* Clipboard Sync with server.
-* Pause update in background.
-* Automatic reconnection.
-* Automatically find supported servers.
-
----
-
 ## Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell
 
 ### Install Shizuku
@@ -1475,7 +1499,7 @@ Shizuku (`moe.shizuku.privileged.api`) can be installed from Google Play: <https
 ### Introduction of ADB and Shizuku
 
 * The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
-* Shizuku is an open-source app for serving multiple apps that require root/adb. If your "root required app" only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell.
+* Shizuku is an open-source app for serving multiple apps that require root/adb. If your "root required app" only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell. Go to their official website: <https://shizuku.rikka.app> for more information.
 
 ### Connect Shizuku to Wireless ADB
 
@@ -1501,7 +1525,7 @@ Shizuku (`moe.shizuku.privileged.api`) can be installed from Google Play: <https
 
 ### Install SystemUI Tuner
 
-SystemUI Tuner (pub: Zachary Wander) can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner>.
+SystemUI Tuner can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner> (pub: Zachary Wander).
 
 ### To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner
 
@@ -2544,17 +2568,17 @@ Features include:
 
 ## Linux Command Library
 
-### Introduction of Linux Command Library
-
-The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in Linux are available in Termux too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
-
 ### Install Linux Command Library (Optional)
 
 Linux Command Library app can be installed from F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca> or Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca>.
 
+### Features of Linux Command Library
+
+Linux Command Library has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). The app works completely offline.
+
 ### Browse Linux Command Library
 
-Browse on its app or official website: <https://linuxcommandlibrary.com>.
+Browse on its app (offline available) or official website: <https://linuxcommandlibrary.com>.
 
 ---
 
@@ -2626,7 +2650,31 @@ Note that because YouTube is trying to block third-party clients, especially for
 
 ---
 
+## Xtra: Twitch Player and Browser
+
+### Install Xtra
+
+Xtra can be installed from F-Droid: <https://f-droid.org/packages/com.github.andreyasadchy.xtra>.
+
+### Features of Xtra
+
+Xtra for Twitch is a Twitch client focused on providing the best viewing and chatting experience on mobile devices:
+
+* Support for popular emotes with BetterTTV and FrankerFaceZ plugins.
+* Watch VODs and clips with chat replay.
+* Download VODs to watch offline.
+* Continue watching outside of the app with Picture-in-Picture mode.
+* Sleep timer to stop the stream automatically.
+* Customizable interface with 3 different color themes.
+* Uses TTV.lol API which is not libre and leaks your Twitch user ID and personal IP to their Russian proxy.
+
+---
+
 ## VLC for Android: Open Source Media Player and Multimedia Engine
+
+### Install VLC for Android
+
+VLC for Android (`org.videolan.vlc`) can be installed from F-Droid: <https://f-droid.org/packages/org.videolan.vlc> or Google Play: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
 
 ### Introduction of VLC
 
@@ -2636,9 +2684,33 @@ VLC can play most multimedia files, discs, streams, devices and is also able to 
 
 VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.
 
-### Install VLC for Android
+---
 
-VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-droid.org/packages/org.videolan.vlc> or Google Play: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
+## DuckDuckGo: Privacy Browser
+
+### Install DuckDuckGo
+
+DuckDuckGo (`com.duckduckgo.mobile.android`), also known as DuckDuckGo Privacy Browser and DuckDuckGo Private Browser, can be installed from F-Droid: <https://f-droid.org/packages/com.duckduckgo.mobile.android> or Google Play: <https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android>.
+
+### Features of DuckDuckGo
+
+* Search Privately: DuckDuckGo search doesn't track you.
+* Enforce Encryption Protection: DuckDuckGo forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.
+* Web Tracking Protection: DuckDuckGo’s Privacy Protection will block all the found hidden third-party trackers, and exposes the major advertising networks tracking you over time to you.
+* Cookie Pop-Up Protection: Banish cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.
+* Escape Fingerprinting: Make it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.
+* Decode Privacy Policies: DuckDuckGo've partnered with Terms of Service Didn't Read to include their scores and labels of website terms of service and privacy policies, where available.
+* Privacy Grade: DuckDuckGo Privacy Browser shows you a Privacy Grade rating when you visit a website, which is scored automatically based on the prevalence of hidden tracker networks, encryption availability, and website privacy practices.
+* App Tracking Protection: Detects and blocks app trackers from other companies.
+* Email Protection: Block most email trackers and hide your existing email address with @duck.com addresses.
+* DuckDuckGo Engine: Uses DuckDuckGo as the search engine, for which the
+source code is not available.
+* Fire Button: Clear all your tabs and data with one tap.
+* Application Lock: Secure the app with Touch ID or Face ID.
+* Duck.ai: Anonymous access to popular AI models, including GPT-4o mini, Claude 3, and open-source Llama 3.3 and Mistral, on Duck.ai. No Al training on your conversations.
+* Duck Player: Duck Player lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won't influence your recommendations.
+
+Go to their official website: <https://duckduckgo.com> for more information.
 
 ---
 
@@ -2662,21 +2734,28 @@ VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-d
 
 ### Debian
 
-* Official website: <https://www.debian.org>.
 * GitLab: <https://salsa.debian.org/public>.
+* Official website: <https://www.debian.org>.
 
 ### DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)
 
-* Official website: <https://dontkillmyapp.com>.
-* Google Play: <https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp>.
 * F-Droid: <https://f-droid.org/packages/com.urbandroid.dontkillmyapp>.
+* Google Play: <https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp>.
 * GitHub: <https://github.com/urbandroid-team/dontkillmy-app>.
+* Official website: <https://dontkillmyapp.com>.
 
 ### droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138
 
 * F-Droid: <https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng>.
 * Google Play: <https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng>.
 * GitHub: <https://github.com/bk138/droidVNC-NG>.
+
+### DuckDuckGo, DuckDuckGo Privacy Browser, or DuckDuckGo Private Browser by DuckDuckGo or duckduckgo
+
+* F-Droid: <https://f-droid.org/packages/com.duckduckgo.mobile.android>.
+* Google Play: <https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android>.
+* GitHub: <https://github.com/duckduckgo/Android>.
+* Official website: <https://duckduckgo.com>.
 
 ### F-Droid by F-Droid
 
@@ -2685,55 +2764,49 @@ VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-d
 
 ### Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh
 
-* Official website: <https://invizible.net/en>.
 * F-Droid: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable>.
 * Google Play: <https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp>.
 * GitHub: <https://github.com/Gedsh/InviZible>.
+* Official website: <https://invizible.net/en>.
 
 ### Linux Command Library by Simon Schubert / SimonSchubert
 
-* GitHub: <https://github.com/SimonSchubert/LinuxCommandLibrary>.
-* Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca>.
 * F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca>.
+* Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca>.
+* GitHub: <https://github.com/SimonSchubert/LinuxCommandLibrary>.
 * Official website: <https://linuxcommandlibrary.com>.
-
-### Material Files
-
-* F-Droid: <https://f-droid.org/packages/me.zhanghai.android.files>.
-* Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files>.
-* GitHub: <https://github.com/zhanghai/MaterialFiles>.
 
 ### Material Files / MaterialFiles by Hai Zhang / zhanghai
 
-* Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files>.
 * F-Droid: <https://f-droid.org/packages/me.zhanghai.android.files>.
+* Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files>.
 * GitHub: <https://github.com/zhanghai/MaterialFiles>.
 
 ### MyIP / IPCheck.ing by Jason Ng / jason5ng32
 
-* Official website: <https://ipcheck.ing>.
 * GitHub: <https://github.com/jason5ng32/MyIP>.
+* Official website: <https://ipcheck.ing>.
 
 ### NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV
 
-* Google Play: <https://play.google.com/store/apps/details?id=eu.faircode.netguard>.
 * F-Droid: <https://f-droid.org/packages/eu.faircode.netguard>.
 * GitHub: <https://github.com/M66B/NetGuard>.
+* Google Play: <https://play.google.com/store/apps/details?id=eu.faircode.netguard>.
 * Official website of NetGuard: <https://netguard.me>.
 * Official website of FairCode: <https://www.faircode.eu>.
 
 ### NewPipe by Team NewPipe / TeamNewPipe
 
-* Official website: <https://newpipe.net>.
 * NewPipe F-Droid repo: <https://archive.newpipe.net/fdroid/repo>.
 * F-Droid: <https://f-droid.org/packages/org.schabi.newpipe>
 * GitHub: <https://github.com/TeamNewPipe/NewPipe>.
+* Official website: <https://newpipe.net>.
 
 ### OpenSSL by OpenSSL / openssl
 
+* GitHub: <https://github.com/openssl/openssl>.
 * Official website: <https://www.openssl.org>.
 * Official doc: <https://docs.openssl.org>.
-* GitHub: <https://github.com/openssl/openssl>.
 
 ### PipePipe by InfinityLoop1309 / InfinityLoop1308
 
@@ -2753,9 +2826,9 @@ VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-d
 
 ### Shizuku by Xingchen & Rikka / RikkaApps
 
-* Official website: <https://shizuku.rikka.app/guide/setup/?night=1>.
 * Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
 * GitHub: <https://github.com/RikkaApps/Shizuku>.
+* Official website: <https://shizuku.rikka.app>.
 
 ### SystemUI Tuner by Zachary Wander / zacharee
 
@@ -2768,7 +2841,6 @@ VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-d
 * GitHub of termux-app: <https://github.com/termux/termux-app>.
 * GitHub of x11-packages: <https://github.com/termux/x11-packages>.
 * Official wiki: <https://wiki.termux.com>.
-* Official Reddit community: <https://termux.com/community>.
 * Google Play (deprecated): <https://play.google.com/store/apps/details?id=com.termux>.
 
 ### Termux:API by Fredrik Fornwall / Termux / termux
@@ -2801,6 +2873,15 @@ VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-d
 * GitHub: <https://github.com/termux/termux-widget>.
 * Official wiki: <https://wiki.termux.com/wiki/Termux:Widget>.
 
+### Termux-x11 by Fredrik Fornwall / Termux / termux
+
+* GitHub: <https://github.com/termux/termux-x11>.
+
+### TigerVNC or tigervnc by TigerVNC
+
+* GitHub: <https://github.com/TigerVNC/tigervnc>.
+* Official website: <https://tigervnc.org>.
+
 ### Tor and Tor Browser by The Tor Project
 
 * Google Play of Tor Browser: <https://play.google.com/store/apps/details?id=org.torproject.torbrowser>.
@@ -2815,17 +2896,22 @@ VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-d
 * F-Droid: <https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid>.
 * GitHub: <https://github.com/TrackerControl/tracker-control-android>.
 * Official website: <https://trackercontrol.org>.
-* Google Play: <https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play>.
+* Google Play (incomplete): <https://play.google.com/store/apps/details?id=net.kollnig.missioncontrol.play>.
 
 ### VLC for Android / vlc-android by Videolabs / VLC Mobile Team / VideoLAN / videolan
 
-* Official website: <https://www.videolan.org>.
 * F-Droid: <https://f-droid.org/packages/org.videolan.vlc>.
 * Google Play: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
 * Amazon: <https://www.amazon.com/VLC-Mobile-Team-for-Fire/dp/B00U65KQMQ>.
 * AppGallery: <https://appgallery.huawei.com/app/C101924579>.
 * GitHub: <https://github.com/videolan/vlc-android>.
 * GitLab: <https://code.videolan.org>.
+* Official website: <https://www.videolan.org>.
+
+### Xtra by AndreyAsadchy or Andrey Asadchy and crackededed
+
+* F-Droid: <https://f-droid.org/packages/com.github.andreyasadchy.xtra>.
+* GitHub: <https://github.com/crackededed/Xtra>.
 
 ### Others
 
@@ -2836,7 +2922,7 @@ VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-d
 * freshtermux by Miranda / cyb0rgdoll: <https://github.com/cyb0rgdoll/freshtermux>.
 * shizuku-apps by Souvik Bagchi (Mr HyperIon) / MrHyperlon101: <https://github.com/MrHyperIon101/shizuku-apps>.
 * What Is My IP Address: <https://whatismyipaddress.com>.
-* Wikipedia: <https://en.m.wikipedia.org>.
+* Wikipedia by Wikimedia Foundation: <https://wikipedia.org>.
 
 ---
 
