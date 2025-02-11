@@ -51,9 +51,10 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Package Command Error](#package-command-error)
   * [Debian Derivatives and Termux APT Package Manager](#debian-derivatives-and-termux-apt-package-manager)
   * [Process completed (signal 9) - press Enter Error](#process-completed-signal-9---press-enter-error)
-* [TigerVNC, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment](#tigervnc-fluxbox-openbox-xfce-lxqt-and-mate-termux-graphical-environment)
+* [TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment](#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-graphical-environment)
   * [Enable the X11 Repository of Termux](#enable-the-x11-repository-of-termux)
   * [TigerVNC Server in Termux](#tigervnc-server-in-termux)
+  * [Termux-x11](#termux-x11)
   * [Fluxbox in Termux](#fluxbox-in-termux)
   * [Openbox in Termux](#openbox-in-termux)
   * [XFCE in Termux](#xfce-in-termux)
@@ -66,7 +67,7 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Supported Distributions](#supported-distributions)
   * [Hint to Install Linux OS with PRoot-Distro](#hint-to-install-linux-os-with-proot-distro)
 * [Andronix with Termux: Install Linux Distributions in Termux](#andronix-with-termux-install-linux-distributions-in-termux)
-  * [Optional: Install Andronix App](#optional-install-andronix-app)
+  * [Install Andronix App (Optional)](#install-andronix-app-optional)
   * [Install an OS Following Andronix App Instructions](#install-an-os-following-andronix-app-instructions)
   * [Uninstall an Not Modded OS Following Andronix App Instructions](#uninstall-an-not-modded-os-following-andronix-app-instructions)
   * [PulseAudio Server Sound Output](#pulseaudio-server-sound-output)
@@ -139,7 +140,8 @@ My main development for Termux setup scripts and virtual machines on Termux such
   * [Use SD Maid SE with Shizuku](#use-sd-maid-se-with-shizuku)
 * [Linux Command Library](#linux-command-library)
   * [Introduction of Linux Command Library](#introduction-of-linux-command-library)
-  * [Install and Use Linux Command Library](#install-and-use-linux-command-library)
+  * [Install Linux Command Library (Optional)](#install-linux-command-library-optional)
+  * [Browse Linux Command Library](#browse-linux-command-library)
 * [Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support](#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support)
   * [Install Material Files](#install-material-files)
   * [Features of Material Files](#features-of-material-files)
@@ -228,7 +230,7 @@ If for whatever reason you want to send me money, here are where you may do so:
 
 ### Install F-Droid
 
-F-Droid can be installed from their official website: <https://f-droid.org>.
+F-Droid (`org.fdroid.fdroid`) can be installed from their official website: <https://f-droid.org>.
 
 ### Introduction of F-Droid
 
@@ -240,7 +242,7 @@ The F-Droid server tools provide various scripts and tools that are used to main
 
 ### F-Droid Repositories
 
-F-Droid repositories are compatible with an F-Droid client application. To add a repository, go to F-Droid app's `Settings` page tap `My Apps > Repositories`, tap the plus sign in the lower right corner, and scan QR code or enter or paste repository URL. 
+F-Droid repositories are compatible with an F-Droid client application. To add a repository, go to F-Droid app's `Settings` page tap `My Apps > Repositories`, tap the plus sign in the lower right corner, and scan QR code or enter or paste repository URL.
 
 The Offical F-Droid repository is <http://f-droid.org/repo>, which is pre-added in the app by default.
 
@@ -281,7 +283,7 @@ My main development for Termux setup scripts and virtual machines on Termux such
 
 ### Install Termux
 
-Termux can be installed from F-Droid: <https://f-droid.org/packages/com.termux>.
+Termux (`com.termux`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux>.
 
 **WARNING**: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html>. It is recommended that you shift to F-Droid or GitHub releases.
 
@@ -313,7 +315,7 @@ Official Wiki and Reddit community:
 
 ### Termux:Styling
 
-Termux:Styling can be installed from F-Droid: <https://f-droid.org/packages/com.termux.styling>.
+Termux:Styling (`com.termux.styling`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.styling>.
 
 This plugin for Termux provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.
 
@@ -323,7 +325,7 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:Styling> for more i
 
 ### Termux:Widget
 
-Termux:Widget can be installed from F-Droid: <https://f-droid.org/packages/com.termux.widget>.
+Termux:Widget (`com.termux.widget`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.widget>.
 
 Add-on app which adds shortcuts to Termux scripts and commands on the home screen. Scripts should be placed in the `$HOME/.shortcuts/` folder to allow quick access to frequently used commands without typing.
 
@@ -331,7 +333,7 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:Widget> for more in
 
 ### Termux:Boot
 
-Termux:Boot can be installed from F-Droid: <https://f-droid.org/packages/com.termux.boot>.
+Termux:Boot (`com.termux.boot`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.boot>.
 
 This plugin for Termux allows programs to be run at boot.
 
@@ -349,7 +351,7 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:Boot> for more info
 
 ### Termux:Float
 
-Termux:Float can be installed from F-Droid: <https://f-droid.org/packages/com.termux.float>.
+Termux:Float (`com.termux.float`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.float>.
 
 This plugin for Termux provides a floating terminal window which is shown above other apps.
 
@@ -359,7 +361,7 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:Float> for more inf
 
 ### Termux:API
 
-Termux:API can be installed from F-Droid: <https://f-droid.org/packages/com.termux.api>.
+Termux:API (`com.termux.api`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.api>.
 
 Expose basic Android functionality like sending SMS or accessing GPS data to the Termux app. This is an add-on which requires that the main Termux app is installed to use.
 
@@ -382,16 +384,16 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:API> for more infor
 
 * Pinch to zoom in or out.
 * Swipe right from the left edge of the screen to drag out the navigation bar, where you can open Termux Settings, start another NEW SESSION, switch to another session, or launch KEYBOARD.
-* Long press on screen to:  
-   * COPY  
-   * PASTE  
-   * More  
-   * Select URL  
-   * Share transcipt: transfer all output of the current session (via Android api)  
-   * Reset: Reset  
-   * Kill process: Kill the current terminal session process  
-   * Style: Style (requires Termux:Styling plugin)  
-   * Keep screen on  
+* Long press on screen to:
+   * COPY
+   * PASTE
+   * More
+   * Select URL
+   * Share transcipt: transfer all output of the current session (via Android api)
+   * Reset: Reset
+   * Kill process: Kill the current terminal session process
+   * Style: Style (requires Termux:Styling plugin)
+   * Keep screen on
    * Help: Help documentation (Termux Wiki)
 
 ### Shortcuts in Termux
@@ -613,22 +615,22 @@ Properties that can be changed include `default-working-directory`, `allow-exter
 
 ### Termux PKG Package Manager
 
-`pkg` is a tool for managing `apt` packages in Termux. 
+`pkg` is a tool for managing `apt` packages in Termux.
 
 * Usage: `pkg [--check-mirror] command [arguments]`.
 * `--check-mirror` \- forces a re-check of availability of mirrors
-* Commands:  
-   * `autoclean` \- Remove all outdated packages from apt cache.  
-   * `clean` \- Remove all packages from apt cache.  
-   * `files <packages>` \- Show all files installed by packages.  
-   * `install <packages>` \- Install specified packages.  
-   * `list-all` \- List all packages available in repositories.  
-   * `list-installed` \- List installed packages.  
-   * `reinstall <packages>` \- Reinstall specified installed packages at the latest version.  
-   * `search <query>` \- Search package by query, for example by name or description part.  
-   * `show <packages>` \- Show basic metadata, such as dependencies.  
-   * `uninstall <packages>` \- Uninstall specified packages. Configuration files will be left intact.  
-   * `upgrade` \- Upgrade all installed packages to the latest version.  
+* Commands:
+   * `autoclean` \- Remove all outdated packages from apt cache.
+   * `clean` \- Remove all packages from apt cache.
+   * `files <packages>` \- Show all files installed by packages.
+   * `install <packages>` \- Install specified packages.
+   * `list-all` \- List all packages available in repositories.
+   * `list-installed` \- List installed packages.
+   * `reinstall <packages>` \- Reinstall specified installed packages at the latest version.
+   * `search <query>` \- Search package by query, for example by name or description part.
+   * `show <packages>` \- Show basic metadata, such as dependencies.
+   * `uninstall <packages>` \- Uninstall specified packages. Configuration files will be left intact.
+   * `upgrade` \- Upgrade all installed packages to the latest version.
    * `update` \- Update apt databases from configured repositories.
 
 ### Termux Change Repo
@@ -697,18 +699,18 @@ Do you want to accept these changes and continue updating from this repository? 
 
 * Usage: `apt [options] command`
 * Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
-* Most used commands:  
-   * `list` \- list packages based on package names  
-   * `search` \- search in package descriptions  
-   * `show` \- show package details  
-   * `install` \- install packages  
-   * `reinstall` \- reinstall packages  
-   * `remove` \- remove packages  
-   * `autoremove` \- automatically remove all unused packages  
-   * `update` \- update list of available packages  
-   * `upgrade` \- upgrade the system by installing/upgrading packages  
-   * `full-upgrade` \- upgrade the system by removing/installing/upgrading packages  
-   * `edit-sources` \- edit the source information file  
+* Most used commands:
+   * `list` \- list packages based on package names
+   * `search` \- search in package descriptions
+   * `show` \- show package details
+   * `install` \- install packages
+   * `reinstall` \- reinstall packages
+   * `remove` \- remove packages
+   * `autoremove` \- automatically remove all unused packages
+   * `update` \- update list of available packages
+   * `upgrade` \- upgrade the system by installing/upgrading packages
+   * `full-upgrade` \- upgrade the system by removing/installing/upgrading packages
+   * `edit-sources` \- edit the source information file
    * `satisfy` \- satisfy dependency strings
 * See apt(8) for more information about the available commands: <https://manpages.debian.org/unstable/apt/apt.8.en.html>.
 * Configuration options and syntax is detailed in apt.conf(5): <https://manpages.debian.org/unstable/apt/apt.conf.5.en.html>.
@@ -720,7 +722,7 @@ Do you want to accept these changes and continue updating from this repository? 
 
 Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU.
 
-You may get `Process completed (signal 9) - press Enter` message in the terminal without actually exiting the shell process yourself. 
+You may get `Process completed (signal 9) - press Enter` message in the terminal without actually exiting the shell process yourself.
 
 Here is the guide of how to turn it off.
 
@@ -745,14 +747,14 @@ This fix is generally available for Stock Android 12L and beyond, and often unav
 settings put global settings_enable_monitor_phantom_procs false
 ```
 
-1. To check the status of whether phantom process killer is disabled, run the following commands inside `adb shell`:
+4. To check the status of whether phantom process killer is disabled, run the following commands inside `adb shell`:
 
 ```
 /system/bin/dumpsys activity settings | grep max_phantom_processes
 /system/bin/device_config get activity_manager max_phantom_processes
 ```
 
-1. To enable phantom process killer again, run the following commands inside `adb shell`:
+5. To enable phantom process killer again, run the following commands inside `adb shell`:
 
 ```
 /system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
@@ -773,9 +775,7 @@ settings put global settings_enable_monitor_phantom_procs true
 
 ---
 
-## TigerVNC, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment
-
-My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
+## TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux Graphical Environment
 
 ### Enable the X11 Repository of Termux
 
@@ -796,30 +796,21 @@ pkg uninstall x11-repo
 #### Install TigerVNC
 
 ```
+pkg install x11-repo
 pkg install tigervnc
 ```
 
 #### Start a VNC Server
 
-Not specifying port:
-
 ```
-vncserver -localhost
+vncserver [:1] [-geometry 1920x1080]
 ```
 
-VNC server will start on unused port with the smallest positive integer number, like `localhost:1` if port 1 is not used. Specifying port:
+You can optionally specify port with `:port` and resolution with `-geometry`. VNC server will start on the unused port with the smallest number on localhost if no port specified.
 
-```
-vncserver :1
-```
+You can specify xstartup script in the `~/.vnc/xstartup` file. When the VNC server starts, it will run the script in `~/.vnc/xstartup` (if any).
 
-VNC server will start on the port you specified. Specifying resolution:
-
-```
-vncserver :1 -geometry 1920x1080
-```
-
-You can specify resolution with `-geometry`. At first time, you will be prompted for setting up passwords:
+At first time, you will be prompted for setting up passwords:
 
 ```
 You will require a password to access your desktops.
@@ -829,7 +820,9 @@ Verify:
 Would you like to enter a view-only password (y/n)? n
 ```
 
-Note that passwords are not visible when you are typing them and maximal password length is 8 characters. If everything is okay, you will see this message:
+Note that passwords are not visible when you are typing them and maximal password length is 8 characters.
+
+If everything is okay, you will see this message:
 
 ```
 New 'localhost:1 ()' desktop is localhost:1
@@ -850,15 +843,46 @@ export DISPLAY=":1"
 
 You may even put this variable to your bashrc or profile so you don't have to always set it manually unless display address will be changed.
 
-Connect to the VNC server from a VNC viewer to view the output, you will not see anything except your mouse pointer if no windows manager or desktop environment is started.
+You can connect to the VNC server from a VNC viewer to view the output.
 
-#### Kill VNC Server
+Note that you have to start a windows manager or desktop environment in `~/.vnc/xstartup` or no graphical environment will be shown.
+
+#### Kill a VNC Server
 
 ```
 vncserver -kill localhost:1
 ```
 
-Change the port with the actual port your VNC server started on.
+Replace `:1` with the actual port your VNC server started on.
+
+### Termux-x11
+
+#### Install Termux-x11 App
+
+Termux-x11 (`com.termux.x11`) app for Android can be installed from the .apk asset corresponding tp your device’s architecture in GitHub: <https://github.com/termux/termux-x11> release.
+
+#### Install Termux-x11 Package
+
+```
+pkg install x11-repo
+pkg install termux-x11-nightly
+```
+
+#### Start a Termux-x11 X Server
+
+To start Termux-x11 X server, run:
+
+```
+termux-x11 :1 -xstartup "$XSTARTUP"
+```
+
+Replace `:1` with the actual port you want and `$XSTARTUP` with the actual xstartup script.
+
+Note that you have to start a windows manager or desktop environment in the argument of `-xstartup` or no graphical environment will be shown.
+
+#### Connect to a Termux-x11 X Server
+
+Open the Termux-x11 app. It will connect to the Termux-x11 X server automatically.
 
 ### Fluxbox in Termux
 
@@ -868,13 +892,7 @@ Change the port with the actual port your VNC server started on.
 pkg install fluxbox
 ```
 
-#### Setup
-
-```
-nano ~/.vnc/xstartup
-```
-
-Copy below and paste to it:
+#### Xstartup Script
 
 ```
 #!/data/data/com.termux/files/usr/bin/sh
@@ -882,7 +900,7 @@ fluxbox-generate_menu
 fluxbox &
 ```
 
-Fluxbox will start automatically on VNC server startup.
+Fluxbox windows manager will start automatically on VNC or X server startup.
 
 ### Openbox in Termux
 
@@ -892,26 +910,20 @@ Fluxbox will start automatically on VNC server startup.
 pkg install openbox pypanel xorg-xsetroot
 ```
 
-#### Setup
-
-```
-nano ~/.vnc/xstartup
-```
-
-Copy below and paste to it:
+#### Xstartup Script
 
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 openbox-session &
 ```
 
-Don't put any else command to the file `~/.vnc/xstartup` but only the lines shown above since Openbox has its own autostart script, which is located at `${PREFIX}/etc/xdg/openbox/autostart`.
+Don't put any other command than the lines above to the xstartup script since Openbox has its own autostart script, which is located at `${PREFIX}/etc/xdg/openbox/autostart`.
 
 ```
 nano ~/etc/xdg/openbox/autostart
 ```
 
-Copy below and paste to it:
+Copy below and paste to it (replace `gray` with the color you want):
 
 ```
 # Make background gray.
@@ -919,7 +931,7 @@ xsetroot -solid gray
 pypanel &
 ```
 
-Openbox will start automatically on VNC server startup.
+Openbox windows manager will start automatically on VNC or X server startup.
 
 ### XFCE in Termux
 
@@ -929,20 +941,16 @@ Openbox will start automatically on VNC server startup.
 pkg install xfce4
 ```
 
-#### Setup
-
-```
-nano ~/.vnc/xstartup
-```
-
-Copy below and paste to it:
+#### Xstartup Script
 
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 xfce4-session &
 ```
 
-Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above. XFCE will start automatically on VNC server startup.
+Don't put any other command than the lines above to the xstartup script.
+
+XFCE desktop environment will start automatically on VNC or X server startup.
 
 #### Additional Recommended Packages for Installation
 
@@ -957,22 +965,16 @@ Don't put any other command to the file `~/.vnc/xstartup` but only the lines sho
 pkg install lxqt
 ```
 
-#### Setup
-
-```
-nano ~/.vnc/xstartup
-```
-
-Copy below and paste to it:
+#### Xstartup Script
 
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 startlxqt &
 ```
 
-Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.
+Don't put any other command than the lines above to the xstartup script.
 
-LXQt will start automatically on VNC server startup.
+LXQt desktop environment will start automatically on VNC or X server startup.
 
 #### Additional Recommended Packages for Installation
 
@@ -987,22 +989,16 @@ LXQt will start automatically on VNC server startup.
 pkg install mate-* marco
 ```
 
-#### Setup
-
-```
-nano ~/.vnc/xstartup
-```
-
-Copy below and paste to it:
+#### Xstartup Script
 
 ```
 #!/data/data/com.termux/files/usr/bin/sh
 mate-session &
 ```
 
-Don't put any other command to the file `~/.vnc/xstartup` but only the lines shown above.
+Don't put any other command than the lines above to the xstartup script.
 
-MATE will start automatically on VNC server startup.
+MATE desktop environment will start automatically on VNC server startup.
 
 #### Additional Recommended Packages for Installation
 
@@ -1013,6 +1009,7 @@ MATE will start automatically on VNC server startup.
 
 * <https://wiki.termux.com/wiki/Graphical%5FEnvironment>.
 * <https://github.com/termux/x11-packages>.
+* <https://github.com/termux/termux-x11>.
 
 ---
 
@@ -1028,17 +1025,17 @@ My main development for Termux setup scripts and virtual machines on Termux such
 
 ### PRoot-Distro Usage
 
-* Usage: proot-distro \[COMMAND\] \[ARGUMENTS\]
-* Commands:  
-   * help - Show this help information.  
-   * backup - Backup a specified distribution.  
-   * install - Install a specified distribution.  
-   * list - List supported distributions and their installation status.  
-   * login - Start login shell for the specified distribution.  
-   * remove - Delete a specified distribution. WARNING: this command destroys data!  
-   * rename - Rename installed distribution.  
-   * reset - Reinstall from scratch a specified distribution. WARNING: this command destroys data!  
-   * restore - Restore a specified distribution. WARNING: this command destroys data!  
+* Usage: `proot-distro [COMMAND] [ARGUMENTS]`
+* Commands:
+   * help - Show this help information.
+   * backup - Backup a specified distribution.
+   * install - Install a specified distribution.
+   * list - List supported distributions and their installation status.
+   * login - Start login shell for the specified distribution.
+   * remove - Delete a specified distribution. WARNING: this command destroys data!
+   * rename - Rename installed distribution.
+   * reset - Reinstall from scratch a specified distribution. WARNING: this command destroys data!
+   * restore - Restore a specified distribution. WARNING: this command destroys data!
    * clear-cache - Clear cache of downloaded files.
 
 ### Supported Distributions
@@ -1062,7 +1059,7 @@ Here are the supported distributions (alias: name):
 
 Type command `proot-distro list` to get a list of the supported distributions.
 
-Pick a distro alias and run the next command to install it: 
+Pick a distro alias and run the next command to install it:
 
 ```
 proot-distro install <alias> [--override-alias <new alias>]
@@ -1082,9 +1079,9 @@ If you have issues with proot during installation or login, try to set `PROOT_NO
 
 My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
 
-### Optional: Install Andronix App
+### Install Andronix App (Optional)
 
-Andronix can be installed from Google Play: <https://play.google.com/store/apps/details?id=studio.com.techriz.andronix>.
+Andronix (`studio.com.techriz.andronix`) can be installed from Google Play: <https://play.google.com/store/apps/details?id=studio.com.techriz.andronix>.
 
 Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won't be mentioned in this tutorial.
 
@@ -1206,7 +1203,7 @@ For more complex distribution like Debian and Ubuntu, using ISO image method is 
 
 ### Host Port Forwarding
 
-Set `hostfwd` to set host port forwarding. Take `hostfwd=tcp::2222-:22` for example, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine. 
+Set `hostfwd` to set host port forwarding. Take `hostfwd=tcp::2222-:22` for example, `tcp` specifies the TCP protocol for the forwarding rule, `::2222` indicates that on the host machine, TCP connections to port 2222 will be forwarded, and `-:22` indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine.
 
 ### Alpine Linux x86-64 ISO Image
 
@@ -1439,7 +1436,7 @@ sudo resize2fs /dev/vda1
 
 ### Install AVNC
 
-You can install AVNC from F-Droid: <https://f-droid.org/packages/com.gaurav.avnc>.
+AVNC (`com.gaurav.avnc`) can be installed from F-Droid: <https://f-droid.org/packages/com.gaurav.avnc>.
 
 ### Connect a VNC Server
 
@@ -1473,7 +1470,7 @@ You can install AVNC from F-Droid: <https://f-droid.org/packages/com.gaurav.avnc
 
 ### Install Shizuku
 
-Shizuku from installed from Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
+Shizuku (`moe.shizuku.privileged.api`) can be installed from Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
 
 ### Introduction of ADB and Shizuku
 
@@ -1572,11 +1569,11 @@ Using Tor makes it more difficult to trace a user's Internet activity by prevent
 
 Key Features of Tor:
 
-* Anonymity: Tor allows users to browse the internet anonymously by routing their internet traffic through a network of volunteer-operated servers called nodes or relays. Each relay only knows the IP address of the previous and next node, making it difficult to trace the origin of the traffic.
-* Onion Routing: The name "Onion Router" comes from the way data is encrypted in layers, similar to the layers of an onion. When data is sent through the Tor network, it is encrypted multiple times, and each node decrypts a layer before passing it on to the next, protecting user privacy.
-* Access to .onion Sites: Tor allows users to access hidden services with .onion domain names, which are not reachable through standard web browsers. These sites often provide additional privacy and anonymity.
-* Bypass Censorship: Tor can help users bypass censorship and access restricted content by routing traffic through nodes in different countries.
-* Privacy Tools: The Tor Browser, based on Mozilla Firefox, comes preconfigured with privacy enhancements, making it easier for users to maintain anonymity while browsing.
+* Block Trackers: Isolates each website you visit so third-party trackers and ads can’t follow you.
+* Defend Against Surveillance: Prevents someone watching your connection from knowing what websites you visit.
+* Resist Fingerprinting: Aims to make all users look the same, making it difficult for you to be fingerprinted based on your browser and device information.
+* Multi-layered Encryption: Traffic is relayed and encrypted three times as it passes over the Tor network. The network is comprised of thousands of volunteer-run servers known as Tor relays.
+* Browse Freely: With Tor, you are free to access sites your local internet service provider may have blocked and access hidden services with .onion domain names, which are not reachable through standard web browsers.
 
 Some services may crash when routing traffic through Tor, changing the Exit nodes may help.
 
@@ -1952,7 +1949,7 @@ RSA is a widely used asymmetric encryption algorithm that underpins many securit
 2. Public Encryption and Private Decryption (Communication): After generating the keys, RSA can be used for secure communication. To encrypt a message, which should be less than the product of the two large prime numbers, the sender uses the recipient's public key with the formula that the ciphertext equals the message to the power of the public exponent modulo the product of the two large prime numbers. Only the intended recipient, with the private key, can decrypt it using the formula that the message equals the cyphertext to the power of the private exponent modulo the product of the two large prime numbers.
 3. Private Encryption and Public Decryption (Signature): RSA can also create digital signatures for authenticity and non-repudiation. The sender encrypts a hash of the message with their private key with the formula that the signature equals the hash to the power of the private exponent modulo the product of the two large prime numbers. The signature is sent accompanying the original message. The recipient verifies the signature by decrypting it with the sender's public key with the formula that the hash equals the signature to the power of the public exponent modulo the product of the two large prime numbers. If hash obtained from the formula matches the hash of the received message, it confirms the message's authenticity.
 
-Applications: 
+Applications:
 
 * RSA is employed in various applications that require secure communication and data integrity:
 * Secure Web Communications (HTTPS): RSA is commonly used in SSL/TLS protocols to establish secure connections between web browsers and servers.
@@ -2486,10 +2483,7 @@ You can also connect to the sftp server from other clients. One recommended file
 
 ### Install droidVNC-NG
 
-You can install droidVNC-NG on:
-
-* F-Droid: <https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng>.
-* Google Play: <https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng>.
+droidVNC-NG (`net.christianbeier.droidvnc_ng`) can be installed from F-Droid: <https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng> or Google Play: <https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng>.
 
 ### Features of droidVNC-NG
 
@@ -2524,10 +2518,7 @@ Advanced VNC Features
 
 ### Install SD Maid SE
 
-You can install SD Maid SE on:
-
-* F-Droid: <https://f-droid.org/packages/eu.darken.sdmse>.
-* Google Play: <https://play.google.com/store/apps/details?id=eu.darken.sdmse>.
+SD Maid SE (`eu.darken.sdmse`) can be installed from F-Droid: <https://f-droid.org/packages/eu.darken.sdmse> or Google Play: <https://play.google.com/store/apps/details?id=eu.darken.sdmse>.
 
 ### Introduction of SD Maid SE
 
@@ -2557,9 +2548,13 @@ Features include:
 
 The app has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). It works 100% offline, doesn't need an internet connection and has no tracking software. Some of the commands available in Linux are available in Termux too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
 
-### Install and Use Linux Command Library
+### Install Linux Command Library (Optional)
 
-You can install Linux Command Library in Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca> or F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca>, or browse it on its official website: <https://linuxcommandlibrary.com>.
+Linux Command Library app can be installed from F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca> or Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca>.
+
+### Browse Linux Command Library
+
+Browse on its app or official website: <https://linuxcommandlibrary.com>.
 
 ---
 
@@ -2567,7 +2562,7 @@ You can install Linux Command Library in Google Play: <https://play.google.com/s
 
 ### Install Material Files
 
-Material Files can be installed from Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files> or F-Droid: <https://f-droid.org/packages/me.zhanghai.android.files>.
+Material Files (`me.zhanghai.android.files`) can be installed from F-Droid: <https://f-droid.org/packages/me.zhanghai.android.files> or Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files>.
 
 ### Features of Material Files
 
@@ -2596,7 +2591,7 @@ Material Files can be installed from Google Play: <https://play.google.com/store
 
 ### Install PipePipe
 
-PipePipe can be installed from F-Droid: <https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced> or GitHub: <https://github.com/InfinityLoop1308/PipePipe> release.
+PipePipe (`InfinityLoop1309.NewPipeEnhanced`) can be installed from F-Droid: <https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced> or the .apk asset corresponding to your architecture in GitHub: <https://github.com/InfinityLoop1308/PipePipe> release.
 
 Note that because YouTube is trying to block third-party clients, especially for anonymous access, PipePipe sometimes has to be updated frequently to address issues that arise. You can receive the latest update from GitHub release without waiting for F-Droid update building process.
 
@@ -2627,6 +2622,7 @@ Note that because YouTube is trying to block third-party clients, especially for
 * Configurable fullscreen, volume, and brightness gestures.
 * Auto-translation captions.
 * Open in browser.
+* Feeds in normal mode or fast mode.
 
 ---
 
@@ -2642,7 +2638,7 @@ VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.
 
 ### Install VLC for Android
 
-VLC for Android can be installed from F-Droid: <https://f-droid.org/packages/org.videolan.vlc> or Google Play: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
+VLC for Android (`org.videolan.vlc`)bcan be installed from F-Droid: <https://f-droid.org/packages/org.videolan.vlc> or Google Play: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
 
 ---
 
