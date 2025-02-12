@@ -26,7 +26,7 @@
 <li>App download link: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk</a>.</li>
 </ul>
 <p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
-<p>In this tutorial, we&#39;ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
+<p>In this tutorial, we’ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
 <p>Please read the <a href="#global-note">Global Note</a> before you start or you may encounter errors.</p>
 <p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <hr>
@@ -203,19 +203,25 @@
 <li><a href="#introduction-of-vlc">Introduction of VLC</a></li>
 </ul>
 </li>
-<li><a href="#duckduckgo-privacy-browser">DuckDuckGo: Privacy Browser</a><ul>
+<li><a href="#duckduckgo-browser-privacy-browser">DuckDuckGo Browser: Privacy Browser</a><ul>
 <li><a href="#install-duckduckgo">Install DuckDuckGo</a></li>
 <li><a href="#features-of-duckduckgo">Features of DuckDuckGo</a></li>
+</ul>
+</li>
+<li><a href="#brave-browser-privacy-browser">Brave Browser: Privacy Browser</a><ul>
+<li><a href="#install-brave">Install Brave</a></li>
+<li><a href="#features-of-brave">Features of Brave</a></li>
 </ul>
 </li>
 <li><a href="#promoted-or-related-works-references-and-bibliography">Promoted or Related Works, References, and Bibliography</a><ul>
 <li><a href="#anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</a></li>
 <li><a href="#andronix-by-devriz-technologies-llp--andronix-app-andronixapp">Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</a></li>
 <li><a href="#ashell-by-sunil-paul-mathew-m--sunilpaulmathew">aShell by Sunil Paul Mathew M. / sunilpaulmathew</a></li>
+<li><a href="#brave--brave-browser-by-brave-software--brave">Brave / Brave Browser by Brave Software / brave</a></li>
 <li><a href="#debian">Debian</a></li>
 <li><a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid">DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)</a></li>
 <li><a href="#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138">droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</a></li>
-<li><a href="#duckduckgo-duckduckgo-privacy-browser-or-duckduckgo-private-browser-by-duckduckgo-or-duckduckgo">DuckDuckGo, DuckDuckGo Privacy Browser, or DuckDuckGo Private Browser by DuckDuckGo or duckduckgo</a></li>
+<li><a href="#duckduckgo--duckduckgo-browser--duckduckgo-privacy-browser--duckduckgo-private-browser-by-duckduckgo-or-duckduckgo">DuckDuckGo / DuckDuckGo Browser / DuckDuckGo Privacy Browser / DuckDuckGo Private Browser by DuckDuckGo or duckduckgo</a></li>
 <li><a href="#f-droid-by-f-droid">F-Droid by F-Droid</a></li>
 <li><a href="#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</a></li>
 <li><a href="#linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</a></li>
@@ -271,7 +277,7 @@
 <li>Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in <a href="#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a> before exploring other sections related to Termux. My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</li>
 <li>More instructions for Linux commands are available in <a href="#linux-command-library">Linux Command Library</a>.</li>
 <li>Run update command (such as <code>pkg update</code> and <code>apt update</code>) before install command (such as <code>pkg install</code> and <code>apt install</code>) to update available packages.</li>
-<li>Add <code>sudo</code> at the beginning of commands in Linux if root permission is needed. Remove <code>sudo</code> from the beginning of commands in Termux if the device is not rooted. Termux doesn&#39;t need root permission to install packages etc.</li>
+<li>Add <code>sudo</code> at the beginning of commands in Linux if root permission is needed. Remove <code>sudo</code> from the beginning of commands in Termux if the device is not rooted. Termux doesn’t need root permission to install packages etc.</li>
 <li>Type <code>Y</code>, <code>y</code>, <code>Yes</code>, <code>yes</code>, etc. as asked for in response to any prompts that request confirmation during command execution to confirm execution.</li>
 <li>Change the file names, directories, paths, addresses, ports, variables, etc. in the commands provided in the tutorial to the actual ones of yours.</li>
 <li>Most of the software mentioned in this tutorial is open source.</li>
@@ -291,7 +297,7 @@
 <p>F-Droid is both a repository of verified free software Android apps as well as a whole “app store kit”, providing all the tools needed to setup and run an app store. It is a community-run free software project developed by a wide range of contributors. It also includes complete build and release tools for managing the process of turning app source code into published builds.</p>
 <p>The F-Droid server tools provide various scripts and tools that are used to maintain the main F-Droid application repository. You can use these same tools to create your own additional or alternative repository for publishing, or to assist in creating, testing and submitting metadata to the main repository.</p>
 <h3>F-Droid Repositories</h3>
-<p>F-Droid repositories are compatible with an F-Droid client application. To add a repository, go to F-Droid app&#39;s <code>Settings</code> page tap <code>My Apps &gt; Repositories</code>, tap the plus sign in the lower right corner, and scan QR code or enter or paste repository URL.</p>
+<p>F-Droid repositories are compatible with an F-Droid client application. To add a repository, go to F-Droid app’s <code>Settings</code> page tap <code>My Apps &gt; Repositories</code>, tap the plus sign in the lower right corner, and scan QR code or enter or paste repository URL.</p>
 <p>The Offical F-Droid repository is <a href="http://f-droid.org/repo">http://f-droid.org/repo</a>, which is pre-added in the app by default.</p>
 <p>One of the most popular unofficial F-Droid repository is IzzyOnDroid: <a href="http://apt.izzysoft.de/fdroid/repo">http://apt.izzysoft.de/fdroid/repo</a>.</p>
 <p>A list of some known F-Droid repositories:</p>
@@ -522,7 +528,7 @@
 <h4><code>mkdir</code>: Create Directories</h4>
 <ul>
 <li><code>mkdir newdir</code>: Create a directory named <code>newdir</code>.</li>
-<li><code>mkdir -p parentdir/childdir</code>: Create <code>parentdir</code> and <code>childdir</code> if they don&#39;t exist.</li>
+<li><code>mkdir -p parentdir/childdir</code>: Create <code>parentdir</code> and <code>childdir</code> if they don’t exist.</li>
 </ul>
 <h4><code>ls</code>: List Directory Contents</h4>
 <ul>
@@ -533,7 +539,7 @@
 <h4><code>rmdir</code>: Remove Empty Directories</h4>
 <ul>
 <li>Syntax: <code>rmdir [options] directory</code></li>
-<li><code>rmdir emptydir</code>: Remove <code>emptydir</code> if it&#39;s empty.</li>
+<li><code>rmdir emptydir</code>: Remove <code>emptydir</code> if it’s empty.</li>
 <li><code>rmdir -p parentdir/childdir</code>: Remove <code>childdir</code> and <code>parentdir</code> if they are empty.</li>
 </ul>
 <h4><code>find</code>: Search for Files and Directories</h4>
@@ -676,7 +682,7 @@ Do you want to accept these changes and continue updating from this repository? 
 <li>If for some reason <code>termux-change-repo</code> is not available, you can manually edit <code>sources.list</code> to replace the main url with a value obtained from <a href="https://github.com/termux/termux-packages/wiki/Mirrors">Termux Mirrors List</a>.</li>
 <li>Run <code>nano $PREFIX/etc/apt/sources.list</code> to edit it.</li>
 <li>This will not change the urls of other package repositories, to change those run <code>pkg install termux-tools</code> afterwards and use <code>termux-change-repo</code> or manually edit their files under <code>$PREFIX/etc/apt/sources.list.d</code> directory.</li>
-<li>Changing the mirror may specially be needed if a user is still using bintray as the mirror or <code>pkg upgrade</code> command hasn&#39;t been run in a while to update termux package related scripts.</li>
+<li>Changing the mirror may specially be needed if a user is still using bintray as the mirror or <code>pkg upgrade</code> command hasn’t been run in a while to update termux package related scripts.</li>
 </ul>
 <h4>Further Readings and References about Package Command Error</h4>
 <ul>
@@ -719,7 +725,7 @@ Do you want to accept these changes and continue updating from this repository? 
 <h4>Graphical Fix</h4>
 <p>This fix is generally available for Stock Android 12L and beyond, and often unavailable for QEMs like OneUI, MiUi, Samsung, etc. and other non-stock Android. If this fix is not available for your phone, please refer to the command line solution in next section.</p>
 <ol>
-<li>In phone&#39;s Settings or something similar, go to <code>About Phone &gt; Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
+<li>In phone’s Settings or something similar, go to <code>About Phone &gt; Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
 <li>Click the section named <code>Feature Flags</code>.</li>
 <li>Toggle off <code>settings_enable_monitor_phantom_procs</code> to disable phantom process killer.</li>
 <li>To enable phantom process killer again, just toggle on <code>settings_enable_monitor_phantom_procs</code>.</li>
@@ -802,7 +808,7 @@ Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
 <p>To make programs do graphical output to the display <code>localhost:1</code>, set environment variable like shown here (yes, without specifying <code>localhost</code>):</p>
 <pre><code>export DISPLAY=&quot;:1&quot;
 </code></pre>
-<p>You may even put this variable to your bashrc or profile so you don&#39;t have to always set it manually unless display address will be changed.</p>
+<p>You may even put this variable to your bashrc or profile so you don’t have to always set it manually unless display address will be changed.</p>
 <p>You can connect to the VNC server from a VNC viewer to view the output.</p>
 <p>Note that you have to start a windows manager or desktop environment in <code>~/.vnc/xstartup</code> or no graphical environment will be shown.</p>
 <h4>Kill a VNC Server</h4>
@@ -842,7 +848,7 @@ fluxbox &amp;
 <pre><code>#!/data/data/com.termux/files/usr/bin/sh
 openbox-session &amp;
 </code></pre>
-<p>Don&#39;t put any other command than the lines above to the xstartup script since Openbox has its own autostart script, which is located at <code>${PREFIX}/etc/xdg/openbox/autostart</code>.</p>
+<p>Don’t put any other command than the lines above to the xstartup script since Openbox has its own autostart script, which is located at <code>${PREFIX}/etc/xdg/openbox/autostart</code>.</p>
 <pre><code>nano ~/etc/xdg/openbox/autostart
 </code></pre>
 <p>Copy below and paste to it (replace <code>gray</code> with the color you want):</p>
@@ -859,7 +865,7 @@ pypanel &amp;
 <pre><code>#!/data/data/com.termux/files/usr/bin/sh
 xfce4-session &amp;
 </code></pre>
-<p>Don&#39;t put any other command than the lines above to the xstartup script.</p>
+<p>Don’t put any other command than the lines above to the xstartup script.</p>
 <p>XFCE desktop environment will start automatically on VNC or X server startup.</p>
 <h4>Additional Recommended Packages for Installation</h4>
 <ul>
@@ -874,7 +880,7 @@ xfce4-session &amp;
 <pre><code>#!/data/data/com.termux/files/usr/bin/sh
 startlxqt &amp;
 </code></pre>
-<p>Don&#39;t put any other command than the lines above to the xstartup script.</p>
+<p>Don’t put any other command than the lines above to the xstartup script.</p>
 <p>LXQt desktop environment will start automatically on VNC or X server startup.</p>
 <h4>Additional Recommended Packages for Installation</h4>
 <ul>
@@ -889,7 +895,7 @@ startlxqt &amp;
 <pre><code>#!/data/data/com.termux/files/usr/bin/sh
 mate-session &amp;
 </code></pre>
-<p>Don&#39;t put any other command than the lines above to the xstartup script.</p>
+<p>Don’t put any other command than the lines above to the xstartup script.</p>
 <p>MATE desktop environment will start automatically on VNC server startup.</p>
 <h4>Additional Recommended Packages for Installation</h4>
 <ul>
@@ -915,7 +921,6 @@ mate-session &amp;
 <li>Tap the <code>Server</code> name to connect to it.</li>
 <li>If you encounter incorrect mouse display or recieving, going to <code>Settings</code> &gt; <code>Input</code> &gt; <code>Mouse</code> and toggling on <code>Hide local pointer</code> may help.</li>
 </ul>
-<p>Go to <a href="introduction-of-vnc-virtual-network-computing">Introduction of VNC (Virtual Network Computing)</a> for introduction of VNC.</p>
 <h3>Features of AVNC</h3>
 <ul>
 <li>Gesture styles: Automatic, Touchscreen (Do actions at touch-point), or Touchpad mode (Do actions at pointer).</li>
@@ -941,7 +946,7 @@ mate-session &amp;
 <h3>Introduction of Chroot, PRoot, PRoot-Distro</h3>
 <ul>
 <li>Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.</li>
-<li>PRoot is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don&#39;t need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.</li>
+<li>PRoot is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don’t need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.</li>
 <li>PRoot-Distro is a Bash script wrapper for PRoot. It provides a set of functions with standardized command line interface to let user easily manage Linux PRoot containers. By default it supports a number of well known Linux distributions such Alpine Linux, Debian or openSUSE. However it is possible to add others with a help of plug-ins.</li>
 </ul>
 <h3>PRoot-Distro Usage</h3>
@@ -991,16 +996,16 @@ mate-session &amp;
 <p>My main development for Termux setup scripts and virtual machines on Termux such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3>Install Andronix App (Optional)</h3>
 <p>Andronix (<code>studio.com.techriz.andronix</code>) can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</p>
-<p>Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won&#39;t be mentioned in this tutorial.</p>
+<p>Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won’t be mentioned in this tutorial.</p>
 <h3>Install an OS Following Andronix App Instructions</h3>
 <ol>
 <li>Open Andronix app.</li>
 <li>Click the Linux Distribution card.</li>
 <li>Click on the Linux distribution you want to install. It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.</li>
 <li>Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your Linux distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your Linux distribution.</li>
-<li>Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you&#39;ve little or no experience with Linux.</li>
+<li>Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you’ve little or no experience with Linux.</li>
 <li>Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive.</li>
-<li>CLI Only: If you don&#39;t want a Graphical User-interface, you can go ahead with the Command Line Interface.</li>
+<li>CLI Only: If you don’t want a Graphical User-interface, you can go ahead with the Command Line Interface.</li>
 <li>Andronix will automatically copy the command to your clipboard.</li>
 <li>Paste and run in Termux.</li>
 </ol>
@@ -1067,7 +1072,7 @@ mate-session &amp;
 <pre><code>pkg update &amp;&amp; pkg install qemu-utils qemu-common qemu-system-aarch64-headless wget -y
 </code></pre>
 <h3>ISO and QCOW2 Image Methods</h3>
-<p>For more complex distribution like Debian and Ubuntu, using ISO image method is easier to encounter some issues like GRUB menu not showing on CLI or stuck in the middle of the installation process which QCOW2 image method usually doesn&#39;t cause.</p>
+<p>For more complex distribution like Debian and Ubuntu, using ISO image method is easier to encounter some issues like GRUB menu not showing on CLI or stuck in the middle of the installation process which QCOW2 image method usually doesn’t cause.</p>
 <h3>Host Port Forwarding</h3>
 <p>Set <code>hostfwd</code> to set host port forwarding. Take <code>hostfwd=tcp::2222-:22</code> for example, <code>tcp</code> specifies the TCP protocol for the forwarding rule, <code>::2222</code> indicates that on the host machine, TCP connections to port 2222 will be forwarded, and <code>-:22</code> indicates that these connections will be forwarded to port 22 (the default SSH port) on the guest virtual machine.</p>
 <h3>Alpine Linux x86-64 ISO Image</h3>
@@ -1226,33 +1231,33 @@ quit
 <ol>
 <li>Grant Shizuku notification permission.</li>
 <li>Tap <code>Pairing</code> in <code>Start via Wireless debugging</code> block in Shizuku.</li>
-<li>Connect to a WiFi you trust. You don&#39;t need to log in to the WiFi though. You just need to let your phone think that you&#39;re connected to WiFi.</li>
-<li>In phone&#39;s <code>Settings</code> or something similar, go to <code>About Phone</code> &gt; <code>Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
+<li>Connect to a WiFi you trust. You don’t need to log in to the WiFi though. You just need to let your phone think that you’re connected to WiFi.</li>
+<li>In phone’s <code>Settings</code> or something similar, go to <code>About Phone</code> &gt; <code>Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
 <li>In the <code>Developer Options</code>, enable <code>Wireless ADB</code> and tap <code>Pair with a pairing code</code>.</li>
 <li>Input the pairing code in the notification of Shizuku.</li>
-<li>In the <code>Developer Options</code>, togle on <code>Disable adb authorization timeout</code> if you don&#39;t want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow <a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a> to reconnect if you&#39;re using SystemUI Tuner, or follow above guide again to reconnect.</li>
+<li>In the <code>Developer Options</code>, togle on <code>Disable adb authorization timeout</code> if you don’t want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow <a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a> to reconnect if you’re using SystemUI Tuner, or follow above guide again to reconnect.</li>
 <li>Back to Shizuku and tap <code>Start</code> in <code>Start via Wireless debugging</code> block. You all see Shizuku is running on the top of the app interface of Shizuku.</li>
 </ol>
 <h3>Use Shizuku in a Terminal Application for the First Time (Termux for Example)</h3>
 <ol>
 <li>Tap <code>Use Shizuku in terminal applications</code> in Shizuku and export files <code>rish</code> and <code>rish_shizuku.dex</code> to somewhere on your phone.</li>
-<li>Use a text editor to replace <code>PKG</code> in <code>rish</code> with the package name of your terminal application. Take Termux for example, Termux&#39;s package name is <code>com.termux</code>. Run <code>termux-setup-storage</code> and tap <code>Allow to grant Termux storage permission</code>.</li>
+<li>Use a text editor to replace <code>PKG</code> in <code>rish</code> with the package name of your terminal application. Take Termux for example, Termux’s package name is <code>com.termux</code>. Run <code>termux-setup-storage</code> and tap <code>Allow to grant Termux storage permission</code>.</li>
 <li>Open your terminal application and move the exported files to somewhere it can access (with <code>mv old_location new_location</code>). The root directory of the main storage of Android is usually <code>/storage/emulated/0</code>. The home directory of Termux is <code>/data/data/com.termux/home</code>, which is abbreviated as <code>$PREFIX</code> or <code>~</code> in Termux.</li>
 <li>Go to the directory you moved the exported files to with <code>cd directory</code> (assumed <code>~/shizuku</code> below) and run <code>sh rish</code>.</li>
 <li><code>~ $</code> should become <code>&lt;device&gt;:/ $</code> (such as <code>e2q:/ $</code>) if <code>sh rish</code> succeeded. Write ADB commands here. Note that there is no need to use <code>adb</code> or <code>adb shell</code> prefixes before commands and that <code>devices</code> command gets <code>/system/bin/sh: devices: inaccessible or not found</code>.</li>
-<li>You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there&#39;s a block that reads <code>Shizuku is running</code> on the top.</li>
+<li>You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there’s a block that reads <code>Shizuku is running</code> on the top.</li>
 <li>Optionally, create a <code>.sh</code> file (<code>nano ~/shizuku.sh</code> for example), paste <code>cd shizuku &amp;&amp; sh rish</code>, save it, and make it executable with <code>chmod +x shizuku.sh</code> so that you can run this shortcut to start Shizuku on your terminal afterward.</li>
-<li>Note: It is recommended to use Termux&#39;s F-Droid version: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a> and avoid using Google Play version because the latter is depreciated.</li>
+<li>Note: It is recommended to use Termux’s F-Droid version: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a> and avoid using Google Play version because the latter is depreciated.</li>
 </ol>
 <h3>Install SystemUI Tuner</h3>
 <p>SystemUI Tuner can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner</a> (pub: Zachary Wander).</p>
 <h3>To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</h3>
-<p><strong>WARNING</strong>: In Android 14&#39;s latest update, now Enable ADB can&#39;t be persistently on unless USB connected.</p>
+<p><strong>WARNING</strong>: In Android 14’s latest update, now Enable ADB can’t be persistently on unless USB connected.</p>
 <p>Some apps (such as many financial apps) may require <code>Developer Options</code> to be off when using them. This section is the tutorial about how to turn <code>Developer Options</code> off while still using ADB Shell with Shizuku.</p>
 <ol>
 <li>Run <code>adb shell</code> command <code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS</code> (you can do it with Shizuku and a terminal such as Termux or aShell).</li>
-<li>Connect to a WiFi. You don&#39;t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
-<li>Turn off <code>Developer Options</code> if it&#39;s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
+<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
+<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
 <li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable ADB</code> and <code>Enable Wireless ADB</code>.</li>
 <li>In SystemUI Tuner, go to <code>Persistent Options</code> and select <code>Enable ADB</code>.</li>
 <li>Press <code>Start</code> on Shizuku.</li>
@@ -1260,8 +1265,8 @@ quit
 </ol>
 <h3>Reconnect Shizuku in Case it Stops with SystemUI Tuner</h3>
 <ol>
-<li>Connect to a WiFi. You don&#39;t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
-<li>Turn off <code>Developer Options</code> if it&#39;s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
+<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
+<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
 <li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable Wireless ADB</code>.</li>
 <li>Press <code>Start</code> on Shizuku.</li>
 <li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in SystemUI Tuner.</li>
@@ -1293,7 +1298,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <h2>Tor, Tor Browser, and NoScript Security Suite</h2>
 <h3>Introduction of Tor</h3>
 <p>Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.</p>
-<p>Using Tor makes it more difficult to trace a user&#39;s Internet activity by preventing any single point on the Internet (other than the user&#39;s device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user&#39;s location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user&#39;s freedom and ability to communicate confidentially.</p>
+<p>Using Tor makes it more difficult to trace a user’s Internet activity by preventing any single point on the Internet (other than the user’s device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user’s location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user’s freedom and ability to communicate confidentially.</p>
 <p>Key Features of Tor:</p>
 <ul>
 <li>Block Trackers: Isolates each website you visit so third-party trackers and ads can’t follow you.</li>
@@ -1307,7 +1312,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <p>Tor Browser can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=org.torproject.torbrowser">https://play.google.com/store/apps/details?id=org.torproject.torbrowser</a> or the F-Droid repository of the Guardian Project: <a href="https://guardianproject.info/fdroid/repo">https://guardianproject.info/fdroid/repo</a>. For the latter, please refer to <a href="#f-droid-repositories">F-Droid Repositories</a> for more information about how to add a F-Droid repository to your F-Droid client app.</p>
 <p>The Tor Browser for Android is a mobile version of the Tor Browser that utilizes Mozilla Firefox for Android codebase.</p>
 <h3>NoScript Security Suite</h3>
-<p>NoScript (or NoScript Security Suite) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension&#39;s toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.</p>
+<p>NoScript (or NoScript Security Suite) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension’s toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.</p>
 <hr>
 <h2>TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</h2>
 <p>This section mentions Tor, for people who are new to it, please refer to the tutorial for it in <a href="#tor-tor-browser-and-noscript-security-suite">Tor, Tor Browser, and NoScript Security Suite</a>.</p>
@@ -1315,12 +1320,12 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <p>InviZible Pro can be installed from F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</p>
 <h3>Install TrackerControl</h3>
 <p>TrackerControl (also known as TC) can be installed from F-Droid: <a href="https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid">https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid</a>.</p>
-<p><strong>WARNING</strong>: Please avoid use the Google Play version because it doesn&#39;t have the feature like trackers blocking in order to comply with Google&#39;s terms.</p>
+<p><strong>WARNING</strong>: Please avoid use the Google Play version because it doesn’t have the feature like trackers blocking in order to comply with Google’s terms.</p>
 <ul>
 <li>Blocking trackers can be used independently or with proxy (such as Prxoy mode of InviZible Pro).</li>
 <li>TrackerControl has a <code>Traffic log</code> feature for free, which can help a lot in identifying which trackers should be unblocked when the services crash.</li>
-<li>This tutorial section, including the setting <code>.xml</code>, can be used in NetGuard as well because TrackerControl uses NetGuard&#39;s code. However, <code>Traffic log</code> feature is not available in NetGuard&#39;s free version but only available in Pro version. NetGuard is available on F-Droid: <a href="https://f-droid.org/packages/eu.faircode.netguard">https://f-droid.org/packages/eu.faircode.netguard</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=eu.faircode.netguard">https://play.google.com/store/apps/details?id=eu.faircode.netguard</a>.</li>
-<li>You have to disable monitoring of apps route traffic through Tor itself within TrackerControl, such as Tor Browser, and Termux if you&#39;re using <code>tor</code>, <code>torsocks</code>, or similar things.</li>
+<li>This tutorial section, including the setting <code>.xml</code>, can be used in NetGuard as well because TrackerControl uses NetGuard’s code. However, <code>Traffic log</code> feature is not available in NetGuard’s free version but only available in Pro version. NetGuard is available on F-Droid: <a href="https://f-droid.org/packages/eu.faircode.netguard">https://f-droid.org/packages/eu.faircode.netguard</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=eu.faircode.netguard">https://play.google.com/store/apps/details?id=eu.faircode.netguard</a>.</li>
+<li>You have to disable monitoring of apps route traffic through Tor itself within TrackerControl, such as Tor Browser, and Termux if you’re using <code>tor</code>, <code>torsocks</code>, or similar things.</li>
 </ul>
 <h3>Configure TrackerControl to Block Trackers without InviZible Pro</h3>
 <ul>
@@ -1337,7 +1342,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <li>Go to the <code>Settings</code> &gt; <code>Advanced options</code>.</li>
 <li>Turn on <code>Block Trackers on UDP</code>.</li>
 <li>Set the <code>SOCKS5 address</code> to <code>127.0.0.1</code>.</li>
-<li>Set the <code>SOCKS port</code> to the port you&#39;ve configured Tor to use in InviZible Pro (<code>9050</code> by default).</li>
+<li>Set the <code>SOCKS port</code> to the port you’ve configured Tor to use in InviZible Pro (<code>9050</code> by default).</li>
 <li>Enable the <code>Use SOCKS5 proxy</code> option.</li>
 <li>Tap <code>Port forwarding</code>.</li>
 <li>Tap <code>⊕</code>. Set <code>protocol</code> as <code>UDP</code>, <code>Source port</code> to <code>53</code>, <code>Destination address</code> to <code>127.0.0.1</code>, <code>Destination port</code> to the port you configure DNSCrypt of InviZible pro to listen to (<code>5354</code> by default), and <code>Destination app</code> to <code>nobody</code>.</li>
@@ -1389,7 +1394,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <li>Go to <code>DNSCrypt Settings</code>.</li>
 <li>Go to <code>Listen port</code> and set it to the port TrackerControl forwarding UDP and TCP of port <code>53</code> to (<code>5354</code> by default).</li>
 <li>Set <code>Require DNSSEC</code>, <code>Require no log</code>, and <code>Require no filter</code> if you want.</li>
-<li>Turn on <code>Force TCP</code> because Tor doesn&#39;t support UDP.</li>
+<li>Turn on <code>Force TCP</code> because Tor doesn’t support UDP.</li>
 <li>Turn on <code>SOCKS proxy</code> &gt; <code>Outbound proxy</code>.</li>
 <li>Set <code>Proxy port</code> as the port you want to configure Tor to use in InviZible Pro (<code>9050</code> by default).</li>
 <li>Turn on <code>Query logging</code> and <code>Suspicious logging</code> if you want.</li>
@@ -1588,7 +1593,7 @@ UseBridges 0
 <li>Go to the <code>Settings</code> &gt; <code>Advanced options</code>.</li>
 <li>Turn on <code>Block Trackers on UDP</code>.</li>
 <li>Set the <code>SOCKS5 address</code> to <code>127.0.0.1</code>.</li>
-<li>Set the <code>SOCKS port</code> to the port you&#39;ve configured Tor to use in InviZible Pro (<code>9050</code> by default).</li>
+<li>Set the <code>SOCKS port</code> to the port you’ve configured Tor to use in InviZible Pro (<code>9050</code> by default).</li>
 <li>Enable the <code>Use SOCKS5 proxy</code> option.</li>
 <li>Tap <code>Port forwarding</code>.</li>
 <li>Tap <code>⊕</code>. Set <code>protocol</code> as <code>UDP</code>, <code>Source port</code> to <code>53</code>, <code>Destination address</code> to <code>127.0.0.1</code>, <code>Destination port</code> to the <code>Forwarding rules</code> in <code>DNSCrypt Settings</code> of InviZible Pro (<code>5400</code> by default), and <code>Destination app</code> to <code>nobody</code>.</li>
@@ -1613,8 +1618,8 @@ UseBridges 0
 <h3>Check Whether the Tor Route Setup Is Successful</h3>
 <ul>
 <li>Go to <a href="https://check.torproject.org">https://check.torproject.org</a> to check if your Tor route succeeded. If yes, you will see &quot;Congratulations. This browser is configured to use Tor.&quot; or similar massage in other languages.</li>
-<li>Go to <a href="https://whatismyipaddress.com">https://whatismyipaddress.com</a> (not open source), <a href="https://ipcheck.ing">https://ipcheck.ing</a>, or other IP checking websites to see wether it&#39;s your device&#39;s IP. If not, your Tor route is probably successful.</li>
-<li>Go to <a href="https://www.dnsleaktest.com">https://www.dnsleaktest.com</a> (not open source), <a href="https://ipcheck.ing">https://ipcheck.ing</a>, or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in DNSCrypt Settings in InviZible Pro instead of your ISP&#39;s servers if there&#39;s no DNS leak.</li>
+<li>Go to <a href="https://whatismyipaddress.com">https://whatismyipaddress.com</a> (not open source), <a href="https://ipcheck.ing">https://ipcheck.ing</a>, or other IP checking websites to see wether it’s your device’s IP. If not, your Tor route is probably successful.</li>
+<li>Go to <a href="https://www.dnsleaktest.com">https://www.dnsleaktest.com</a> (not open source), <a href="https://ipcheck.ing">https://ipcheck.ing</a>, or other DNS leak testing websites to check if there is a DNS leak. You will see the DNS servers you set in DNSCrypt Settings in InviZible Pro instead of your ISP’s servers if there’s no DNS leak.</li>
 </ul>
 <h3>Configure InviZible Pro to Block Trackers without TrackerControl</h3>
 <ul>
@@ -1635,16 +1640,16 @@ UseBridges 0
 <h4>Introduction of RSA</h4>
 <p>RSA is a widely used asymmetric encryption algorithm that underpins many security protocols. Its strength lies in the difficulty of factoring large prime numbers. The algorithm involves key generation, encryption, and decryption processes utilizing a pair of keys: a public key, shared openly, and a private key, kept secret.</p>
 <ol>
-<li>Key Generation: The algorithm begins by selecting two large prime numbers. The totient function, equal to the product of the decrements of the two large prime numbers by one, is computed. A public exponent, typically 65537, is chosen, which is coprime to the totient function of the product of the two large prime numbers. The public key is the array of the product of the two large prime numbers and the public exponent. The private exponent is calculated such that the product of the public exponent and the private exponent is congruent to 1 modulo the totient function of the product of the two large prime numbers. The private key is the array of the product of the two large prime numbers and the private exponent. RSA&#39;s security relies on the ease of multiplying primes and the difficulty of factoring their product.</li>
-<li>Public Encryption and Private Decryption (Communication): After generating the keys, RSA can be used for secure communication. To encrypt a message, which should be less than the product of the two large prime numbers, the sender uses the recipient&#39;s public key with the formula that the ciphertext equals the message to the power of the public exponent modulo the product of the two large prime numbers. Only the intended recipient, with the private key, can decrypt it using the formula that the message equals the cyphertext to the power of the private exponent modulo the product of the two large prime numbers.</li>
-<li>Private Encryption and Public Decryption (Signature): RSA can also create digital signatures for authenticity and non-repudiation. The sender encrypts a hash of the message with their private key with the formula that the signature equals the hash to the power of the private exponent modulo the product of the two large prime numbers. The signature is sent accompanying the original message. The recipient verifies the signature by decrypting it with the sender&#39;s public key with the formula that the hash equals the signature to the power of the public exponent modulo the product of the two large prime numbers. If hash obtained from the formula matches the hash of the received message, it confirms the message&#39;s authenticity.</li>
+<li>Key Generation: The algorithm begins by selecting two large prime numbers. The totient function, equal to the product of the decrements of the two large prime numbers by one, is computed. A public exponent, typically 65537, is chosen, which is coprime to the totient function of the product of the two large prime numbers. The public key is the array of the product of the two large prime numbers and the public exponent. The private exponent is calculated such that the product of the public exponent and the private exponent is congruent to 1 modulo the totient function of the product of the two large prime numbers. The private key is the array of the product of the two large prime numbers and the private exponent. RSA’s security relies on the ease of multiplying primes and the difficulty of factoring their product.</li>
+<li>Public Encryption and Private Decryption (Communication): After generating the keys, RSA can be used for secure communication. To encrypt a message, which should be less than the product of the two large prime numbers, the sender uses the recipient’s public key with the formula that the ciphertext equals the message to the power of the public exponent modulo the product of the two large prime numbers. Only the intended recipient, with the private key, can decrypt it using the formula that the message equals the cyphertext to the power of the private exponent modulo the product of the two large prime numbers.</li>
+<li>Private Encryption and Public Decryption (Signature): RSA can also create digital signatures for authenticity and non-repudiation. The sender encrypts a hash of the message with their private key with the formula that the signature equals the hash to the power of the private exponent modulo the product of the two large prime numbers. The signature is sent accompanying the original message. The recipient verifies the signature by decrypting it with the sender’s public key with the formula that the hash equals the signature to the power of the public exponent modulo the product of the two large prime numbers. If hash obtained from the formula matches the hash of the received message, it confirms the message’s authenticity.</li>
 </ol>
 <p>Applications:</p>
 <ul>
 <li>RSA is employed in various applications that require secure communication and data integrity:</li>
 <li>Secure Web Communications (HTTPS): RSA is commonly used in SSL/TLS protocols to establish secure connections between web browsers and servers.</li>
 <li>Email Encryption: Services like PGP (Pretty Good Privacy) use RSA for encrypting emails, ensuring only intended recipients can read them.</li>
-<li>Digital Signatures: RSA is used to sign software and documents, verifying the identity of the sender and ensuring the content hasn&#39;t been altered.</li>
+<li>Digital Signatures: RSA is used to sign software and documents, verifying the identity of the sender and ensuring the content hasn’t been altered.</li>
 <li>Secure Key Exchange: RSA can facilitate the secure exchange of symmetric keys for faster encryption methods, allowing secure communication without the need for shared secrets.</li>
 </ul>
 <h4>Generate New Private Key</h4>
@@ -1782,7 +1787,7 @@ UseBridges 0
 <li><code>-iter count</code>: Use a given number of iterations on the password in deriving the encryption key. High values increase the time required to brute-force the resulting file. This option enables the use of PBKDF2 algorithm to derive the key.</li>
 <li><code>-pbkdf2</code>: Use PBKDF2 algorithm with a default iteration count of 10000 unless otherwise specified by the <code>-iter</code> command line option.</li>
 <li><code>-saltlen</code>: Set the salt length to use when using the <code>-pbkdf2</code> option. For compatibility reasons, the default is 8 bytes. The maximum value is currently 16 bytes. If the <code>-pbkdf2</code> option is not used, then this option is ignored and a fixed salt length of 8 is used. The salt length used when encrypting must also be used when decrypting.</li>
-<li><code>-nosalt</code>: Don&#39;t use a salt in the key derivation routines. This option SHOULD NOT be used except for test purposes or compatibility with ancient versions of OpenSSL.</li>
+<li><code>-nosalt</code>: Don’t use a salt in the key derivation routines. This option SHOULD NOT be used except for test purposes or compatibility with ancient versions of OpenSSL.</li>
 <li><code>-z</code>: Compress or decompress encrypted data using zlib after encryption or before decryption. This option exists only if OpenSSL was compiled with the zlib or zlib-dynamic option.</li>
 <li><code>-none</code>: Use NULL cipher (no encryption or decryption of input).</li>
 <li><code>-rand files</code>, <code>-writerand file</code>: See &quot;Random State Options&quot; in openssl (1) for details.</li>
@@ -2024,7 +2029,7 @@ sudo ufw allow ssh
 <pre><code>ssh-keygen -R [localhost]:2222
 </code></pre>
 <p>You need to delete the original key if the server is reset.</p>
-<p>If you&#39;re using password authentication, you won&#39;t need to generate key.</p>
+<p>If you’re using password authentication, you won’t need to generate key.</p>
 <h3>SCP (Secure Copy Protocol)</h3>
 <p>SCP is a simple command-line tool for securely copying files between local and remote systems based on the <code>rcp</code> (remote copy) command but uses SSH for security. It is faster but less flexible than SFTP.</p>
 <p>You can use <code>scp</code> on the client side to transfer files between the server side and the client side.</p>
@@ -2051,10 +2056,10 @@ sudo ufw allow ssh
 <h3>Features of droidVNC-NG</h3>
 <p>Remote Control &amp; Interaction</p>
 <ul>
-<li>Screen Sharing: Share your device&#39;s screen over the network, with optional scaling on the server side for better performance.</li>
+<li>Screen Sharing: Share your device’s screen over the network, with optional scaling on the server side for better performance.</li>
 <li>Remote Control: Use your VNC client to control your device, including mouse and basic keyboard input. To enable this, you must activate the Accessibility API Service on your device.</li>
-<li>Special Key Functions: Remotely trigger key functions like &#39;Recent Apps,&#39; Home button, and Back button.</li>
-<li>Text Copy &amp; Paste: Support for copying and pasting text from your device to the VNC client. Note: Copying text from the client to the device isn&#39;t supported due to Android security restrictions.</li>
+<li>Special Key Functions: Remotely trigger key functions like Recent apps, Home button, and Back button.</li>
+<li>Text Copy &amp; Paste: Support for copying and pasting text from your device to the VNC client. Note: Copying text from the client to the device isn’t supported due to Android security restrictions.</li>
 <li>Multiple Mouse Pointers: Display different mouse pointers for each connected client on your device.</li>
 </ul>
 <p>Comfort Features</p>
@@ -2090,8 +2095,8 @@ sudo ufw allow ssh
 </ul>
 <h3>Use SD Maid SE with Shizuku</h3>
 <ul>
-<li>Setup Shizuku. For people who are new to it, please refer to the tutorial for it in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>. The part about using SystemUI Tuner to enable ADB persistently in order to keep Shizuku running when Developer Options is turned off isn&#39;t necessary here but recommended if you want to keep SD Maid SE using Shizuku.</li>
-<li>Give consent for SD Maid SE to use Shizuku inside SD Maid SE, you can use it to enable/disable SD Maid SE&#39;s use of Shizuku.</li>
+<li>Setup Shizuku. For people who are new to it, please refer to the tutorial for it in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>. The part about using SystemUI Tuner to enable ADB persistently in order to keep Shizuku running when Developer Options is turned off isn’t necessary here but recommended if you want to keep SD Maid SE using Shizuku.</li>
+<li>Give consent for SD Maid SE to use Shizuku inside SD Maid SE, you can use it to enable/disable SD Maid SE’s use of Shizuku.</li>
 <li>After giving consent, a Grant access dialog from Shizuku should show.</li>
 <li>Confirm the dialog.</li>
 <li>SD Maid SE should display a new status indicator that show whether SD Maid SE can connect to the Shizuku service.</li>
@@ -2145,10 +2150,10 @@ sudo ufw allow ssh
 <li>Comments page, Related items page, and Description page.</li>
 <li>Search videos, audios, channels, playlists, albums, etc.</li>
 <li>Subscribe to channels without or with account logged in.</li>
-<li>Get notifications about new videos from channels you&#39;re subscribed to.</li>
+<li>Get notifications about new videos from channels you’re subscribed to.</li>
 <li>Create, edit, search, and sort channel groups.</li>
 <li>Browse feeds generated from your channel groups.</li>
-<li>Save or don&#39;t save history.</li>
+<li>Save or don’t save history.</li>
 <li>Search and watch playlists.</li>
 <li>Create and edit local playlists.</li>
 <li>Download videos, audios, subtitles etc. with different format and quality.</li>
@@ -2168,15 +2173,15 @@ sudo ufw allow ssh
 <h3>Install Xtra</h3>
 <p>Xtra can be installed from F-Droid: <a href="https://f-droid.org/packages/com.github.andreyasadchy.xtra">https://f-droid.org/packages/com.github.andreyasadchy.xtra</a>.</p>
 <h3>Features of Xtra</h3>
-<p>Xtra for Twitch is a Twitch client focused on providing the best viewing and chatting experience on mobile devices:</p>
+<p>Xtra for Twitch is a Twitch client providing the viewing and chatting experience on mobile devices:</p>
 <ul>
+<li>Uses TTV.lol API which is not libre and leaks your Twitch user ID and personal IP to their Russian proxy.</li>
 <li>Support for popular emotes with BetterTTV and FrankerFaceZ plugins.</li>
 <li>Watch VODs and clips with chat replay.</li>
 <li>Download VODs to watch offline.</li>
 <li>Continue watching outside of the app with Picture-in-Picture mode.</li>
 <li>Sleep timer to stop the stream automatically.</li>
 <li>Customizable interface with 3 different color themes.</li>
-<li>Uses TTV.lol API which is not libre and leaks your Twitch user ID and personal IP to their Russian proxy.</li>
 </ul>
 <hr>
 <h2>VLC for Android: Open Source Media Player and Multimedia Engine</h2>
@@ -2187,28 +2192,54 @@ sudo ufw allow ssh
 <p>VLC can play most multimedia files, discs, streams, devices and is also able to convert, encode, stream and manipulate streams into numerous formats.</p>
 <p>VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.</p>
 <hr>
-<h2>DuckDuckGo: Privacy Browser</h2>
+<h2>DuckDuckGo Browser: Privacy Browser</h2>
 <h3>Install DuckDuckGo</h3>
-<p>DuckDuckGo (<code>com.duckduckgo.mobile.android</code>), also known as DuckDuckGo Privacy Browser and DuckDuckGo Private Browser, can be installed from F-Droid: <a href="https://f-droid.org/packages/com.duckduckgo.mobile.android">https://f-droid.org/packages/com.duckduckgo.mobile.android</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android">https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android</a>.</p>
+<p>DuckDuckGo (<code>com.duckduckgo.mobile.android</code>) Browser, also known as DuckDuckGo, DuckDuckGo Privacy Browser, or DuckDuckGo Private Browser, can be installed from F-Droid: <a href="https://f-droid.org/packages/com.duckduckgo.mobile.android">https://f-droid.org/packages/com.duckduckgo.mobile.android</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android">https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android</a>.</p>
 <h3>Features of DuckDuckGo</h3>
 <ul>
-<li>Search Privately: DuckDuckGo search doesn&#39;t track you.</li>
-<li>Enforce Encryption Protection: DuckDuckGo forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.</li>
-<li>Web Tracking Protection: DuckDuckGo’s Privacy Protection will block all the found hidden third-party trackers, and exposes the major advertising networks tracking you over time to you.</li>
-<li>Cookie Pop-Up Protection: Banish cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.</li>
-<li>Escape Fingerprinting: Make it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.</li>
-<li>Decode Privacy Policies: DuckDuckGo&#39;ve partnered with Terms of Service Didn&#39;t Read to include their scores and labels of website terms of service and privacy policies, where available.</li>
-<li>Privacy Grade: DuckDuckGo Privacy Browser shows you a Privacy Grade rating when you visit a website, which is scored automatically based on the prevalence of hidden tracker networks, encryption availability, and website privacy practices.</li>
+<li>Bing Ads: The ads in DuckDuckGo are Bing ads, powered by Microsoft.</li>
+<li>DuckDuckGo Search Engine: Uses DuckDuckGo as the search engine, for which the source code is not available.</li>
+<li>Duck.ai: Anonymous access to popular AI models, including GPT-4o mini, Claude 3, and open-source Llama 3.3 and Mistral, on Duck.ai. No Al training on your conversations.</li>
+<li>Duck Player: Lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won’t influence your recommendations.</li>
+<li>Enforce HTTPS Encryption Protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.</li>
+<li>Tracking Protection: Blocks all the found hidden third-party trackers, and exposes the major advertising networks tracking you over time to you.</li>
+<li>Cookie Pop-Up Protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.</li>
+<li>Escape Fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.</li>
+<li>Decode Privacy Policies: DuckDuckGo has partnered with Terms of Service Didn’t Read to include their scores and labels of website terms of service and privacy policies, where available.</li>
+<li>Privacy Grade: Shows you a Privacy Grade rating when you visit a website, which is scored automatically based on the prevalence of hidden tracker networks, encryption availability, and website privacy practices.</li>
 <li>App Tracking Protection: Detects and blocks app trackers from other companies.</li>
-<li>Email Protection: Block most email trackers and hide your existing email address with @duck.com addresses.</li>
-<li>DuckDuckGo Engine: Uses DuckDuckGo as the search engine, for which the
-source code is not available.</li>
+<li>Email Protection: Blocks most email trackers and hide your existing email address with @duck.com addresses.</li>
 <li>Fire Button: Clear all your tabs and data with one tap.</li>
 <li>Application Lock: Secure the app with Touch ID or Face ID.</li>
-<li>Duck.ai: Anonymous access to popular AI models, including GPT-4o mini, Claude 3, and open-source Llama 3.3 and Mistral, on Duck.ai. No Al training on your conversations.</li>
-<li>Duck Player: Duck Player lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won&#39;t influence your recommendations.</li>
+<li>Browsing history.</li>
+<li>Recent and private tabs.</li>
+<li>Multiplatform: DuckDuckGo is available on Linux, Microsoft, macOS, Android, iOS, etc.</li>
 </ul>
 <p>Go to their official website: <a href="https://duckduckgo.com">https://duckduckgo.com</a> for more information.</p>
+<hr>
+<h2>Brave Browser: Privacy Browser</h2>
+<h3>Install Brave</h3>
+<p>Brave Browser (<code>com.brave.browser</code>), also known as Brave, can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=com.brave.browser">https://play.google.com/store/apps/details?id=com.brave.browser</a>.</p>
+<h3>Features of Brave</h3>
+<ul>
+<li>Brave Search Engine: Uses Brave Search as the search engine, for which the source code is not available.</li>
+<li>Brave Leo AI: The smart AI assistant built right into your browser. Ask questions, summarize pages, create new content, and more. Privately.</li>
+<li>Brave Rewards: Earn BAT tokens for private ads you see in Brave.</li>
+<li>Brave Wallet: A cryptocurrency wallet.</li>
+<li>Redirect AMP Pages: Redirect to original (non-AMP) page URLs, instead of Google’s Accelerated Mobile Page versions.</li>
+<li>Adblock and Tracking Protection: Prevents trackers and ads from loading and showing in webpages.</li>
+<li>Blocks Cookie: Block third-party cookies and cookies consent notifications.</li>
+<li>Script Blocker: Blocks JavaScript.</li>
+<li>Enforce HTTPS Encryption Protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.</li>
+<li>Cookie Pop-Up Protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.</li>
+<li>Escape Fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.</li>
+<li>Pop-Up Blocker</li>
+<li>Saves Data and Battery </li>
+<li>Bookmarks: Private bookmarks. Sync bookmarks. Import/export bookmarks from/to another browser.</li>
+<li>Browsing history.</li>
+<li>Recent and private tabs.</li>
+<li>Removes tracking codes when you copy URLs.</li>
+</ul>
 <hr>
 <h2>Promoted or Related Works, References, and Bibliography</h2>
 <h3>ANC by Gaurav Ujwal / gujjwal00</h3>
@@ -2226,6 +2257,12 @@ source code is not available.</li>
 <ul>
 <li>F-Droid: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">https://f-droid.org/packages/in.sunilpaulmathew.ashell</a>.</li>
 <li>GitLab: <a href="https://gitlab.com/sunilpaulmathew/ashell">https://gitlab.com/sunilpaulmathew/ashell</a>.</li>
+</ul>
+<h3>Brave / Brave Browser by Brave Software / brave</h3>
+<ul>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.brave.browser">https://play.google.com/store/apps/details?id=com.brave.browser</a>.</li>
+<li>GitHub: <a href="https://github.com/brave/brave-browser">https://github.com/brave/brave-browser</a>.</li>
+<li>Official website: <a href="https://brave.com">https://brave.com</a>.</li>
 </ul>
 <h3>Debian</h3>
 <ul>
@@ -2245,7 +2282,7 @@ source code is not available.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng">https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng</a>.</li>
 <li>GitHub: <a href="https://github.com/bk138/droidVNC-NG">https://github.com/bk138/droidVNC-NG</a>.</li>
 </ul>
-<h3>DuckDuckGo, DuckDuckGo Privacy Browser, or DuckDuckGo Private Browser by DuckDuckGo or duckduckgo</h3>
+<h3>DuckDuckGo / DuckDuckGo Browser / DuckDuckGo Privacy Browser / DuckDuckGo Private Browser by DuckDuckGo or duckduckgo</h3>
 <ul>
 <li>F-Droid: <a href="https://f-droid.org/packages/com.duckduckgo.mobile.android">https://f-droid.org/packages/com.duckduckgo.mobile.android</a>.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android">https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android</a>.</li>
