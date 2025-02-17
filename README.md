@@ -1,5 +1,3 @@
-<!-- HTML parts: pictures in the beginning, the table in [Types of Storage in Termux](#types-of-storage-in-termuc) in [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection). -->
-
 <a href="https://willie169.github.io"><img src="img/willie169.jpeg" alt="Willie169" style="height: 40px;"></a>
 <a href="https://willie169.github.io/Android-Non-Root"><img src="img/Android_Non_Root.png" alt="Android Non Root" style="height: 40px;"></a>
 
@@ -12,11 +10,11 @@
 * The app version: <https://github.com/Willie169/Android-Non-Root-App>.
 * App download link: <https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk>.
 
-In this tutorial, we’ll explore a range of powerful, open-source tools such as [Termux](https://github.com/termux/termux-app), [F-Droid](https://f-droid.org), [Shizuku](https://github.com/RikkaApps/Shizuku), [Tor](https://www.torproject.org), [TrackerControl](https://github.com/TrackerControl/tracker-control-android), [InviZible Pro](https://github.com/Gedsh/InviZible), and [PipePipe](https://github.com/InfinityLoop1308/PipePipe) to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.
+In this tutorial, we’ll explore a range of powerful, open-source tools such as [Termux](https://github.com/termux/termux-app), [F-Droid](https://f-droid.org), [Shizuku](https://github.com/RikkaApps/Shizuku), [Tor](https://www.torproject.org), [TrackerControl](https://github.com/TrackerControl/tracker-control-android), [InviZible Pro](https://github.com/Gedsh/InviZible), [QEMU](https://www.qemu.org), and [PipePipe](https://github.com/InfinityLoop1308/PipePipe) to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.
 
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
 
-My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
+My main development of Termux Shell scripts has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh), which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while tutorials for Termux, some of my scripts in [**termux-sh**](https://github.com/Willie169/termux-sh), and other related stuff such as VNC, SSL, and SSH, remain here.
 
 ---
 
@@ -105,10 +103,12 @@ My main development of Termux scripts for setup and virtual machines installatio
   * [Other SystemUI Tuner Usage](#other-systemui-tuner-usage)
   * [aShell](#ashell)
   * [Further Readings and References about ADB and Shizuku](#further-readings-and-references-about-adb-and-shizuku)
-* [Tor, Tor Browser, and NoScript Security Suite](#tor-tor-browser-and-noscript-security-suite)
+* [Tor, Tor Browser, NoScript Security Suite, and Torsocks](#tor-tor-browser-noscript-security-suite-and-torsocks)
   * [Introduction of Tor](#introduction-of-tor)
   * [Install Tor Browser](#install-tor-browser)
   * [NoScript Security Suite](#noscript-security-suite)
+  * [Tor in Termux](#tor-in-termux)
+  * [Torsocks in Termux](#torsocks-in-termux)
 * [TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.](#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc)
   * [Install InviZible Pro](#install-invizible-pro)
   * [Install TrackerControl](#install-trackercontrol)
@@ -138,10 +138,13 @@ My main development of Termux scripts for setup and virtual machines installatio
   * [Install SD Maid SE](#install-sd-maid-se)
   * [Introduction of SD Maid SE](#introduction-of-sd-maid-se)
   * [Use SD Maid SE with Shizuku](#use-sd-maid-se-with-shizuku)
+* [AndroidIDE: IDE for Android App development on Android devices](#androidide-ide-for-android-app-development-on-android-devices)
+  * [Install AndroidIDE](#install-androidide)
+  * [Features of AndroidIDE](#features-of-androidide)
 * [Linux Command Library](#linux-command-library)
   * [Install Linux Command Library (Optional)](#install-linux-command-library-optional)
   * [Features of Linux Command Library](#features-of-linux-command-library)
-  * [Browse Linux Command Library](#browse-linux-command-library)
+  * [Website Version of Linux Command Library](#website-version-of-linux-command-library)
 * [Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support](#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support)
   * [Install Material Files](#install-material-files)
   * [Features of Material Files](#features-of-material-files)
@@ -152,17 +155,31 @@ My main development of Termux scripts for setup and virtual machines installatio
 * [Xtra: Twitch Player and Browser](#xtra-twitch-player-and-browser)
   * [Install Xtra](#install-xtra)
   * [Features of Xtra](#features-of-xtra)
+* [Material Photo Widget](#material-photo-widget)
+  * [Install Material Photo Widget](#install-material-photo-widget)
+  * [Features of Material Photo Widget](#features-of-material-photo-widget)
 * [VLC for Android: Open Source Media Player and Multimedia Engine](#vlc-for-android-open-source-media-player-and-multimedia-engine)
   * [Install VLC for Android](#install-vlc-for-android)
   * [Introduction of VLC](#introduction-of-vlc)
-* [DuckDuckGo Browser: Privacy Browser](#duckduckgo-browser-privacy-browser)
+* [Firefox: Fast and Private Browser](#firefox-fast-and-private-browser)
+  * [Install Firefox](#install-firefox)
+  * [Features of Firefox](#features-of-firefox)
+* [DuckDuckGo: Privacy Browser](#duckduckgo-privacy-browser)
   * [Install DuckDuckGo](#install-duckduckgo)
   * [Features of DuckDuckGo](#features-of-duckduckgo)
-* [Brave Browser: Privacy Browser](#brave-browser-privacy-browser)
+* [Brave: Privacy Browser](#brave-privacy-browser)
   * [Install Brave](#install-brave)
   * [Features of Brave](#features-of-brave)
+* [Safe Space: A Safe Space For Your Digital Valuables](#safe-space-a-safe-space-for-your-digital-valuables)
+  * [Install Safe Space](#install-safe-space)
+  * [Features of Safe Space](#features-of-safe-space)
+* [SimplyTranslate Mobile: A Privacy Friendly Frontend to Google Translate](#simplytranslate-mobile-a-privacy-friendly-frontend-to-google-translate)
+  * [Install SimplyTranslate Mobile](#install-simplytranslate-mobile)
+  * [Features of SimplyTranslate Mobile](#features-of-simplytranslate-mobile)
+  * [Website Version of SimplyTranslate Mobile](#website-version-of-simplytranslate-mobile)
 * [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   * [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
+  * [AndroidIDE by AndroidIDE / AndroidIDEOfficial](#androidide-by-androidide--androidideofficial)
   * [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
   * [aShell by Sunil Paul Mathew M. / sunilpaulmathew](#ashell-by-sunil-paul-mathew-m--sunilpaulmathew)
   * [Brave / Brave Browser by Brave Software / brave](#brave--brave-browser-by-brave-software--brave)
@@ -171,7 +188,9 @@ My main development of Termux scripts for setup and virtual machines installatio
   * [droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138](#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138)
   * [DuckDuckGo / DuckDuckGo Browser / DuckDuckGo Privacy Browser / DuckDuckGo Private Browser by DuckDuckGo or duckduckgo](#duckduckgo--duckduckgo-browser--duckduckgo-privacy-browser--duckduckgo-private-browser-by-duckduckgo-or-duckduckgo)
   * [F-Droid by F-Droid](#f-droid-by-f-droid)
+  * [Firefox / Firefox Fast & Private Browser by Mozilla](#firefox--firefox-fast--private-browser-by-mozilla)
   * [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
+  * [IzzyOnDroid:](#izzyondroid)
   * [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
   * [Material Files / MaterialFiles by Hai Zhang / zhanghai](#material-files--materialfiles-by-hai-zhang--zhanghai)
   * [MyIP / IPCheck.ing by Jason Ng / jason5ng32](#myip--ipchecking-by-jason-ng--jason5ng32)
@@ -180,8 +199,10 @@ My main development of Termux scripts for setup and virtual machines installatio
   * [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
   * [PipePipe by InfinityLoop1309 / InfinityLoop1308](#pipepipe-by-infinityloop1309--infinityloop1308)
   * [QEMU by Qemu Project / QEMU](#qemu-by-qemu-project--qemu)
+  * [Safe Space by aashishksahu](#safe-space-by-aashishksahu)
   * [SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development](#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development)
   * [Shizuku by Xingchen & Rikka / RikkaApps](#shizuku-by-xingchen--rikka--rikkaapps)
+  * [SimplyTranslate Mobile by ManeraKai](#simplytranslate-mobile-by-manerakai)
   * [SystemUI Tuner by Zachary Wander / zacharee](#systemui-tuner-by-zachary-wander--zacharee)
   * [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
   * [Termux:API by Fredrik Fornwall / Termux / termux](#termuxapi-by-fredrik-fornwall--termux--termux)
@@ -222,7 +243,7 @@ If for whatever reason you want to send me money, here are where you may do so:
 
 * This tutorial is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 * Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See [DontKillMyApp](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid).
-* Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection) before exploring other sections related to Termux. My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
+* Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection) before exploring other sections related to Termux. My main development of Termux Shell scripts has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh), which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while tutorials for Termux, some of my scripts in [**termux-sh**](https://github.com/Willie169/termux-sh), and other related stuff such as VNC, SSL, and SSH, remain here.
 * More instructions for Linux commands are available in [Linux Command Library](#linux-command-library).
 * Run update command (such as `pkg update` and `apt update`) before install command (such as `pkg install` and `apt install`) to update available packages.
 * Add `sudo` at the beginning of commands in Linux if root permission is needed. Remove `sudo` from the beginning of commands in Termux if the device is not rooted. Termux doesn’t need root permission to install packages etc.
@@ -258,7 +279,7 @@ F-Droid repositories are compatible with an F-Droid client application. To add a
 
 The Offical F-Droid repository is <http://f-droid.org/repo>, which is pre-added in the app by default.
 
-One of the most popular unofficial F-Droid repository is IzzyOnDroid: <http://apt.izzysoft.de/fdroid/repo>.
+One of the most popular unofficial F-Droid repository is IzzyOnDroid F-Droid repository: <http://apt.izzysoft.de/fdroid/repo>.
 
 A list of some known F-Droid repositories:
 
@@ -276,13 +297,13 @@ A list of some known F-Droid repositories:
 * LibRetro: <https://fdroid.libretro.com/repo>.
 * KDE Android: <https://cdn.kde.org/android/stable-releases/fdroid/repo>.
 * KDE Android Nightly: <https://cdn.kde.org/android/fdroid/repo>.
-* Calyx Institute (testing): <https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo>.
+* The Calyx Institute (testing): <https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo>.
 * DivestOS Official: <https://divestos.org/fdroid/official>.
 * DivestOS Unofficial: <https://divestos.org/fdroid/unofficial>.
 * Fedilab Apps: <https://fdroid.fedilab.app/repo>.
 * Kali Nethunter App Store: <https://store.nethunter.com/repo>.
 * Umbrella: <https://secfirst.org/fdroid/repo>.
-* Patched Apps: <https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo>.
+* Langis / Patched Apps: <https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo>.
 * Bitwarden: <https://mobileapp.bitwarden.com/fdroid/repo>.
 * Briar Project: <https://briarproject.org/fdroid/repo>.
 * Wind Offline: <https://guardianproject-wind.s3.amazonaws.com/fdroid/repo>.
@@ -290,8 +311,6 @@ A list of some known F-Droid repositories:
 ---
 
 ## Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection
-
-My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
 
 ### Install Termux
 
@@ -397,16 +416,16 @@ Read the official wiki: <https://wiki.termux.com/wiki/Termux:API> for more infor
 * Pinch to zoom in or out.
 * Swipe right from the left edge of the screen to drag out the navigation bar, where you can open Termux Settings, start another NEW SESSION, switch to another session, or launch KEYBOARD.
 * Long press on screen to:
-   * COPY
-   * PASTE
-   * More
-   * Select URL
-   * Share transcipt: transfer all output of the current session (via Android api)
-   * Reset: Reset
-   * Kill process: Kill the current terminal session process
-   * Style: Style (requires Termux:Styling plugin)
-   * Keep screen on
-   * Help: Help documentation (Termux Wiki)
+  * COPY
+  * PASTE
+  * More
+  * Select URL
+  * Share transcipt: transfer all output of the current session (via Android api)
+  * Reset: Reset
+  * Kill process: Kill the current terminal session process
+  * Style: Style (requires Termux:Styling plugin)
+  * Keep screen on
+  * Help: Help documentation (Termux Wiki)
 
 ### Shortcuts in Termux
 
@@ -632,18 +651,18 @@ Properties that can be changed include `default-working-directory`, `allow-exter
 * Usage: `pkg [--check-mirror] command [arguments]`.
 * `--check-mirror` \- forces a re-check of availability of mirrors
 * Commands:
-   * `autoclean` \- Remove all outdated packages from apt cache.
-   * `clean` \- Remove all packages from apt cache.
-   * `files <packages>` \- Show all files installed by packages.
-   * `install <packages>` \- Install specified packages.
-   * `list-all` \- List all packages available in repositories.
-   * `list-installed` \- List installed packages.
-   * `reinstall <packages>` \- Reinstall specified installed packages at the latest version.
-   * `search <query>` \- Search package by query, for example by name or description part.
-   * `show <packages>` \- Show basic metadata, such as dependencies.
-   * `uninstall <packages>` \- Uninstall specified packages. Configuration files will be left intact.
-   * `upgrade` \- Upgrade all installed packages to the latest version.
-   * `update` \- Update apt databases from configured repositories.
+  * `autoclean` \- Remove all outdated packages from apt cache.
+  * `clean` \- Remove all packages from apt cache.
+  * `files <packages>` \- Show all files installed by packages.
+  * `install <packages>` \- Install specified packages.
+  * `list-all` \- List all packages available in repositories.
+  * `list-installed` \- List installed packages.
+  * `reinstall <packages>` \- Reinstall specified installed packages at the latest version.
+  * `search <query>` \- Search package by query, for example by name or description part.
+  * `show <packages>` \- Show basic metadata, such as dependencies.
+  * `uninstall <packages>` \- Uninstall specified packages. Configuration files will be left intact.
+  * `upgrade` \- Upgrade all installed packages to the latest version.
+  * `update` \- Update apt databases from configured repositories.
 
 ### Termux Change Repo
 
@@ -675,20 +694,20 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 
 #### Command Solution
 
-* Run `termux-change-repo` command.
-* Select one or more repositories for which you want to change mirror by tapping "space" and navigating over list by up/down arrow keys. Tap enter to confirm the choice.
-* Pick a mirror. Control method is same as the last step.
-* If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the `termux-info` command. Note that the science and game repos have been merged into main repo and should be removed with `apt remove science-repo game-repo` if you have them installed.
-* Accept them by answering `y` if you receive errors like:
-
-```
-E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Origin' value from 'Bintray' to 'termux-root-packages-24 root'
-E: Repository 'https://grimler.se/termux-root-packages-24 root InRelease' changed its 'Label' value from 'Bintray' to 'termux-root-packages-24 root'
+<ul>
+<li>Run <code>termux-change-repo</code> command.</li>
+<li>Select one or more repositories for which you want to change mirror by tapping &quot;space&quot; and navigating over list by up/down arrow keys. Tap enter to confirm the choice.</li>
+<li>Pick a mirror. Control method is same as the last step.</li>
+<li>If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the <code>termux-info</code> command. Note that the science and game repos have been merged into main repo and should be removed with <code>apt remove science-repo game-repo</code> if you have them installed.</li>
+<li>Accept them by answering <code>y</code> if you receive errors like:
+<pre><code>E: Repository &#39;https://grimler.se/termux-root-packages-24 root InRelease&#39; changed its &#39;Origin&#39; value from &#39;Bintray&#39; to &#39;termux-root-packages-24 root&#39;
+E: Repository &#39;https://grimler.se/termux-root-packages-24 root InRelease&#39; changed its &#39;Label&#39; value from &#39;Bintray&#39; to &#39;termux-root-packages-24 root&#39;
 N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
 Do you want to accept these changes and continue updating from this repository? [y/N]
-```
-
-* After changing the mirror, it is highly advisable to run `pkg upgrade` command to update all packages to the latest available versions, or at least update `termux-tools` package with `pkg install termux-tools` command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.
+</code></pre>
+</li>
+<li>After changing the mirror, it is highly advisable to run <code>pkg upgrade</code> command to update all packages to the latest available versions, or at least update <code>termux-tools</code> package with <code>pkg install termux-tools</code> command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.</li>
+</ul>
 
 #### Manual Solution
 
@@ -712,18 +731,18 @@ Do you want to accept these changes and continue updating from this repository? 
 * Usage: `apt [options] command`
 * Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
 * Most used commands:
-   * `list` \- list packages based on package names
-   * `search` \- search in package descriptions
-   * `show` \- show package details
-   * `install` \- install packages
-   * `reinstall` \- reinstall packages
-   * `remove` \- remove packages
-   * `autoremove` \- automatically remove all unused packages
-   * `update` \- update list of available packages
-   * `upgrade` \- upgrade the system by installing/upgrading packages
-   * `full-upgrade` \- upgrade the system by removing/installing/upgrading packages
-   * `edit-sources` \- edit the source information file
-   * `satisfy` \- satisfy dependency strings
+  * `list` \- list packages based on package names
+  * `search` \- search in package descriptions
+  * `show` \- show package details
+  * `install` \- install packages
+  * `reinstall` \- reinstall packages
+  * `remove` \- remove packages
+  * `autoremove` \- automatically remove all unused packages
+  * `update` \- update list of available packages
+  * `upgrade` \- upgrade the system by installing/upgrading packages
+  * `full-upgrade` \- upgrade the system by removing/installing/upgrading packages
+  * `edit-sources` \- edit the source information file
+  * `satisfy` \- satisfy dependency strings
 * See apt(8) for more information about the available commands: <https://manpages.debian.org/unstable/apt/apt.8.en.html>.
 * Configuration options and syntax is detailed in apt.conf(5): <https://manpages.debian.org/unstable/apt/apt.conf.5.en.html>.
 * Information about how to configure sources can be found in sources.list(5): <https://manpages.debian.org/unstable/apt/sources.list.5.en.html>.
@@ -749,29 +768,23 @@ This fix is generally available for Stock Android 12L and beyond, and often unav
 
 #### Command Line Fix
 
-1. Connect to Android Debug Bridge (ADB) of your Android device from another device or via Shizuku. For people who are new to them, please refer to the tutorial for them in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell).
-2. Type `adb shell` to enter `adb shell`.
-3. Run the following commands inside `adb shell`:
-
-```
-/system/bin/device_config set_sync_disabled_for_tests persistent
+<ol>
+<li>Connect to Android Debug Bridge (ADB) of your Android device from another device or via Shizuku. For people who are new to them, please refer to the tutorial for them in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>.</li>
+<li>Type <code>adb shell</code> to enter <code>adb shell</code>.</li>
+<li>Run the following commands inside <code>adb shell</code>:
+<pre><code>/system/bin/device_config set_sync_disabled_for_tests persistent
 /system/bin/device_config put activity_manager max_phantom_processes 2147483647
 settings put global settings_enable_monitor_phantom_procs false
-```
-
-4. To check the status of whether phantom process killer is disabled, run the following commands inside `adb shell`:
-
-```
-/system/bin/dumpsys activity settings | grep max_phantom_processes
+</code></pre></li>
+<li>To check the status of whether phantom process killer is disabled, run the following commands inside <code>adb shell</code>:
+<pre><code>/system/bin/dumpsys activity settings | grep max_phantom_processes
 /system/bin/device_config get activity_manager max_phantom_processes
-```
-
-5. To enable phantom process killer again, run the following commands inside `adb shell`:
-
-```
-/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
+</code></pre></li>
+<li>To enable phantom process killer again, run the following commands inside <code>adb shell</code>:
+<pre><code>/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
 settings put global settings_enable_monitor_phantom_procs true
-```
+</code></pre></li>
+</ol>
 
 #### Further Readings and References about Process completed (signal 9) - press Enter error
 
@@ -881,7 +894,7 @@ Replace `:1` with the actual port your VNC server started on.
 
 #### Install Termux-x11 App
 
-Termux-x11 (`com.termux.x11`) app for Android can be installed from the .apk asset corresponding tp your device’s architecture in GitHub: <https://github.com/termux/termux-x11> release.
+Termux-x11 (`com.termux.x11`) app for Android can be installed from the .apk asset corresponding to your architecture in its GitHub: <https://github.com/termux/termux-x11> release.
 
 #### Install Termux-x11 Package
 
@@ -1073,8 +1086,6 @@ AVNC (`com.gaurav.avnc`) can be installed from F-Droid: <https://f-droid.org/pac
 
 ## PRoot-Distro with Termux: Install Linux Distributions in Termux
 
-My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
-
 ### Introduction of Chroot, PRoot, PRoot-Distro
 
 * Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
@@ -1085,16 +1096,43 @@ My main development of Termux scripts for setup and virtual machines installatio
 
 * Usage: `proot-distro [COMMAND] [ARGUMENTS]`
 * Commands:
-   * help - Show this help information.
-   * backup - Backup a specified distribution.
-   * install - Install a specified distribution.
-   * list - List supported distributions and their installation status.
-   * login - Start login shell for the specified distribution.
-   * remove - Delete a specified distribution. WARNING: this command destroys data!
-   * rename - Rename installed distribution.
-   * reset - Reinstall from scratch a specified distribution. WARNING: this command destroys data!
-   * restore - Restore a specified distribution. WARNING: this command destroys data!
-   * clear-cache - Clear cache of downloaded files.
+  * help \- Show this help information.
+  * backup \- Backup a specified distribution.
+  * install \- Install a specified distribution.
+  * list \- List supported distributions and their installation status.
+  * login \- Launch a login shell for the specified distribution if no additional arguments were given. Otherwise execute the
+given command and exit.
+    * Usage: `proot-distro login [OPTIONS] [DISTRO ALIAS] [-- [COMMAND]]`
+    * Command aliases: `sh`
+    * Options:
+      * `--help` \- Show this help information.
+      * `--user [user]` \- Login as specified user instead of 'root'.
+      * `--fix-low-ports` \- Modify bindings to protected ports to use a higher port number.
+      * `--isolated` \- Run isolated environment without access to host file system.
+      * `--termux-home` \- Mount Termux home directory to /root. Takes priority over `--isolated` option.
+      * `--shared-tmp` \- Mount Termux temp directory to /tmp. Takes priority over `--isolated` option.
+      * `--bind [path:path]` \- Custom file system binding. Can be specified multiple times. Takes priority over `--isolated` option.
+      * `--no-link2symlink` \- Disable hardlink emulation by proot. Adviseable only on devices with SELinux in permissive mode.
+      * `--no-sysvipc` \- Disable System V IPC emulation by proot.
+      * `--no-kill-on-exit` \- Wait until all running processes will finish before exiting. This will cause proot to freeze if you are running daemons.
+      * `--no-arch-warning` \- Suppress warning about CPU not supporting 32-bit instructions.
+      * `--kernel [string]` \- Set the kernel release and compatibility level to string.
+      * `--work-dir [path]` \- Set the working directory.
+      * `--env ENV=val` \- Set environment variable. Can be specified multiple times.
+    * Put `--` if you wish to stop command line processing and pass options as shell arguments.
+    * If no `--isolated` option given, the following host directories will be available:
+      * `/apex` (only Android 10+)
+      * `/data/dalvik-cache`
+      * `/data/data/com.termux`
+      * `/sdcard`
+      * `/storage`
+      * `/system`
+      * `/vendor`
+  * remove \- Delete a specified distribution. WARNING: this command destroys data!
+  * rename \- Rename installed distribution.
+  * reset \- Reinstall from scratch a specified distribution. WARNING: this command destroys data!
+  * restore \- Restore a specified distribution. WARNING: this command destroys data!
+  * clear-cache \- Clear cache of downloaded files.
 
 ### Supported Distributions
 
@@ -1134,8 +1172,6 @@ If you have issues with proot during installation or login, try to set `PROOT_NO
 ---
 
 ## Andronix with Termux: Install Linux Distributions in Termux
-
-My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
 
 ### Install Andronix App (Optional)
 
@@ -1236,8 +1272,6 @@ wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninsta
 ---
 
 ## QEMU System Emulation with Termux: Full System Emulation
-
-My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh). Please refer to it for more scripts for Termux.
 
 ### Install QEMU System Emulation for x86-64
 
@@ -1494,7 +1528,7 @@ sudo resize2fs /dev/vda1
 
 ### Install Shizuku
 
-Shizuku (`moe.shizuku.privileged.api`) can be installed from Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
+Shizuku (`moe.shizuku.privileged.api`) can be installed from IzzyOnDroid: <https://apt.izzysoft.de/fdroid/index/apk/moe.shizuku.privileged.api> or Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
 
 ### Introduction of ADB and Shizuku
 
@@ -1567,7 +1601,16 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 
 aShell can be installed from F-Droid: <https://f-droid.org/packages/in.sunilpaulmathew.ashell>.
 
-aShell has features like autocomplete suggestions and optional log.
+#### Features of aShell
+
+* An elegantly designed user interface.
+* Included a bundle of examples about common adb commands.
+* Handles continuously running commands, such as logcat, top, etc.
+* Search for specific text from the last command output.
+* Option to save last command output as a text file.
+* Bookmark frequently using commands.
+* Dark/light theme.
+* Auto complete.
 
 #### Usage of aShell
 
@@ -1583,7 +1626,7 @@ aShell has features like autocomplete suggestions and optional log.
 
 ---
 
-## Tor, Tor Browser, and NoScript Security Suite
+## Tor, Tor Browser, NoScript Security Suite, and Torsocks
 
 ### Introduction of Tor
 
@@ -1611,11 +1654,91 @@ The Tor Browser for Android is a mobile version of the Tor Browser that utilizes
 
 NoScript (or NoScript Security Suite) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension’s toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.
 
+### Tor in Termux
+
+#### Install
+
+```
+pkg install tor
+```
+
+#### Configurations
+
+```
+nano $PREFIX/etc/tor/torrc
+```
+
+Default SOCKS proxy port is:
+
+```
+SOCKSPort 9050
+```
+
+#### Run
+
+```
+tor
+```
+
+or in background,
+
+```
+tor &
+```
+
+You can add `tor &` in `.bashrc` (or `.zshrc`) to start Tor automatically when opening Termux.
+
+### Torsocks in Termux
+
+#### Install
+
+```
+pkg install torsocks
+```
+
+#### Configurations
+
+```
+nano $PREFIX/etc/tor/torsocks.conf
+```
+
+Default address and port are:
+
+```
+TorAddress 127.0.0.1
+TorPort 9050
+```
+
+To use the `tor` in Termux, use `TorAddress 127.0.0.1` and ensure `TorPort` is the same as the `SOCKSPort` in `$PREFIX/etc/tor/torrc`.
+
+#### Usage
+
+You can route any command through Tor by adding `torsocks` in the beginning of the command. For example:
+
+```
+torsocks curl https://check.torproject.org
+```
+
+You can add aliases in `.bashrc` (or `.zshrc`) to force commands to go through `torsocks`. For example:
+
+```
+alias apt="torsocks apt"
+```
+
+To start `tor` and let it run in background on every boot, you can install Termux:Boot and add
+
+```
+#!/data/data/com.termux/files/usr/bin/bash
+nohup tor &
+```
+
+to `~/.termux/boot/boot.sh`.
+
 ---
 
 ## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.
 
-This section mentions Tor, for people who are new to it, please refer to the tutorial for it in [Tor, Tor Browser, and NoScript Security Suite](#tor-tor-browser-and-noscript-security-suite).
+This section mentions Tor, for people who are new to it, please refer to the tutorial for it in [Tor, Tor Browser, NoScript Security Suite, and Torsocks](#tor-tor-browser-noscript-security-suite-and-torsocks).
 
 ### Install InviZible Pro
 
@@ -1714,21 +1837,20 @@ If you export settings and import it on another device, the blocklist may not be
 
 You can apply some of the above settings with the files below (assuming the configuration of TrackerControl is as in this tutorial). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.
 
-* `dns-proxy.toml`: Copy the text in the below block, tap `Edit dns-proxy.toml` in `DNSCrypt Settings`, and paste.
-
-```
-ipv4_servers = true
+<ul>
+<li><code>dns-proxy.toml</code>: Copy the text in the below block, tap <code>Edit dns-proxy.toml</code> in <code>DNSCrypt Settings</code>, and paste.
+<pre><code>ipv4_servers = true
 ipv6_servers = true
 require_dnssec = true
 require_nolog = false
 require_nofilter = false
 block_ipv6 = false
 force_tcp = true
-server_names = ['adguard-dns', 'adguard-dns-ipv6', 'ahadns-doh-la', 'brahma-world-ipv6', 'dnsforge.de', 'mullvad-base-doh', 'sfw.scaleway-fr']
+server_names = [&#39;adguard-dns&#39;, &#39;adguard-dns-ipv6&#39;, &#39;ahadns-doh-la&#39;, &#39;brahma-world-ipv6&#39;, &#39;dnsforge.de&#39;, &#39;mullvad-base-doh&#39;, &#39;sfw.scaleway-fr&#39;]
 disabled_server_names = []
-listen_addresses = ['127.0.0.1:5354', '[::1]:5354']
+listen_addresses = [&#39;127.0.0.1:5354&#39;, &#39;[::1]:5354&#39;]
 max_clients = 250
-#user_name = '0'
+#user_name = &#39;0&#39;
 dnscrypt_servers = true
 doh_servers = true
 odoh_servers = true
@@ -1736,13 +1858,13 @@ timeout = 5000
 keepalive = 30
 netprobe_timeout = -1
 log_level = 2
-log_file = '/data/user/0/pan.alexander.tordnscrypt.stable/logs/DnsCrypt.log'
+log_file = &#39;/data/user/0/pan.alexander.tordnscrypt.stable/logs/DnsCrypt.log&#39;
 use_syslog = false
 cert_refresh_delay = 240
 dnscrypt_ephemeral_keys = false
 tls_disable_session_tickets = false
-bootstrap_resolvers = ['9.9.9.9:53', '[2620:fe::fe]:53']
-netprobe_address = '9.9.9.9:53'
+bootstrap_resolvers = [&#39;9.9.9.9:53&#39;, &#39;[2620:fe::fe]:53&#39;]
+netprobe_address = &#39;9.9.9.9:53&#39;
 block_unqualified = true
 block_undelegated = true
 reject_ttl = 10
@@ -1757,72 +1879,70 @@ cache_min_ttl = 2400
 cache_max_ttl = 86400
 cache_neg_ttl = 60
 cache_neg_max_ttl = 600
-forwarding_rules = 'forwarding-rules.txt'
-cloaking_rules = 'cloaking-rules.txt'
-proxy = 'socks5://127.0.0.1:9050'
+forwarding_rules = &#39;forwarding-rules.txt&#39;
+cloaking_rules = &#39;cloaking-rules.txt&#39;
+proxy = &#39;socks5://127.0.0.1:9050&#39;
 [captive_portals]
-map_file = 'captive-portals.txt'
+map_file = &#39;captive-portals.txt&#39;
 [dns64]
-#prefix = ['64:ff9b::/96']
+#prefix = [&#39;64:ff9b::/96&#39;]
 [local_doh]
-#listen_addresses = ['127.0.0.1:3000']
-#path = '/dns-query'
-#cert_file = 'localhost.pem'
-#cert_key_file = 'localhost.pem'
+#listen_addresses = [&#39;127.0.0.1:3000&#39;]
+#path = &#39;/dns-query&#39;
+#cert_file = &#39;localhost.pem&#39;
+#cert_key_file = &#39;localhost.pem&#39;
 [query_log]
-format = 'tsv'
-file = '/data/user/0/pan.alexander.tordnscrypt.stable/cache/query.log'
-ignored_qtypes = ['DNSKEY', 'NS']
+format = &#39;tsv&#39;
+file = &#39;/data/user/0/pan.alexander.tordnscrypt.stable/cache/query.log&#39;
+ignored_qtypes = [&#39;DNSKEY&#39;, &#39;NS&#39;]
 [nx_log]
-format = 'tsv'
-file = '/data/user/0/pan.alexander.tordnscrypt.stable/cache/nx.log'
+format = &#39;tsv&#39;
+file = &#39;/data/user/0/pan.alexander.tordnscrypt.stable/cache/nx.log&#39;
 [blocked_names]
-blocked_names_file = 'blacklist.txt'
+blocked_names_file = &#39;blacklist.txt&#39;
 [blocked_ips]
-blocked_ips_file = 'ip-blacklist.txt'
+blocked_ips_file = &#39;ip-blacklist.txt&#39;
 [allowed_names]
-allowed_names_file = 'whitelist.txt'
+allowed_names_file = &#39;whitelist.txt&#39;
 [sources]
-[sources.'public-resolvers']
-urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md', 'https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/public-resolvers.md']
-minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
-cache_file = 'public-resolvers.md'
+[sources.&#39;public-resolvers&#39;]
+urls = [&#39;https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md&#39;, &#39;https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md&#39;, &#39;https://ipv6.download.dnscrypt.info/resolvers-list/v3/public-resolvers.md&#39;]
+minisign_key = &#39;RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3&#39;
+cache_file = &#39;public-resolvers.md&#39;
 refresh_delay = 72
-prefix = ''
-[sources.'relays']
-urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/relays.md', 'https://download.dnscrypt.info/resolvers-list/v3/relays.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/relays.md']
-cache_file = 'relays.md'
-minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+prefix = &#39;&#39;
+[sources.&#39;relays&#39;]
+urls = [&#39;https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/relays.md&#39;, &#39;https://download.dnscrypt.info/resolvers-list/v3/relays.md&#39;, &#39;https://ipv6.download.dnscrypt.info/resolvers-list/v3/relays.md&#39;]
+cache_file = &#39;relays.md&#39;
+minisign_key = &#39;RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3&#39;
 refresh_delay = 72
-prefix = ''
-[sources.'odoh-servers']
-urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/odoh-servers.md', 'https://download.dnscrypt.info/resolvers-list/v3/odoh-servers.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/odoh-servers.md']
-cache_file = 'odoh-servers.md'
-minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+prefix = &#39;&#39;
+[sources.&#39;odoh-servers&#39;]
+urls = [&#39;https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/odoh-servers.md&#39;, &#39;https://download.dnscrypt.info/resolvers-list/v3/odoh-servers.md&#39;, &#39;https://ipv6.download.dnscrypt.info/resolvers-list/v3/odoh-servers.md&#39;]
+cache_file = &#39;odoh-servers.md&#39;
+minisign_key = &#39;RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3&#39;
 refresh_delay = 72
-prefix = ''
-[sources.'odoh-relays']
-urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/odoh-relays.md', 'https://download.dnscrypt.info/resolvers-list/v3/odoh-relays.md', 'https://ipv6.download.dnscrypt.info/resolvers-list/v3/odoh-relays.md']
-cache_file = 'odoh-relays.md'
-minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+prefix = &#39;&#39;
+[sources.&#39;odoh-relays&#39;]
+urls = [&#39;https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/odoh-relays.md&#39;, &#39;https://download.dnscrypt.info/resolvers-list/v3/odoh-relays.md&#39;, &#39;https://ipv6.download.dnscrypt.info/resolvers-list/v3/odoh-relays.md&#39;]
+cache_file = &#39;odoh-relays.md&#39;
+minisign_key = &#39;RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3&#39;
 refresh_delay = 72
-prefix = ''
+prefix = &#39;&#39;
 [broken_implementations]
-fragments_blocked = ['cisco', 'cisco-ipv6', 'cisco-familyshield', 'cisco-familyshield-ipv6', 'cleanbrowsing-adult', 'cleanbrowsing-adult-ipv6', 'cleanbrowsing-family', 'cleanbrowsing-family-ipv6', 'cleanbrowsing-security', 'cleanbrowsing-security-ipv6']
+fragments_blocked = [&#39;cisco&#39;, &#39;cisco-ipv6&#39;, &#39;cisco-familyshield&#39;, &#39;cisco-familyshield-ipv6&#39;, &#39;cleanbrowsing-adult&#39;, &#39;cleanbrowsing-adult-ipv6&#39;, &#39;cleanbrowsing-family&#39;, &#39;cleanbrowsing-family-ipv6&#39;, &#39;cleanbrowsing-security&#39;, &#39;cleanbrowsing-security-ipv6&#39;]
 [anonymized_dns]
 skip_incompatible = false
 routes = [
-{ server_name = 'adguard-dns', via=['anon-kama', 'anon-scaleway', 'anon-tiarap'] },
-{ server_name = 'sfw.scaleway-fr', via=['anon-kama', 'anon-serbica', 'anon-tiarap'] },
-{ server_name = 'adguard-dns-ipv6', via=['anon-ams-ipv6', 'anon-scaleway-ams-ipv6', 'anon-tiarap-ipv6'] }
+{ server_name = &#39;adguard-dns&#39;, via=[&#39;anon-kama&#39;, &#39;anon-scaleway&#39;, &#39;anon-tiarap&#39;] },
+{ server_name = &#39;sfw.scaleway-fr&#39;, via=[&#39;anon-kama&#39;, &#39;anon-serbica&#39;, &#39;anon-tiarap&#39;] },
+{ server_name = &#39;adguard-dns-ipv6&#39;, via=[&#39;anon-ams-ipv6&#39;, &#39;anon-scaleway-ams-ipv6&#39;, &#39;anon-tiarap-ipv6&#39;] }
 ]
 [static]
-```
-
-* `tor.conf`: Copy the text in the below block, tap `Edit tor.conf` in `Tor Settings`, and paste.
-
-```
-RunAsDaemon 0
+</code></pre>
+</li>
+<li><code>tor.conf</code>: Copy the text in the below block, tap <code>Edit tor.conf</code> in <code>Tor Settings</code>, and paste.
+<pre><code>RunAsDaemon 0
 AvoidDiskWrites 1
 AutomapHostsOnResolve 1
 AutomapHostsSuffixes .exit, .onion
@@ -1861,7 +1981,9 @@ CircuitsAvailableTimeout 86400
 ClientUseIPv4 1
 ClientUseIPv6 1
 UseBridges 0
-```
+</code></pre>
+</li>
+</ul>
 
 Some services may crash when routing traffic through Tor, changing the `Exit nodes` in InviZible Pro may help; otherwise, you may try to disable monitoring that app or toggle off `Use SOCKS5 proxy` in TrackerControl, which however compromise your privacy to some degree.
 
@@ -2566,6 +2688,38 @@ Features include:
 
 ---
 
+## AndroidIDE: IDE for Android App development on Android devices
+
+### Install AndroidIDE
+
+AndroidIDE (`com.itsaky.androidide`) can be installed from F-Droid archive or the .apk asset corresponding to your architecture in its GitHub: <https://github.com/AndroidIDEOfficial/AndroidIDE> release.
+
+**WARNING**: This project is not maintained anymore.
+
+### Features of AndroidIDE
+
+The main goal is to bring support for building Gradle-based Android projects on Android devices itself.
+
+* Gradle Support: Stay ahead of the curve by building your projects with the newest and most advanced Gradle build system.
+* JDK 17 & 21 support.
+* Code Editor: Upgrade your coding game with our IDE's smart code editor that offers code completions, actions, and analysis to help you write better code quickly.
+* Studio Project Support: Effortlessly build Android Studio projects in AndroidIDE without any modifications.
+* Terminal: Seamlessly access a full Linux environment with AndroidIDE's built-in terminal, based on the powerful Termux project, with limited packages.
+* SDK Manager.
+* Log reader \- Real-time display of your app's logs.
+* AAB Support: Export it as AAB files.
+* API Information \- Provides information on classes and their members, including details on since, removed, and deprecated elements.
+* Java language support.
+* XML language support.
+* UI Designer.
+* Git support.
+* A basic installation (Android SDK, JDK, etc) is needed before you can start working with projects.
+* Documentation: Read the documentation at <https://docs.androidide.com> for more details.
+
+Go to their official website: <https://androidide.com> for more information.
+
+---
+
 ## Linux Command Library
 
 ### Install Linux Command Library (Optional)
@@ -2576,9 +2730,9 @@ Linux Command Library app can be installed from F-Droid: <https://f-droid.org/pa
 
 Linux Command Library has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). The app works completely offline.
 
-### Browse Linux Command Library
+### Website Version of Linux Command Library
 
-Browse on its app (offline available) or official website: <https://linuxcommandlibrary.com>.
+There is a website version of Linux Command Library: <https://linuxcommandlibrary.com>.
 
 ---
 
@@ -2615,7 +2769,7 @@ Material Files (`me.zhanghai.android.files`) can be installed from F-Droid: <htt
 
 ### Install PipePipe
 
-PipePipe (`InfinityLoop1309.NewPipeEnhanced`) can be installed from F-Droid: <https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced> or the .apk asset corresponding to your architecture in GitHub: <https://github.com/InfinityLoop1308/PipePipe> release.
+PipePipe (`InfinityLoop1309.NewPipeEnhanced`) can be installed from F-Droid: <https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced> or the .apk asset corresponding to your architecture in its GitHub: <https://github.com/InfinityLoop1308/PipePipe> release.
 
 Note that because YouTube is trying to block third-party clients, especially for anonymous access, PipePipe sometimes has to be updated frequently to address issues that arise. You can receive the latest update from GitHub release without waiting for F-Droid update building process.
 
@@ -2654,7 +2808,7 @@ Note that because YouTube is trying to block third-party clients, especially for
 
 ### Install Xtra
 
-Xtra can be installed from F-Droid: <https://f-droid.org/packages/com.github.andreyasadchy.xtra>.
+Xtra (`com.github.andreyasadchy.xtra`) can be installed from F-Droid: <https://f-droid.org/packages/com.github.andreyasadchy.xtra>.
 
 ### Features of Xtra
 
@@ -2667,6 +2821,24 @@ Xtra for Twitch is a Twitch client providing the viewing and chatting experience
 * Continue watching outside of the app with Picture-in-Picture mode.
 * Sleep timer to stop the stream automatically.
 * Customizable interface with 3 different color themes.
+
+---
+
+## Material Photo Widget
+
+### Install Material Photo Widget
+
+Material Photo Widget (`com.fibelatti.photowidget`) can be installed from IzzyOnDroid: <https://apt.izzysoft.de/fdroid/index/apk/com.fibelatti.photowidget>.
+
+### Features of Material Photo Widget 
+
+* 5 aspect ratios: square, tall, wide, original and fill widget.
+* Customize your square widgets with 10 different shapes.
+* Customize the rounded corners of your tall, wide or original widgets.
+* Customize the opacity, offset and padding.
+* Choose each photo or sync the widget with device folders.
+* Set an optional interval and have photos flip automatically.
+* Choose the tap action of each widget: none, view next photo, view in full screen, open another app, or open a link.
 
 ---
 
@@ -2686,62 +2858,135 @@ VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.
 
 ---
 
-## DuckDuckGo Browser: Privacy Browser
+## Firefox: Fast and Private Browser
+
+### Install Firefox
+
+Firefox (`org.mozilla.firefox`), also known as Firefox Fast & Private Browser, can be installed from Google Play <https://play.google.com/store/apps/details?id=org.mozilla.firefox>.
+
+### Features of Firefox
+
+* Automatic tracker blocking: By default, Firefox blocks trackers and scripts such as social media trackers, cross-site cookie trackers, crypto-miners and fingerprinters.
+* Enhanced tracking protection: Choose the “strict” setting and get even more privacy protections.
+* Private browsing mode: When you close private mode, your browsing history is automatically erased from your device.
+* Easy-to-use tabs: Create as many tabs as you like without losing track. See your open tabs as thumbnails or a list view.
+* Password management: Firefox remembers your passwords across devices and suggests passwords for new log-ins and stores them securely.
+* Enhanced tracking protection: automatically blocks online trackers from following you around the web and slowing down your pages.
+* Tailored search options: Get suggestions and previously searched results in the search bar. Move the search bar location to the top or the bottom of the screen.
+* Firefox search widget: Search the web directly from your device’s home screen.
+* Browsing history: See the recent searches you’ve done on other devices for seamless searching across mobile, desktop and more.
+* Add-on extensions: Includes ways to block ads, block certain webpages, turbo-charge privacy settings, translation, and more.
+* Firefox home screen: Access your recent bookmarks, top sites and see popular articles from across the internet, recommended by Pocket, which is part of Mozilla.
+* Dark and light mode.
+* Float video player: Pop videos out of their webpages or players and pin them to the top of your phone’s screen.
+* Share links.
+* Saves data and battery.
+* Bookmarks: Private bookmarks. Sync bookmarks. Import/export bookmarks from/to another browser.
+* Multiplatform: Firefox is available on Linux, Microsoft, macOS, Android, iOS, etc.
+* Mozilla account: Sync tabs, history, etc. across devices.
+* Select search engines: Search with Google, Bing, DuckDuckGo, or other search engines.
+
+Go to their official website: <https://mozilla.org> for more information.
+
+---
+
+## DuckDuckGo: Privacy Browser
 
 ### Install DuckDuckGo
 
-DuckDuckGo (`com.duckduckgo.mobile.android`) Browser, also known as DuckDuckGo, DuckDuckGo Privacy Browser, or DuckDuckGo Private Browser, can be installed from F-Droid: <https://f-droid.org/packages/com.duckduckgo.mobile.android> or Google Play: <https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android>.
+DuckDuckGo (`com.duckduckgo.mobile.android`), also known as DuckDuckGo Privacy Browser or DuckDuckGo Private Browser, can be installed from F-Droid: <https://f-droid.org/packages/com.duckduckgo.mobile.android> or Google Play: <https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android>.
 
 ### Features of DuckDuckGo
 
-* Bing Ads: The ads in DuckDuckGo are Bing ads, powered by Microsoft.
-* DuckDuckGo Search Engine: Uses DuckDuckGo as the search engine, for which the source code is not available.
+* Bing ads: The ads in DuckDuckGo are Bing ads, powered by Microsoft.
+* DuckDuckGo search engine: Uses DuckDuckGo as the search engine, for which the source code is not available.
 * Duck.ai: Anonymous access to popular AI models, including GPT-4o mini, Claude 3, and open-source Llama 3.3 and Mistral, on Duck.ai. No Al training on your conversations.
-* Duck Player: Lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won’t influence your recommendations.
-* Enforce HTTPS Encryption Protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.
-* Tracking Protection: Blocks all the found hidden third-party trackers, and exposes the major advertising networks tracking you over time to you.
-* Cookie Pop-Up Protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.
-* Escape Fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.
-* Decode Privacy Policies: DuckDuckGo has partnered with Terms of Service Didn’t Read to include their scores and labels of website terms of service and privacy policies, where available.
-* Privacy Grade: Shows you a Privacy Grade rating when you visit a website, which is scored automatically based on the prevalence of hidden tracker networks, encryption availability, and website privacy practices.
-* App Tracking Protection: Detects and blocks app trackers from other companies.
-* Email Protection: Blocks most email trackers and hide your existing email address with @duck.com addresses.
-* Fire Button: Clear all your tabs and data with one tap.
-* Application Lock: Secure the app with Touch ID or Face ID.
+* Duck player: Lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won’t influence your recommendations.
+* Enforce HTTPS encryption protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.
+* Tracking protection: Blocks all the found hidden third-party trackers, and exposes the major advertising networks tracking you over time to you.
+* Cookie pop-up protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.
+* Escape fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.
+* Decode privacy policies: DuckDuckGo has partnered with Terms of Service Didn’t Read to include their scores and labels of website terms of service and privacy policies, where available.
+* Privacy grade: Shows you a Privacy Grade rating when you visit a website, which is scored automatically based on the prevalence of hidden tracker networks, encryption availability, and website privacy practices.
+* App tracking protection: Detects and blocks app trackers from other companies.
+* Email protection: Blocks most email trackers and hide your existing email address with @duck.com addresses.
+* Fire button: Clear all your tabs and data with one tap.
+* Application lock: Secure the app with Touch ID or Face ID.
+* DuckDuckGo search widget: Search the web directly from your device’s home screen.
 * Browsing history.
 * Recent and private tabs.
+* Dark and light mode.
+* Saves data and battery.
 * Multiplatform: DuckDuckGo is available on Linux, Microsoft, macOS, Android, iOS, etc.
 
 Go to their official website: <https://duckduckgo.com> for more information.
 
 ---
 
-## Brave Browser: Privacy Browser
+## Brave: Privacy Browser
 
 ### Install Brave
 
-Brave Browser (`com.brave.browser`), also known as Brave, can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.brave.browser>.
+Brave (`com.brave.browser`), also known as Brave Privacy Browser or Brave Private Web Browser, VPN, can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.brave.browser>.
 
 ### Features of Brave
 
-* Brave Search Engine: Uses Brave Search as the search engine, for which the source code is not available.
+* Brave search engine: Uses Brave Search as the search engine, for which the source code is not available.
 * Brave Leo AI: The smart AI assistant built right into your browser. Ask questions, summarize pages, create new content, and more. Privately.
 * Brave Rewards: Earn BAT tokens for private ads you see in Brave.
 * Brave Wallet: A cryptocurrency wallet.
-* Redirect AMP Pages: Redirect to original (non-AMP) page URLs, instead of Google’s Accelerated Mobile Page versions.
-* Adblock and Tracking Protection: Prevents trackers and ads from loading and showing in webpages.
-* Blocks Cookie: Block third-party cookies and cookies consent notifications.
-* Script Blocker: Blocks JavaScript.
-* Enforce HTTPS Encryption Protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.
-* Cookie Pop-Up Protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.
-* Escape Fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.
-* Pop-Up Blocker
-* Saves Data and Battery 
+* Redirect AMP pages: Redirect to original (non-AMP) page URLs, instead of Google’s Accelerated Mobile Page versions.
+* Adblock and tracking protection: Prevents trackers and ads from loading and showing in webpages.
+* Script blocker: Blocks JavaScript.
+* Enforce HTTPS encryption protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.
+* Cookie pop-up protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.
+* Escape fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.
+* Pop-up blocker.
+* Saves data and battery.
+* Brave search widget: Search the web directly from your device’s home screen.
+* Dark and light mode.
 * Bookmarks: Private bookmarks. Sync bookmarks. Import/export bookmarks from/to another browser.
 * Browsing history.
 * Recent and private tabs.
 * Removes tracking codes when you copy URLs.
 
+---
+
+## Safe Space: A Safe Space For Your Digital Valuables
+
+### Install Safe Space
+
+Safe Space (`org.privacymatters.safespace`) can be installed from F-Droid: <https://f-droid.org/packages/org.privacymatters.safespace>.
+
+### Features of Safe Space
+
+* Store files in a secure storage location that is not visible to other apps and is secured by device encryption and system authentication (Biometric and PIN/Pattern/Password).
+* Open Images, Audio, Video, PDF documents and plain text documents.
+* Create simple text notes without leaving the app.
+* Dark and light mode.
+* ability to copy and move files.
+* Import from and export files to external storage without storage permissions.
+* Completely offline with no telemetry and data collection.
+
+---
+
+## SimplyTranslate Mobile: A Privacy Friendly Frontend to Google Translate
+
+### Install SimplyTranslate Mobile
+
+SimplyTranslate Mobile (`com.simplytranslate_mobile`) can be installed from F-Droid: <https://f-droid.org/packages/com.simplytranslate_mobile>.
+
+### Features of SimplyTranslate Mobile
+
+* This app is an alternative frontend to Google Translate.
+* Supports 108 languages.
+* Text-To-Speech (TTS).
+* Can receive shared text from other apps.
+* A translate button in the text selection toolbar.
+
+### Website Version of SimplyTranslate Mobile
+
+There is a website version of SimplyTranslate Mobile: <https://simplytranslate.org>.
 
 ---
 
@@ -2751,6 +2996,11 @@ Brave Browser (`com.brave.browser`), also known as Brave, can be installed from 
 
 * F-Droid: <https://f-droid.org/packages/com.gaurav.avnc>.
 * GitHub: <https://github.com/gujjwal00/avnc>.
+
+### AndroidIDE by AndroidIDE / AndroidIDEOfficial
+
+* GitHub: <https://github.com/AndroidIDEOfficial/AndroidIDE>.
+* Official website: <https://androidide.com>.
 
 ### Andronix by Devriz Technologies LLP / Andronix App /AndronixApp
 
@@ -2796,15 +3046,25 @@ Brave Browser (`com.brave.browser`), also known as Brave, can be installed from 
 
 ### F-Droid by F-Droid
 
-* Official website: <https://f-droid.org>.
 * GitLab: <https://gitlab.com/fdroid>.
+* Official website: <https://f-droid.org>.
+
+### Firefox / Firefox Fast & Private Browser by Mozilla
+
+* Google Play: <https://play.google.com/store/apps/details?id=org.mozilla.firefox>.
+* Mercurial: <https://hg.mozilla.org/mozilla-central>.
+* Official Website: <https://mozilla.org>.
 
 ### Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh
 
 * F-Droid: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable>.
 * Google Play: <https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp>.
 * GitHub: <https://github.com/Gedsh/InviZible>.
-* Official website: <https://invizible.net/en>.
+* Official website: <https://invizible.net>.
+
+### IzzyOnDroid:
+
+* IzzyOnDroid F-Droid repository: <http://apt.izzysoft.de/fdroid/repo>.
 
 ### Linux Command Library by Simon Schubert / SimonSchubert
 
@@ -2855,6 +3115,11 @@ Brave Browser (`com.brave.browser`), also known as Brave, can be installed from 
 * GitLab: <https://gitlab.com/qemu-project/qemu>.
 * Official website: <https://www.qemu.org>.
 
+### Safe Space by aashishksahu
+
+* F-Droid: <https://f-droid.org/packages/org.privacymatters.safespace>.
+* GitHub: <https://github.com/aashishksahu/SafeSpace>.
+
 ### SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development
 
 * F-Droid: <https://f-droid.org/packages/eu.darken.sdmse>.
@@ -2866,6 +3131,12 @@ Brave Browser (`com.brave.browser`), also known as Brave, can be installed from 
 * Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
 * GitHub: <https://github.com/RikkaApps/Shizuku>.
 * Official website: <https://shizuku.rikka.app>.
+
+### SimplyTranslate Mobile by ManeraKai
+
+* F-Droid: <https://f-droid.org/packages/com.simplytranslate_mobile>.
+* GitHub: <https://github.com/ManeraKai/simplytranslate_mobile>.
+* Official website: <https://simplytranslate.org>.
 
 ### SystemUI Tuner by Zachary Wander / zacharee
 
