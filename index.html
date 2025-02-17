@@ -25,9 +25,9 @@
 <li>The app version: <a href="https://github.com/Willie169/Android-Non-Root-App">https://github.com/Willie169/Android-Non-Root-App</a>.</li>
 <li>App download link: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk</a>.</li>
 </ul>
-<p>In this tutorial, we’ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
+<p>In this tutorial, we’ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, <a href="https://www.qemu.org">QEMU</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
 <p>Please read the <a href="#global-note">Global Note</a> before you start or you may encounter errors.</p>
-<p>My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
+<p>My main development of Termux Shell scripts has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while tutorials for Termux, some of my scripts in <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, and other related stuff such as VNC, SSL, and SSH, remain here.</p>
 <hr>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
@@ -130,10 +130,12 @@
 <li><a href="#further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</a></li>
 </ul>
 </li>
-<li><a href="#tor-tor-browser-and-noscript-security-suite">Tor, Tor Browser, and NoScript Security Suite</a><ul>
+<li><a href="#tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</a><ul>
 <li><a href="#introduction-of-tor">Introduction of Tor</a></li>
 <li><a href="#install-tor-browser">Install Tor Browser</a></li>
 <li><a href="#noscript-security-suite">NoScript Security Suite</a></li>
+<li><a href="#tor-in-termux">Tor in Termux</a></li>
+<li><a href="#torsocks-in-termux">Torsocks in Termux</a></li>
 </ul>
 </li>
 <li><a href="#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</a><ul>
@@ -175,10 +177,15 @@
 <li><a href="#use-sd-maid-se-with-shizuku">Use SD Maid SE with Shizuku</a></li>
 </ul>
 </li>
+<li><a href="#androidide-ide-for-android-app-development-on-android-devices">AndroidIDE: IDE for Android App development on Android devices</a><ul>
+<li><a href="#install-androidide">Install AndroidIDE</a></li>
+<li><a href="#features-of-androidide">Features of AndroidIDE</a></li>
+</ul>
+</li>
 <li><a href="#linux-command-library">Linux Command Library</a><ul>
 <li><a href="#install-linux-command-library-optional">Install Linux Command Library (Optional)</a></li>
 <li><a href="#features-of-linux-command-library">Features of Linux Command Library</a></li>
-<li><a href="#browse-linux-command-library">Browse Linux Command Library</a></li>
+<li><a href="#website-version-of-linux-command-library">Website Version of Linux Command Library</a></li>
 </ul>
 </li>
 <li><a href="#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support">Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support</a><ul>
@@ -197,23 +204,45 @@
 <li><a href="#features-of-xtra">Features of Xtra</a></li>
 </ul>
 </li>
+<li><a href="#material-photo-widget">Material Photo Widget</a><ul>
+<li><a href="#install-material-photo-widget">Install Material Photo Widget</a></li>
+<li><a href="#features-of-material-photo-widget">Features of Material Photo Widget</a></li>
+</ul>
+</li>
 <li><a href="#vlc-for-android-open-source-media-player-and-multimedia-engine">VLC for Android: Open Source Media Player and Multimedia Engine</a><ul>
 <li><a href="#install-vlc-for-android">Install VLC for Android</a></li>
 <li><a href="#introduction-of-vlc">Introduction of VLC</a></li>
 </ul>
 </li>
-<li><a href="#duckduckgo-browser-privacy-browser">DuckDuckGo Browser: Privacy Browser</a><ul>
+<li><a href="#firefox-fast-and-private-browser">Firefox: Fast and Private Browser</a><ul>
+<li><a href="#install-firefox">Install Firefox</a></li>
+<li><a href="#features-of-firefox">Features of Firefox</a></li>
+</ul>
+</li>
+<li><a href="#duckduckgo-privacy-browser">DuckDuckGo: Privacy Browser</a><ul>
 <li><a href="#install-duckduckgo">Install DuckDuckGo</a></li>
 <li><a href="#features-of-duckduckgo">Features of DuckDuckGo</a></li>
 </ul>
 </li>
-<li><a href="#brave-browser-privacy-browser">Brave Browser: Privacy Browser</a><ul>
+<li><a href="#brave-privacy-browser">Brave: Privacy Browser</a><ul>
 <li><a href="#install-brave">Install Brave</a></li>
 <li><a href="#features-of-brave">Features of Brave</a></li>
 </ul>
 </li>
+<li><a href="#safe-space-a-safe-space-for-your-digital-valuables">Safe Space: A Safe Space For Your Digital Valuables</a><ul>
+<li><a href="#install-safe-space">Install Safe Space</a></li>
+<li><a href="#features-of-safe-space">Features of Safe Space</a></li>
+</ul>
+</li>
+<li><a href="#simplytranslate-mobile-a-privacy-friendly-frontend-to-google-translate">SimplyTranslate Mobile: A Privacy Friendly Frontend to Google Translate</a><ul>
+<li><a href="#install-simplytranslate-mobile">Install SimplyTranslate Mobile</a></li>
+<li><a href="#features-of-simplytranslate-mobile">Features of SimplyTranslate Mobile</a></li>
+<li><a href="#website-version-of-simplytranslate-mobile">Website Version of SimplyTranslate Mobile</a></li>
+</ul>
+</li>
 <li><a href="#promoted-or-related-works-references-and-bibliography">Promoted or Related Works, References, and Bibliography</a><ul>
 <li><a href="#anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</a></li>
+<li><a href="#androidide-by-androidide--androidideofficial">AndroidIDE by AndroidIDE / AndroidIDEOfficial</a></li>
 <li><a href="#andronix-by-devriz-technologies-llp--andronix-app-andronixapp">Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</a></li>
 <li><a href="#ashell-by-sunil-paul-mathew-m--sunilpaulmathew">aShell by Sunil Paul Mathew M. / sunilpaulmathew</a></li>
 <li><a href="#brave--brave-browser-by-brave-software--brave">Brave / Brave Browser by Brave Software / brave</a></li>
@@ -222,7 +251,9 @@
 <li><a href="#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138">droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138</a></li>
 <li><a href="#duckduckgo--duckduckgo-browser--duckduckgo-privacy-browser--duckduckgo-private-browser-by-duckduckgo-or-duckduckgo">DuckDuckGo / DuckDuckGo Browser / DuckDuckGo Privacy Browser / DuckDuckGo Private Browser by DuckDuckGo or duckduckgo</a></li>
 <li><a href="#f-droid-by-f-droid">F-Droid by F-Droid</a></li>
+<li><a href="#firefox--firefox-fast--private-browser-by-mozilla">Firefox / Firefox Fast &amp; Private Browser by Mozilla</a></li>
 <li><a href="#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</a></li>
+<li><a href="#izzyondroid">IzzyOnDroid:</a></li>
 <li><a href="#linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</a></li>
 <li><a href="#material-files--materialfiles-by-hai-zhang--zhanghai">Material Files / MaterialFiles by Hai Zhang / zhanghai</a></li>
 <li><a href="#myip--ipchecking-by-jason-ng--jason5ng32">MyIP / IPCheck.ing by Jason Ng / jason5ng32</a></li>
@@ -231,8 +262,10 @@
 <li><a href="#openssl-by-openssl--openssl">OpenSSL by OpenSSL / openssl</a></li>
 <li><a href="#pipepipe-by-infinityloop1309--infinityloop1308">PipePipe by InfinityLoop1309 / InfinityLoop1308</a></li>
 <li><a href="#qemu-by-qemu-project--qemu">QEMU by Qemu Project / QEMU</a></li>
+<li><a href="#safe-space-by-aashishksahu">Safe Space by aashishksahu</a></li>
 <li><a href="#sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development">SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</a></li>
 <li><a href="#shizuku-by-xingchen--rikka--rikkaapps">Shizuku by Xingchen &amp; Rikka / RikkaApps</a></li>
+<li><a href="#simplytranslate-mobile-by-manerakai">SimplyTranslate Mobile by ManeraKai</a></li>
 <li><a href="#systemui-tuner-by-zachary-wander--zacharee">SystemUI Tuner by Zachary Wander / zacharee</a></li>
 <li><a href="#termux-by-fredrik-fornwall--termux--termux">Termux by Fredrik Fornwall / Termux / termux</a></li>
 <li><a href="#termuxapi-by-fredrik-fornwall--termux--termux">Termux:API by Fredrik Fornwall / Termux / termux</a></li>
@@ -273,7 +306,7 @@
 <ul>
 <li>This tutorial is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</li>
 <li>Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See <a href="#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid">DontKillMyApp</a>.</li>
-<li>Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in <a href="#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a> before exploring other sections related to Termux. My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</li>
+<li>Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in <a href="#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a> before exploring other sections related to Termux. My main development of Termux Shell scripts has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while tutorials for Termux, some of my scripts in <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, and other related stuff such as VNC, SSL, and SSH, remain here.</li>
 <li>More instructions for Linux commands are available in <a href="#linux-command-library">Linux Command Library</a>.</li>
 <li>Run update command (such as <code>pkg update</code> and <code>apt update</code>) before install command (such as <code>pkg install</code> and <code>apt install</code>) to update available packages.</li>
 <li>Add <code>sudo</code> at the beginning of commands in Linux if root permission is needed. Remove <code>sudo</code> from the beginning of commands in Termux if the device is not rooted. Termux doesn’t need root permission to install packages etc.</li>
@@ -298,7 +331,7 @@
 <h3 id="f-droid-repositories">F-Droid Repositories</h3>
 <p>F-Droid repositories are compatible with an F-Droid client application. To add a repository, go to F-Droid app’s <code>Settings</code> page tap <code>My Apps &gt; Repositories</code>, tap the plus sign in the lower right corner, and scan QR code or enter or paste repository URL.</p>
 <p>The Offical F-Droid repository is <a href="http://f-droid.org/repo">http://f-droid.org/repo</a>, which is pre-added in the app by default.</p>
-<p>One of the most popular unofficial F-Droid repository is IzzyOnDroid: <a href="http://apt.izzysoft.de/fdroid/repo">http://apt.izzysoft.de/fdroid/repo</a>.</p>
+<p>One of the most popular unofficial F-Droid repository is IzzyOnDroid F-Droid repository: <a href="http://apt.izzysoft.de/fdroid/repo">http://apt.izzysoft.de/fdroid/repo</a>.</p>
 <p>A list of some known F-Droid repositories:</p>
 <ul>
 <li>F-Droid: <a href="https://f-droid.org/repo">https://f-droid.org/repo</a>.</li>
@@ -315,20 +348,19 @@
 <li>LibRetro: <a href="https://fdroid.libretro.com/repo">https://fdroid.libretro.com/repo</a>.</li>
 <li>KDE Android: <a href="https://cdn.kde.org/android/stable-releases/fdroid/repo">https://cdn.kde.org/android/stable-releases/fdroid/repo</a>.</li>
 <li>KDE Android Nightly: <a href="https://cdn.kde.org/android/fdroid/repo">https://cdn.kde.org/android/fdroid/repo</a>.</li>
-<li>Calyx Institute (testing): <a href="https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo">https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo</a>.</li>
+<li>The Calyx Institute (testing): <a href="https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo">https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo</a>.</li>
 <li>DivestOS Official: <a href="https://divestos.org/fdroid/official">https://divestos.org/fdroid/official</a>.</li>
 <li>DivestOS Unofficial: <a href="https://divestos.org/fdroid/unofficial">https://divestos.org/fdroid/unofficial</a>.</li>
 <li>Fedilab Apps: <a href="https://fdroid.fedilab.app/repo">https://fdroid.fedilab.app/repo</a>.</li>
 <li>Kali Nethunter App Store: <a href="https://store.nethunter.com/repo">https://store.nethunter.com/repo</a>.</li>
 <li>Umbrella: <a href="https://secfirst.org/fdroid/repo">https://secfirst.org/fdroid/repo</a>.</li>
-<li>Patched Apps: <a href="https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo">https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo</a>.</li>
+<li>Langis / Patched Apps: <a href="https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo">https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo</a>.</li>
 <li>Bitwarden: <a href="https://mobileapp.bitwarden.com/fdroid/repo">https://mobileapp.bitwarden.com/fdroid/repo</a>.</li>
 <li>Briar Project: <a href="https://briarproject.org/fdroid/repo">https://briarproject.org/fdroid/repo</a>.</li>
 <li>Wind Offline: <a href="https://guardianproject-wind.s3.amazonaws.com/fdroid/repo">https://guardianproject-wind.s3.amazonaws.com/fdroid/repo</a>.</li>
 </ul>
 <hr>
 <h2 id="termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection</h2>
-<p>My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3 id="install-termux">Install Termux</h3>
 <p>Termux (<code>com.termux</code>) can be installed from F-Droid: <a href="https://f-droid.org/packages/com.termux">https://f-droid.org/packages/com.termux</a>.</p>
 <p><strong>WARNING</strong>: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <a href="https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html">https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html</a>. It is recommended that you shift to F-Droid or GitHub releases.</p>
@@ -666,16 +698,16 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 <li>Select one or more repositories for which you want to change mirror by tapping &quot;space&quot; and navigating over list by up/down arrow keys. Tap enter to confirm the choice.</li>
 <li>Pick a mirror. Control method is same as the last step.</li>
 <li>If you have installed other package repositories, like x11 and root, then you must select and change those mirrors as well. You can check your current mirrors by running the <code>termux-info</code> command. Note that the science and game repos have been merged into main repo and should be removed with <code>apt remove science-repo game-repo</code> if you have them installed.</li>
-<li>Accept them by answering <code>y</code> if you receive errors like:</li>
-</ul>
+<li>Accept them by answering <code>y</code> if you receive errors like:
 <pre><code>E: Repository &#39;https://grimler.se/termux-root-packages-24 root InRelease&#39; changed its &#39;Origin&#39; value from &#39;Bintray&#39; to &#39;termux-root-packages-24 root&#39;
 E: Repository &#39;https://grimler.se/termux-root-packages-24 root InRelease&#39; changed its &#39;Label&#39; value from &#39;Bintray&#39; to &#39;termux-root-packages-24 root&#39;
 N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
 Do you want to accept these changes and continue updating from this repository? [y/N]
 </code></pre>
-<ul>
+</li>
 <li>After changing the mirror, it is highly advisable to run <code>pkg upgrade</code> command to update all packages to the latest available versions, or at least update <code>termux-tools</code> package with <code>pkg install termux-tools</code> command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.</li>
 </ul>
+
 <h4 id="manual-solution">Manual Solution</h4>
 <ul>
 <li>If for some reason <code>termux-change-repo</code> is not available, you can manually edit <code>sources.list</code> to replace the main url with a value obtained from <a href="https://github.com/termux/termux-packages/wiki/Mirrors">Termux Mirrors List</a>.</li>
@@ -733,24 +765,21 @@ Do you want to accept these changes and continue updating from this repository? 
 <ol>
 <li>Connect to Android Debug Bridge (ADB) of your Android device from another device or via Shizuku. For people who are new to them, please refer to the tutorial for them in <a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a>.</li>
 <li>Type <code>adb shell</code> to enter <code>adb shell</code>.</li>
-<li>Run the following commands inside <code>adb shell</code>:</li>
-</ol>
+<li>Run the following commands inside <code>adb shell</code>:
 <pre><code>/system/bin/device_config set_sync_disabled_for_tests persistent
 /system/bin/device_config put activity_manager max_phantom_processes 2147483647
 settings put global settings_enable_monitor_phantom_procs false
-</code></pre>
-<ol start="4">
-<li>To check the status of whether phantom process killer is disabled, run the following commands inside <code>adb shell</code>:</li>
-</ol>
+</code></pre></li>
+<li>To check the status of whether phantom process killer is disabled, run the following commands inside <code>adb shell</code>:
 <pre><code>/system/bin/dumpsys activity settings | grep max_phantom_processes
 /system/bin/device_config get activity_manager max_phantom_processes
-</code></pre>
-<ol start="5">
-<li>To enable phantom process killer again, run the following commands inside <code>adb shell</code>:</li>
-</ol>
+</code></pre></li>
+<li>To enable phantom process killer again, run the following commands inside <code>adb shell</code>:
 <pre><code>/system/bin/device_config set_sync_disabled_for_tests none; /system/bin/device_config put activity_manager max_phantom_processes 32
 settings put global settings_enable_monitor_phantom_procs true
-</code></pre>
+</code></pre></li>
+</ol>
+
 <h4 id="further-readings-and-references-about-process-completed-signal-9---press-enter-error">Further Readings and References about Process completed (signal 9) - press Enter error</h4>
 <ul>
 <li><a href="https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220">https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220</a>.</li>
@@ -816,7 +845,7 @@ Log file is /data/data/com.termux/files/home/.vnc/localhost:1.log
 <p>Replace <code>:1</code> with the actual port your VNC server started on.</p>
 <h3 id="termux-x11">Termux-x11</h3>
 <h4 id="install-termux-x11-app">Install Termux-x11 App</h4>
-<p>Termux-x11 (<code>com.termux.x11</code>) app for Android can be installed from the .apk asset corresponding tp your device’s architecture in GitHub: <a href="https://github.com/termux/termux-x11">https://github.com/termux/termux-x11</a> release.</p>
+<p>Termux-x11 (<code>com.termux.x11</code>) app for Android can be installed from the .apk asset corresponding to your architecture in its GitHub: <a href="https://github.com/termux/termux-x11">https://github.com/termux/termux-x11</a> release.</p>
 <h4 id="install-termux-x11-package">Install Termux-x11 Package</h4>
 <pre><code>pkg install x11-repo
 pkg install termux-x11-nightly
@@ -941,7 +970,6 @@ mate-session &amp;
 </ul>
 <hr>
 <h2 id="proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</h2>
-<p>My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3 id="introduction-of-chroot-proot-proot-distro">Introduction of Chroot, PRoot, PRoot-Distro</h3>
 <ul>
 <li>Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.</li>
@@ -956,7 +984,40 @@ mate-session &amp;
 <li>backup - Backup a specified distribution.</li>
 <li>install - Install a specified distribution.</li>
 <li>list - List supported distributions and their installation status.</li>
-<li>login - Start login shell for the specified distribution.</li>
+<li>login - Launch a login shell for the specified distribution if no additional arguments were given. Otherwise execute the
+given command and exit.<ul>
+<li>Usage: <code>proot-distro login [OPTIONS] [DISTRO ALIAS] [-- [COMMAND]]</code></li>
+<li>Command aliases: <code>sh</code></li>
+<li>Options:<ul>
+<li><code>--help</code> - Show this help information.</li>
+<li><code>--user [user]</code> - Login as specified user instead of &#39;root&#39;.</li>
+<li><code>--fix-low-ports</code> - Modify bindings to protected ports to use a higher port number.</li>
+<li><code>--isolated</code> - Run isolated environment without access to host file system.</li>
+<li><code>--termux-home</code> - Mount Termux home directory to /root. Takes priority over <code>--isolated</code> option.</li>
+<li><code>--shared-tmp</code> - Mount Termux temp directory to /tmp. Takes priority over <code>--isolated</code> option.</li>
+<li><code>--bind [path:path]</code> - Custom file system binding. Can be specified multiple times. Takes priority over <code>--isolated</code> option.</li>
+<li><code>--no-link2symlink</code> - Disable hardlink emulation by proot. Adviseable only on devices with SELinux in permissive mode.</li>
+<li><code>--no-sysvipc</code> - Disable System V IPC emulation by proot.</li>
+<li><code>--no-kill-on-exit</code> - Wait until all running processes will finish before exiting. This will cause proot to freeze if you are running daemons.</li>
+<li><code>--no-arch-warning</code> - Suppress warning about CPU not supporting 32-bit instructions.</li>
+<li><code>--kernel [string]</code> - Set the kernel release and compatibility level to string.</li>
+<li><code>--work-dir [path]</code> - Set the working directory.</li>
+<li><code>--env ENV=val</code> - Set environment variable. Can be specified multiple times.</li>
+</ul>
+</li>
+<li>Put <code>--</code> if you wish to stop command line processing and pass options as shell arguments.</li>
+<li>If no <code>--isolated</code> option given, the following host directories will be available:<ul>
+<li><code>/apex</code> (only Android 10+)</li>
+<li><code>/data/dalvik-cache</code></li>
+<li><code>/data/data/com.termux</code></li>
+<li><code>/sdcard</code></li>
+<li><code>/storage</code></li>
+<li><code>/system</code></li>
+<li><code>/vendor</code></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>remove - Delete a specified distribution. WARNING: this command destroys data!</li>
 <li>rename - Rename installed distribution.</li>
 <li>reset - Reinstall from scratch a specified distribution. WARNING: this command destroys data!</li>
@@ -992,7 +1053,6 @@ mate-session &amp;
 <p>If you have issues with proot during installation or login, try to set <code>PROOT_NO_SECCOMP=1</code> environment variable.</p>
 <hr>
 <h2 id="andronix-with-termux-install-linux-distributions-in-termux">Andronix with Termux: Install Linux Distributions in Termux</h2>
-<p>My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3 id="install-andronix-app-optional">Install Andronix App (Optional)</h3>
 <p>Andronix (<code>studio.com.techriz.andronix</code>) can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">https://play.google.com/store/apps/details?id=studio.com.techriz.andronix</a>.</p>
 <p>Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won’t be mentioned in this tutorial.</p>
@@ -1061,7 +1121,6 @@ mate-session &amp;
 </ul>
 <hr>
 <h2 id="qemu-system-emulation-with-termux-full-system-emulation">QEMU System Emulation with Termux: Full System Emulation</h2>
-<p>My main development of Termux scripts for setup and virtual machines installation such as proot, proot-distro, qemu-system, box64, wine64, etc. has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>. Please refer to it for more scripts for Termux.</p>
 <h3 id="install-qemu-system-emulation-for-x86-64">Install QEMU System Emulation for x86-64</h3>
 <p>Run the following command in Termux:</p>
 <pre><code>pkg update &amp;&amp; pkg install qemu-utils qemu-common qemu-system-x86-64-headless wget -y
@@ -1220,7 +1279,7 @@ quit
 <hr>
 <h2 id="shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h2>
 <h3 id="install-shizuku">Install Shizuku</h3>
-<p>Shizuku (<code>moe.shizuku.privileged.api</code>) can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api</a>.</p>
+<p>Shizuku (<code>moe.shizuku.privileged.api</code>) can be installed from IzzyOnDroid: <a href="https://apt.izzysoft.de/fdroid/index/apk/moe.shizuku.privileged.api">https://apt.izzysoft.de/fdroid/index/apk/moe.shizuku.privileged.api</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api</a>.</p>
 <h3 id="introduction-of-adb-and-shizuku">Introduction of ADB and Shizuku</h3>
 <ul>
 <li>The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</li>
@@ -1280,7 +1339,17 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <h3 id="ashell">aShell</h3>
 <h4 id="install-ashell">Install aShell</h4>
 <p>aShell can be installed from F-Droid: <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">https://f-droid.org/packages/in.sunilpaulmathew.ashell</a>.</p>
-<p>aShell has features like autocomplete suggestions and optional log.</p>
+<h4 id="features-of-ashell">Features of aShell</h4>
+<ul>
+<li>An elegantly designed user interface.</li>
+<li>Included a bundle of examples about common adb commands.</li>
+<li>Handles continuously running commands, such as logcat, top, etc.</li>
+<li>Search for specific text from the last command output.</li>
+<li>Option to save last command output as a text file.</li>
+<li>Bookmark frequently using commands.</li>
+<li>Dark/light theme.</li>
+<li>Auto complete.</li>
+</ul>
 <h4 id="usage-of-ashell">Usage of aShell</h4>
 <ol>
 <li>Give aShell the permission <code>moe.shizuku.manager.permission.API_V23</code>.</li>
@@ -1294,7 +1363,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <li><a href="https://shizuku.rikka.app">https://shizuku.rikka.app</a>.</li>
 </ul>
 <hr>
-<h2 id="tor-tor-browser-and-noscript-security-suite">Tor, Tor Browser, and NoScript Security Suite</h2>
+<h2 id="tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</h2>
 <h3 id="introduction-of-tor">Introduction of Tor</h3>
 <p>Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.</p>
 <p>Using Tor makes it more difficult to trace a user’s Internet activity by preventing any single point on the Internet (other than the user’s device) from being able to view both where traffic originated from and where it is ultimately going to at the same time. This conceals a user’s location and usage from anyone performing network surveillance or traffic analysis from any such point, protecting the user’s freedom and ability to communicate confidentially.</p>
@@ -1312,9 +1381,50 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 <p>The Tor Browser for Android is a mobile version of the Tor Browser that utilizes Mozilla Firefox for Android codebase.</p>
 <h3 id="noscript-security-suite">NoScript Security Suite</h3>
 <p>NoScript (or NoScript Security Suite) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension’s toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.</p>
+<h3 id="tor-in-termux">Tor in Termux</h3>
+<h4 id="install">Install</h4>
+<pre><code>pkg install tor
+</code></pre>
+<h4 id="configurations">Configurations</h4>
+<pre><code>nano $PREFIX/etc/tor/torrc
+</code></pre>
+<p>Default SOCKS proxy port is:</p>
+<pre><code>SOCKSPort 9050
+</code></pre>
+<h4 id="run">Run</h4>
+<pre><code>tor
+</code></pre>
+<p>or in background,</p>
+<pre><code>tor &amp;
+</code></pre>
+<p>You can add <code>tor &amp;</code> in <code>.bashrc</code> (or <code>.zshrc</code>) to start Tor automatically when opening Termux.</p>
+<h3 id="torsocks-in-termux">Torsocks in Termux</h3>
+<h4 id="install-1">Install</h4>
+<pre><code>pkg install torsocks
+</code></pre>
+<h4 id="configurations-1">Configurations</h4>
+<pre><code>nano $PREFIX/etc/tor/torsocks.conf
+</code></pre>
+<p>Default address and port are:</p>
+<pre><code>TorAddress 127.0.0.1
+TorPort 9050
+</code></pre>
+<p>To use the <code>tor</code> in Termux, use <code>TorAddress 127.0.0.1</code> and ensure <code>TorPort</code> is the same as the <code>SOCKSPort</code> in <code>$PREFIX/etc/tor/torrc</code>.</p>
+<h4 id="usage">Usage</h4>
+<p>You can route any command through Tor by adding <code>torsocks</code> in the beginning of the command. For example:</p>
+<pre><code>torsocks curl https://check.torproject.org
+</code></pre>
+<p>You can add aliases in <code>.bashrc</code> (or <code>.zshrc</code>) to force commands to go through <code>torsocks</code>. For example:</p>
+<pre><code>alias apt=&quot;torsocks apt&quot;
+</code></pre>
+<p>To start <code>tor</code> and let it run in background on every boot, you can install Termux:Boot and add</p>
+<pre><code>#!/data/data/com.termux/files/usr/bin/bash
+nohup tor &amp;
+</code></pre>
+<p>to <code>~/.termux/boot/boot.sh</code>.</p>
 <hr>
 <h2 id="trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</h2>
-<p>This section mentions Tor, for people who are new to it, please refer to the tutorial for it in <a href="#tor-tor-browser-and-noscript-security-suite">Tor, Tor Browser, and NoScript Security Suite</a>.</p>
+<p>This section mentions Tor, for people who are new to it, please refer to the tutorial for it in <a href="#tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</a>.</p>
 <h3 id="install-invizible-pro">Install InviZible Pro</h3>
 <p>InviZible Pro can be installed from F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</p>
 <h3 id="install-trackercontrol">Install TrackerControl</h3>
@@ -1404,8 +1514,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 </ol>
 <p>You can apply some of the above settings with the files below (assuming the configuration of TrackerControl is as in this tutorial). However, they just contain some of the settings, you have to configure others yourself and test whether your applications work as normal because things may vary from case to case.</p>
 <ul>
-<li><code>dns-proxy.toml</code>: Copy the text in the below block, tap <code>Edit dns-proxy.toml</code> in <code>DNSCrypt Settings</code>, and paste.</li>
-</ul>
+<li><code>dns-proxy.toml</code>: Copy the text in the below block, tap <code>Edit dns-proxy.toml</code> in <code>DNSCrypt Settings</code>, and paste.
 <pre><code>ipv4_servers = true
 ipv6_servers = true
 require_dnssec = true
@@ -1507,9 +1616,8 @@ routes = [
 ]
 [static]
 </code></pre>
-<ul>
-<li><code>tor.conf</code>: Copy the text in the below block, tap <code>Edit tor.conf</code> in <code>Tor Settings</code>, and paste.</li>
-</ul>
+</li>
+<li><code>tor.conf</code>: Copy the text in the below block, tap <code>Edit tor.conf</code> in <code>Tor Settings</code>, and paste.
 <pre><code>RunAsDaemon 0
 AvoidDiskWrites 1
 AutomapHostsOnResolve 1
@@ -1550,6 +1658,9 @@ ClientUseIPv4 1
 ClientUseIPv6 1
 UseBridges 0
 </code></pre>
+</li>
+</ul>
+
 <p>Some services may crash when routing traffic through Tor, changing the <code>Exit nodes</code> in InviZible Pro may help; otherwise, you may try to disable monitoring that app or toggle off <code>Use SOCKS5 proxy</code> in TrackerControl, which however compromise your privacy to some degree.</p>
 <h3 id="configure-trackercontrol-and-invizible-pro-for-dnscrypt-only">Configure TrackerControl and InviZible Pro for DNSCrypt Only</h3>
 <p>To use DNSCrypt but not Tor of InviZible Pro with TrackerControl, there are below differences in the configuration compared with both DNSCrypt and Tor in above section.</p>
@@ -2101,13 +2212,38 @@ sudo ufw allow ssh
 <li>SD Maid SE should display a new status indicator that show whether SD Maid SE can connect to the Shizuku service.</li>
 </ul>
 <hr>
+<h2 id="androidide-ide-for-android-app-development-on-android-devices">AndroidIDE: IDE for Android App development on Android devices</h2>
+<h3 id="install-androidide">Install AndroidIDE</h3>
+<p>AndroidIDE (<code>com.itsaky.androidide</code>) can be installed from F-Droid archive or the .apk asset corresponding to your architecture in its GitHub: <a href="https://github.com/AndroidIDEOfficial/AndroidIDE">https://github.com/AndroidIDEOfficial/AndroidIDE</a> release.</p>
+<p><strong>WARNING</strong>: This project is not maintained anymore.</p>
+<h3 id="features-of-androidide">Features of AndroidIDE</h3>
+<p>The main goal is to bring support for building Gradle-based Android projects on Android devices itself.</p>
+<ul>
+<li>Gradle Support: Stay ahead of the curve by building your projects with the newest and most advanced Gradle build system.</li>
+<li>JDK 17 &amp; 21 support.</li>
+<li>Code Editor: Upgrade your coding game with our IDE&#39;s smart code editor that offers code completions, actions, and analysis to help you write better code quickly.</li>
+<li>Studio Project Support: Effortlessly build Android Studio projects in AndroidIDE without any modifications.</li>
+<li>Terminal: Seamlessly access a full Linux environment with AndroidIDE&#39;s built-in terminal, based on the powerful Termux project, with limited packages.</li>
+<li>SDK Manager.</li>
+<li>Log reader - Real-time display of your app&#39;s logs.</li>
+<li>AAB Support: Export it as AAB files.</li>
+<li>API Information - Provides information on classes and their members, including details on since, removed, and deprecated elements.</li>
+<li>Java language support.</li>
+<li>XML language support.</li>
+<li>UI Designer.</li>
+<li>Git support.</li>
+<li>A basic installation (Android SDK, JDK, etc) is needed before you can start working with projects.</li>
+<li>Documentation: Read the documentation at <a href="https://docs.androidide.com">https://docs.androidide.com</a> for more details.</li>
+</ul>
+<p>Go to their official website: <a href="https://androidide.com">https://androidide.com</a> for more information.</p>
+<hr>
 <h2 id="linux-command-library">Linux Command Library</h2>
 <h3 id="install-linux-command-library-optional">Install Linux Command Library (Optional)</h3>
 <p>Linux Command Library app can be installed from F-Droid: <a href="https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca">https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca">https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca</a>.</p>
 <h3 id="features-of-linux-command-library">Features of Linux Command Library</h3>
 <p>Linux Command Library has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). The app works completely offline.</p>
-<h3 id="browse-linux-command-library">Browse Linux Command Library</h3>
-<p>Browse on its app (offline available) or official website: <a href="https://linuxcommandlibrary.com">https://linuxcommandlibrary.com</a>.</p>
+<h3 id="website-version-of-linux-command-library">Website Version of Linux Command Library</h3>
+<p>There is a website version of Linux Command Library: <a href="https://linuxcommandlibrary.com">https://linuxcommandlibrary.com</a>.</p>
 <hr>
 <h2 id="material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support">Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support</h2>
 <h3 id="install-material-files">Install Material Files</h3>
@@ -2136,7 +2272,7 @@ sudo ufw allow ssh
 <hr>
 <h2 id="pipepipe-a-floss-android-app-to-let-you-browse-youtube-niconico-and-bilibili-freely">PipePipe: A FLOSS Android App to Let You Browse YouTube, NicoNico and BiliBili Freely.</h2>
 <h3 id="install-pipepipe">Install PipePipe</h3>
-<p>PipePipe (<code>InfinityLoop1309.NewPipeEnhanced</code>) can be installed from F-Droid: <a href="https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced">https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced</a> or the .apk asset corresponding to your architecture in GitHub: <a href="https://github.com/InfinityLoop1308/PipePipe">https://github.com/InfinityLoop1308/PipePipe</a> release.</p>
+<p>PipePipe (<code>InfinityLoop1309.NewPipeEnhanced</code>) can be installed from F-Droid: <a href="https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced">https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced</a> or the .apk asset corresponding to your architecture in its GitHub: <a href="https://github.com/InfinityLoop1308/PipePipe">https://github.com/InfinityLoop1308/PipePipe</a> release.</p>
 <p>Note that because YouTube is trying to block third-party clients, especially for anonymous access, PipePipe sometimes has to be updated frequently to address issues that arise. You can receive the latest update from GitHub release without waiting for F-Droid update building process.</p>
 <h3 id="features-of-pipepipe">Features of PipePipe</h3>
 <ul>
@@ -2170,7 +2306,7 @@ sudo ufw allow ssh
 <hr>
 <h2 id="xtra-twitch-player-and-browser">Xtra: Twitch Player and Browser</h2>
 <h3 id="install-xtra">Install Xtra</h3>
-<p>Xtra can be installed from F-Droid: <a href="https://f-droid.org/packages/com.github.andreyasadchy.xtra">https://f-droid.org/packages/com.github.andreyasadchy.xtra</a>.</p>
+<p>Xtra (<code>com.github.andreyasadchy.xtra</code>) can be installed from F-Droid: <a href="https://f-droid.org/packages/com.github.andreyasadchy.xtra">https://f-droid.org/packages/com.github.andreyasadchy.xtra</a>.</p>
 <h3 id="features-of-xtra">Features of Xtra</h3>
 <p>Xtra for Twitch is a Twitch client providing the viewing and chatting experience on mobile devices:</p>
 <ul>
@@ -2183,6 +2319,20 @@ sudo ufw allow ssh
 <li>Customizable interface with 3 different color themes.</li>
 </ul>
 <hr>
+<h2 id="material-photo-widget">Material Photo Widget</h2>
+<h3 id="install-material-photo-widget">Install Material Photo Widget</h3>
+<p>Material Photo Widget (<code>com.fibelatti.photowidget</code>) can be installed from IzzyOnDroid: <a href="https://apt.izzysoft.de/fdroid/index/apk/com.fibelatti.photowidget">https://apt.izzysoft.de/fdroid/index/apk/com.fibelatti.photowidget</a>.</p>
+<h3 id="features-of-material-photo-widget">Features of Material Photo Widget</h3>
+<ul>
+<li>5 aspect ratios: square, tall, wide, original and fill widget.</li>
+<li>Customize your square widgets with 10 different shapes.</li>
+<li>Customize the rounded corners of your tall, wide or original widgets.</li>
+<li>Customize the opacity, offset and padding.</li>
+<li>Choose each photo or sync the widget with device folders.</li>
+<li>Set an optional interval and have photos flip automatically.</li>
+<li>Choose the tap action of each widget: none, view next photo, view in full screen, open another app, or open a link.</li>
+</ul>
+<hr>
 <h2 id="vlc-for-android-open-source-media-player-and-multimedia-engine">VLC for Android: Open Source Media Player and Multimedia Engine</h2>
 <h3 id="install-vlc-for-android">Install VLC for Android</h3>
 <p>VLC for Android (<code>org.videolan.vlc</code>) can be installed from F-Droid: <a href="https://f-droid.org/packages/org.videolan.vlc">https://f-droid.org/packages/org.videolan.vlc</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=org.videolan.vlc">https://play.google.com/store/apps/details?id=org.videolan.vlc</a>.</p>
@@ -2191,60 +2341,124 @@ sudo ufw allow ssh
 <p>VLC can play most multimedia files, discs, streams, devices and is also able to convert, encode, stream and manipulate streams into numerous formats.</p>
 <p>VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.</p>
 <hr>
-<h2 id="duckduckgo-browser-privacy-browser">DuckDuckGo Browser: Privacy Browser</h2>
+<h2 id="firefox-fast-and-private-browser">Firefox: Fast and Private Browser</h2>
+<h3 id="install-firefox">Install Firefox</h3>
+<p>Firefox (<code>org.mozilla.firefox</code>), also known as Firefox Fast &amp; Private Browser, can be installed from Google Play <a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox">https://play.google.com/store/apps/details?id=org.mozilla.firefox</a>.</p>
+<h3 id="features-of-firefox">Features of Firefox</h3>
+<ul>
+<li>Automatic tracker blocking: By default, Firefox blocks trackers and scripts such as social media trackers, cross-site cookie trackers, crypto-miners and fingerprinters.</li>
+<li>Enhanced tracking protection: Choose the “strict” setting and get even more privacy protections.</li>
+<li>Private browsing mode: When you close private mode, your browsing history is automatically erased from your device.</li>
+<li>Easy-to-use tabs: Create as many tabs as you like without losing track. See your open tabs as thumbnails or a list view.</li>
+<li>Password management: Firefox remembers your passwords across devices and suggests passwords for new log-ins and stores them securely.</li>
+<li>Enhanced tracking protection: automatically blocks online trackers from following you around the web and slowing down your pages.</li>
+<li>Tailored search options: Get suggestions and previously searched results in the search bar. Move the search bar location to the top or the bottom of the screen.</li>
+<li>Firefox search widget: Search the web directly from your device’s home screen.</li>
+<li>Browsing history: See the recent searches you’ve done on other devices for seamless searching across mobile, desktop and more.</li>
+<li>Add-on extensions: Includes ways to block ads, block certain webpages, turbo-charge privacy settings, translation, and more.</li>
+<li>Firefox home screen: Access your recent bookmarks, top sites and see popular articles from across the internet, recommended by Pocket, which is part of Mozilla.</li>
+<li>Dark and light mode.</li>
+<li>Float video player: Pop videos out of their webpages or players and pin them to the top of your phone’s screen.</li>
+<li>Share links.</li>
+<li>Saves data and battery.</li>
+<li>Bookmarks: Private bookmarks. Sync bookmarks. Import/export bookmarks from/to another browser.</li>
+<li>Multiplatform: Firefox is available on Linux, Microsoft, macOS, Android, iOS, etc.</li>
+<li>Mozilla account: Sync tabs, history, etc. across devices.</li>
+<li>Select search engines: Search with Google, Bing, DuckDuckGo, or other search engines.</li>
+</ul>
+<p>Go to their official website: <a href="https://mozilla.org">https://mozilla.org</a> for more information.</p>
+<hr>
+<h2 id="duckduckgo-privacy-browser">DuckDuckGo: Privacy Browser</h2>
 <h3 id="install-duckduckgo">Install DuckDuckGo</h3>
-<p>DuckDuckGo (<code>com.duckduckgo.mobile.android</code>) Browser, also known as DuckDuckGo, DuckDuckGo Privacy Browser, or DuckDuckGo Private Browser, can be installed from F-Droid: <a href="https://f-droid.org/packages/com.duckduckgo.mobile.android">https://f-droid.org/packages/com.duckduckgo.mobile.android</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android">https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android</a>.</p>
+<p>DuckDuckGo (<code>com.duckduckgo.mobile.android</code>), also known as DuckDuckGo Privacy Browser or DuckDuckGo Private Browser, can be installed from F-Droid: <a href="https://f-droid.org/packages/com.duckduckgo.mobile.android">https://f-droid.org/packages/com.duckduckgo.mobile.android</a> or Google Play: <a href="https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android">https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android</a>.</p>
 <h3 id="features-of-duckduckgo">Features of DuckDuckGo</h3>
 <ul>
-<li>Bing Ads: The ads in DuckDuckGo are Bing ads, powered by Microsoft.</li>
-<li>DuckDuckGo Search Engine: Uses DuckDuckGo as the search engine, for which the source code is not available.</li>
+<li>Bing ads: The ads in DuckDuckGo are Bing ads, powered by Microsoft.</li>
+<li>DuckDuckGo search engine: Uses DuckDuckGo as the search engine, for which the source code is not available.</li>
 <li>Duck.ai: Anonymous access to popular AI models, including GPT-4o mini, Claude 3, and open-source Llama 3.3 and Mistral, on Duck.ai. No Al training on your conversations.</li>
-<li>Duck Player: Lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won’t influence your recommendations.</li>
-<li>Enforce HTTPS Encryption Protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.</li>
-<li>Tracking Protection: Blocks all the found hidden third-party trackers, and exposes the major advertising networks tracking you over time to you.</li>
-<li>Cookie Pop-Up Protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.</li>
-<li>Escape Fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.</li>
-<li>Decode Privacy Policies: DuckDuckGo has partnered with Terms of Service Didn’t Read to include their scores and labels of website terms of service and privacy policies, where available.</li>
-<li>Privacy Grade: Shows you a Privacy Grade rating when you visit a website, which is scored automatically based on the prevalence of hidden tracker networks, encryption availability, and website privacy practices.</li>
-<li>App Tracking Protection: Detects and blocks app trackers from other companies.</li>
-<li>Email Protection: Blocks most email trackers and hide your existing email address with @duck.com addresses.</li>
-<li>Fire Button: Clear all your tabs and data with one tap.</li>
-<li>Application Lock: Secure the app with Touch ID or Face ID.</li>
+<li>Duck player: Lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won’t influence your recommendations.</li>
+<li>Enforce HTTPS encryption protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.</li>
+<li>Tracking protection: Blocks all the found hidden third-party trackers, and exposes the major advertising networks tracking you over time to you.</li>
+<li>Cookie pop-up protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.</li>
+<li>Escape fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.</li>
+<li>Decode privacy policies: DuckDuckGo has partnered with Terms of Service Didn’t Read to include their scores and labels of website terms of service and privacy policies, where available.</li>
+<li>Privacy grade: Shows you a Privacy Grade rating when you visit a website, which is scored automatically based on the prevalence of hidden tracker networks, encryption availability, and website privacy practices.</li>
+<li>App tracking protection: Detects and blocks app trackers from other companies.</li>
+<li>Email protection: Blocks most email trackers and hide your existing email address with @duck.com addresses.</li>
+<li>Fire button: Clear all your tabs and data with one tap.</li>
+<li>Application lock: Secure the app with Touch ID or Face ID.</li>
+<li>DuckDuckGo search widget: Search the web directly from your device’s home screen.</li>
 <li>Browsing history.</li>
 <li>Recent and private tabs.</li>
+<li>Dark and light mode.</li>
+<li>Saves data and battery.</li>
 <li>Multiplatform: DuckDuckGo is available on Linux, Microsoft, macOS, Android, iOS, etc.</li>
 </ul>
 <p>Go to their official website: <a href="https://duckduckgo.com">https://duckduckgo.com</a> for more information.</p>
 <hr>
-<h2 id="brave-browser-privacy-browser">Brave Browser: Privacy Browser</h2>
+<h2 id="brave-privacy-browser">Brave: Privacy Browser</h2>
 <h3 id="install-brave">Install Brave</h3>
-<p>Brave Browser (<code>com.brave.browser</code>), also known as Brave, can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=com.brave.browser">https://play.google.com/store/apps/details?id=com.brave.browser</a>.</p>
+<p>Brave (<code>com.brave.browser</code>), also known as Brave Privacy Browser or Brave Private Web Browser, VPN, can be installed from Google Play: <a href="https://play.google.com/store/apps/details?id=com.brave.browser">https://play.google.com/store/apps/details?id=com.brave.browser</a>.</p>
 <h3 id="features-of-brave">Features of Brave</h3>
 <ul>
-<li>Brave Search Engine: Uses Brave Search as the search engine, for which the source code is not available.</li>
+<li>Brave search engine: Uses Brave Search as the search engine, for which the source code is not available.</li>
 <li>Brave Leo AI: The smart AI assistant built right into your browser. Ask questions, summarize pages, create new content, and more. Privately.</li>
 <li>Brave Rewards: Earn BAT tokens for private ads you see in Brave.</li>
 <li>Brave Wallet: A cryptocurrency wallet.</li>
-<li>Redirect AMP Pages: Redirect to original (non-AMP) page URLs, instead of Google’s Accelerated Mobile Page versions.</li>
-<li>Adblock and Tracking Protection: Prevents trackers and ads from loading and showing in webpages.</li>
-<li>Blocks Cookie: Block third-party cookies and cookies consent notifications.</li>
-<li>Script Blocker: Blocks JavaScript.</li>
-<li>Enforce HTTPS Encryption Protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.</li>
-<li>Cookie Pop-Up Protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.</li>
-<li>Escape Fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.</li>
-<li>Pop-Up Blocker</li>
-<li>Saves Data and Battery </li>
+<li>Redirect AMP pages: Redirect to original (non-AMP) page URLs, instead of Google’s Accelerated Mobile Page versions.</li>
+<li>Adblock and tracking protection: Prevents trackers and ads from loading and showing in webpages.</li>
+<li>Script blocker: Blocks JavaScript.</li>
+<li>Enforce HTTPS encryption protection: Forces sites to use an encrypted HTTPS connection where available, protecting your data from prying eyes, like ISPs.</li>
+<li>Cookie pop-up protection: Banishes cookie pop-ups and automatically set your preferences to minimize cookies and maximize privacy.</li>
+<li>Escape fingerprinting: Makes it harder for companies to create a unique identifier for you by blocking attempts to combine info about your browser and device.</li>
+<li>Pop-up blocker.</li>
+<li>Saves data and battery.</li>
+<li>Brave search widget: Search the web directly from your device’s home screen.</li>
+<li>Dark and light mode.</li>
 <li>Bookmarks: Private bookmarks. Sync bookmarks. Import/export bookmarks from/to another browser.</li>
 <li>Browsing history.</li>
 <li>Recent and private tabs.</li>
 <li>Removes tracking codes when you copy URLs.</li>
 </ul>
 <hr>
+<h2 id="safe-space-a-safe-space-for-your-digital-valuables">Safe Space: A Safe Space For Your Digital Valuables</h2>
+<h3 id="install-safe-space">Install Safe Space</h3>
+<p>Safe Space (<code>org.privacymatters.safespace</code>) can be installed from F-Droid: <a href="https://f-droid.org/packages/org.privacymatters.safespace">https://f-droid.org/packages/org.privacymatters.safespace</a>.</p>
+<h3 id="features-of-safe-space">Features of Safe Space</h3>
+<ul>
+<li>Store files in a secure storage location that is not visible to other apps and is secured by device encryption and system authentication (Biometric and PIN/Pattern/Password).</li>
+<li>Open Images, Audio, Video, PDF documents and plain text documents.</li>
+<li>Create simple text notes without leaving the app.</li>
+<li>Dark and light mode.</li>
+<li>ability to copy and move files.</li>
+<li>Import from and export files to external storage without storage permissions.</li>
+<li>Completely offline with no telemetry and data collection.</li>
+</ul>
+<hr>
+<h2 id="simplytranslate-mobile-a-privacy-friendly-frontend-to-google-translate">SimplyTranslate Mobile: A Privacy Friendly Frontend to Google Translate</h2>
+<h3 id="install-simplytranslate-mobile">Install SimplyTranslate Mobile</h3>
+<p>SimplyTranslate Mobile (<code>com.simplytranslate_mobile</code>) can be installed from F-Droid: <a href="https://f-droid.org/packages/com.simplytranslate_mobile">https://f-droid.org/packages/com.simplytranslate_mobile</a>.</p>
+<h3 id="features-of-simplytranslate-mobile">Features of SimplyTranslate Mobile</h3>
+<ul>
+<li>This app is an alternative frontend to Google Translate.</li>
+<li>Supports 108 languages.</li>
+<li>Text-To-Speech (TTS).</li>
+<li>Can receive shared text from other apps.</li>
+<li>A translate button in the text selection toolbar.</li>
+</ul>
+<h3 id="website-version-of-simplytranslate-mobile">Website Version of SimplyTranslate Mobile</h3>
+<p>There is a website version of SimplyTranslate Mobile: <a href="https://simplytranslate.org">https://simplytranslate.org</a>.</p>
+<hr>
 <h2 id="promoted-or-related-works-references-and-bibliography">Promoted or Related Works, References, and Bibliography</h2>
 <h3 id="anc-by-gaurav-ujwal--gujjwal00">ANC by Gaurav Ujwal / gujjwal00</h3>
 <ul>
 <li>F-Droid: <a href="https://f-droid.org/packages/com.gaurav.avnc">https://f-droid.org/packages/com.gaurav.avnc</a>.</li>
 <li>GitHub: <a href="https://github.com/gujjwal00/avnc">https://github.com/gujjwal00/avnc</a>.</li>
+</ul>
+<h3 id="androidide-by-androidide--androidideofficial">AndroidIDE by AndroidIDE / AndroidIDEOfficial</h3>
+<ul>
+<li>GitHub: <a href="https://github.com/AndroidIDEOfficial/AndroidIDE">https://github.com/AndroidIDEOfficial/AndroidIDE</a>.</li>
+<li>Official website: <a href="https://androidide.com">https://androidide.com</a>.</li>
 </ul>
 <h3 id="andronix-by-devriz-technologies-llp--andronix-app-andronixapp">Andronix by Devriz Technologies LLP / Andronix App /AndronixApp</h3>
 <ul>
@@ -2290,15 +2504,25 @@ sudo ufw allow ssh
 </ul>
 <h3 id="f-droid-by-f-droid">F-Droid by F-Droid</h3>
 <ul>
-<li>Official website: <a href="https://f-droid.org">https://f-droid.org</a>.</li>
 <li>GitLab: <a href="https://gitlab.com/fdroid">https://gitlab.com/fdroid</a>.</li>
+<li>Official website: <a href="https://f-droid.org">https://f-droid.org</a>.</li>
+</ul>
+<h3 id="firefox--firefox-fast--private-browser-by-mozilla">Firefox / Firefox Fast &amp; Private Browser by Mozilla</h3>
+<ul>
+<li>Google Play: <a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox">https://play.google.com/store/apps/details?id=org.mozilla.firefox</a>.</li>
+<li>Mercurial: <a href="https://hg.mozilla.org/mozilla-central">https://hg.mozilla.org/mozilla-central</a>.</li>
+<li>Official Website: <a href="https://mozilla.org">https://mozilla.org</a>.</li>
 </ul>
 <h3 id="invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh">Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh</h3>
 <ul>
 <li>F-Droid: <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">https://f-droid.org/packages/pan.alexander.tordnscrypt.stable</a>.</li>
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp</a>.</li>
 <li>GitHub: <a href="https://github.com/Gedsh/InviZible">https://github.com/Gedsh/InviZible</a>.</li>
-<li>Official website: <a href="https://invizible.net/en">https://invizible.net/en</a>.</li>
+<li>Official website: <a href="https://invizible.net">https://invizible.net</a>.</li>
+</ul>
+<h3 id="izzyondroid">IzzyOnDroid:</h3>
+<ul>
+<li>IzzyOnDroid F-Droid repository: <a href="http://apt.izzysoft.de/fdroid/repo">http://apt.izzysoft.de/fdroid/repo</a>.</li>
 </ul>
 <h3 id="linux-command-library-by-simon-schubert--simonschubert">Linux Command Library by Simon Schubert / SimonSchubert</h3>
 <ul>
@@ -2349,6 +2573,11 @@ sudo ufw allow ssh
 <li>GitLab: <a href="https://gitlab.com/qemu-project/qemu">https://gitlab.com/qemu-project/qemu</a>.</li>
 <li>Official website: <a href="https://www.qemu.org">https://www.qemu.org</a>.</li>
 </ul>
+<h3 id="safe-space-by-aashishksahu">Safe Space by aashishksahu</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/org.privacymatters.safespace">https://f-droid.org/packages/org.privacymatters.safespace</a>.</li>
+<li>GitHub: <a href="https://github.com/aashishksahu/SafeSpace">https://github.com/aashishksahu/SafeSpace</a>.</li>
+</ul>
 <h3 id="sd-maid-se--sd-maid-2se---system-cleaner--sdmaid-se-by-d4rken--d4rken-org--darken--darken-development">SD Maid SE / SD Maid 2/SE - System Cleaner / sdmaid-se by d4rken / d4rken-org / darken / darken development</h3>
 <ul>
 <li>F-Droid: <a href="https://f-droid.org/packages/eu.darken.sdmse">https://f-droid.org/packages/eu.darken.sdmse</a>.</li>
@@ -2360,6 +2589,12 @@ sudo ufw allow ssh
 <li>Google Play: <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api</a>.</li>
 <li>GitHub: <a href="https://github.com/RikkaApps/Shizuku">https://github.com/RikkaApps/Shizuku</a>.</li>
 <li>Official website: <a href="https://shizuku.rikka.app">https://shizuku.rikka.app</a>.</li>
+</ul>
+<h3 id="simplytranslate-mobile-by-manerakai">SimplyTranslate Mobile by ManeraKai</h3>
+<ul>
+<li>F-Droid: <a href="https://f-droid.org/packages/com.simplytranslate_mobile">https://f-droid.org/packages/com.simplytranslate_mobile</a>.</li>
+<li>GitHub: <a href="https://github.com/ManeraKai/simplytranslate_mobile">https://github.com/ManeraKai/simplytranslate_mobile</a>.</li>
+<li>Official website: <a href="https://simplytranslate.org">https://simplytranslate.org</a>.</li>
 </ul>
 <h3 id="systemui-tuner-by-zachary-wander--zacharee">SystemUI Tuner by Zachary Wander / zacharee</h3>
 <ul>
