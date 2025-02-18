@@ -138,6 +138,9 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Install SD Maid SE](#install-sd-maid-se)
   * [Introduction of SD Maid SE](#introduction-of-sd-maid-se)
   * [Use SD Maid SE with Shizuku](#use-sd-maid-se-with-shizuku)
+* [Phyphox: Perform Physics Experiments with Your Phone](#phyphox-perform-physics-experiments-with-your-phone)
+  * [Install Phyphox](#install-phyphox)
+  * [Features of Phyphox](#features-of-phyphox)
 * [AndroidIDE: IDE for Android App development on Android devices](#androidide-ide-for-android-app-development-on-android-devices)
   * [Install AndroidIDE](#install-androidide)
   * [Features of AndroidIDE](#features-of-androidide)
@@ -177,6 +180,10 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Install SimplyTranslate Mobile](#install-simplytranslate-mobile)
   * [Features of SimplyTranslate Mobile](#features-of-simplytranslate-mobile)
   * [Website Version of SimplyTranslate Mobile](#website-version-of-simplytranslate-mobile)
+* [LibreTorrent](#libretorrent)
+  * [Install LibreTorrent](#install-libretorrent)
+  * [Introduction of BitTorrent](#introduction-of-bittorrent)
+  * [Features of LibreTorrent](#features-of-libretorrent)
 * [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   * [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
   * [AndroidIDE by AndroidIDE / AndroidIDEOfficial](#androidide-by-androidide--androidideofficial)
@@ -191,12 +198,14 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Firefox / Firefox Fast & Private Browser by Mozilla](#firefox--firefox-fast--private-browser-by-mozilla)
   * [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
   * [IzzyOnDroid:](#izzyondroid)
+  * [LibreTorrent by Yaroslav Pronin / proninyaroslav](#libretorrent-by-yaroslav-pronin--proninyaroslav)
   * [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
   * [Material Files / MaterialFiles by Hai Zhang / zhanghai](#material-files--materialfiles-by-hai-zhang--zhanghai)
   * [MyIP / IPCheck.ing by Jason Ng / jason5ng32](#myip--ipchecking-by-jason-ng--jason5ng32)
   * [NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV](#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv)
   * [NewPipe by Team NewPipe / TeamNewPipe](#newpipe-by-team-newpipe--teamnewpipe)
   * [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
+  * [Phyphox by RWTH Aachen University / phyphox](#phyphox-by-rwth-aachen-university--phyphox)
   * [PipePipe by InfinityLoop1309 / InfinityLoop1308](#pipepipe-by-infinityloop1309--infinityloop1308)
   * [QEMU by Qemu Project / QEMU](#qemu-by-qemu-project--qemu)
   * [Safe Space by aashishksahu](#safe-space-by-aashishksahu)
@@ -704,8 +713,7 @@ N: Possible cause: repository is under maintenance or down (wrong sources.list U
 E: Repository &#39;https://grimler.se/termux-root-packages-24 root InRelease&#39; changed its &#39;Label&#39; value from &#39;Bintray&#39; to &#39;termux-root-packages-24 root&#39;
 N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
 Do you want to accept these changes and continue updating from this repository? [y/N]
-</code></pre>
-</li>
+</code></pre></li>
 <li>After changing the mirror, it is highly advisable to run <code>pkg upgrade</code> command to update all packages to the latest available versions, or at least update <code>termux-tools</code> package with <code>pkg install termux-tools</code> command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.</li>
 </ul>
 
@@ -1939,8 +1947,7 @@ routes = [
 { server_name = &#39;adguard-dns-ipv6&#39;, via=[&#39;anon-ams-ipv6&#39;, &#39;anon-scaleway-ams-ipv6&#39;, &#39;anon-tiarap-ipv6&#39;] }
 ]
 [static]
-</code></pre>
-</li>
+</code></pre></li>
 <li><code>tor.conf</code>: Copy the text in the below block, tap <code>Edit tor.conf</code> in <code>Tor Settings</code>, and paste.
 <pre><code>RunAsDaemon 0
 AvoidDiskWrites 1
@@ -1981,8 +1988,7 @@ CircuitsAvailableTimeout 86400
 ClientUseIPv4 1
 ClientUseIPv6 1
 UseBridges 0
-</code></pre>
-</li>
+</code></pre></li>
 </ul>
 
 Some services may crash when routing traffic through Tor, changing the `Exit nodes` in InviZible Pro may help; otherwise, you may try to disable monitoring that app or toggle off `Use SOCKS5 proxy` in TrackerControl, which however compromise your privacy to some degree.
@@ -2688,6 +2694,56 @@ Features include:
 
 ---
 
+## Phyphox: Perform Physics Experiments with Your Phone
+
+### Install Phyphox
+
+Phyphox (`de.rwth_aachen.phyphox`) can be installed from F-Droid: <https://f-droid.org/packages/de.rwth\_aachen.phyphox> or Google Play: <https://play.google.com/store/apps/details?id=de.rwth\_aachen.phyphox>.
+
+### Features of Phyphox
+
+* Access to the sensors of your phone either directly or through ready-to-play experiments.A selection of pre-defined experiments is provided. Just press play to start.
+* Export your data to CSV (Comma separated values), TSV (Tab-separated values), or Excel.
+* Remote-control your experiment through a web interface from any PC on the same network as your phone. No need to install anything on those PCs - all you need is a modern web browser.
+* Define your own experiments by selecting sensor inputs, defining analysis steps, and creating views as an interface using our web-editor (<http://phyphox.org/editor>). The analysis can consists of just adding two values or using advanced methods like Fourier transforms and crosscorrelation. We offer a whole toolbox of analysis functions.
+
+Supported sensors:
+
+* Acceleration
+* Gyroscope (rotation rate)
+* Light
+* Location (GPS)
+* Magnetometer
+* Pressure
+* Audio Amplitude
+* Audio Autocorrelation
+* Audio Scope
+* Audio Spectrum
+* Doppler effect
+* Frequency history
+* Sonar
+* Tone generator
+* Applause meter
+* Elevator
+* (In)elastic collision
+* Centripetal acceleration
+* Pendulum
+* Roll
+* Spring
+* Acoustic Stopwatch
+* Motion Stopwatch
+* Optical Stopwatch
+* Proximity Stopwatch
+* Acceleration Spectrum
+* Depth sensor (LiDAR / ToF)
+* Inclination
+* Magnetic Spectrum
+* Magnetic ruler
+
+Go to their official website: <http://phyphox.org> for more information.
+
+---
+
 ## AndroidIDE: IDE for Android App development on Android devices
 
 ### Install AndroidIDE
@@ -2830,7 +2886,7 @@ Xtra for Twitch is a Twitch client providing the viewing and chatting experience
 
 Material Photo Widget (`com.fibelatti.photowidget`) can be installed from IzzyOnDroid: <https://apt.izzysoft.de/fdroid/index/apk/com.fibelatti.photowidget>.
 
-### Features of Material Photo Widget 
+### Features of Material Photo Widget
 
 * 5 aspect ratios: square, tall, wide, original and fill widget.
 * Customize your square widgets with 10 different shapes.
@@ -2990,6 +3046,43 @@ There is a website version of SimplyTranslate Mobile: <https://simplytranslate.o
 
 ---
 
+## LibreTorrent
+
+### Install LibreTorrent
+
+LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: <https://f-droid.org/packages/org.proninyaroslav.libretorrent> or Google Play: <https://play.google.com/store/apps/details?id=org.proninyaroslav.libretorrent>.
+
+### Introduction of BitTorrent
+
+* BitTorrent: BitTorrent is a communication protocol for peer-to-peer file sharing (P2P), which enables users to distribute data and electronic files over the Internet in a decentralized manner. BitTorrent downloading is considered to be faster than HTTP ("direct downloading") and FTP due to the lack of a central server that could limit bandwidth.
+* BitTorrent trackers: BitTorrent trackers provide a list of files available for transfer and allow the client to find peer users, known as "seeds", who may transfer the files. BitTorrent trackers help the participants in the system find each other and form efficient distribution groups called swarms.
+* BitTorrent client: A BitTorrent client enables a user to send or receive data as a peer in one or more swarms. The official BitTorrent client, μTorrent, qBittorrent, Transmission, Vuze, and BitComet are some of the most popular clients.
+* Torrent file or meta-info file: A torrent file or meta-info file is a computer file that contains metadata about files and folders to be distributed, and usually also a list of the network locations of trackers, normally named with the extension .torrent.
+* WebTorrent: WebTorrent is a peer-to-peer (P2P) streaming BitTorrent client written in JavaScript for use in web browsers, as well as a WebTorrent Desktop stand alone version able to bridge WebTorrent and BitTorrent serverless networks.
+
+### Features of LibreTorrent
+
+* BitTorrent 2.0 and WebTorrent support
+* Select which files to download.
+* Move files while downloading.
+* Auto-move downloaded files to another folder or external drive.
+* Stream files, with sequential downloads.
+* Android TV.
+* Material design, dark and black theme, and tablet UI.
+* Customisable network, battery, and UI settings, etc.
+* 35+ translations.
+* Scheduling.
+* Auto-downloading, with Atom/RSS manager.
+* Create torrents, with many and big files.
+* HTTP\S and magnet links.
+* DHT, PeX, encryption, LSD, UPnP, NAT*PMP, µTP.
+* IP filtering (eMule dat and PeerGuardian).
+* Supports proxy for trackers and peers.
+* Based on libtorrent4j.
+* And more.
+
+---
+
 ## Promoted or Related Works, References, and Bibliography
 
 ### ANC by Gaurav Ujwal / gujjwal00
@@ -3066,6 +3159,16 @@ There is a website version of SimplyTranslate Mobile: <https://simplytranslate.o
 
 * IzzyOnDroid F-Droid repository: <http://apt.izzysoft.de/fdroid/repo>.
 
+### LibreTorrent by Yaroslav Pronin / proninyaroslav
+
+* F-Droid: <https://f-droid.org/packages/org.proninyaroslav.libretorrent>.
+* Google Play: <https://play.google.com/store/apps/details?id=org.proninyaroslav.libretorrent>.
+* GitHub: <https://github.com/proninyaroslav/libretorrent>.
+* GitLab: <https://gitlab.com/proninyaroslav/libretorrent>.
+* OpenApk: <https://www.openapk.net/libretorrent/org.proninyaroslav.libretorrent>.
+* APKMirror: <https://www.apkmirror.com/apk/proninyaroslav/libretorrent>.
+* Aptoide: <https://libretorrent.en.aptoide.com/app>.
+
 ### Linux Command Library by Simon Schubert / SimonSchubert
 
 * F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca>.
@@ -3104,6 +3207,13 @@ There is a website version of SimplyTranslate Mobile: <https://simplytranslate.o
 * GitHub: <https://github.com/openssl/openssl>.
 * Official website: <https://www.openssl.org>.
 * Official doc: <https://docs.openssl.org>.
+
+### Phyphox by RWTH Aachen University / phyphox
+
+* F-Droid: <https://f-droid.org/packages/de.rwth\_aachen.phyphox>.
+* Google Play: <https://play.google.com/store/apps/details?id=de.rwth\_aachen.phyphox>.
+* GitHub: <https://github.com/phyphox/phyphox-android>.
+* Official website: <http://phyphox.org>.
 
 ### PipePipe by InfinityLoop1309 / InfinityLoop1308
 
