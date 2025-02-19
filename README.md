@@ -5,12 +5,12 @@
 
 **Android Non Root** has three versions:
 
-* The HTML version: <https://willie169.github.io/Android-Non-Root>.
-* The Markdown version: <https://github.com/Willie169/Android-Non-Root>.
-* The app version: <https://github.com/Willie169/Android-Non-Root-App>.
-* App download link: <https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk>.
+* **The HTML version**: <https://willie169.github.io/Android-Non-Root>.
+* **The Markdown version**: <https://github.com/Willie169/Android-Non-Root>.
+* **The app version**: <https://github.com/Willie169/Android-Non-Root-App>.
+* **App download link**: <https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk>.
 
-In this tutorial, we’ll explore a range of powerful, open-source tools such as [Termux](https://github.com/termux/termux-app), [F-Droid](https://f-droid.org), [Shizuku](https://github.com/RikkaApps/Shizuku), [Tor](https://www.torproject.org), [TrackerControl](https://github.com/TrackerControl/tracker-control-android), [InviZible Pro](https://github.com/Gedsh/InviZible), [QEMU](https://www.qemu.org), and [PipePipe](https://github.com/InfinityLoop1308/PipePipe) to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.
+In this tutorial, we’ll explore a range of powerful, open-source tools such as [Termux](https://github.com/termux/termux-app), [F-Droid](https://f-droid.org), [Shizuku](https://github.com/RikkaApps/Shizuku), [Tor](https://www.torproject.org), [TrackerControl](https://github.com/TrackerControl/tracker-control-android), [InviZible Pro](https://github.com/Gedsh/InviZible), [QEMU](https://www.qemu.org), [Tailscale](https://github.com/tailscale/tailscale), [OpenSSH](https://www.openssh.com), and [PipePipe](https://github.com/InfinityLoop1308/PipePipe) to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.
 
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
 
@@ -27,26 +27,32 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Install F-Droid](#install-f-droid)
   * [Introduction of F-Droid](#introduction-of-f-droid)
   * [F-Droid Repositories](#f-droid-repositories)
-* [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
+* [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection)
   * [Install Termux](#install-termux)
-  * [Introduction of Termux](#introduction-of-termux)
+  * [Short Introduction of Termux](#short-introduction-of-termux)
+  * [Termux App User Interface](#termux-app-user-interface)
+  * [Shortcuts in Termux](#shortcuts-in-termux)
+  * [Types of Storage in Termux](#types-of-storage-in-termux)
+  * [Storage Related Utilities in Termux](#storage-related-utilities-in-termux)
+  * [Shell in Termux](#shell-in-termux)
+  * [Termux Chroot](#termux-chroot)
+  * [Termux Fix Shebang](#termux-fix-shebang)
+  * [Environment Variables in Termux](#environment-variables-in-termux)
+  * [Difference Between Linux and Termux](#difference-between-linux-and-termux)
+  * [Termux-Properties](#termux-properties)
+  * [Termux PKG Package Manager](#termux-pkg-package-manager)
+  * [Debian Derivatives and Termux APT Package Manager](#debian-derivatives-and-termux-apt-package-manager)
+  * [Termux Change Repo](#termux-change-repo)
+  * [Package Command Error](#package-command-error)
+  * [Process completed (signal 9) - press Enter Error](#process-completed-signal-9---press-enter-error)
+* [POSIX References](#posix-references)
+  * [Shell Reference](#shell-reference)
+* [Termux:Styling, Termux:Widget, Termux:Boot, Termux:Float, and Termux:API](#termuxstyling-termuxwidget-termuxboot-termuxfloat-and-termuxapi)
   * [Termux:Styling](#termuxstyling)
   * [Termux:Widget](#termuxwidget)
   * [Termux:Boot](#termuxboot)
   * [Termux:Float](#termuxfloat)
   * [Termux:API](#termuxapi)
-  * [Termux App User Interface](#termux-app-user-interface)
-  * [Shortcuts in Termux](#shortcuts-in-termux)
-  * [Environment Variables in Termux](#environment-variables-in-termux)
-  * [Types of Storage in Termux](#types-of-storage-in-termux)
-  * [Utilities Regarding Storages in Termux](#utilities-regarding-storages-in-termux)
-  * [File and Directory Management Commands](#file-and-directory-management-commands)
-  * [Termux-Properties](#termux-properties)
-  * [Termux PKG Package Manager](#termux-pkg-package-manager)
-  * [Termux Change Repo](#termux-change-repo)
-  * [Package Command Error](#package-command-error)
-  * [Debian Derivatives and Termux APT Package Manager](#debian-derivatives-and-termux-apt-package-manager)
-  * [Process completed (signal 9) - press Enter Error](#process-completed-signal-9---press-enter-error)
 * [TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment](#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-vnc-or-x-server-and-graphical-environment)
   * [Introduction of VNC (Virtual Network Computing)](#introduction-of-vnc-virtual-network-computing)
   * [Introduction of X Window System (X11, or X)](#introduction-of-x-window-system-x11-or-x)
@@ -62,7 +68,11 @@ My main development of Termux Shell scripts has been moved to my another reposit
 * [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android)
   * [Install AVNC](#install-avnc)
   * [Connect a VNC Server](#connect-a-vnc-server)
-  * [Features of AVNC](#features-of-avnc)
+  * [Introduction of AVNC](#introduction-of-avnc)
+* [Tailscale](#tailscale)
+  * [Introduction of Tailscale](#introduction-of-tailscale)
+  * [Tailscale in Linux](#tailscale-in-linux)
+  * [Tailscale in Android](#tailscale-in-android)
 * [PRoot-Distro with Termux: Install Linux Distributions in Termux](#proot-distro-with-termux-install-linux-distributions-in-termux)
   * [Introduction of Chroot, PRoot, PRoot-Distro](#introduction-of-chroot-proot-proot-distro)
   * [PRoot-Distro Usage](#proot-distro-usage)
@@ -96,7 +106,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Install Shizuku](#install-shizuku)
   * [Introduction of ADB and Shizuku](#introduction-of-adb-and-shizuku)
   * [Connect Shizuku to Wireless ADB](#connect-shizuku-to-wireless-adb)
-  * [Use Shizuku in a Terminal Application for the First Time (Termux for Example)](#use-shizuku-in-a-terminal-application-for-the-first-time-termux-for-example)
+  * [Use Shizuku in a Terminal Application for the First Time](#use-shizuku-in-a-terminal-application-for-the-first-time)
   * [Install SystemUI Tuner](#install-systemui-tuner)
   * [To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner](#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner)
   * [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner)
@@ -118,12 +128,6 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Configure TrackerControl and InviZible Pro for Tor Only](#configure-trackercontrol-and-invizible-pro-for-tor-only)
   * [Check Whether the Tor Route Setup Is Successful](#check-whether-the-tor-route-setup-is-successful)
   * [Configure InviZible Pro to Block Trackers without TrackerControl](#configure-invizible-pro-to-block-trackers-without-trackercontrol)
-* [OpenSSL: SSL and TLS Protocals and Cryptography Library Implementation](#openssl-ssl-and-tls-protocals-and-cryptography-library-implementation)
-  * [Introduction of OpenSSL](#introduction-of-openssl)
-  * [Install OpenSSL in Termux](#install-openssl-in-termux)
-  * [Install of OpenSSL in Debian Derivatives](#install-of-openssl-in-debian-derivatives)
-  * [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)
-  * [Symmetric Encryption](#symmetric-encryption)
 * [OpenSSH: Secure Remote Access with SSH, SCP, and SFTP](#openssh-secure-remote-access-with-ssh-scp-and-sftp)
   * [Introduction of SSH (Secure Shell) and OpenSSH](#introduction-of-ssh-secure-shell-and-openssh)
   * [OpenSSH Server](#openssh-server)
@@ -131,59 +135,68 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [SCP (Secure Copy Protocol)](#scp-secure-copy-protocol)
   * [SFTP (Secure File Transfer Protocol)](#sftp-secure-file-transfer-protocol)
   * [Further Readings and References about OpenSSH with Linux and Termux](#further-readings-and-references-about-openssh-with-linux-and-termux)
+* [OpenSSL: SSL and TLS Protocals and Cryptography Library Implementation](#openssl-ssl-and-tls-protocals-and-cryptography-library-implementation)
+  * [Introduction of OpenSSL](#introduction-of-openssl)
+  * [Install OpenSSL in Termux](#install-openssl-in-termux)
+  * [Install of OpenSSL in Debian Derivatives](#install-of-openssl-in-debian-derivatives)
+  * [RSA (Rivest-Shamir-Adleman)](#rsa-rivest-shamir-adleman)
+  * [Symmetric Encryption](#symmetric-encryption)
 * [droidVNC-NG: VNC Server App for Android That Does Not Require Root Privileges](#droidvnc-ng-vnc-server-app-for-android-that-does-not-require-root-privileges)
   * [Install droidVNC-NG](#install-droidvnc-ng)
-  * [Features of droidVNC-NG](#features-of-droidvnc-ng)
+  * [Introduction of droidVNC-NG](#introduction-of-droidvnc-ng)
 * [SD Maid SE: A File Management Tool and System Cleaner](#sd-maid-se-a-file-management-tool-and-system-cleaner)
   * [Install SD Maid SE](#install-sd-maid-se)
   * [Introduction of SD Maid SE](#introduction-of-sd-maid-se)
   * [Use SD Maid SE with Shizuku](#use-sd-maid-se-with-shizuku)
 * [Phyphox: Perform Physics Experiments with Your Phone](#phyphox-perform-physics-experiments-with-your-phone)
   * [Install Phyphox](#install-phyphox)
-  * [Features of Phyphox](#features-of-phyphox)
+  * [Introduction of Phyphox](#introduction-of-phyphox)
 * [AndroidIDE: IDE for Android App development on Android devices](#androidide-ide-for-android-app-development-on-android-devices)
   * [Install AndroidIDE](#install-androidide)
-  * [Features of AndroidIDE](#features-of-androidide)
+  * [Introduction of AndroidIDE](#introduction-of-androidide)
 * [Linux Command Library](#linux-command-library)
   * [Install Linux Command Library (Optional)](#install-linux-command-library-optional)
-  * [Features of Linux Command Library](#features-of-linux-command-library)
+  * [Introduction of Linux Command Library](#introduction-of-linux-command-library)
   * [Website Version of Linux Command Library](#website-version-of-linux-command-library)
 * [Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support](#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support)
   * [Install Material Files](#install-material-files)
-  * [Features of Material Files](#features-of-material-files)
+  * [Introduction of Material Files](#introduction-of-material-files)
   * [Mount External Storage or NAS (Network-Attached Storage) Server](#mount-external-storage-or-nas-network-attached-storage-server)
 * [PipePipe: A FLOSS Android App to Let You Browse YouTube, NicoNico and BiliBili Freely.](#pipepipe-a-floss-android-app-to-let-you-browse-youtube-niconico-and-bilibili-freely)
   * [Install PipePipe](#install-pipepipe)
-  * [Features of PipePipe](#features-of-pipepipe)
+  * [Introduction of PipePipe](#introduction-of-pipepipe)
 * [Xtra: Twitch Player and Browser](#xtra-twitch-player-and-browser)
   * [Install Xtra](#install-xtra)
-  * [Features of Xtra](#features-of-xtra)
+  * [Introduction of Xtra](#introduction-of-xtra)
 * [Material Photo Widget](#material-photo-widget)
   * [Install Material Photo Widget](#install-material-photo-widget)
-  * [Features of Material Photo Widget](#features-of-material-photo-widget)
+  * [Introduction of Material Photo Widget](#introduction-of-material-photo-widget)
 * [VLC for Android: Open Source Media Player and Multimedia Engine](#vlc-for-android-open-source-media-player-and-multimedia-engine)
   * [Install VLC for Android](#install-vlc-for-android)
   * [Introduction of VLC](#introduction-of-vlc)
 * [Firefox: Fast and Private Browser](#firefox-fast-and-private-browser)
   * [Install Firefox](#install-firefox)
-  * [Features of Firefox](#features-of-firefox)
+  * [Introduction of Firefox](#introduction-of-firefox)
 * [DuckDuckGo: Privacy Browser](#duckduckgo-privacy-browser)
   * [Install DuckDuckGo](#install-duckduckgo)
-  * [Features of DuckDuckGo](#features-of-duckduckgo)
+  * [Introduction of DuckDuckGo](#introduction-of-duckduckgo)
 * [Brave: Privacy Browser](#brave-privacy-browser)
   * [Install Brave](#install-brave)
-  * [Features of Brave](#features-of-brave)
+  * [Introduction of Brave](#introduction-of-brave)
 * [Safe Space: A Safe Space For Your Digital Valuables](#safe-space-a-safe-space-for-your-digital-valuables)
   * [Install Safe Space](#install-safe-space)
-  * [Features of Safe Space](#features-of-safe-space)
+  * [Introduction of Safe Space](#introduction-of-safe-space)
 * [SimplyTranslate Mobile: A Privacy Friendly Frontend to Google Translate](#simplytranslate-mobile-a-privacy-friendly-frontend-to-google-translate)
   * [Install SimplyTranslate Mobile](#install-simplytranslate-mobile)
-  * [Features of SimplyTranslate Mobile](#features-of-simplytranslate-mobile)
+  * [Introduction of SimplyTranslate Mobile](#introduction-of-simplytranslate-mobile)
   * [Website Version of SimplyTranslate Mobile](#website-version-of-simplytranslate-mobile)
 * [LibreTorrent](#libretorrent)
   * [Install LibreTorrent](#install-libretorrent)
   * [Introduction of BitTorrent](#introduction-of-bittorrent)
-  * [Features of LibreTorrent](#features-of-libretorrent)
+  * [Introduction of LibreTorrent](#introduction-of-libretorrent)
+* [Thunderbird: Privacy-Focused Email App](#thunderbird-privacy-focused-email-app)
+  * [Install Thunderbird](#install-thunderbird)
+  * [Introduction of Thunderbird](#introduction-of-thunderbird)
 * [Promoted or Related Works, References, and Bibliography](#promoted-or-related-works-references-and-bibliography)
   * [ANC by Gaurav Ujwal / gujjwal00](#anc-by-gaurav-ujwal--gujjwal00)
   * [AndroidIDE by AndroidIDE / AndroidIDEOfficial](#androidide-by-androidide--androidideofficial)
@@ -196,6 +209,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [DuckDuckGo / DuckDuckGo Browser / DuckDuckGo Privacy Browser / DuckDuckGo Private Browser by DuckDuckGo or duckduckgo](#duckduckgo--duckduckgo-browser--duckduckgo-privacy-browser--duckduckgo-private-browser-by-duckduckgo-or-duckduckgo)
   * [F-Droid by F-Droid](#f-droid-by-f-droid)
   * [Firefox / Firefox Fast & Private Browser by Mozilla](#firefox--firefox-fast--private-browser-by-mozilla)
+  * [GNU](#gnu)
   * [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
   * [IzzyOnDroid:](#izzyondroid)
   * [LibreTorrent by Yaroslav Pronin / proninyaroslav](#libretorrent-by-yaroslav-pronin--proninyaroslav)
@@ -204,6 +218,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [MyIP / IPCheck.ing by Jason Ng / jason5ng32](#myip--ipchecking-by-jason-ng--jason5ng32)
   * [NetGuard by Marcel Bokhorst / M66B / Marcel Bokhorst, FairCode BV](#netguard-by-marcel-bokhorst--m66b--marcel-bokhorst-faircode-bv)
   * [NewPipe by Team NewPipe / TeamNewPipe](#newpipe-by-team-newpipe--teamnewpipe)
+  * [OpenSSH by OpenSSH / openssh](#openssh-by-openssh--openssh)
   * [OpenSSL by OpenSSL / openssl](#openssl-by-openssl--openssl)
   * [Phyphox by RWTH Aachen University / phyphox](#phyphox-by-rwth-aachen-university--phyphox)
   * [PipePipe by InfinityLoop1309 / InfinityLoop1308](#pipepipe-by-infinityloop1309--infinityloop1308)
@@ -213,6 +228,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Shizuku by Xingchen & Rikka / RikkaApps](#shizuku-by-xingchen--rikka--rikkaapps)
   * [SimplyTranslate Mobile by ManeraKai](#simplytranslate-mobile-by-manerakai)
   * [SystemUI Tuner by Zachary Wander / zacharee](#systemui-tuner-by-zachary-wander--zacharee)
+  * [Tailscale by](#tailscale-by)
   * [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
   * [Termux:API by Fredrik Fornwall / Termux / termux](#termuxapi-by-fredrik-fornwall--termux--termux)
   * [Termux:Boot by Fredrik Fornwall / Termux / termux](#termuxboot-by-fredrik-fornwall--termux--termux)
@@ -221,9 +237,11 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Termux:Widget by Fredrik Fornwall / Termux / termux](#termuxwidget-by-fredrik-fornwall--termux--termux)
   * [Termux-x11 by Fredrik Fornwall / Termux / termux](#termux-x11-by-fredrik-fornwall--termux--termux)
   * [TigerVNC or tigervnc by TigerVNC](#tigervnc-or-tigervnc-by-tigervnc)
+  * [Thunderbird or Thunderbird: Free Your Inbox by Mozilla Thunderbird / thunderbird / Mozilla](#thunderbird-or-thunderbird-free-your-inbox-by-mozilla-thunderbird--thunderbird--mozilla)
   * [Tor and Tor Browser by The Tor Project](#tor-and-tor-browser-by-the-tor-project)
   * [TrackerControl / TC by TrackerControl / Oxford HCC](#trackercontrol--tc-by-trackercontrol--oxford-hcc)
   * [VLC for Android / vlc-android by Videolabs / VLC Mobile Team / VideoLAN / videolan](#vlc-for-android--vlc-android-by-videolabs--vlc-mobile-team--videolan--videolan)
+  * [Wireguard by Jason A. Donenfeld](#wireguard-by-jason-a-donenfeld)
   * [Xtra by AndreyAsadchy or Andrey Asadchy and crackededed](#xtra-by-andreyasadchy-or-andrey-asadchy-and-crackededed)
   * [Others](#others)
 * [Contribution](#contribution)
@@ -250,21 +268,19 @@ If for whatever reason you want to send me money, here are where you may do so:
 
 ## Global Note
 
-* This tutorial is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+* This tutorial, as well as the software mentioned in it, is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Most of the software mentioned in this tutorial is open source.
 * Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See [DontKillMyApp](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid).
-* Many sections of the tutorial mention Termux. For people who are new to it, please refer to the tutorial for it in [Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-and-helper-apps-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection) before exploring other sections related to Termux. My main development of Termux Shell scripts has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh), which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while tutorials for Termux, some of my scripts in [**termux-sh**](https://github.com/Willie169/termux-sh), and other related stuff such as VNC, SSL, and SSH, remain here.
-* More instructions for Linux commands are available in [Linux Command Library](#linux-command-library).
+* Many sections of the tutorial mention Termux. For people who are new to it, please refer to [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
+* For people who are new to POSIX, please refer to [POSIX References](#posix-references).
+* You may encounter `Process completed (signal 9) press Enter` error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) press Enter Error](#process-completed-signal-9-press-enter-error).
+* Many sections of the tutorial mention VNC. Go to [Introduction of VNC (Virtual Network Computing)](introduction-of-vnc-virtual-network-computing) for introduction of VNC. You can connect to a VNC server with a VNC client. One recommended one for Android is AVNC. Read [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
 * Run update command (such as `pkg update` and `apt update`) before install command (such as `pkg install` and `apt install`) to update available packages.
 * Add `sudo` at the beginning of commands in Linux if root permission is needed. Remove `sudo` from the beginning of commands in Termux if the device is not rooted. Termux doesn’t need root permission to install packages etc.
 * Type `Y`, `y`, `Yes`, `yes`, etc. as asked for in response to any prompts that request confirmation during command execution to confirm execution.
 * Change the file names, directories, paths, addresses, ports, variables, etc. in the commands provided in the tutorial to the actual ones of yours.
-* Most of the software mentioned in this tutorial is open source.
 * Some sections about Linux usages are included, some of which assumes the Linux distribution is Debian derived.
-* Uncommenting a line means to remove the comment signs (`#` for bash) from the beginning of the line.
 * When the tutorial uses text editor such as `nano`, `vim`, or `vi` to edit a file, you can use any text editor you want.
-* You may encounter `Process completed (signal 9) press Enter` error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) press Enter Error](#process-completed-signal-9-press-enter-error).
 * In Linux, `root` is usually the password for root for the first time. You can usually set password latter by `passwd`.
-* Many sections of the tutorial mention VNC. Go to [Introduction of VNC (Virtual Network Computing)](introduction-of-vnc-virtual-network-computing) for introduction of VNC. You can connect to a VNC server with a VNC client. One recommended one for Android is AVNC. Read the tutorial for it in [AVNC: A VNC Client for Android](#avnc-a-vnc-client-for-android).
 
 ---
 
@@ -292,34 +308,34 @@ One of the most popular unofficial F-Droid repository is IzzyOnDroid F-Droid rep
 
 A list of some known F-Droid repositories:
 
-* F-Droid: <https://f-droid.org/repo>.
-* F-Droid Archive: <https://f-droid.org/archive>.
-* Guardian Project: <https://guardianproject.info/fdroid/repo>.
-* Guardian Project Archive: <https://guardianproject.info/fdroid/archive>.
-* IzzyOnDroid: <https://apt.izzysoft.de/fdroid/repo>.
-* microG: <https://microg.org/fdroid/repo>.
-* Netsyms: <https://repo.netsyms.com/fdroid/repo>.
-* Bromite: <https://fdroid.bromite.org/fdroid/repo>.
-* Molly: <https://molly.im/fdroid/foss/fdroid/repo>.
-* NewPipe: <https://archive.newpipe.net/fdroid/repo>.
-* Collabora Office: <https://www.collaboraoffice.com/downloads/fdroid/repo>.
-* LibRetro: <https://fdroid.libretro.com/repo>.
-* KDE Android: <https://cdn.kde.org/android/stable-releases/fdroid/repo>.
-* KDE Android Nightly: <https://cdn.kde.org/android/fdroid/repo>.
-* The Calyx Institute (testing): <https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo>.
-* DivestOS Official: <https://divestos.org/fdroid/official>.
-* DivestOS Unofficial: <https://divestos.org/fdroid/unofficial>.
-* Fedilab Apps: <https://fdroid.fedilab.app/repo>.
-* Kali Nethunter App Store: <https://store.nethunter.com/repo>.
-* Umbrella: <https://secfirst.org/fdroid/repo>.
-* Langis / Patched Apps: <https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo>.
-* Bitwarden: <https://mobileapp.bitwarden.com/fdroid/repo>.
-* Briar Project: <https://briarproject.org/fdroid/repo>.
-* Wind Offline: <https://guardianproject-wind.s3.amazonaws.com/fdroid/repo>.
+* **F-Droid**: <https://f-droid.org/repo>.
+* **F-Droid Archive**: <https://f-droid.org/archive>.
+* **Guardian Project**: <https://guardianproject.info/fdroid/repo>.
+* **Guardian Project Archive**: <https://guardianproject.info/fdroid/archive>.
+* **IzzyOnDroid**: <https://apt.izzysoft.de/fdroid/repo>.
+* **microG**: <https://microg.org/fdroid/repo>.
+* **Netsyms**: <https://repo.netsyms.com/fdroid/repo>.
+* **Bromite**: <https://fdroid.bromite.org/fdroid/repo>.
+* **Molly**: <https://molly.im/fdroid/foss/fdroid/repo>.
+* **NewPipe**: <https://archive.newpipe.net/fdroid/repo>.
+* **Collabora Office**: <https://www.collaboraoffice.com/downloads/fdroid/repo>.
+* **LibRetro**: <https://fdroid.libretro.com/repo>.
+* **KDE Android**: <https://cdn.kde.org/android/stable-releases/fdroid/repo>.
+* **KDE Android Nightly**: <https://cdn.kde.org/android/fdroid/repo>.
+* **The Calyx Institute (testing)**: <https://calyxos.gitlab.io/calyx-fdroid-repo/fdroid/repo>.
+* **DivestOS Official**: <https://divestos.org/fdroid/official>.
+* **DivestOS Unofficial**: <https://divestos.org/fdroid/unofficial>.
+* **Fedilab Apps**: <https://fdroid.fedilab.app/repo>.
+* **Kali Nethunter App Store**: <https://store.nethunter.com/repo>.
+* **Umbrella**: <https://secfirst.org/fdroid/repo>.
+* **Langis / Patched Apps**: <https://thecapslock.gitlab.io/fdroid-patched-apps/fdroid/repo>.
+* **Bitwarden**: <https://mobileapp.bitwarden.com/fdroid/repo>.
+* **Briar Project**: <https://briarproject.org/fdroid/repo>.
+* **Wind Offline**: <https://guardianproject-wind.s3.amazonaws.com/fdroid/repo>.
 
 ---
 
-## Termux and Helper Apps: A Powerful Terminal Emulation with an Extensive Linux Package Collection
+## Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection
 
 ### Install Termux
 
@@ -327,7 +343,7 @@ Termux (`com.termux`) can be installed from F-Droid: <https://f-droid.org/packag
 
 **WARNING**: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html>. It is recommended that you shift to F-Droid or GitHub releases.
 
-### Introduction of Termux
+### Short Introduction of Termux
 
 Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package collection. Some of the commands available in Linux are available in Termux too, such as `cp`, `mv`, `ls`, `mkdir`, `apt`, and `apt-get`.
 
@@ -348,77 +364,10 @@ and more.
 
 At first startup, a small base system is downloaded. Desired packages can then be installed using the apt package manager, which is known from the Debian and Ubuntu Linux distributions. To learn more, access the built-in help by long-pressing anywhere on the terminal and selecting the Help menu option.
 
-Official Wiki and Reddit community:
+* **Official Wiki**: <https://wiki.termux.com>.
+* **Reddit community**: <https://termux.com/community>.
 
-* Wiki: <https://wiki.termux.com>.
-* Reddit community: <https://termux.com/community>.
-
-### Termux:Styling
-
-Termux:Styling (`com.termux.styling`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.styling>.
-
-This plugin for Termux provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.
-
-Long-press anywhere on the Termux terminal and use the "Style" menu entry to use after installation.
-
-Read the official wiki: <https://wiki.termux.com/wiki/Termux:Styling> for more information.
-
-### Termux:Widget
-
-Termux:Widget (`com.termux.widget`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.widget>.
-
-Add-on app which adds shortcuts to Termux scripts and commands on the home screen. Scripts should be placed in the `$HOME/.shortcuts/` folder to allow quick access to frequently used commands without typing.
-
-Read the official wiki: <https://wiki.termux.com/wiki/Termux:Widget> for more information.
-
-### Termux:Boot
-
-Termux:Boot (`com.termux.boot`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.boot>.
-
-This plugin for Termux allows programs to be run at boot.
-
-Instructions:
-
-* Start the Termux:Boot app once by clicking on its launcher icon.
-* This allow the app to be run at boot.
-* Create the `~/.termux/boot/` directory.
-* Put scripts you want to execute inside the `~/.termux/boot/` directory.
-* If there are multiple files, they will be executed in a sorted order.
-
-Note that you may want to run `termux-wake-lock` as first thing want to ensure that the device is prevented from sleeping.
-
-Read the official wiki: <https://wiki.termux.com/wiki/Termux:Boot> for more information.
-
-### Termux:Float
-
-Termux:Float (`com.termux.float`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.float>.
-
-This plugin for Termux provides a floating terminal window which is shown above other apps.
-
-Long-press on the floating window to move or resize it and tap on the notification to temporarily hide it.
-
-Read the official wiki: <https://wiki.termux.com/wiki/Termux:Float> for more information.
-
-### Termux:API
-
-Termux:API (`com.termux.api`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.api>.
-
-Expose basic Android functionality like sending SMS or accessing GPS data to the Termux app. This is an add-on which requires that the main Termux app is installed to use.
-
-* Read and send sms messages from your terminal.
-* Access device GPS location sensor from scripts.
-* Pipe the result of commands into the device text-to-speech engine.
-* Vibrate the device when something interesting happens.
-* Access the system clipboard from shell scripts.
-* List contacts from the system contact list.
-
-Besides installing this app an additional package is required to install inside Termux:
-
-```
-apt install termux-api
-```
-
-Read the official wiki: <https://wiki.termux.com/wiki/Termux:API> for more information.
+For people who are new to POSIX, please refer to [POSIX References](#posix-references).
 
 ### Termux App User Interface
 
@@ -478,17 +427,12 @@ The following are some of the shortcuts commonly used in the terminal, and they 
 * Volume + V - Show volume control
 * Volume + Q / Volume + K - Show extra button view
 
-### Environment Variables in Termux
-
-* `$HOME` and `~` refer to `/data/data/com.termux/files/home`.
-* `$PREFIX` refers to `/data/data/com.termux/files/usr`.
-
 ### Types of Storage in Termux
 
 There are three main types of storage in Termux:
 
 * Internal storage: files put in `$HOME`, available from inside Termux or when explictly picked in an app compatible with Storage Access Framework (SAF).
-* Shared storage: general purpose file storage available for the all applications allowed by user.
+* Shared storage: general purpose file storage available for the all applications allowed by user. The root directory of the main storage of Android is usually `/storage/emulated/0`.
 * External storage: external SD cards or USB hard drives. Typically read-only, except the Termux private directory. Full read-write access to external SD cards and USB drives is available only on rooted devices.
 
 Feature comparison between storage types:
@@ -523,7 +467,7 @@ Feature comparison between storage types:
 </tr>
 </tbody></table>
 
-### Utilities Regarding Storages in Termux
+### Storage Related Utilities in Termux
 
 * To access shared and external storage you need to run `termux-setup-storage`. You will then be prompted to `Allow Termux access photos, media and files on your device`, which you should tap `Allow`.
 * The contents of the created `~/storage` folder are symlinks to different storage folders. Run `termux-setup-storage` to rebuild its structure.
@@ -531,117 +475,56 @@ Feature comparison between storage types:
 * If you have Termux:API application and `termux-api` package installed, you can use Android file picker to get any file from either shared or external storage by using utility `termux-storage-get`. For example, `termux-storage-get filename.txt` will save the file that has been chosen through file picker as `filename.txt`.
 * You can access Termux home directory (`$HOME`) from the file manager using Storage Access Framework (SAF) and capable of accessing drives like USB or external SD-card in read-write mode. One recommended file manager which can access Termux home directory is [Material Files](https://play.google.com/store/apps/details?id=me.zhanghai.android.files). My tutorial for it is available in [Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support](#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support).
 
-### File and Directory Management Commands
+### Shell in Termux
 
-File and directory management commands in Termux is the same as in Linux. Below is a brief of them.
+A shell is an command language interpreter that executes commands from standard input devices (like a keyboard) or from a file. Shells are not a part of the system kernel, but use the system kernel to execute programs, create files, etc.
 
-#### `cp`: Copy Files And Directories
+Use `chsh` from `termux-tools` to change your login shell. Currently Termux supports bash, fish, tcsh, zsh, xonsh, beanshell, and ipython. The default one is bash.
 
-* `cp -r dir1/ dir2/`: Recursively copy `dir1` to `dir2`.
-* `cp -i file1.txt file2.txt`: Prompt before overwriting `file2.txt`.
+### Termux Chroot
 
-#### `mv`: Move or Rename Files and Directories
+If you want a classical Linux file system layout, you can to use `termux-chroot` from package `proot`. The `termux-chroot` utility may be very helpful if you use custom software that requires standard paths like `/tmp`, `/etc`, `/usr` to be available.
 
-* `mv file1.txt /home/user/`: Move `file1.txt` to `/home/user/`.
-* `mv oldname.txt newname.txt`: Rename `oldname.txt` to `newname.txt`.
+Install Proot:
 
-#### `rm`: Remove Files or Directories
+```
+pkg install proot
+```
 
-* `rm file1.txt`: Remove `file1.txt`.
-* `rm -r dir1/`: Recursively remove `dir1` and its contents.
-* `rm -rf dir1/`: Forcefully remove `dir1` and its contents without prompts.
+Use Termux chroot:
 
-#### `mkdir`: Create Directories
+```
+termux-chroot
+```
 
-* `mkdir newdir`: Create a directory named `newdir`.
-* `mkdir -p parentdir/childdir`: Create `parentdir` and `childdir` if they don’t exist.
+Result:
 
-#### `ls`: List Directory Contents
+```
+$ ls /usr
+bin  doc  etc  include lib  libexec  share  tmp  var
+```
 
-* `ls -l`: List with detailed information (permissions, ownership, size).
-* `ls -a`: List all files, including hidden ones (starting with `.`).
-* `ls -h`: List with human-readable file sizes.
+### Termux Fix Shebang
 
-#### `rmdir`: Remove Empty Directories
+You may have a problem executing scripts that have standard shebangs (e.g. `#!/bin/sh`) because Termux is not FHS compliant. Use the `termux-fix-shebang` script to modify these files before executing. Recent versions of Termux provide a special package (`termux-exec`) which allows usage of standard shebangs.
 
-* Syntax: `rmdir [options] directory`
-* `rmdir emptydir`: Remove `emptydir` if it’s empty.
-* `rmdir -p parentdir/childdir`: Remove `childdir` and `parentdir` if they are empty.
+### Environment Variables in Termux
 
-#### `find`: Search for Files and Directories
+* `$HOME` and `~` refer to `/data/data/com.termux/files/home`.
+* `$PREFIX` refers to `/data/data/com.termux/files/usr`.
+* Most packages have shared library dependencies which are installed to `$PREFIX/lib`. On devices before Android 7, Termux exports the special variable `$LD_LIBRARY_PATH` which tells the linker where to find shared library files. On Android 7 or higher, the `DT_RUNPATH ELF` header attribute is used instead of `LD_LIBRARY_PATH`.
 
-* Syntax: `find [path] [options] [expression]`
-* `find /home/user/ -name '*.txt'`: Find all `.txt` files under `/home/user/`.
-* `find . -type d -name 'dir*'`: Find directories starting with `dir`.
+### Difference Between Linux and Termux
 
-#### `touch`: Create or Update File Timestamps
-
-* Syntax: `touch [options] file`
-* `touch newfile.txt`: Create an empty `newfile.txt` or update its timestamp.
-* `touch -c non_existent_file.txt`: Don’t create `non_existent_file.txt` if it doesn’t exist.
-
-#### `chmod`: Change File Permissions
-
-`chmod` can use both numeric and symbolic modes to set file permissions.
-
-Numeric Mode:
-
-* Syntax: `chmod [permissions] file`
-* First number in permissions is for user (owner), second is for group, third is for others.
-* Permissions:
-* `4`: read.
-* `2`: write.
-* `1`: execute.
-* Permissions are additive. For example, `7` \= `4` \+ `2` \+ `1`.
-
-Symbolic Mode:
-
-* Syntax: `chmod [who][+/-/=][permissions] file`
-* Who:
-* `u`: User (owner)
-* `g`: Group
-* `o`: Others
-* `a`: All (user, group, and others)
-* Operators
-* `+`: Add permission
-* `-`: Remove permission
-* `=`: Set exact permission
-* Permissions:
-* `r`: read.
-* `w`: write.
-* `x`: execute.
-
-Options:
-
-* `-R` or `--recursive`: Apply changes recursively to directories and their contents.
-
-#### `chown`: Change File Ownership
-
-* Syntax: `chown [options] user[:group] file`
-* `chown user file.txt`: Change the owner to `user`.
-* `chown user:group file.txt`: Change the owner to `user` and the group to `group`.
-* `chown :group file.txt`: Change the group to `group` without changing the owner.
-* Options
-* `-R` or `--recursive`: Apply changes recursively to directories and their contents.
-
-#### `df`: Disk Space Usage
-
-* Syntax: `df [options] [file]`
-* `df -h`: Display disk space in a human-readable format (e.g., MB, GB).
-* `df -T`: Show the filesystem type along with space usage.
-* `df --total`: Show a grand total of all file systems.
-
-#### `du`: Disk Usage
-
-* Syntax: `du [options] [file]`
-* `du -h`: Show disk usage in human-readable format.
-* `du -sh /path/to/dir`: Show the total size of `/path/to/dir`.
-* `du -a`: Show the size of all files and directories.
-* `du --max-depth=1`: Limit the depth of directory traversal to 1 level.
-
-#### `pwd`: Check Current Directory
-
-* Syntax: `pwd`
+* **Termux is not FHS compliant**: Termux does not follow Filesystem Hierarchy Standard unlike majority of Linux distributions. You cannot find directories like `/bin`, `/etc`, `/usr`, `/tmp` and others at the usual locations. Thus, all programs must be patched and recompiled to meet requirements of the Termux environment otherwise they will not be able to find their configuration files or other data. This is why Termux does not use official Debian or Ubuntu packages for its environment and you may have a problem executing scripts that have standard shebangs (e.g. `#!/bin/sh`). 
+* **Termux uses Bionic libc**: To have the best compatibility with Android OS and to remove the need to maintain custom toolchains we compile all our packages with the Android NDK. The resulting binaries are linked against the Bionic libc (`files libc.so`, `libm.so`, `libdl.so` from `/system/lib` or `/system/lib64`).
+  * Dynamically linked programs will not run because the linker is expected in a nonexistent location (`/lib`) and libc ABI does not match.
+  * Statically linked programs (only networking ones) will not be able to resolve DNS names. GNU libc normally doesn't allow static linking with resolver. Also, the file `/etc/resolv.conf` does not exist on Android.
+  * On non-rooted Android 8 or newer, statically linked programs will not run due to issues with seccomp filter.
+* Root file system is stored as ordinary application data: The root file system and user home directory are located in a private application data directory which lives on the `/data` partition. Paths to these directories are exposed as `$PREFIX` and `$HOME` respectively. You cannot move $PREFIX to another location because all programs expect that `$PREFIX` will not be changed. Additionally, you cannot have binaries, symlinks and other files from `$PREFIX` on sdcard because that file system does not support unix permissions, symlinks, sockets, etc.
+* **Termux is single-user**: Android applications are sandboxed and have their own Linux user id and SELinux label. Everything within Termux is executed with the same user id as the Termux application itself and cannot be changed as it is derived from the user id by Bionic libc.
+  * All packages in Termux (except root-only ones) are patched to drop any multiuser, setuid/setgid and other similar functionality.
+  * Default ports for server packages are changed. `ftpd`, `httpd` and `sshd` have their default ports set to `8021`, `8080`, and `8022` respectively.
 
 ### Termux-Properties
 
@@ -672,6 +555,31 @@ Properties that can be changed include `default-working-directory`, `allow-exter
   * `uninstall <packages>` \- Uninstall specified packages. Configuration files will be left intact.
   * `upgrade` \- Upgrade all installed packages to the latest version.
   * `update` \- Update apt databases from configured repositories.
+
+### Debian Derivatives and Termux APT Package Manager
+
+`apt` is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.
+
+* Usage: `apt [options] command`
+* Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
+* Most used commands:
+  * `list` \- list packages based on package names
+  * `search` \- search in package descriptions
+  * `show` \- show package details
+  * `install` \- install packages
+  * `reinstall` \- reinstall packages
+  * `remove` \- remove packages
+  * `autoremove` \- automatically remove all unused packages
+  * `update` \- update list of available packages
+  * `upgrade` \- upgrade the system by installing/upgrading packages
+  * `full-upgrade` \- upgrade the system by removing/installing/upgrading packages
+  * `edit-sources` \- edit the source information file
+  * `satisfy` \- satisfy dependency strings
+* See apt(8) for more information about the available commands: <https://manpages.debian.org/unstable/apt/apt.8.en.html>.
+* Configuration options and syntax is detailed in apt.conf(5): <https://manpages.debian.org/unstable/apt/apt.conf.5.en.html>.
+* Information about how to configure sources can be found in sources.list(5): <https://manpages.debian.org/unstable/apt/sources.list.5.en.html>.
+* Package and version choices can be expressed via apt\_preferences(5): <https://manpages.debian.org/unstable/apt/aptpreferences.5.en.html>.
+* Security details are available in apt-secure(8): <https://manpages.debian.org/unstable/apt/apt-secure.8.en.html>.
 
 ### Termux Change Repo
 
@@ -732,31 +640,6 @@ Do you want to accept these changes and continue updating from this repository? 
 * <https://github.com/termux/termux-packages/wiki/Mirrors>.
 * <https://github.com/cyb0rgdoll/freshtermux>.
 
-### Debian Derivatives and Termux APT Package Manager
-
-`apt` is a commandline package manager and provides commands for searching and managing as well as querying information about packages. It provides the same functionality as the specialized APT tools, like apt-get and apt-cache, but enables options more suitable for interactive use by default.
-
-* Usage: `apt [options] command`
-* Synopsys: `apt [-h] [-o=config_string] [-c=config_file] [-t=target_release] [-a=architecture] {list | search | show | update | install pkg [{=pkg_version_number | /target_release}]... | remove pkg... | upgrade | full-upgrade | edit-sources | {-v | --version} | {-h | --help}}`
-* Most used commands:
-  * `list` \- list packages based on package names
-  * `search` \- search in package descriptions
-  * `show` \- show package details
-  * `install` \- install packages
-  * `reinstall` \- reinstall packages
-  * `remove` \- remove packages
-  * `autoremove` \- automatically remove all unused packages
-  * `update` \- update list of available packages
-  * `upgrade` \- upgrade the system by installing/upgrading packages
-  * `full-upgrade` \- upgrade the system by removing/installing/upgrading packages
-  * `edit-sources` \- edit the source information file
-  * `satisfy` \- satisfy dependency strings
-* See apt(8) for more information about the available commands: <https://manpages.debian.org/unstable/apt/apt.8.en.html>.
-* Configuration options and syntax is detailed in apt.conf(5): <https://manpages.debian.org/unstable/apt/apt.conf.5.en.html>.
-* Information about how to configure sources can be found in sources.list(5): <https://manpages.debian.org/unstable/apt/sources.list.5.en.html>.
-* Package and version choices can be expressed via apt\_preferences(5): <https://manpages.debian.org/unstable/apt/aptpreferences.5.en.html>.
-* Security details are available in apt-secure(8): <https://manpages.debian.org/unstable/apt/apt-secure.8.en.html>.
-
 ### Process completed (signal 9) - press Enter Error
 
 Some Android OS will kill any (phantom) processes greater than 32 (limit is for all apps combined) and also kill any processes using excessive CPU.
@@ -808,6 +691,775 @@ settings put global settings_enable_monitor_phantom_procs true
 
 ---
 
+## POSIX References
+
+**POSIX (Portable Operating System Interface)** is a family of standards specified by the IEEE for maintaining compatibility between operating systems. It defines a set of APIs, command-line interfaces, and utility interfaces to enable software portability across different Unix-like systems.
+
+### Shell Reference
+
+Go to [Bash Reference Manual](https://www.gnu.org/software/bash/manual/html\_node/index.html) for more information.
+
+#### Shell Syntax
+
+When the shell reads input, it proceeds through a sequence of operations. If the input indicates the beginning of a comment, the shell ignores the comment symbol (`#`), and the rest of that line.
+
+Otherwise, roughly speaking, the shell reads its input and divides the input into words and operators, employing the quoting rules to select which meanings to assign various words and characters.
+
+The shell then parses these tokens into commands and other constructs, removes the special meaning of certain words or characters, expands others, redirects input and output as needed, executes the specified command, waits for the command’s exit status, and makes that exit status available for further inspection or processing.
+
+#### Shell Commands
+
+A simple shell command such as `echo a b c` consists of the command itself followed by arguments, separated by spaces.
+
+More complex shell commands are composed of simple commands arranged together in a variety of ways: in a pipeline in which the output of one command becomes the input of a second, in a loop or conditional construct, or in some other grouping.
+
+#### Shell Functions
+
+Shell functions are a way to group commands for later execution using a single name for the group. They are executed just like a "regular" command. When the name of a shell function is used as a simple command name, the list of commands associated with that function name is executed. Shell functions are executed in the current shell context; no new process is created to interpret them.
+
+Functions are declared using this syntax:
+
+```
+fname () compound-command [ redirections ]
+```
+
+or
+
+```
+function fname [()] compound-command [ redirections ]
+```
+
+This defines a shell function named fname. The reserved word function is optional. If the function reserved word is supplied, the parentheses are optional.
+
+#### Shell Parameters
+
+A parameter is an entity that stores values. It can be a name, a number, or one of the special characters listed below. A variable is a parameter denoted by a name. A variable has a value and zero or more attributes. Attributes are assigned using the `declare` builtin command.
+
+A parameter is set if it has been assigned a value. The null string is a valid value. Once a variable is set, it may be unset only by using the unset builtin command.
+
+A variable may be assigned to by a statement of the form
+
+```
+name=[value]
+```
+
+If value is not given, the variable is assigned the null string. All values undergo tilde expansion, parameter and variable expansion, command substitution, arithmetic expansion, and quote removal.
+
+#### Shell Expansion
+
+Expansion is performed on the command line after it has been split into tokens. The order of expansions is: brace expansion; tilde expansion, parameter and variable expansion, arithmetic expansion, and command substitution (done in a left-to-right fashion); word splitting; and filename expansion.
+
+#### Shell Redirections
+
+Before a command is executed, its input and output may be redirected using a special notation interpreted by the shell. Redirection allows commands’ file handles to be duplicated, opened, closed, made to refer to different files, and can change the files the command reads from and writes to. Redirection may also be used to modify file handles in the current shell execution environment. The following redirection operators may precede or appear anywhere within a simple command or may follow a command. Redirections are processed in the order they appear, from left to right.
+
+* Redirecting input: `[n]<word`.
+* Redirecting output: `[n]>[|]word`.
+* Appending redirected output: `[n]>>word`.
+* Redirecting standard output and standard error: `&>word` (preferred) or `>&word`. This is semantically equivalent to `>word 2>&1`.
+* Appending standard output and standard error: `&>>word`. This is semantically equivalent to `>>word 2>&1`.
+
+<h3 id="file-and-directory-management"><strong>File and Directory Management</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ls</code></td>
+<td>List directory contents: <code>ls</code>
+<ul>
+<li><code>ls -l</code>: long format</li>
+<li><code>ls -a</code>: include hidden files</li>
+<li><code>ls -A</code>: include hidden files except <code>.</code> (current directory) and <code>..</code> (parent directory)</li>
+<li><code>ls -lh</code>: human-readable sizes.<li><code>ls -d</code>: show directory names instead of their contents</li>
+<li><code>ls -R</code>: list subdirectories recursively</li>
+<li><code>ls -t</code>: sort by modification time (newest first)</li>
+<li><code>ls -S</code>: sort by file size (largest first)</li>
+</li>
+<li><code>ls -X</code>: sort by extension</li>
+<li><code>ls -r</code>: reverse order of sorting</li>
+<li><code>ls -1</code>: list one entry per line</li>
+<li><code>ls -F</code>: append indicators (<code>/</code> for directories, <code>*</code> for executables, etc.)</li>
+<li><code>ls -p</code>: append <code>/</code> to directories</li>
+<li><code>ls --color=auto</code>: colorize output based on file type</li>
+<li><code>ls -i</code>: show inode numbers</li>
+<li><code>ls -n</code>: show numeric UID and GID instead of names</li>
+<li><code>ls -g</code>: like <code>-l</code> but without showing owner</li>
+<li><code>ls -o</code>: like <code>-l</code> but without group information</li>
+<li><code>ls --time=ctime</code>: sort by change time (instead of modification)</li>
+<li><code>ls --time=access</code>: sort by last access time</li>
+<li><code>ls -Z</code>: show SELinux security context (if enabled)</li>
+<li><code>ls --full-time</code>: show complete timestamps</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td>Change directory: <code>cd /path/to/dir</code></td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>Print current working directory</td>
+</tr>
+<tr>
+<td><code>mkdir</code></td>
+<td>Create a new directory: <code>mkdir newdir</code>
+<ul>
+<li><code>mkdir -m newdir</code>: set file mode (as in <code>chmod</code>), not <code>a=rwx - umask</code></li>
+<li><code>mkdir -p newdir</code>: no error if existing, make parent directories as needed,                                        with their file modes unaffected by any <code>-m</code> option</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>rmdir</code></td>
+<td>Remove empty directory: <code>rmdir emptydir</code></td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>Remove files or directories: <code>rm file</code>
+<ul>
+<li><code>rm -r dir</code>: recursive</li>
+<li><code>rm -f</code>: force</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>Copy files/directories: <code>cp src dest</code>
+<ul>
+<li><code>cp -r dir1 dir2</code>: recursive</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>
+<ul>
+<li><code>mv oldname newname</code>: rename files/directories</li>
+<li><code>mv file /destination/</code>: move files/directories</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>
+<li><code>touch newfile.txt</code>: Create an empty <code>newfile.txt</code> or update its timestamp</li>
+<li><code>touch -c newfile.txt</code>: Don’t create <code>newfile.txt</code> if it doesn’t exist</li>
+</tr>
+<tr>
+<td><code>find</code></td>
+<td>Search for files: <code>find [path] [options] [expression]</code>
+<ul>
+<li><code>find /home/user/ -name &#39;*.txt&#39;</code>: Find all <code>.txt</code> files under <code>/home/user/</code></li>
+<li><code>find . -type d -name &#39;dir*&#39;</code>: Find directories starting with <code>dir</code></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>locate</code></td>
+<td>Quickly find files using an index: <code>locate filename</code> (remember to run <code>updatedb</code></td>
+</tr>
+<tr>
+<td><code>updatedb</code></td>
+<td>Update the <code>locate</code> database</td>
+</tr>
+<tr>
+<td><code>stat</code></td>
+<td>Display detailed file information: <code>stat file</code></td>
+</tr>
+<tr>
+<td><code>tree</code></td>
+<td>Show directory structure in a tree format (not always installed)</td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td>Show disk usage of file systems: <code>df [options] [file]</code>
+<li><code>df -h</code>: human-readable size</li>
+<li><code>df -T</code>: include filesystem type</li>
+<li><code>df --total</code>: Show a grand total of all file systems</li>
+</td>
+</tr>
+<tr>
+<td><code>du</code></td>
+<td>Show disk usage of files and directories: <code>du [options] [file]</code>
+<li><code>du -h</code>: human-readable size</li>
+<li><code>du -sh /path/to/dir</code>: Show the total size of <code>/path/to/dir</code></li>
+<li><code>du -a</code>: Show the size of all files and directories</li>
+<li><code>du --max-depth=1</code>: Limit the depth of directory traversal to 1 level</li>
+</td>
+</tr>
+<tr>
+<td><code>basename</code></td>
+<td>Extract filename from a path: <code>basename /path/to/file</code></td>
+</tr>
+<tr>
+<td><code>dirname</code></td>
+<td>Extract directory path from a full file path: <code>dirname /path/to/file</code></td>
+</tr>
+</tbody></table>
+<h3 id="file-permissions-and-ownership"><strong>File Permissions and Ownership</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>chmod</code></td>
+<td>Change file permissions:
+<ul>
+<li>Numeric Mode:
+<ul>
+<li>Syntax: <code>chmod [permissions] file</code></li>
+<li>First number in permissions is for user (owner), second is for group, third is for others</li>
+<li>Permissions:</li>
+<li><code>4</code>: read</li>
+<li><code>2</code>: write</li>
+<li><code>1</code>: execute</li>
+<li>Permissions are additive. For example, <code>7</code> = <code>4</code> + <code>2</code> + <code>1</code></li>
+</ul>
+</li>
+<li>Symbolic Mode:
+<ul>
+<li>Syntax: <code>chmod [who][+/-/=][permissions] file</code></li>
+<li>Who:</li>
+<li><code>u</code>: User (owner)</li>
+<li><code>g</code>: Group</li>
+<li><code>o</code>: Others</li>
+<li><code>a</code>: All (user, group, and others)</li>
+<li>Operators</li>
+<li><code>+</code>: Add permission</li>
+<li><code>-</code>: Remove permission</li>
+<li><code>=</code>: Set exact permission</li>
+<li>Permissions:</li>
+<li><code>r</code>: read</li>
+<li><code>w</code>: write</li>
+<li><code>x</code>: execute</li>
+</ul>
+</li>
+<li>Recursively:<br>
+<code>-R</code> or <code>--recursive</code>: change files and directories recursively. The following options modify how a hierarchy is traversed when the <code>-R</code> option is also specified. If more than one is specified, only the final one takes effect. <code>-H</code> is the default.
+<ul>
+<li><code>-H</code>: if a command line argument is a symbolic link to a directory, traverse it</li>
+<li><code>-L</code>: traverse every symbolic link to a directory encountered</li>
+<li><code>-P</code>: do not traverse any symbolic links</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>chown</code></td>
+<td>Change file owner: <code>chown [options] user[:group] file</code>
+<ul>
+<li><code>chown user file.txt</code>: Change the owner to <code>user</code></li>
+<li><code>chown user:group file.txt</code>: Change the owner to <code>user</code> and the group to <code>group</code></li>
+<li><code>chown :group file.txt</code>: Change the group to <code>group</code> without changing the owner</li>
+<li>Recursively: same as <code>chmod</code></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>chgrp</code></td>
+<td>Change group ownership: <code>chgrp group file</code></td>
+</tr>
+<tr>
+<td><code>umask</code></td>
+<td>Set default permissions: <code>umask 022</code> (default 755 for new files)</td>
+</tr>
+</tbody></table>
+<h3 id="file-viewing-and-manipulation"><strong>File Viewing and Manipulation</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cat</code></td>
+<td>Display file contents: <code>cat file.txt</code></td>
+</tr>
+<tr>
+<td><code>tac</code></td>
+<td>Display file contents in reverse order</td>
+</tr>
+<tr>
+<td><code>more</code></td>
+<td>View file page by page (scroll forward only)</td>
+</tr>
+<tr>
+<td><code>less</code></td>
+<td>View file page by page (scroll forward and backward)</td>
+</tr>
+<tr>
+<td><code>head</code></td>
+<td>Show first N lines: <code>head -n 10 file.txt</code></td>
+</tr>
+<tr>
+<td><code>tail</code></td>
+<td>Show last N lines: <code>tail -n 10 file.txt</code>, <code>tail -f logfile</code> (follow changes)</td>
+</tr>
+<tr>
+<td><code>cut</code></td>
+<td>Extract specific fields: <code>cut -d&#39;:&#39; -f1 /etc/passwd</code></td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>Sort lines: <code>sort file.txt</code>, <code>sort -n numbers.txt</code></td>
+</tr>
+<tr>
+<td><code>uniq</code></td>
+<td>Remove duplicate lines: `sort file.txt</td>
+</tr>
+<tr>
+<td><code>wc</code></td>
+<td>Count words, lines, characters: <code>wc -l file.txt</code></td>
+</tr>
+<tr>
+<td><code>diff</code></td>
+<td>Compare two files: <code>diff file1 file2</code></td>
+</tr>
+<tr>
+<td><code>cmp</code></td>
+<td>Compare two files byte by byte</td>
+</tr>
+<tr>
+<td><code>tee</code></td>
+<td>Read from standard input and write to file and standard output: `echo &quot;hello&quot;</td>
+</tr>
+<tr>
+<td><code>split</code></td>
+<td>Split large files into smaller ones: <code>split -b 1M largefile</code></td>
+</tr>
+<tr>
+<td><code>paste</code></td>
+<td>
+Merge lines of files:
+<ul>
+<li><code>paste file1 file2</code>: Merge corresponding lines from two files</li>
+<li><code>paste -d ',' file1 file2</code>: Use a comma as a delimiter</li>
+<li><code>paste -s file</code>: Merge all lines of a file into a single line</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>tr</code></td>
+<td>
+Translate or delete characters:
+<ul>
+<li><code>echo "hello" | tr 'a-z' 'A-Z'</code>: Convert lowercase to uppercase</li>
+<li><code>echo "hello world" | tr -d 'o'</code>: Delete all 'o' characters</li>
+<li><code>echo "hello world" | tr ' ' '\n'</code>: Convert spaces to newlines</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>xargs</code></td>
+<td>
+Build and execute command lines:
+<ul>
+<li><code>echo file1 file2 | xargs rm</code>: Remove listed files</li>
+<li><code>find . -name "*.txt" | xargs cat</code>: Concatenate all .txt files</li>
+<li><code>cat list.txt | xargs -n 1 echo</code>: Process one argument per line</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>grep</code></td>
+<td>
+Search for patterns in files:
+<ul>
+<li><code>grep "pattern" file</code>: Search for 'pattern' in a file</li>
+<li><code>grep -i "pattern" file</code>: Case-insensitive search</li>
+<li><code>grep -r "pattern" /path</code>: Recursively search in a directory</li>
+<li><code>grep -v "pattern" file</code>: Exclude lines matching 'pattern'</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>egrep</code> / <code>fgrep</code></td>
+<td>
+Extended and fixed string search:
+<ul>
+<li><code>egrep "regex" file</code>: Extended regular expressions</li>
+<li><code>fgrep "string" file</code>: Fixed string search (no regex)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>cut</code></td>
+<td>
+Extract portions of text:
+<ul>
+<li><code>cut -d ':' -f 1 /etc/passwd</code>: Extract first field using ':' as delimiter</li>
+<li><code>cut -c 1-5 file</code>: Extract first five characters of each line</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>awk</code></td>
+<td>
+Process and analyze text files:
+<ul>
+<li><code>awk '{print $1}' file</code>: Print first field of each line</li>
+<li><code>awk -F ':' '{print $1, $3}' /etc/passwd</code>: Specify a field separator</li>
+<li><code>awk 'NR==3' file</code>: Print only the third line</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><code>sed</code></td>
+<td>
+Stream editing:
+<ul>
+<li><code>sed 's/old/new/g' file</code>: Replace 'old' with 'new'</li>
+<li><code>sed -n '5p' file</code>: Print only the fifth line</li>
+<li><code>sed '/pattern/d' file</code>: Delete lines matching 'pattern'</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h3 id="process-and-job-management"><strong>Process and Job Management</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ps</code></td>
+<td>Show active processes: <code>ps aux</code> (detailed list)</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>Display real-time system processes</td>
+</tr>
+<tr>
+<td><code>htop</code></td>
+<td>Interactive process monitor (not always installed)</td>
+</tr>
+<tr>
+<td><code>kill</code></td>
+<td>Send signal to a process: <code>kill PID</code>, <code>kill -9 PID</code> (force kill)</td>
+</tr>
+<tr>
+<td><code>pkill</code></td>
+<td>Kill process by name: <code>pkill processname</code></td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td>Show background jobs</td>
+</tr>
+<tr>
+<td><code>fg</code></td>
+<td>Bring background job to foreground: <code>fg %1</code></td>
+</tr>
+<tr>
+<td><code>bg</code></td>
+<td>Resume a suspended job in the background: <code>bg %1</code></td>
+</tr>
+<tr>
+<td><code>nohup</code></td>
+<td>Run a process immune to hangups: <code>nohup command &amp;</code></td>
+</tr>
+<tr>
+<td><code>nice</code></td>
+<td>Start a process with a priority: <code>nice -n 10 command</code></td>
+</tr>
+<tr>
+<td><code>renice</code></td>
+<td>Change process priority: <code>renice 10 -p PID</code></td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td>Measure execution time of a command: <code>time command</code></td>
+</tr>
+</tbody></table>
+<h3 id="networking"><strong>Networking</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ping</code></td>
+<td>Check network connectivity: <code>ping example.com</code></td>
+</tr>
+<tr>
+<td><code>wget</code></td>
+<td>Download files: <code>wget URL</code></td>
+</tr>
+<tr>
+<td><code>curl</code></td>
+<td>Transfer data: <code>curl -O URL</code> (download), <code>curl -X POST URL</code></td>
+</tr>
+<tr>
+<td><code>scp</code></td>
+<td>Copy files over SSH: <code>scp file user@host:/path</code></td>
+</tr>
+<tr>
+<td><code>rsync</code></td>
+<td>Efficient file transfer: <code>rsync -av source destination</code></td>
+</tr>
+<tr>
+<td><code>netstat</code></td>
+<td>Show network connections and ports: <code>netstat -tulnp</code></td>
+</tr>
+<tr>
+<td><code>ss</code></td>
+<td>More advanced network statistics: <code>ss -tulnp</code></td>
+</tr>
+<tr>
+<td><code>traceroute</code></td>
+<td>Show network route to a host: <code>traceroute example.com</code></td>
+</tr>
+<tr>
+<td><code>dig</code></td>
+<td>Query DNS records: <code>dig example.com</code></td>
+</tr>
+<tr>
+<td><code>nslookup</code></td>
+<td>Query DNS: <code>nslookup example.com</code></td>
+</tr>
+</tbody></table>
+<h3 id="disk-and-system-information"><strong>Disk and System Information</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>uptime</code></td>
+<td>Show system uptime</td>
+</tr>
+<tr>
+<td><code>who</code></td>
+<td>Show logged-in users</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Show active users and their processes</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>Show user ID and group ID</td>
+</tr>
+<tr>
+<td><code>uname</code></td>
+<td>Show system information: <code>uname -a</code></td>
+</tr>
+<tr>
+<td><code>hostname</code></td>
+<td>Show system hostname</td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td>Show disk space usage: <code>df -h</code></td>
+</tr>
+<tr>
+<td><code>du</code></td>
+<td>Show directory size: <code>du -sh /path</code></td>
+</tr>
+<tr>
+<td><code>free</code></td>
+<td>Show memory usage: <code>free -m</code></td>
+</tr>
+<tr>
+<td><code>vmstat</code></td>
+<td>Show system performance statistics</td>
+</tr>
+<tr>
+<td><code>iostat</code></td>
+<td>Show CPU and I/O statistics</td>
+</tr>
+</tbody></table>
+<h3 id="archiving-and-compression"><strong>Archiving and Compression</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>tar</code></td>
+<td>Archive files: <code>tar -cvf archive.tar files</code>, <code>tar -xvf archive.tar</code> (extract)</td>
+</tr>
+<tr>
+<td><code>gzip</code></td>
+<td>Compress files: <code>gzip file</code></td>
+</tr>
+<tr>
+<td><code>gunzip</code></td>
+<td>Decompress files: <code>gunzip file.gz</code></td>
+</tr>
+<tr>
+<td><code>zip</code></td>
+<td>Create ZIP archive: <code>zip archive.zip files</code></td>
+</tr>
+<tr>
+<td><code>unzip</code></td>
+<td>Extract ZIP archive: <code>unzip archive.zip</code></td>
+</tr>
+</tbody></table>
+<h3 id="user-management"><strong>User Management</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>whoami</code></td>
+<td>Show current user</td>
+</tr>
+<tr>
+<td><code>who</code></td>
+<td>Show logged-in users</td>
+</tr>
+<tr>
+<td><code>groups</code></td>
+<td>Show groups a user belongs to</td>
+</tr>
+<tr>
+<td><code>passwd</code></td>
+<td>Change user password</td>
+</tr>
+<tr>
+<td><code>su</code></td>
+<td>Switch user: <code>su - username</code></td>
+</tr>
+<tr>
+<td><code>sudo</code></td>
+<td>Run command as superuser: <code>sudo command</code></td>
+</tr>
+</tbody></table>
+<h3 id="miscellaneous"><strong>Miscellaneous</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>echo</code></td>
+<td>Print text: <code>echo &quot;Hello&quot;</code></td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>Show current date and time</td>
+</tr>
+<tr>
+<td><code>cal</code></td>
+<td>Show calendar</td>
+</tr>
+<tr>
+<td><code>clear</code></td>
+<td>Clear terminal screen</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>Show command history</td>
+</tr>
+<tr>
+<td><code>alias</code></td>
+<td>Create alias: <code>alias ll=&#39;ls -l&#39;</code></td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td>Show environment variables</td>
+</tr>
+<tr>
+<td><code>export</code></td>
+<td>Set environment variable: <code>export VAR=value</code></td>
+</tr>
+</tbody></table>
+
+---
+
+## Termux:Styling, Termux:Widget, Termux:Boot, Termux:Float, and Termux:API
+
+### Termux:Styling
+
+Termux:Styling (`com.termux.styling`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.styling>.
+
+This plugin for Termux provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.
+
+Long-press anywhere on the Termux terminal and use the "Style" menu entry to use after installation.
+
+Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Styling) for more information.
+
+### Termux:Widget
+
+Termux:Widget (`com.termux.widget`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.widget>.
+
+Add-on app which adds shortcuts to Termux scripts and commands on the home screen. Scripts should be placed in the `$HOME/.shortcuts/` folder to allow quick access to frequently used commands without typing.
+
+Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Widget) for more information.
+
+### Termux:Boot
+
+Termux:Boot (`com.termux.boot`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.boot>.
+
+This plugin for Termux allows programs to be run at boot.
+
+Instructions:
+
+* Start the Termux:Boot app once by clicking on its launcher icon.
+* This allow the app to be run at boot.
+* Create the `~/.termux/boot/` directory.
+* Put scripts you want to execute inside the `~/.termux/boot/` directory.
+* If there are multiple files, they will be executed in a sorted order.
+
+Note that you may want to run `termux-wake-lock` as first thing want to ensure that the device is prevented from sleeping.
+
+Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Boot) for more information.
+
+### Termux:Float
+
+Termux:Float (`com.termux.float`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.float>.
+
+This plugin for Termux provides a floating terminal window which is shown above other apps.
+
+Long-press on the floating window to move or resize it and tap on the notification to temporarily hide it.
+
+Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Float) for more information.
+
+### Termux:API
+
+Termux:API (`com.termux.api`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.api>.
+
+Expose basic Android functionality like sending SMS or accessing GPS data to the Termux app. This is an add-on which requires that the main Termux app is installed to use.
+
+* Read and send sms messages from your terminal.
+* Access device GPS location sensor from scripts.
+* Pipe the result of commands into the device text-to-speech engine.
+* Vibrate the device when something interesting happens.
+* Access the system clipboard from shell scripts.
+* List contacts from the system contact list.
+
+Besides installing this app an additional package is required to install inside Termux:
+
+```
+apt install termux-api
+```
+
+Go to [the official wiki](https://wiki.termux.com/wiki/Termux:API) for more information.
+
+---
+
 ## TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment
 
 ### Introduction of VNC (Virtual Network Computing)
@@ -834,7 +1486,7 @@ pkg uninstall x11-repo
 
 ### TigerVNC VNC Server in Termux
 
-Go to their official website: <https://tigervnc.org> for more information.
+Go to [their official website](https://tigervnc.org) for more information.
 
 #### Install TigerVNC
 
@@ -1054,7 +1706,7 @@ MATE desktop environment will start automatically on VNC server startup.
 * <https://github.com/termux/x11-packages>.
 * <https://github.com/termux/termux-x11>.
 * <https://en.wikipedia.org/wiki/VNC>.
-* <https://en.wikipedia.org/wiki/X_Window_System>.
+* <https://en.wikipedia.org/wiki/X\_Window\_System>.
 
 ---
 
@@ -1070,8 +1722,9 @@ AVNC (`com.gaurav.avnc`) can be installed from F-Droid: <https://f-droid.org/pac
 * Input `Name` (arbitrary name), `Host address` (`localhost` for localhost), and `Port`, input `Username` and `Password` if needed, adjust `ADVANCED` options if needed, and then tap `SAVE`.
 * Tap the `Server` name to connect to it.
 * If you encounter incorrect mouse display or recieving, going to `Settings` \> `Input` \> `Mouse` and toggling on `Hide local pointer` may help.
+* Note that you may have to run `export DISPLAY='1'`, `export DISPLAY=remote_host:0`, or similar commands in the server side to set the display of the session to the client.
 
-### Features of AVNC
+### Introduction of AVNC
 
 * Gesture styles: Automatic, Touchscreen (Do actions at touch-point), or Touchpad mode (Do actions at pointer).
 * Material Design: Dark theme and light theme.
@@ -1092,23 +1745,104 @@ AVNC (`com.gaurav.avnc`) can be installed from F-Droid: <https://f-droid.org/pac
 
 ---
 
+## Tailscale: Peer-to-Peer Mesh VPN
+
+### Introduction of Tailscale
+
+Tailscale is a modern, user-friendly mesh VPN that creates a secure, peer-to-peer network between your devices using [WireGuard](https://www.wireguard.com). It allows devices across different networks to communicate directly without complex firewall configurations or port forwarding.
+
+WireGuard is a registered trademark of Jason A. Donenfeld.
+
+Features of Tailscale:
+
+* Easy setup: No need for manual VPN configurations. Just sign in with an identity provider. Google, Microsoft, GitHub, Apple, and passkey are available.
+* Zero trust security: Enforces access control using multi-factor authentication (MFA) and device authentication.
+* Automatic NAT traversal: Works across different networks, even behind NAT and firewalls.
+* Mesh networking: Devices connect directly when possible, improving performance and reducing latency.
+* Access Control Lists (ACLs): Fine-grained control over which devices can communicate.
+* Multiplatform support: Supports Linux, Windows, macOS, Android, iOS, etc.
+* Exit nodes: Use a specific device as a VPN gateway. 
+* Subnet routing: Access remote networks securely.
+
+Go to [their official website](https://tailscale.com) for more information.
+
+### Tailscale in Linux
+
+#### Install
+
+```
+curl -fsSL https://tailscale.com/install.sh | sh
+```
+
+#### Log in
+
+```
+sudo tailscale up
+```
+
+Log in via <https://login.tailscale.com/login>. Google, Microsoft, GitHub, Apple, and passkey are available.
+
+#### Systemd Enable
+
+```
+sudo systemctl enable tailscaled
+```
+
+#### Manually Start Userspace Networking
+
+```
+sudo tailscaled --tun=userspace-networking &
+```
+
+#### Tailscale IP
+
+Your tailscale ip will be
+
+```
+tailscale ip
+```
+
+You can connect to it from another device logged in with the same account.
+
+#### Subnet Routing
+
+If you want to access devices on your local network through Tailscale, enable subnet routing
+
+```
+sudo tailscale up --advertise-routes=192.168.1.0/24
+```
+
+### Tailscale in Android
+
+#### Install Tailscale
+
+Tailscale (`com.tailscale.ipn`) can be installed from F-Droid: <https://f-droid.org/packages/com.tailscale.ipn> or Google Play: <https://play.google.com/store/apps/details?id=com.tailscale.ipn>.
+
+#### Introduction of Tailscale in Android
+
+Tailscale is a mesh VPN alternative that makes it easy to connect your devices, wherever they are. No more fighting configuration or firewall ports. Built on WireGuard®, Tailscale enables an incremental shift to zero-trust networking by implementing “always-on” remote access. This guarantees a consistent, portable, and secure experience independent of physical location.
+
+You can view the devices logged in and their Tailscale IPs in the app.
+
+---
+
 ## PRoot-Distro with Termux: Install Linux Distributions in Termux
 
 ### Introduction of Chroot, PRoot, PRoot-Distro
 
-* Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
-* PRoot is a user-space implementation of chroot, mount --bind, and binfmt\_misc. This means that users don’t need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
-* PRoot-Distro is a Bash script wrapper for PRoot. It provides a set of functions with standardized command line interface to let user easily manage Linux PRoot containers. By default it supports a number of well known Linux distributions such Alpine Linux, Debian or openSUSE. However it is possible to add others with a help of plug-ins.
+* **Chroot**: Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.
+* **PRoot**: PRoot is a user-space implementation of chroot, mount --bind, and binfmt\_misc. This means that users don’t need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.
+* **PRoot-Distro**: PRoot-Distro is a Bash script wrapper for PRoot. It provides a set of functions with standardized command line interface to let user easily manage Linux PRoot containers. By default it supports a number of well known Linux distributions such Alpine Linux, Debian or openSUSE. However it is possible to add others with a help of plug-ins.
 
 ### PRoot-Distro Usage
 
 * Usage: `proot-distro [COMMAND] [ARGUMENTS]`
 * Commands:
-  * help \- Show this help information.
-  * backup \- Backup a specified distribution.
-  * install \- Install a specified distribution.
-  * list \- List supported distributions and their installation status.
-  * login \- Launch a login shell for the specified distribution if no additional arguments were given. Otherwise execute the
+  * `help` \- Show this help information.
+  * `backup` \- Backup a specified distribution.
+  * `install` \- Install a specified distribution.
+  * `list` \- List supported distributions and their installation status.
+  * `login` \- Launch a login shell for the specified distribution if no additional arguments were given. Otherwise execute the
 given command and exit.
     * Usage: `proot-distro login [OPTIONS] [DISTRO ALIAS] [-- [COMMAND]]`
     * Command aliases: `sh`
@@ -1136,11 +1870,11 @@ given command and exit.
       * `/storage`
       * `/system`
       * `/vendor`
-  * remove \- Delete a specified distribution. WARNING: this command destroys data!
-  * rename \- Rename installed distribution.
-  * reset \- Reinstall from scratch a specified distribution. WARNING: this command destroys data!
-  * restore \- Restore a specified distribution. WARNING: this command destroys data!
-  * clear-cache \- Clear cache of downloaded files.
+  * `remove` \- Delete a specified distribution. **WARNING**: this command destroys data!
+  * `rename` \- Rename installed distribution.
+  * `reset` \- Reinstall from scratch a specified distribution. WARNING: this command destroys data!
+  * `restore` \- Restore a specified distribution. WARNING: this command destroys data!
+  * `clear-cache` \- Clear cache of downloaded files.
 
 ### Supported Distributions
 
@@ -1540,8 +2274,8 @@ Shizuku (`moe.shizuku.privileged.api`) can be installed from IzzyOnDroid: <https
 
 ### Introduction of ADB and Shizuku
 
-* The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
-* Shizuku is an open-source app for serving multiple apps that require root/adb. If your "root required app" only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell. Go to their official website: <https://shizuku.rikka.app> for more information.
+* **Android Debug Bridge (ADB)**: The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.
+* **Shizuku**: Shizuku is an open-source app for serving multiple apps that require root/adb. If your "root required app" only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell. Go to [their official website](https://shizuku.rikka.app) for more information.
 
 ### Connect Shizuku to Wireless ADB
 
@@ -1554,16 +2288,15 @@ Shizuku (`moe.shizuku.privileged.api`) can be installed from IzzyOnDroid: <https
 7. In the `Developer Options`, togle on `Disable adb authorization timeout` if you don’t want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow [Reconnect Shizuku in Case it Stops with SystemUI Tuner](#reconnect-shizuku-in-case-it-stops-with-systemui-tuner) to reconnect if you’re using SystemUI Tuner, or follow above guide again to reconnect.
 8. Back to Shizuku and tap `Start` in `Start via Wireless debugging` block. You all see Shizuku is running on the top of the app interface of Shizuku.
 
-### Use Shizuku in a Terminal Application for the First Time (Termux for Example)
+### Use Shizuku in a Terminal Application for the First Time
 
 1. Tap `Use Shizuku in terminal applications` in Shizuku and export files `rish` and `rish_shizuku.dex` to somewhere on your phone.
 2. Use a text editor to replace `PKG` in `rish` with the package name of your terminal application. Take Termux for example, Termux’s package name is `com.termux`. Run `termux-setup-storage` and tap `Allow to grant Termux storage permission`.
-3. Open your terminal application and move the exported files to somewhere it can access (with `mv old_location new_location`). The root directory of the main storage of Android is usually `/storage/emulated/0`. The home directory of Termux is `/data/data/com.termux/home`, which is abbreviated as `$PREFIX` or `~` in Termux.
+3. Open your terminal application and move the exported files to somewhere it can access (usually with `mv old_location new_location`). The root directory of the main storage of Android is usually `/storage/emulated/0`. One recommended terminal application for Android is Termux. My tutorial for it is available in [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 4. Go to the directory you moved the exported files to with `cd directory` (assumed `~/shizuku` below) and run `sh rish`.
 5. `~ $` should become `<device>:/ $` (such as `e2q:/ $`) if `sh rish` succeeded. Write ADB commands here. Note that there is no need to use `adb` or `adb shell` prefixes before commands and that `devices` command gets `/system/bin/sh: devices: inaccessible or not found`.
 6. You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there’s a block that reads `Shizuku is running` on the top.
 7. Optionally, create a `.sh` file (`nano ~/shizuku.sh` for example), paste `cd shizuku && sh rish`, save it, and make it executable with `chmod +x shizuku.sh` so that you can run this shortcut to start Shizuku on your terminal afterward.
-8. Note: It is recommended to use Termux’s F-Droid version: <https://f-droid.org/packages/com.termux> and avoid using Google Play version because the latter is depreciated.
 
 ### Install SystemUI Tuner
 
@@ -1609,7 +2342,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 
 aShell can be installed from F-Droid: <https://f-droid.org/packages/in.sunilpaulmathew.ashell>.
 
-#### Features of aShell
+#### Introduction of aShell
 
 * An elegantly designed user interface.
 * Included a bundle of examples about common adb commands.
@@ -1660,7 +2393,7 @@ The Tor Browser for Android is a mobile version of the Tor Browser that utilizes
 
 ### NoScript Security Suite
 
-NoScript (or NoScript Security Suite) is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension’s toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.
+**NoScript (or NoScript Security Suite)** is a free and open-source extension for Firefox- and Chromium-based web browsers, written and maintained by Giorgio Maone, a software developer and member of the Mozilla Security Group. By default, NoScript blocks active (executable) web content, which can be wholly or partially unblocked by allowlisting a site or domain from the extension’s toolbar menu or by clicking a placeholder icon. It is recommended to enable NoScript for all Tor sites unless you fully trust it.
 
 ### Tor in Termux
 
@@ -1746,15 +2479,15 @@ to `~/.termux/boot/boot.sh`.
 
 ## TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.
 
-This section mentions Tor, for people who are new to it, please refer to the tutorial for it in [Tor, Tor Browser, NoScript Security Suite, and Torsocks](#tor-tor-browser-noscript-security-suite-and-torsocks).
+This section mentions Tor, for people who are new to it, please refer to [Tor, Tor Browser, NoScript Security Suite, and Torsocks](#tor-tor-browser-noscript-security-suite-and-torsocks).
 
 ### Install InviZible Pro
 
-InviZible Pro can be installed from F-Droid: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable> or Google Play: <https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp>.
+InviZible Pro (`pan.alexander.tordnscrypt.stable`) can be installed from F-Droid: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable> or Google Play: <https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp>.
 
 ### Install TrackerControl
 
-TrackerControl (also known as TC) can be installed from F-Droid: <https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid>.
+TrackerControl (`net.kollnig.missioncontrol.fdroid`), also known as TC, can be installed from F-Droid: <https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid>.
 
 **WARNING**: Please avoid use the Google Play version because it doesn’t have the feature like trackers blocking in order to comply with Google’s terms.
 
@@ -2070,6 +2803,182 @@ To use Tor but not DNSCrypr of InviZible Pro with TrackerControl, there are belo
 
 * Change to `VPN mode` by tapping the `⋮` button in the upper right corner and select that option.
 * Settings for DNSCRypt and Tor, DNSCrypr only, and Tor only remain the same as the above counterparts that is used with TrackerControl except that those parts coordinated with `Port forwarding` of TrackerControl are no longer needed.
+
+---
+
+## OpenSSH: Secure Remote Access with SSH, SCP, and SFTP
+
+### Introduction of SSH (Secure Shell) and OpenSSH
+
+* SSH provides a secure way for accessing remote hosts and replaces tools such as telnet, rlogin, rsh, ftp.
+* OpenSSH, also known as OpenBSD Secure Shell, is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.
+* Default SSH port in Termux is `8022`.
+* Default SSH port in Linux is usually `22`.
+
+### OpenSSH Server
+
+#### Install in Debian Derivatives
+
+```
+sudo apt install openssh-server
+```
+
+#### Install in Termux
+
+```
+pkg install openssh
+```
+
+#### Edit Configuration
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+##### Listening Port
+
+Edit
+
+```
+#Port 22
+```
+
+line to change the listening port.
+
+Note that you may need to set it to higher port in VMs.
+
+##### Ports Listening to
+
+Edit
+
+```
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+```
+
+lines to change ports listening to.
+
+##### PermitRootLogin
+
+Change the `PermitRootLogin` line to
+
+```
+PermitRootLogin yes
+```
+
+if you want to permit login as root. In Termux, this is common, but in normal Linux, this is not discouraged.
+
+##### PasswordAuthentication
+
+Change the `PasswordAuthentication` line to
+
+```
+PasswordAuthentication yes
+```
+
+to permit password authentication. Password can be set by running `passwd`.
+
+#### Usage in Linux with Systemctl
+
+```
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl restart ssh
+sudo systemctl status ssh
+sudo systemctl disable ssh
+```
+
+#### Usage in Termux
+
+##### Start
+
+```
+sshd
+```
+
+##### Stop
+
+```
+pkill sshd
+```
+
+#### Deny
+
+```
+nano /etc/hosts .deny
+```
+
+#### Ubuntu Firewall
+
+```
+sudo ufw enable
+sudo ufw allow ssh
+```
+
+### OpenSSH Client
+
+#### Install in Debian Derivatives
+
+```
+sudo apt install openssh-client
+```
+
+#### Install in Termux
+
+```
+pkg install openssh
+```
+
+#### Connect
+
+```
+ssh [user]@[ssh_server] -p [port] -L [local_port]:[remote_host]:[remote_port]
+```
+
+* `-p`: Port. Default is 22.
+* `-L`: Local port forwarding.
+
+#### Key
+
+```
+ssh-keygen -R [localhost]:2222
+```
+
+You need to delete the original key if the server is reset.
+
+If you’re using password authentication, you won’t need to generate key.
+
+### SCP (Secure Copy Protocol)
+
+SCP is a simple command-line tool for securely copying files between local and remote systems based on the `rcp` (remote copy) command but uses SSH for security. It is faster but less flexible than SFTP.
+
+You can use `scp` on the client side to transfer files between the server side and the client side.
+
+The syntax of `scp` is generally the same as that of `cp`, but with the `<user@remote>:` added before the path from the server and optional `-P <port>` to specify the port. For example:
+
+```
+scp -r root@localhost:/root/Desktop /data/data/com.termux/files/home -P 22
+```
+
+### SFTP (Secure File Transfer Protocol)
+
+SFTP is a full-fledged file transfer protocol that runs over SSH. This makes it more secure than traditional FTP (File Transfer Protocol). SFTP allows for various file management operations, such as listing, renaming, deleting directories and files, and changing directories.
+
+The syntax of `sftp`, which connects to the server from the client, is generally the same as that of `ssh`. For example:
+
+```
+sftp -p 2222 user@example.com
+```
+
+You can also connect to the sftp server from other clients. One recommended file manager for Android which can connect to sftp server is [Material Files](https://play.google.com/store/apps/details?id=me.zhanghai.android.files). My tutorial for it is available in [Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support](#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support).
+
+### Further Readings and References about OpenSSH with Linux and Termux
+
+* <https://www.openssh.com>.
+* <https://ivonblog.com/posts/termux-qemu-system-linux>.
+* <https://wiki.termux.com/wiki/Remote%5FAccess>.
+* <https://ivonblog.com/posts/termux-openssh>.
 
 ---
 
@@ -2455,189 +3364,13 @@ Supported ciphers:
 
 ---
 
-## OpenSSH: Secure Remote Access with SSH, SCP, and SFTP
-
-### Introduction of SSH (Secure Shell) and OpenSSH
-
-* SSH provides a secure way for accessing remote hosts and replaces tools such as telnet, rlogin, rsh, ftp.
-* OpenSSH, also known as OpenBSD Secure Shell, is a suite of secure networking utilities based on the Secure Shell (SSH) protocol, which provides a secure channel over an unsecured network in a client–server architecture.
-* Default SSH port in Termux is `8022`.
-* Default SSH port in Linux is usually `22`.
-
-### OpenSSH Server
-
-#### Install in Debian Derivatives
-
-```
-sudo apt install openssh-server
-```
-
-#### Install in Termux
-
-```
-pkg install openssh
-```
-
-#### Edit Configuration
-
-```
-sudo nano /etc/ssh/sshd_config
-```
-
-##### Listening Port
-
-Edit
-
-```
-#Port 22
-```
-
-line to change the listening port.
-
-Note that you may need to set it to higher port in VMs.
-
-##### Ports Listening to
-
-Edit
-
-```
-#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-```
-
-lines to change ports listening to.
-
-##### PermitRootLogin
-
-Change the `PermitRootLogin` line to
-
-```
-PermitRootLogin yes
-```
-
-if you want to permit login as root. In Termux, this is common, but in normal Linux, this is not discouraged.
-
-##### PasswordAuthentication
-
-Change the `PasswordAuthentication` line to
-
-```
-PasswordAuthentication yes
-```
-
-to permit password authentication. Password can be set by running `passwd`.
-
-#### Usage in Linux with Systemctl
-
-```
-sudo systemctl start ssh
-sudo systemctl enable ssh
-sudo systemctl restart ssh
-sudo systemctl status ssh
-sudo systemctl disable ssh
-```
-
-#### Usage in Termux
-
-##### Start
-
-```
-sshd
-```
-
-##### Stop
-
-```
-pkill sshd
-```
-
-#### Deny
-
-```
-nano /etc/hosts .deny
-```
-
-#### Ubuntu Firewall
-
-```
-sudo ufw enable
-sudo ufw allow ssh
-```
-
-### OpenSSH Client
-
-#### Install in Debian Derivatives
-
-```
-sudo apt install openssh-client
-```
-
-#### Install in Termux
-
-```
-pkg install openssh
-```
-
-#### Connect
-
-```
-ssh [user]@[ssh_server] -p [port] -L [local_port]:[remote_host]:[remote_port]
-```
-
-* `-p`: Port. Default is 22.
-* `-L`: Local port forwarding.
-
-#### Key
-
-```
-ssh-keygen -R [localhost]:2222
-```
-
-You need to delete the original key if the server is reset.
-
-If you’re using password authentication, you won’t need to generate key.
-
-### SCP (Secure Copy Protocol)
-
-SCP is a simple command-line tool for securely copying files between local and remote systems based on the `rcp` (remote copy) command but uses SSH for security. It is faster but less flexible than SFTP.
-
-You can use `scp` on the client side to transfer files between the server side and the client side.
-
-The syntax of `scp` is generally the same as that of `cp`, but with the `<user@remote>:` added before the path from the server and optional `-P <port>` to specify the port. For example:
-
-```
-scp -r root@localhost:/root/Desktop /data/data/com.termux/files/home -P 22
-```
-
-### SFTP (Secure File Transfer Protocol)
-
-SFTP is a full-fledged file transfer protocol that runs over SSH. This makes it more secure than traditional FTP (File Transfer Protocol). SFTP allows for various file management operations, such as listing, renaming, deleting directories and files, and changing directories.
-
-The syntax of `sftp`, which connects to the server from the client, is generally the same as that of `ssh`. For example:
-
-```
-sftp -p 2222 user@example.com
-```
-
-You can also connect to the sftp server from other clients. One recommended file manager for Android which can connect to sftp server is [Material Files](https://play.google.com/store/apps/details?id=me.zhanghai.android.files). My tutorial for it is available in [Material File: Linux-Aware File Manager with FTP, SFTP, SMB and WebDAV Support](#material-file-linux-aware-file-manager-with-ftp-sftp-smb-and-webdav-support).
-
-### Further Readings and References about OpenSSH with Linux and Termux
-
-* <https://www.openssh.com>.
-* <https://ivonblog.com/posts/termux-qemu-system-linux>.
-* <https://wiki.termux.com/wiki/Remote%5FAccess>.
-* <https://ivonblog.com/posts/termux-openssh>.
-
----
-
 ## droidVNC-NG: VNC Server App for Android That Does Not Require Root Privileges
 
 ### Install droidVNC-NG
 
 droidVNC-NG (`net.christianbeier.droidvnc_ng`) can be installed from F-Droid: <https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng> or Google Play: <https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng>.
 
-### Features of droidVNC-NG
+### Introduction of droidVNC-NG
 
 Remote Control & Interaction
 
@@ -2686,7 +3419,7 @@ Features include:
 
 ### Use SD Maid SE with Shizuku
 
-* Setup Shizuku. For people who are new to it, please refer to the tutorial for it in [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell). The part about using SystemUI Tuner to enable ADB persistently in order to keep Shizuku running when Developer Options is turned off isn’t necessary here but recommended if you want to keep SD Maid SE using Shizuku.
+* Setup Shizuku. For people who are new to it, please refer to [Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell](#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell). The part about using SystemUI Tuner to enable ADB persistently in order to keep Shizuku running when Developer Options is turned off isn’t necessary here but recommended if you want to keep SD Maid SE using Shizuku.
 * Give consent for SD Maid SE to use Shizuku inside SD Maid SE, you can use it to enable/disable SD Maid SE’s use of Shizuku.
 * After giving consent, a Grant access dialog from Shizuku should show.
 * Confirm the dialog.
@@ -2700,7 +3433,7 @@ Features include:
 
 Phyphox (`de.rwth_aachen.phyphox`) can be installed from F-Droid: <https://f-droid.org/packages/de.rwth\_aachen.phyphox> or Google Play: <https://play.google.com/store/apps/details?id=de.rwth\_aachen.phyphox>.
 
-### Features of Phyphox
+### Introduction of Phyphox
 
 * Access to the sensors of your phone either directly or through ready-to-play experiments.A selection of pre-defined experiments is provided. Just press play to start.
 * Export your data to CSV (Comma separated values), TSV (Tab-separated values), or Excel.
@@ -2740,7 +3473,7 @@ Supported sensors:
 * Magnetic Spectrum
 * Magnetic ruler
 
-Go to their official website: <http://phyphox.org> for more information.
+Go to [their official website](http://phyphox.org) for more information.
 
 ---
 
@@ -2752,7 +3485,7 @@ AndroidIDE (`com.itsaky.androidide`) can be installed from F-Droid archive or th
 
 **WARNING**: This project is not maintained anymore.
 
-### Features of AndroidIDE
+### Introduction of AndroidIDE
 
 The main goal is to bring support for building Gradle-based Android projects on Android devices itself.
 
@@ -2772,7 +3505,7 @@ The main goal is to bring support for building Gradle-based Android projects on 
 * A basic installation (Android SDK, JDK, etc) is needed before you can start working with projects.
 * Documentation: Read the documentation at <https://docs.androidide.com> for more details.
 
-Go to their official website: <https://androidide.com> for more information.
+Go to [their official website](https://androidide.com) for more information.
 
 ---
 
@@ -2782,7 +3515,7 @@ Go to their official website: <https://androidide.com> for more information.
 
 Linux Command Library app can be installed from F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca> or Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca>.
 
-### Features of Linux Command Library
+### Introduction of Linux Command Library
 
 Linux Command Library has 6056 manual pages, 22+ basic categories and a bunch of general terminal tips about Linux (retrieved Sep. 27, 2024). The app works completely offline.
 
@@ -2798,7 +3531,7 @@ There is a website version of Linux Command Library: <https://linuxcommandlibrar
 
 Material Files (`me.zhanghai.android.files`) can be installed from F-Droid: <https://f-droid.org/packages/me.zhanghai.android.files> or Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files>.
 
-### Features of Material Files
+### Introduction of Material Files
 
 * Open source: Lightweight, clean and secure.
 * Material Design: Follows Material Design guidelines, with attention into details.
@@ -2829,7 +3562,7 @@ PipePipe (`InfinityLoop1309.NewPipeEnhanced`) can be installed from F-Droid: <ht
 
 Note that because YouTube is trying to block third-party clients, especially for anonymous access, PipePipe sometimes has to be updated frequently to address issues that arise. You can receive the latest update from GitHub release without waiting for F-Droid update building process.
 
-### Features of PipePipe
+### Introduction of PipePipe
 
 * Browse YouTube, YouTube Music, BiliBili, NicoNico, SoundCloud, media.ccc.de, FramaTube, and Bandcamp.
 * Watch videos at different resolutions up to 4K.
@@ -2866,7 +3599,7 @@ Note that because YouTube is trying to block third-party clients, especially for
 
 Xtra (`com.github.andreyasadchy.xtra`) can be installed from F-Droid: <https://f-droid.org/packages/com.github.andreyasadchy.xtra>.
 
-### Features of Xtra
+### Introduction of Xtra
 
 Xtra for Twitch is a Twitch client providing the viewing and chatting experience on mobile devices:
 
@@ -2886,7 +3619,7 @@ Xtra for Twitch is a Twitch client providing the viewing and chatting experience
 
 Material Photo Widget (`com.fibelatti.photowidget`) can be installed from IzzyOnDroid: <https://apt.izzysoft.de/fdroid/index/apk/com.fibelatti.photowidget>.
 
-### Features of Material Photo Widget
+### Introduction of Material Photo Widget
 
 * 5 aspect ratios: square, tall, wide, original and fill widget.
 * Customize your square widgets with 10 different shapes.
@@ -2920,7 +3653,7 @@ VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.
 
 Firefox (`org.mozilla.firefox`), also known as Firefox Fast & Private Browser, can be installed from Google Play <https://play.google.com/store/apps/details?id=org.mozilla.firefox>.
 
-### Features of Firefox
+### Introduction of Firefox
 
 * Automatic tracker blocking: By default, Firefox blocks trackers and scripts such as social media trackers, cross-site cookie trackers, crypto-miners and fingerprinters.
 * Enhanced tracking protection: Choose the “strict” setting and get even more privacy protections.
@@ -2938,11 +3671,11 @@ Firefox (`org.mozilla.firefox`), also known as Firefox Fast & Private Browser, c
 * Share links.
 * Saves data and battery.
 * Bookmarks: Private bookmarks. Sync bookmarks. Import/export bookmarks from/to another browser.
-* Multiplatform: Firefox is available on Linux, Microsoft, macOS, Android, iOS, etc.
+* Multiplatform support: Firefox is available on Linux, Microsoft, macOS, Android, iOS, etc.
 * Mozilla account: Sync tabs, history, etc. across devices.
 * Select search engines: Search with Google, Bing, DuckDuckGo, or other search engines.
 
-Go to their official website: <https://mozilla.org> for more information.
+Go to [their official website](https://mozilla.org) for more information.
 
 ---
 
@@ -2952,7 +3685,7 @@ Go to their official website: <https://mozilla.org> for more information.
 
 DuckDuckGo (`com.duckduckgo.mobile.android`), also known as DuckDuckGo Privacy Browser or DuckDuckGo Private Browser, can be installed from F-Droid: <https://f-droid.org/packages/com.duckduckgo.mobile.android> or Google Play: <https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android>.
 
-### Features of DuckDuckGo
+### Introduction of DuckDuckGo
 
 * Bing ads: The ads in DuckDuckGo are Bing ads, powered by Microsoft.
 * DuckDuckGo search engine: Uses DuckDuckGo as the search engine, for which the source code is not available.
@@ -2973,9 +3706,9 @@ DuckDuckGo (`com.duckduckgo.mobile.android`), also known as DuckDuckGo Privacy B
 * Recent and private tabs.
 * Dark and light mode.
 * Saves data and battery.
-* Multiplatform: DuckDuckGo is available on Linux, Microsoft, macOS, Android, iOS, etc.
+* Multiplatform support: DuckDuckGo is available on Linux, Microsoft, macOS, Android, iOS, etc.
 
-Go to their official website: <https://duckduckgo.com> for more information.
+Go to [their official website](https://duckduckgo.com) for more information.
 
 ---
 
@@ -2985,7 +3718,7 @@ Go to their official website: <https://duckduckgo.com> for more information.
 
 Brave (`com.brave.browser`), also known as Brave Privacy Browser or Brave Private Web Browser, VPN, can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.brave.browser>.
 
-### Features of Brave
+### Introduction of Brave
 
 * Brave search engine: Uses Brave Search as the search engine, for which the source code is not available.
 * Brave Leo AI: The smart AI assistant built right into your browser. Ask questions, summarize pages, create new content, and more. Privately.
@@ -3005,6 +3738,7 @@ Brave (`com.brave.browser`), also known as Brave Privacy Browser or Brave Privat
 * Browsing history.
 * Recent and private tabs.
 * Removes tracking codes when you copy URLs.
+* Multiplatform support: Brave is available on Linux, Microsoft, macOS, Android, iOS, etc.
 
 ---
 
@@ -3014,7 +3748,7 @@ Brave (`com.brave.browser`), also known as Brave Privacy Browser or Brave Privat
 
 Safe Space (`org.privacymatters.safespace`) can be installed from F-Droid: <https://f-droid.org/packages/org.privacymatters.safespace>.
 
-### Features of Safe Space
+### Introduction of Safe Space
 
 * Store files in a secure storage location that is not visible to other apps and is secured by device encryption and system authentication (Biometric and PIN/Pattern/Password).
 * Open Images, Audio, Video, PDF documents and plain text documents.
@@ -3032,7 +3766,7 @@ Safe Space (`org.privacymatters.safespace`) can be installed from F-Droid: <http
 
 SimplyTranslate Mobile (`com.simplytranslate_mobile`) can be installed from F-Droid: <https://f-droid.org/packages/com.simplytranslate_mobile>.
 
-### Features of SimplyTranslate Mobile
+### Introduction of SimplyTranslate Mobile
 
 * This app is an alternative frontend to Google Translate.
 * Supports 108 languages.
@@ -3060,7 +3794,7 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 * Torrent file or meta-info file: A torrent file or meta-info file is a computer file that contains metadata about files and folders to be distributed, and usually also a list of the network locations of trackers, normally named with the extension .torrent.
 * WebTorrent: WebTorrent is a peer-to-peer (P2P) streaming BitTorrent client written in JavaScript for use in web browsers, as well as a WebTorrent Desktop stand alone version able to bridge WebTorrent and BitTorrent serverless networks.
 
-### Features of LibreTorrent
+### Introduction of LibreTorrent
 
 * BitTorrent 2.0 and WebTorrent support
 * Select which files to download.
@@ -3080,6 +3814,30 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 * Supports proxy for trackers and peers.
 * Based on libtorrent4j.
 * And more.
+
+---
+
+## Thunderbird: Privacy-Focused Email App
+
+### Install Thunderbird 
+
+Thunderbird (`net.thunderbird.android`), also known as Thunderbird: Free Your Inbox, can be installed from F-Droid: <https://f-droid.org/packages/net.thunderbird.android> or Google Play: <https://play.google.com/store/apps/details?id=net.thunderbird.android>.
+
+### Introduction of Thunderbird
+
+Thunderbird is a powerful, privacy-focused email app. Effortlessly manage multiple email accounts from one app, with a Unified Inbox option for maximum productivity. Built on open-source technology and supported by a dedicated team of developers alongside a global community of volunteers, Thunderbird never treats your private data as a product. Supported solely by financial contributions from our users, so you never have to see ads mixed in with your emails again.
+
+Features of Thunderbird:
+
+* Ditch multiple apps and webmail. Use one app, with an optional Unified Inbox, to power through your day.
+* Thunderbird directly connect you to your email provider and doesn’t sell your personal data.
+* OpenPGP email encryption (PGP/MIME) with the “OpenKeychain” app, to encrypt and decrypt your messages.
+* Choose to sync your email instantly, at set intervals, or on-demand.
+* Local and server-side search.
+* Thunderbird works with IMAP and POP3 protocols, supporting a wide range of email providers, including Gmail, Outlook, Yahoo Mail, iCloud, and more.
+* Multiplatform support: Thunderbird is available on Linux, Microsoft, macOS, Android, iOS, etc.
+
+Go to [their official website](https://www.thunderbird.net) for more information.
 
 ---
 
@@ -3148,6 +3906,10 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 * Mercurial: <https://hg.mozilla.org/mozilla-central>.
 * Official Website: <https://mozilla.org>.
 
+### GNU
+
+* Official website: <https://www.gnu.org>.
+
 ### Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh
 
 * F-Droid: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable>.
@@ -3202,6 +3964,12 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 * GitHub: <https://github.com/TeamNewPipe/NewPipe>.
 * Official website: <https://newpipe.net>.
 
+### OpenSSH by OpenSSH / openssh
+
+* GitHub: <https://github.com/openssh>.
+* OpenBSD: <http://cvsweb.openbsd.org/src/usr.bin/ssh>.
+* Official website: <https://www.openssh.com>.
+
 ### OpenSSL by OpenSSL / openssl
 
 * GitHub: <https://github.com/openssl/openssl>.
@@ -3253,6 +4021,12 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 * Google Play: <https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner>.
 * GitHub: <https://github.com/zacharee/Tweaker>.
 
+### Tailscale by Tailscale / tailscale
+
+* F-Droid: <https://f-droid.org/packages/com.tailscale.ipn>.
+* Google Play: <https://play.google.com/store/apps/details?id=com.tailscale.ipn>.
+* Official website: <https://tailscale.com>.
+
 ### Termux by Fredrik Fornwall / Termux / termux
 
 * F-Droid: <https://f-droid.org/packages/com.termux>.
@@ -3300,6 +4074,14 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 * GitHub: <https://github.com/TigerVNC/tigervnc>.
 * Official website: <https://tigervnc.org>.
 
+### Thunderbird or Thunderbird: Free Your Inbox by Mozilla Thunderbird / thunderbird / Mozilla
+
+* F-Droid: <https://f-droid.org/packages/net.thunderbird.android>.
+* Google Play: <https://play.google.com/store/apps/details?id=net.thunderbird.android>.
+* GitHub: <https://github.com/thunderbird/fdroid-thunderbird>.
+* Official website: <https://www.thunderbird.net>.
+
+
 ### Tor and Tor Browser by The Tor Project
 
 * Google Play of Tor Browser: <https://play.google.com/store/apps/details?id=org.torproject.torbrowser>.
@@ -3325,6 +4107,10 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 * GitHub: <https://github.com/videolan/vlc-android>.
 * GitLab: <https://code.videolan.org>.
 * Official website: <https://www.videolan.org>.
+
+### Wireguard by Jason A. Donenfeld
+
+* Official website: <https://www.wireguard.com>.
 
 ### Xtra by AndreyAsadchy or Andrey Asadchy and crackededed
 
