@@ -14,7 +14,7 @@ In this tutorial, we’ll explore a range of powerful, open-source tools such as
 
 Please read the [Global Note](#global-note) before you start or you may encounter errors.
 
-My main development of Termux Shell scripts has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh), which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while tutorials for Termux, some of my scripts in [**termux-sh**](https://github.com/Willie169/termux-sh), and other related stuff such as VNC, SSL, and SSH, remain here.
+My main development of Termux Shell scripts has been moved to my another repository, [**termux-sh**](https://github.com/Willie169/termux-sh), which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while tutorials for Termux, some of my scripts in [**termux-sh**](https://github.com/Willie169/termux-sh), and other related stuff remain here.
 
 ---
 
