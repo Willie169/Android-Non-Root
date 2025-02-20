@@ -23,7 +23,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
 * [Table of Contents](#table-of-contents)
 * [Author Information](#author-information)
 * [Global Note](#global-note)
-* [F-Droid](#f-droid)
+* [F-Droid: Free Software Android Apps Repository and App Store](#f-droid-free-software-android-apps-repository-and-app-store)
   * [Install F-Droid](#install-f-droid)
   * [Introduction of F-Droid](#introduction-of-f-droid)
   * [F-Droid Repositories](#f-droid-repositories)
@@ -69,7 +69,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Install AVNC](#install-avnc)
   * [Connect a VNC Server](#connect-a-vnc-server)
   * [Introduction of AVNC](#introduction-of-avnc)
-* [Tailscale](#tailscale)
+* [Tailscale: Peer-to-Peer Mesh VPN](#tailscale-peer-to-peer-mesh-vpn)
   * [Introduction of Tailscale](#introduction-of-tailscale)
   * [Tailscale in Linux](#tailscale-in-linux)
   * [Tailscale in Android](#tailscale-in-android)
@@ -171,6 +171,9 @@ My main development of Termux Shell scripts has been moved to my another reposit
 * [Material Photo Widget](#material-photo-widget)
   * [Install Material Photo Widget](#install-material-photo-widget)
   * [Introduction of Material Photo Widget](#introduction-of-material-photo-widget)
+* [LibreOffice Viewer: Viewer for Open Document Formats and Microsoft Office Formats](#libreoffice-viewer-viewer-for-open-document-formats-and-microsoft-office-formats)
+  * [Introduction of LibreOffice](#introduction-of-libreoffice)
+  * [Introduction of LibreOffice Viewer](#introduction-of-libreoffice-viewer)
 * [VLC for Android: Open Source Media Player and Multimedia Engine](#vlc-for-android-open-source-media-player-and-multimedia-engine)
   * [Install VLC for Android](#install-vlc-for-android)
   * [Introduction of VLC](#introduction-of-vlc)
@@ -203,7 +206,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Andronix by Devriz Technologies LLP / Andronix App /AndronixApp](#andronix-by-devriz-technologies-llp--andronix-app-andronixapp)
   * [aShell by Sunil Paul Mathew M. / sunilpaulmathew](#ashell-by-sunil-paul-mathew-m--sunilpaulmathew)
   * [Brave / Brave Browser by Brave Software / brave](#brave--brave-browser-by-brave-software--brave)
-  * [Debian](#debian)
+  * [Debian by the Debian Project](#debian-by-the-debian-project)
   * [DontKillMyApp / DontKillMyApp: Make apps work by Urbandroid Team / urbandroid-team / Petr Nálevka (Urbandroid)](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid)
   * [droidVNC-NG / droidVNC-NG VNC Server by Christian Beier / bk138](#droidvnc-ng--droidvnc-ng-vnc-server-by-christian-beier--bk138)
   * [DuckDuckGo / DuckDuckGo Browser / DuckDuckGo Privacy Browser / DuckDuckGo Private Browser by DuckDuckGo or duckduckgo](#duckduckgo--duckduckgo-browser--duckduckgo-privacy-browser--duckduckgo-private-browser-by-duckduckgo-or-duckduckgo)
@@ -211,7 +214,8 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Firefox / Firefox Fast & Private Browser by Mozilla](#firefox--firefox-fast--private-browser-by-mozilla)
   * [GNU](#gnu)
   * [Invizible Pro by Garmatin Oleksandr / Oleksandr Garmatin / Gedsh](#invizible-pro-by-garmatin-oleksandr--oleksandr-garmatin--gedsh)
-  * [IzzyOnDroid:](#izzyondroid)
+  * [IzzyOnDroid by IzzyOnDroid](#izzyondroid-by-izzyondroid)
+  * [LibreOffice and LibreOffice Viewer by The Document Foundation](#libreoffice-and-libreoffice-viewer-by-the-document-foundation)
   * [LibreTorrent by Yaroslav Pronin / proninyaroslav](#libretorrent-by-yaroslav-pronin--proninyaroslav)
   * [Linux Command Library by Simon Schubert / SimonSchubert](#linux-command-library-by-simon-schubert--simonschubert)
   * [Material Files / MaterialFiles by Hai Zhang / zhanghai](#material-files--materialfiles-by-hai-zhang--zhanghai)
@@ -228,7 +232,7 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Shizuku by Xingchen & Rikka / RikkaApps](#shizuku-by-xingchen--rikka--rikkaapps)
   * [SimplyTranslate Mobile by ManeraKai](#simplytranslate-mobile-by-manerakai)
   * [SystemUI Tuner by Zachary Wander / zacharee](#systemui-tuner-by-zachary-wander--zacharee)
-  * [Tailscale by](#tailscale-by)
+  * [Tailscale by Tailscale / tailscale](#tailscale-by-tailscale--tailscale)
   * [Termux by Fredrik Fornwall / Termux / termux](#termux-by-fredrik-fornwall--termux--termux)
   * [Termux:API by Fredrik Fornwall / Termux / termux](#termuxapi-by-fredrik-fornwall--termux--termux)
   * [Termux:Boot by Fredrik Fornwall / Termux / termux](#termuxboot-by-fredrik-fornwall--termux--termux)
@@ -269,7 +273,8 @@ If for whatever reason you want to send me money, here are where you may do so:
 ## Global Note
 
 * This tutorial, as well as the software mentioned in it, is provided WITHOUT ANY WARRANTY, including but not limited to the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Most of the software mentioned in this tutorial is open source.
-* Turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. to prevent apps from being killed. See [DontKillMyApp](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid).
+* To prevent apps from being killed, you may turn off battery optimization and auto sleeping, set battery usage to unrestricted, acquire wakelock, etc. Go to [DontKillMyApp](#dontkillmyapp--dontkillmyapp-make-apps-work-by-urbandroid-team--urbandroid-team--petr-nalevka-urbandroid) for more information.
+* Many sections of the tutorial mention F-Droid, read [F-Droid
 * Many sections of the tutorial mention Termux. For people who are new to it, please refer to [Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection](#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection).
 * For people who are new to POSIX, please refer to [POSIX References](#posix-references).
 * You may encounter `Process completed (signal 9) press Enter` error even if you follow the steps in this tutorial. Read the tutorial about how to fix it in [Process completed (signal 9) press Enter Error](#process-completed-signal-9-press-enter-error).
@@ -284,11 +289,11 @@ If for whatever reason you want to send me money, here are where you may do so:
 
 ---
 
-## F-Droid
+## F-Droid: Free Software Android Apps Repository and App Store
 
 ### Install F-Droid
 
-F-Droid (`org.fdroid.fdroid`) can be installed from their official website: <https://f-droid.org>.
+F-Droid (`org.fdroid.fdroid`) can be installed from [their official website](https://f-droid.org).
 
 ### Introduction of F-Droid
 
@@ -304,7 +309,7 @@ F-Droid repositories are compatible with an F-Droid client application. To add a
 
 The Offical F-Droid repository is <http://f-droid.org/repo>, which is pre-added in the app by default.
 
-One of the most popular unofficial F-Droid repository is IzzyOnDroid F-Droid repository: <http://apt.izzysoft.de/fdroid/repo>.
+One of the most popular unofficial F-Droid repository is the [**IzzyOnDroid F-Droid repository**](http://apt.izzysoft.de/fdroid/repo).
 
 A list of some known F-Droid repositories:
 
@@ -339,7 +344,7 @@ A list of some known F-Droid repositories:
 
 ### Install Termux
 
-Termux (`com.termux`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux>.
+Termux (`com.termux`) can be installed from [F-Droid](https://f-droid.org/packages/com.termux).
 
 **WARNING**: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html>. It is recommended that you shift to F-Droid or GitHub releases.
 
@@ -516,7 +521,7 @@ You may have a problem executing scripts that have standard shebangs (e.g. `#!/b
 
 ### Difference Between Linux and Termux
 
-* **Termux is not FHS compliant**: Termux does not follow Filesystem Hierarchy Standard unlike majority of Linux distributions. You cannot find directories like `/bin`, `/etc`, `/usr`, `/tmp` and others at the usual locations. Thus, all programs must be patched and recompiled to meet requirements of the Termux environment otherwise they will not be able to find their configuration files or other data. This is why Termux does not use official Debian or Ubuntu packages for its environment and you may have a problem executing scripts that have standard shebangs (e.g. `#!/bin/sh`). 
+* **Termux is not FHS compliant**: Termux does not follow Filesystem Hierarchy Standard unlike majority of Linux distributions. You cannot find directories like `/bin`, `/etc`, `/usr`, `/tmp` and others at the usual locations. Thus, all programs must be patched and recompiled to meet requirements of the Termux environment otherwise they will not be able to find their configuration files or other data. This is why Termux does not use official Debian or Ubuntu packages for its environment and you may have a problem executing scripts that have standard shebangs (e.g. `#!/bin/sh`).
 * **Termux uses Bionic libc**: To have the best compatibility with Android OS and to remove the need to maintain custom toolchains we compile all our packages with the Android NDK. The resulting binaries are linked against the Bionic libc (`files libc.so`, `libm.so`, `libdl.so` from `/system/lib` or `/system/lib64`).
   * Dynamically linked programs will not run because the linker is expected in a nonexistent location (`/lib`) and libc ABI does not match.
   * Statically linked programs (only networking ones) will not be able to resolve DNS names. GNU libc normally doesn't allow static linking with resolver. Also, the file `/etc/resolv.conf` does not exist on Android.
@@ -1393,7 +1398,7 @@ Stream editing:
 
 ### Termux:Styling
 
-Termux:Styling (`com.termux.styling`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.styling>.
+Termux:Styling (`com.termux.styling`) can be installed from [F-Droid](https://f-droid.org/packages/com.termux.styling).
 
 This plugin for Termux provides beautiful color schemes and powerline-ready fonts to customize the appearance of the terminal.
 
@@ -1403,7 +1408,7 @@ Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Styling) for more 
 
 ### Termux:Widget
 
-Termux:Widget (`com.termux.widget`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.widget>.
+Termux:Widget (`com.termux.widget`) can be installed from [F-Droid](https://f-droid.org/packages/com.termux.widget).
 
 Add-on app which adds shortcuts to Termux scripts and commands on the home screen. Scripts should be placed in the `$HOME/.shortcuts/` folder to allow quick access to frequently used commands without typing.
 
@@ -1411,7 +1416,7 @@ Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Widget) for more i
 
 ### Termux:Boot
 
-Termux:Boot (`com.termux.boot`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.boot>.
+Termux:Boot (`com.termux.boot`) can be installed from [F-Droid](<https://f-droid.org/packages/com.termux.boot).
 
 This plugin for Termux allows programs to be run at boot.
 
@@ -1429,7 +1434,7 @@ Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Boot) for more inf
 
 ### Termux:Float
 
-Termux:Float (`com.termux.float`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.float>.
+Termux:Float (`com.termux.float`) can be installed from [F-Droid](https://f-droid.org/packages/com.termux.float).
 
 This plugin for Termux provides a floating terminal window which is shown above other apps.
 
@@ -1439,7 +1444,7 @@ Go to [the official wiki](https://wiki.termux.com/wiki/Termux:Float) for more in
 
 ### Termux:API
 
-Termux:API (`com.termux.api`) can be installed from F-Droid: <https://f-droid.org/packages/com.termux.api>.
+Termux:API (`com.termux.api`) can be installed from [F-Droid](https://f-droid.org/packages/com.termux.api).
 
 Expose basic Android functionality like sending SMS or accessing GPS data to the Termux app. This is an add-on which requires that the main Termux app is installed to use.
 
@@ -1554,7 +1559,7 @@ Replace `:1` with the actual port your VNC server started on.
 
 #### Install Termux-x11 App
 
-Termux-x11 (`com.termux.x11`) app for Android can be installed from the .apk asset corresponding to your architecture in its GitHub: <https://github.com/termux/termux-x11> release.
+Termux-x11 (`com.termux.x11`) app for Android can be installed from the .apk asset corresponding to your architecture in [its GitHub](https://github.com/termux/termux-x11) release.
 
 #### Install Termux-x11 Package
 
@@ -1714,7 +1719,7 @@ MATE desktop environment will start automatically on VNC server startup.
 
 ### Install AVNC
 
-AVNC (`com.gaurav.avnc`) can be installed from F-Droid: <https://f-droid.org/packages/com.gaurav.avnc>.
+AVNC (`com.gaurav.avnc`) can be installed from [F-Droid](https://f-droid.org/packages/com.gaurav.avnc).
 
 ### Connect a VNC Server
 
@@ -1761,7 +1766,7 @@ Features of Tailscale:
 * Mesh networking: Devices connect directly when possible, improving performance and reducing latency.
 * Access Control Lists (ACLs): Fine-grained control over which devices can communicate.
 * Multiplatform support: Supports Linux, Windows, macOS, Android, iOS, etc.
-* Exit nodes: Use a specific device as a VPN gateway. 
+* Exit nodes: Use a specific device as a VPN gateway.
 * Subnet routing: Access remote networks securely.
 
 Go to [their official website](https://tailscale.com) for more information.
@@ -1816,7 +1821,7 @@ sudo tailscale up --advertise-routes=192.168.1.0/24
 
 #### Install Tailscale
 
-Tailscale (`com.tailscale.ipn`) can be installed from F-Droid: <https://f-droid.org/packages/com.tailscale.ipn> or Google Play: <https://play.google.com/store/apps/details?id=com.tailscale.ipn>.
+Tailscale (`com.tailscale.ipn`) can be installed from [F-Droid](https://f-droid.org/packages/com.tailscale.ipn) or [Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn).
 
 #### Introduction of Tailscale in Android
 
@@ -1917,7 +1922,7 @@ If you have issues with proot during installation or login, try to set `PROOT_NO
 
 ### Install Andronix App (Optional)
 
-Andronix (`studio.com.techriz.andronix`) can be installed from Google Play: <https://play.google.com/store/apps/details?id=studio.com.techriz.andronix>.
+Andronix (`studio.com.techriz.andronix`) can be installed from [Google Play](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix).
 
 Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won’t be mentioned in this tutorial.
 
@@ -2270,7 +2275,7 @@ sudo resize2fs /dev/vda1
 
 ### Install Shizuku
 
-Shizuku (`moe.shizuku.privileged.api`) can be installed from IzzyOnDroid: <https://apt.izzysoft.de/fdroid/index/apk/moe.shizuku.privileged.api> or Google Play: <https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api>.
+Shizuku (`moe.shizuku.privileged.api`) can be installed from [IzzyOnDroid F-Droid repository](https://apt.izzysoft.de/fdroid/index/apk/moe.shizuku.privileged.api) or [Google Play](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
 
 ### Introduction of ADB and Shizuku
 
@@ -2300,7 +2305,7 @@ Shizuku (`moe.shizuku.privileged.api`) can be installed from IzzyOnDroid: <https
 
 ### Install SystemUI Tuner
 
-SystemUI Tuner can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner> (pub: Zachary Wander).
+SystemUI Tuner can be installed from [Google Play](https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner) (pub: Zachary Wander).
 
 ### To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner
 
@@ -2340,7 +2345,7 @@ pm grant com.zacharee1.systemuituner android.permission.DUMP
 
 #### Install aShell
 
-aShell can be installed from F-Droid: <https://f-droid.org/packages/in.sunilpaulmathew.ashell>.
+aShell can be installed from [F-Droid](https://f-droid.org/packages/in.sunilpaulmathew.ashell).
 
 #### Introduction of aShell
 
@@ -2387,7 +2392,7 @@ Some services may crash when routing traffic through Tor, changing the Exit node
 
 ### Install Tor Browser
 
-Tor Browser can be installed from Google Play: <https://play.google.com/store/apps/details?id=org.torproject.torbrowser> or the F-Droid repository of the Guardian Project: <https://guardianproject.info/fdroid/repo>. For the latter, please refer to [F-Droid Repositories](#f-droid-repositories) for more information about how to add a F-Droid repository to your F-Droid client app.
+Tor Browser can be installed from [Google Play](https://play.google.com/store/apps/details?id=org.torproject.torbrowser) or [the Guardian Project F-Droid repository](https://guardianproject.info/fdroid/repo). For the latter, please refer to [F-Droid Repositories](#f-droid-repositories) for more information about how to add a F-Droid repository to your F-Droid client app.
 
 The Tor Browser for Android is a mobile version of the Tor Browser that utilizes Mozilla Firefox for Android codebase.
 
@@ -2483,11 +2488,11 @@ This section mentions Tor, for people who are new to it, please refer to [Tor, T
 
 ### Install InviZible Pro
 
-InviZible Pro (`pan.alexander.tordnscrypt.stable`) can be installed from F-Droid: <https://f-droid.org/packages/pan.alexander.tordnscrypt.stable> or Google Play: <https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp>.
+InviZible Pro (`pan.alexander.tordnscrypt.stable`) can be installed from [F-Droid](https://f-droid.org/packages/pan.alexander.tordnscrypt.stable) or [Google Play](https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp).
 
 ### Install TrackerControl
 
-TrackerControl (`net.kollnig.missioncontrol.fdroid`), also known as TC, can be installed from F-Droid: <https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid>.
+TrackerControl (`net.kollnig.missioncontrol.fdroid`), also known as TC, can be installed from [F-Droid](https://f-droid.org/packages/net.kollnig.missioncontrol.fdroid).
 
 **WARNING**: Please avoid use the Google Play version because it doesn’t have the feature like trackers blocking in order to comply with Google’s terms.
 
@@ -3368,7 +3373,7 @@ Supported ciphers:
 
 ### Install droidVNC-NG
 
-droidVNC-NG (`net.christianbeier.droidvnc_ng`) can be installed from F-Droid: <https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng> or Google Play: <https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng>.
+droidVNC-NG (`net.christianbeier.droidvnc_ng`) can be installed from [F-Droid](https://f-droid.org/packages/net.christianbeier.droidvnc%5Fng) or [Google Play](https://play.google.com/store/apps/details?id=net.christianbeier.droidvnc%5Fng).
 
 ### Introduction of droidVNC-NG
 
@@ -3403,7 +3408,7 @@ Advanced VNC Features
 
 ### Install SD Maid SE
 
-SD Maid SE (`eu.darken.sdmse`) can be installed from F-Droid: <https://f-droid.org/packages/eu.darken.sdmse> or Google Play: <https://play.google.com/store/apps/details?id=eu.darken.sdmse>.
+SD Maid SE (`eu.darken.sdmse`) can be installed from [F-Droid](https://f-droid.org/packages/eu.darken.sdmse) or [Google Play](https://play.google.com/store/apps/details?id=eu.darken.sdmse).
 
 ### Introduction of SD Maid SE
 
@@ -3431,7 +3436,9 @@ Features include:
 
 ### Install Phyphox
 
-Phyphox (`de.rwth_aachen.phyphox`) can be installed from F-Droid: <https://f-droid.org/packages/de.rwth\_aachen.phyphox> or Google Play: <https://play.google.com/store/apps/details?id=de.rwth\_aachen.phyphox>.
+Phyphox (`de.rwth_aachen.phyphox`) can be installed from [F-Droid](https://f-droid.org/packages/de.rwth\_aachen.phyphox) or [Google Play](https://play.google.com/store/apps/details?id=de.rwth\_aachen.phyphox).
+
+**WARNING**: Please be careful not to damage your phone while experimenting. Please take special care to avoid dropping it on hard surfaces and do not expose it to excessive magnetic fields. The authors of phyphox are not responsible for any damage to your phone.
 
 ### Introduction of Phyphox
 
@@ -3481,9 +3488,9 @@ Go to [their official website](http://phyphox.org) for more information.
 
 ### Install AndroidIDE
 
-AndroidIDE (`com.itsaky.androidide`) can be installed from F-Droid archive or the .apk asset corresponding to your architecture in its GitHub: <https://github.com/AndroidIDEOfficial/AndroidIDE> release.
+AndroidIDE (`com.itsaky.androidide`) can be installed from [F-Droid archive repository](https://apt.izzysoft.de/fdroid/index/apk/com.itsaky.androidide?repo=archive) or the .apk asset corresponding to your architecture in [its GitHub](https://github.com/AndroidIDEOfficial/AndroidIDE) release.
 
-**WARNING**: This project is not maintained anymore.
+Note that this project is not maintained anymore.
 
 ### Introduction of AndroidIDE
 
@@ -3513,7 +3520,7 @@ Go to [their official website](https://androidide.com) for more information.
 
 ### Install Linux Command Library (Optional)
 
-Linux Command Library app can be installed from F-Droid: <https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca> or Google Play: <https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca>.
+Linux Command Library app can be installed from [F-Droid](https://f-droid.org/packages/com.inspiredandroid.linuxcommandbibliotheca) or [Google Play](https://play.google.com/store/apps/details?id=com.inspiredandroid.linuxcommandbibliotheca).
 
 ### Introduction of Linux Command Library
 
@@ -3529,7 +3536,7 @@ There is a website version of Linux Command Library: <https://linuxcommandlibrar
 
 ### Install Material Files
 
-Material Files (`me.zhanghai.android.files`) can be installed from F-Droid: <https://f-droid.org/packages/me.zhanghai.android.files> or Google Play: <https://play.google.com/store/apps/details?id=me.zhanghai.android.files>.
+Material Files (`me.zhanghai.android.files`) can be installed from [F-Droid](https://f-droid.org/packages/me.zhanghai.android.files) or [Google Play](https://play.google.com/store/apps/details?id=me.zhanghai.android.files).
 
 ### Introduction of Material Files
 
@@ -3558,7 +3565,7 @@ Material Files (`me.zhanghai.android.files`) can be installed from F-Droid: <htt
 
 ### Install PipePipe
 
-PipePipe (`InfinityLoop1309.NewPipeEnhanced`) can be installed from F-Droid: <https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced> or the .apk asset corresponding to your architecture in its GitHub: <https://github.com/InfinityLoop1308/PipePipe> release.
+PipePipe (`InfinityLoop1309.NewPipeEnhanced`) can be installed from [F-Droid](https://f-droid.org/packages/InfinityLoop1309.NewPipeEnhanced) or the .apk asset corresponding to your architecture in [its GitHub](https://github.com/InfinityLoop1308/PipePipe) release.
 
 Note that because YouTube is trying to block third-party clients, especially for anonymous access, PipePipe sometimes has to be updated frequently to address issues that arise. You can receive the latest update from GitHub release without waiting for F-Droid update building process.
 
@@ -3597,7 +3604,7 @@ Note that because YouTube is trying to block third-party clients, especially for
 
 ### Install Xtra
 
-Xtra (`com.github.andreyasadchy.xtra`) can be installed from F-Droid: <https://f-droid.org/packages/com.github.andreyasadchy.xtra>.
+Xtra (`com.github.andreyasadchy.xtra`) can be installed from [F-Droid](https://f-droid.org/packages/com.github.andreyasadchy.xtra).
 
 ### Introduction of Xtra
 
@@ -3617,7 +3624,7 @@ Xtra for Twitch is a Twitch client providing the viewing and chatting experience
 
 ### Install Material Photo Widget
 
-Material Photo Widget (`com.fibelatti.photowidget`) can be installed from IzzyOnDroid: <https://apt.izzysoft.de/fdroid/index/apk/com.fibelatti.photowidget>.
+Material Photo Widget (`com.fibelatti.photowidget`) can be installed from [IzzyOnDroid F-Droid repository](https://apt.izzysoft.de/fdroid/index/apk/com.fibelatti.photowidget).
 
 ### Introduction of Material Photo Widget
 
@@ -3631,11 +3638,67 @@ Material Photo Widget (`com.fibelatti.photowidget`) can be installed from IzzyOn
 
 ---
 
+## LibreOffice Viewer: Viewer for Open Document Formats and Microsoft Office Formats
+
+LibreOffice Viewer (`org.documentfoundation.libreoffice`) can be installed from [F-Droid](https://f-droid.org/packages/org.documentfoundation.libreoffice) or [Google Play](https://play.google.com/store/apps/details?id=org.documentfoundation.libreoffice).
+
+### Introduction of LibreOffice
+
+* LibreOffice is a powerful, free and private office suite - the successor project to OpenOffice - used by millions of people around the world and backed by a non-profit organisation, The Document Foundation.
+* LibreOffice includes:
+  * Writer (word processing)
+  * Calc (spreadsheets)
+  * Impress (presentations)
+  * Draw (vector graphics and flowcharts)
+  * Base (databases)
+  * Math (formula editing).
+* LibreOffice can write the following format:
+  * Microsoft, Microsoft 365, Microsoft Office Open XML, Word, Excel, PowerPoint, Publisher
+  (.doc, .docx, .dot, .xls, .xlsx, .xlt, .xlw, .ppt, .pptx, .pps, .pot, .xml)
+  * OpenDocument Format Text, Presentation, Spreadsheet, Graphics (.odf, .odt, .fodt, .odp, .fodp, .ods, .fods, .odg, .fodg)
+  * BMP file format (.bmp)
+  * Comma-separated values (.csv, .txt)
+  * Data Interchange Format (.dif)
+  * DBase, Clipper, VP-Info, FoxPro (.dbf)
+  * DocBook (.xm)
+  * Encapsulated PostScript (.eps)
+  * Enhanced Metafile (.emf)
+  * Graphics Interchange Format (.gif)
+  * HTML (.html, .htm)
+  * JPEG (.jpeg, .jpg)
+  * Macintosh Picture File (.pct)
+  * MathML (.mml)
+  * MET (.met)
+  * Microsoft RTF (.rtf)
+  * Netpbm format (.pgm, .pbm, .ppm)
+  * Open Office Base (.odb)
+  * OpenOffice.org XML (.sxw, .stw, .sxc, .stc, .sxi, .sti, .sxd, .std, .sxm)
+  * Plain text (.txt)
+  * Portable Document Format (.pdf)
+  * Portable Network Graphics (.png)
+  * Scalable vector graphics (.svg)
+  * SunOS Raster (.ras)
+  * SVM (.svm)
+  * SYLK (.slk)
+  * Tag Image File Format (.tif, .tiff)
+  * Unified Office Format (.uof, .uot, .uos, .uop)
+  * Windows Metafile (.wmf)
+  * X PixMap (.xpm)
+* Available on Linux, Windows, and macOS.
+
+Go to [their official website](https://www.libreoffice.org) for more information
+
+### Introduction of LibreOffice Viewer
+
+Simplified form of LibreOffice that only supports viewing but not writing documents, available on Android and iOS.
+
+---
+
 ## VLC for Android: Open Source Media Player and Multimedia Engine
 
 ### Install VLC for Android
 
-VLC for Android (`org.videolan.vlc`) can be installed from F-Droid: <https://f-droid.org/packages/org.videolan.vlc> or Google Play: <https://play.google.com/store/apps/details?id=org.videolan.vlc>.
+VLC for Android (`org.videolan.vlc`) can be installed from [F-Droid](https://f-droid.org/packages/org.videolan.vlc) or [Google Play](https://play.google.com/store/apps/details?id=org.videolan.vlc).
 
 ### Introduction of VLC
 
@@ -3651,7 +3714,7 @@ VLC is available on Windows, macOS, Linux, BSD, Android, iOS, and Haiku.
 
 ### Install Firefox
 
-Firefox (`org.mozilla.firefox`), also known as Firefox Fast & Private Browser, can be installed from Google Play <https://play.google.com/store/apps/details?id=org.mozilla.firefox>.
+Firefox (`org.mozilla.firefox`), also known as Firefox Fast & Private Browser, can be installed from [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.firefox).
 
 ### Introduction of Firefox
 
@@ -3683,7 +3746,7 @@ Go to [their official website](https://mozilla.org) for more information.
 
 ### Install DuckDuckGo
 
-DuckDuckGo (`com.duckduckgo.mobile.android`), also known as DuckDuckGo Privacy Browser or DuckDuckGo Private Browser, can be installed from F-Droid: <https://f-droid.org/packages/com.duckduckgo.mobile.android> or Google Play: <https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android>.
+DuckDuckGo (`com.duckduckgo.mobile.android`), also known as DuckDuckGo Privacy Browser or DuckDuckGo Private Browser, can be installed from [F-Droid](https://f-droid.org/packages/com.duckduckgo.mobile.android) or [Google Play](https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android).
 
 ### Introduction of DuckDuckGo
 
@@ -3716,7 +3779,7 @@ Go to [their official website](https://duckduckgo.com) for more information.
 
 ### Install Brave
 
-Brave (`com.brave.browser`), also known as Brave Privacy Browser or Brave Private Web Browser, VPN, can be installed from Google Play: <https://play.google.com/store/apps/details?id=com.brave.browser>.
+Brave (`com.brave.browser`), also known as Brave Privacy Browser or Brave Private Web Browser, VPN, can be installed from [Google Play](https://play.google.com/store/apps/details?id=com.brave.browser).
 
 ### Introduction of Brave
 
@@ -3746,7 +3809,7 @@ Brave (`com.brave.browser`), also known as Brave Privacy Browser or Brave Privat
 
 ### Install Safe Space
 
-Safe Space (`org.privacymatters.safespace`) can be installed from F-Droid: <https://f-droid.org/packages/org.privacymatters.safespace>.
+Safe Space (`org.privacymatters.safespace`) can be installed from [F-Droid](https://f-droid.org/packages/org.privacymatters.safespace).
 
 ### Introduction of Safe Space
 
@@ -3764,7 +3827,7 @@ Safe Space (`org.privacymatters.safespace`) can be installed from F-Droid: <http
 
 ### Install SimplyTranslate Mobile
 
-SimplyTranslate Mobile (`com.simplytranslate_mobile`) can be installed from F-Droid: <https://f-droid.org/packages/com.simplytranslate_mobile>.
+SimplyTranslate Mobile (`com.simplytranslate_mobile`) can be installed from [F-Droid](https://f-droid.org/packages/com.simplytranslate_mobile).
 
 ### Introduction of SimplyTranslate Mobile
 
@@ -3784,7 +3847,7 @@ There is a website version of SimplyTranslate Mobile: <https://simplytranslate.o
 
 ### Install LibreTorrent
 
-LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: <https://f-droid.org/packages/org.proninyaroslav.libretorrent> or Google Play: <https://play.google.com/store/apps/details?id=org.proninyaroslav.libretorrent>.
+LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from [F-Droid](https://f-droid.org/packages/org.proninyaroslav.libretorrent) or [Google Play](https://play.google.com/store/apps/details?id=org.proninyaroslav.libretorrent).
 
 ### Introduction of BitTorrent
 
@@ -3819,9 +3882,9 @@ LibreTorrent (`org.proninyaroslav.libretorrent`) can be installed from F-Droid: 
 
 ## Thunderbird: Privacy-Focused Email App
 
-### Install Thunderbird 
+### Install Thunderbird
 
-Thunderbird (`net.thunderbird.android`), also known as Thunderbird: Free Your Inbox, can be installed from F-Droid: <https://f-droid.org/packages/net.thunderbird.android> or Google Play: <https://play.google.com/store/apps/details?id=net.thunderbird.android>.
+Thunderbird (`net.thunderbird.android`), also known as Thunderbird: Free Your Inbox, can be installed from [F-Droid](https://f-droid.org/packages/net.thunderbird.android) or [Google Play](https://play.google.com/store/apps/details?id=net.thunderbird.android).
 
 ### Introduction of Thunderbird
 
@@ -3851,6 +3914,7 @@ Go to [their official website](https://www.thunderbird.net) for more information
 ### AndroidIDE by AndroidIDE / AndroidIDEOfficial
 
 * GitHub: <https://github.com/AndroidIDEOfficial/AndroidIDE>.
+* F-Droid archive: <https://apt.izzysoft.de/fdroid/index/apk/com.itsaky.androidide?repo=archive>.
 * Official website: <https://androidide.com>.
 
 ### Andronix by Devriz Technologies LLP / Andronix App /AndronixApp
@@ -3870,7 +3934,7 @@ Go to [their official website](https://www.thunderbird.net) for more information
 * GitHub: <https://github.com/brave/brave-browser>.
 * Official website: <https://brave.com>.
 
-### Debian
+### Debian by the Debian Project
 
 * GitLab: <https://salsa.debian.org/public>.
 * Official website: <https://www.debian.org>.
@@ -3917,9 +3981,16 @@ Go to [their official website](https://www.thunderbird.net) for more information
 * GitHub: <https://github.com/Gedsh/InviZible>.
 * Official website: <https://invizible.net>.
 
-### IzzyOnDroid:
+### IzzyOnDroid by IzzyOnDroid
 
 * IzzyOnDroid F-Droid repository: <http://apt.izzysoft.de/fdroid/repo>.
+
+### LibreOffice and LibreOffice Viewer by The Document Foundation
+
+* F-Droid: <https://f-droid.org/packages/org.documentfoundation.libreoffice>.
+* Google Play: <https://play.google.com/store/apps/details?id=org.documentfoundation.libreoffice>.
+* Official website: <https://www.libreoffice.org>.
+* Source code: <https://git.libreoffice.org>.
 
 ### LibreTorrent by Yaroslav Pronin / proninyaroslav
 
