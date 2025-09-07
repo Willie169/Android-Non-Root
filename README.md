@@ -1775,12 +1775,27 @@ Go to [their official website](https://tailscale.com) for more information.
 
 #### Install
 
+For Debian derivatives (can be upgrade via `apt upgrade`):
+```
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt update
+sudo apt install tailscale -y
+```
+
+For all Linux distribution:
 ```
 curl -fsSL https://tailscale.com/install.sh | sh
 ```
 
 #### Log in
 
+For Linux distribution with `systemd`:
+```
+sudo systemctl start tailscaled
+```
+
+For all Linux distribution:
 ```
 sudo tailscale up
 ```
@@ -1789,6 +1804,7 @@ Log in via <https://login.tailscale.com/login>. Google, Microsoft, GitHub, Apple
 
 #### Systemd Enable
 
+For Linux distribution with `systemd`, you can start it by default with:
 ```
 sudo systemctl enable tailscaled
 ```
