@@ -1790,23 +1790,18 @@ curl -fsSL https://tailscale.com/install.sh | sh
 
 #### Log in
 
-For Linux distribution with `systemd`:
-```
-sudo systemctl start tailscaled
-```
-
-For all Linux distribution:
 ```
 sudo tailscale up
 ```
 
 Log in via <https://login.tailscale.com/login>. Google, Microsoft, GitHub, Apple, and passkey are available.
 
-#### Systemd Enable
+#### Systemd
 
-For Linux distribution with `systemd`, you can start it by default with:
+For Linux distribution with `systemd`, you can:
 ```
 sudo systemctl enable tailscaled
+sudo systemctl start tailscaled
 ```
 
 #### Manually Start Userspace Networking
