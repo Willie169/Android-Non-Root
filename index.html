@@ -1636,16 +1636,13 @@ sudo apt install tailscale -y
 <pre><code>curl -fsSL https://tailscale.com/install.sh | sh
 </code></pre>
 <h4 id="log-in">Log in</h4>
-<p>For Linux distribution with <code>systemd</code>:</p>
-<pre><code>sudo systemctl start tailscaled
-</code></pre>
-<p>For all Linux distribution:</p>
 <pre><code>sudo tailscale up
 </code></pre>
 <p>Log in via <a href="https://login.tailscale.com/login">https://login.tailscale.com/login</a>. Google, Microsoft, GitHub, Apple, and passkey are available.</p>
-<h4 id="systemd-enable">Systemd Enable</h4>
-<p>For Linux distribution with <code>systemd</code>, you can start it by default with:</p>
+<h4 id="systemd">Systemd</h4>
+<p>For Linux distribution with <code>systemd</code>, you can:</p>
 <pre><code>sudo systemctl enable tailscaled
+sudo systemctl start tailscaled
 </code></pre>
 <h4 id="manually-start-userspace-networking">Manually Start Userspace Networking</h4>
 <pre><code>sudo tailscaled --tun=userspace-networking &amp;
