@@ -1794,7 +1794,7 @@ curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
 ```
 
-Log in via <https://login.tailscale.com/login>. Google, Microsoft, GitHub, Apple, and passkey are available.
+Log in via the URL shown and click **Connect**. Google, Microsoft, GitHub, Apple, and passkey are available.
 
 #### Systemd
 
