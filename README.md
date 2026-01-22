@@ -132,7 +132,6 @@ My main development of Termux Shell scripts has been moved to my another reposit
   + [Introduction of SSH (Secure Shell) and OpenSSH](#introduction-of-ssh-secure-shell-and-openssh)
   + [OpenSSH Server](#openssh-server)
   + [OpenSSH Client](#openssh-client)
-  + [Edit Configuration](#edit-configuration)
   + [SCP (Secure Copy Protocol)](#scp-secure-copy-protocol)
   + [SFTP (Secure File Transfer Protocol)](#sftp-secure-file-transfer-protocol)
   + [Further Readings and References about OpenSSH with Linux and Termux](#further-readings-and-references-about-openssh-with-linux-and-termux)
@@ -2883,6 +2882,47 @@ sudo ufw enable
 sudo ufw allow ssh
 ```
 
+#### Edit Configuration
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+and change lines in it.
+
+##### Port
+
+```
+#Port 22
+```
+
+##### Ports Listening to
+
+```
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+```
+
+##### Permit Root Login
+
+Change to
+
+```
+PermitRootLogin yes
+```
+
+if you want to permit login as root. In Termux and Proot-distro in it, this is common. In normal Linux, this is discouraged.
+
+#### PasswordAuthentication
+
+Change the `PasswordAuthentication` line to
+
+```
+PasswordAuthentication yes
+```
+
+to permit password authentication. Password can be set by running `passwd`.
+
 ### OpenSSH Client
 
 #### Install in Debian Derivatives
@@ -2915,54 +2955,6 @@ ssh-keygen -R [localhost]:2222
 You need to delete the original key if the server is reset.
 
 If you’re using password authentication, you won’t need to generate key.
-
-### Edit Configuration
-
-```
-sudo nano /etc/ssh/sshd_config
-```
-
-#### Listening Port
-
-Edit
-
-```
-#Port 22
-```
-
-line to change the listening port.
-
-#### Ports Listening to
-
-Edit
-
-```
-#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-```
-
-lines to change ports listening to.
-
-#### PermitRootLogin
-
-Change the `PermitRootLogin` line to
-
-```
-PermitRootLogin yes
-```
-
-if you want to permit login as root. In Termux, this is common, but in normal Linux, this is discouraged.
-
-#### PasswordAuthentication
-
-Change the `PasswordAuthentication` line to
-
-```
-PasswordAuthentication yes
-```
-
-to permit password authentication. Password can be set by running `passwd`.
 
 ### SCP (Secure Copy Protocol)
 
