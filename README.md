@@ -2889,7 +2889,7 @@ sudo nano /etc/ssh/sshd_config
 ```
 and change lines in it.
 
-##### Port
+##### SSH Port
 
 ```
 #Port 22
