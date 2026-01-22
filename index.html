@@ -169,7 +169,6 @@
 <li><a href="#introduction-of-ssh-secure-shell-and-openssh">Introduction of SSH (Secure Shell) and OpenSSH</a></li>
 <li><a href="#openssh-server">OpenSSH Server</a></li>
 <li><a href="#openssh-client">OpenSSH Client</a></li>
-<li><a href="#edit-configuration">Edit Configuration</a></li>
 <li><a href="#scp-secure-copy-protocol">SCP (Secure Copy Protocol)</a></li>
 <li><a href="#sftp-secure-file-transfer-protocol">SFTP (Secure File Transfer Protocol)</a></li>
 <li><a href="#further-readings-and-references-about-openssh-with-linux-and-termux">Further Readings and References about OpenSSH with Linux and Termux</a></li>
@@ -2464,6 +2463,28 @@ sudo systemctl disable ssh
 <pre><code>sudo ufw enable
 sudo ufw allow ssh
 </code></pre>
+<h4 id="edit-configuration">Edit Configuration</h4>
+<pre><code>sudo nano /etc/ssh/sshd_config
+</code></pre>
+<p>and change lines in it.</p>
+<h5 id="port">Port</h5>
+<pre><code>#Port 22
+</code></pre>
+<h5 id="ports-listening-to">Ports Listening to</h5>
+<pre><code>#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+</code></pre>
+<h5 id="permit-root-login">Permit Root Login</h5>
+<p>Change to</p>
+<pre><code>PermitRootLogin yes
+</code></pre>
+<p>if you want to permit login as root. In Termux and Proot-distro in it, this is common. In normal Linux, this is discouraged.</p>
+<h4 id="passwordauthentication">PasswordAuthentication</h4>
+<p>Change the <code>PasswordAuthentication</code> line to</p>
+<pre><code>PasswordAuthentication yes
+</code></pre>
+<p>to permit password authentication. Password can be set by running <code>passwd</code>.</p>
 <h3 id="openssh-client">OpenSSH Client</h3>
 <h4 id="install-in-debian-derivatives-1">Install in Debian Derivatives</h4>
 <pre><code>sudo apt install openssh-client
@@ -2483,31 +2504,6 @@ sudo ufw allow ssh
 </code></pre>
 <p>You need to delete the original key if the server is reset.</p>
 <p>If you’re using password authentication, you won’t need to generate key.</p>
-<h3 id="edit-configuration">Edit Configuration</h3>
-<pre><code>sudo nano /etc/ssh/sshd_config
-</code></pre>
-<h4 id="listening-port">Listening Port</h4>
-<p>Edit</p>
-<pre><code>#Port 22
-</code></pre>
-<p>line to change the listening port.</p>
-<h4 id="ports-listening-to">Ports Listening to</h4>
-<p>Edit</p>
-<pre><code>#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-</code></pre>
-<p>lines to change ports listening to.</p>
-<h4 id="permitrootlogin">PermitRootLogin</h4>
-<p>Change the <code>PermitRootLogin</code> line to</p>
-<pre><code>PermitRootLogin yes
-</code></pre>
-<p>if you want to permit login as root. In Termux, this is common, but in normal Linux, this is discouraged.</p>
-<h4 id="passwordauthentication">PasswordAuthentication</h4>
-<p>Change the <code>PasswordAuthentication</code> line to</p>
-<pre><code>PasswordAuthentication yes
-</code></pre>
-<p>to permit password authentication. Password can be set by running <code>passwd</code>.</p>
 <h3 id="scp-secure-copy-protocol">SCP (Secure Copy Protocol)</h3>
 <p>SCP is a simple command-line tool for securely copying files between local and remote systems based on the <code>rcp</code> (remote copy) command but uses SSH for security. It is faster but less flexible than SFTP.</p>
 <p>You can use <code>scp</code> on the client side to transfer files between the server side and the client side.</p>
