@@ -131,6 +131,8 @@ My main development of Termux Shell scripts has been moved to my another reposit
 * [OpenSSH: Secure Remote Access with SSH, SCP, and SFTP](#openssh-secure-remote-access-with-ssh-scp-and-sftp)
   + [Introduction of SSH (Secure Shell) and OpenSSH](#introduction-of-ssh-secure-shell-and-openssh)
   + [OpenSSH Server](#openssh-server)
+  + [OpenSSH Client](#openssh-client)
+  + [Edit Configuration](#edit-configuration)
   + [SCP (Secure Copy Protocol)](#scp-secure-copy-protocol)
   + [SFTP (Secure File Transfer Protocol)](#sftp-secure-file-transfer-protocol)
   + [Further Readings and References about OpenSSH with Linux and Termux](#further-readings-and-references-about-openssh-with-linux-and-termux)
@@ -2865,6 +2867,7 @@ pkill sshd
 ```
 sudo systemctl start ssh
 sudo systemctl enable ssh
+```
 
 #### Systemd Stop and Disable
 
@@ -2951,24 +2954,6 @@ PermitRootLogin yes
 
 if you want to permit login as root. In Termux, this is common, but in normal Linux, this is discouraged.
 
-#### Systemd Start and Enable
-
-```
-sudo systemctl start ssh
-sudo systemctl enable ssh
-
-#### Systemd Stop and Disable
-```
-sudo systemctl stop ssh
-sudo systemctl disable ssh
-```
-
-#### Ubuntu Firewall
-
-```
-sudo ufw enable
-sudo ufw allow ssh
-```
 #### PasswordAuthentication
 
 Change the `PasswordAuthentication` line to
