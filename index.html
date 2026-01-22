@@ -2443,72 +2443,98 @@ UseBridges 0
 <h4 id="install-in-termux">Install in Termux</h4>
 <pre><code>pkg install openssh
 </code></pre>
-<h4 id="edit-configuration">Edit Configuration</h4>
-<pre><code>sudo nano /etc/ssh/sshd_config
-</code></pre>
-<h5 id="listening-port">Listening Port</h5>
-<p>Edit</p>
-<pre><code>#Port 22
-</code></pre>
-<p>line to change the listening port.</p>
-<p>Note that you may need to set it to higher port in VMs.</p>
-<h5 id="ports-listening-to">Ports Listening to</h5>
-<p>Edit</p>
-<pre><code>#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-</code></pre>
-<p>lines to change ports listening to.</p>
-<h5 id="permitrootlogin">PermitRootLogin</h5>
-<p>Change the <code>PermitRootLogin</code> line to</p>
-<pre><code>PermitRootLogin yes
-</code></pre>
-<p>if you want to permit login as root. In Termux, this is common, but in normal Linux, this is not discouraged.</p>
-<h5 id="passwordauthentication">PasswordAuthentication</h5>
-<p>Change the <code>PasswordAuthentication</code> line to</p>
-<pre><code>PasswordAuthentication yes
-</code></pre>
-<p>to permit password authentication. Password can be set by running <code>passwd</code>.</p>
-<h4 id="usage-in-linux-with-systemctl">Usage in Linux with Systemctl</h4>
-<pre><code>sudo systemctl start ssh
-sudo systemctl enable ssh
-sudo systemctl restart ssh
-sudo systemctl status ssh
-sudo systemctl disable ssh
-</code></pre>
-<h4 id="usage-in-termux">Usage in Termux</h4>
-<h5 id="start">Start</h5>
+<h4 id="start-server-manually">Start Server Manually</h4>
 <pre><code>sshd
 </code></pre>
-<h5 id="stop">Stop</h5>
+<h4 id="stop-server-manually">Stop Server Manually</h4>
 <pre><code>pkill sshd
 </code></pre>
-<h4 id="deny">Deny</h4>
-<pre><code>nano /etc/hosts .deny
+<h4 id="systemd-start-and-enable">Systemd Start and Enable</h4>
+<pre><code>sudo systemctl start ssh
+sudo systemctl enable ssh
+
+#### Systemd Stop and Disable
+</code></pre>
+<p>sudo systemctl stop ssh
+sudo systemctl disable ssh</p>
+<pre><code>
+#### Ubuntu Firewall
+</code></pre>
+<p>sudo ufw enable
+sudo ufw allow ssh</p>
+<pre><code>
+### OpenSSH Client
+
+#### Install in Debian Derivatives
+</code></pre>
+<p>sudo apt install openssh-client</p>
+<pre><code>
+#### Install in Termux
+</code></pre>
+<p>pkg install openssh</p>
+<pre><code>
+#### Connect
+</code></pre>
+<p>ssh [user]@[ssh_server] -p [port] -L [local_port]:[remote_host]:[remote_port]</p>
+<pre><code>
+* `-p`: Port. Default is 22.
+* `-L`: Local port forwarding.
+
+#### Key
+</code></pre>
+<p>ssh-keygen -R [localhost]:2222</p>
+<pre><code>
+You need to delete the original key if the server is reset.
+
+If you’re using password authentication, you won’t need to generate key.
+
+### Edit Configuration
+</code></pre>
+<p>sudo nano /etc/ssh/sshd_config</p>
+<pre><code>
+#### Listening Port
+
+Edit
+</code></pre>
+<p>#Port 22</p>
+<pre><code>
+line to change the listening port.
+
+#### Ports Listening to
+
+Edit
+</code></pre>
+<p>#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::</p>
+<pre><code>
+lines to change ports listening to.
+
+#### PermitRootLogin
+
+Change the `PermitRootLogin` line to
+</code></pre>
+<p>PermitRootLogin yes</p>
+<pre><code>
+if you want to permit login as root. In Termux, this is common, but in normal Linux, this is discouraged.
+
+#### Systemd Start and Enable
+</code></pre>
+<p>sudo systemctl start ssh
+sudo systemctl enable ssh</p>
+<h4 id="systemd-stop-and-disable">Systemd Stop and Disable</h4>
+<pre><code>sudo systemctl stop ssh
+sudo systemctl disable ssh
 </code></pre>
 <h4 id="ubuntu-firewall">Ubuntu Firewall</h4>
 <pre><code>sudo ufw enable
 sudo ufw allow ssh
 </code></pre>
-<h3 id="openssh-client">OpenSSH Client</h3>
-<h4 id="install-in-debian-derivatives-1">Install in Debian Derivatives</h4>
-<pre><code>sudo apt install openssh-client
+<h4 id="passwordauthentication">PasswordAuthentication</h4>
+<p>Change the <code>PasswordAuthentication</code> line to</p>
+<pre><code>PasswordAuthentication yes
 </code></pre>
-<h4 id="install-in-termux-1">Install in Termux</h4>
-<pre><code>pkg install openssh
-</code></pre>
-<h4 id="connect">Connect</h4>
-<pre><code>ssh [user]@[ssh_server] -p [port] -L [local_port]:[remote_host]:[remote_port]
-</code></pre>
-<ul>
-<li><code>-p</code>: Port. Default is 22.</li>
-<li><code>-L</code>: Local port forwarding.</li>
-</ul>
-<h4 id="key">Key</h4>
-<pre><code>ssh-keygen -R [localhost]:2222
-</code></pre>
-<p>You need to delete the original key if the server is reset.</p>
-<p>If you’re using password authentication, you won’t need to generate key.</p>
+<p>to permit password authentication. Password can be set by running <code>passwd</code>.</p>
 <h3 id="scp-secure-copy-protocol">SCP (Secure Copy Protocol)</h3>
 <p>SCP is a simple command-line tool for securely copying files between local and remote systems based on the <code>rcp</code> (remote copy) command but uses SSH for security. It is faster but less flexible than SFTP.</p>
 <p>You can use <code>scp</code> on the client side to transfer files between the server side and the client side.</p>
