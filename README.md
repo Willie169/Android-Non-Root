@@ -2845,84 +2845,29 @@ sudo apt install openssh-server
 pkg install openssh
 ```
 
-#### Edit Configuration
-
-```
-sudo nano /etc/ssh/sshd_config
-```
-
-##### Listening Port
-
-Edit
-
-```
-#Port 22
-```
-
-line to change the listening port.
-
-Note that you may need to set it to higher port in VMs.
-
-##### Ports Listening to
-
-Edit
-
-```
-#AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-```
-
-lines to change ports listening to.
-
-##### PermitRootLogin
-
-Change the `PermitRootLogin` line to
-
-```
-PermitRootLogin yes
-```
-
-if you want to permit login as root. In Termux, this is common, but in normal Linux, this is not discouraged.
-
-##### PasswordAuthentication
-
-Change the `PasswordAuthentication` line to
-
-```
-PasswordAuthentication yes
-```
-
-to permit password authentication. Password can be set by running `passwd`.
-
-#### Usage in Linux with Systemctl
-
-```
-sudo systemctl start ssh
-sudo systemctl enable ssh
-sudo systemctl restart ssh
-sudo systemctl status ssh
-sudo systemctl disable ssh
-```
-
-#### Usage in Termux
-
-##### Start
+#### Start Server Manually
 
 ```
 sshd
 ```
 
-##### Stop
+#### Stop Server Manually
 
 ```
 pkill sshd
 ```
 
-#### Deny
+#### Systemd Start and Enable
 
 ```
-nano /etc/hosts .deny
+sudo systemctl start ssh
+sudo systemctl enable ssh
+
+#### Systemd Stop and Disable
+
+```
+sudo systemctl stop ssh
+sudo systemctl disable ssh
 ```
 
 #### Ubuntu Firewall
@@ -2964,6 +2909,72 @@ ssh-keygen -R [localhost]:2222
 You need to delete the original key if the server is reset.
 
 If you’re using password authentication, you won’t need to generate key.
+
+### Edit Configuration
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+#### Listening Port
+
+Edit
+
+```
+#Port 22
+```
+
+line to change the listening port.
+
+#### Ports Listening to
+
+Edit
+
+```
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+```
+
+lines to change ports listening to.
+
+#### PermitRootLogin
+
+Change the `PermitRootLogin` line to
+
+```
+PermitRootLogin yes
+```
+
+if you want to permit login as root. In Termux, this is common, but in normal Linux, this is discouraged.
+
+#### Systemd Start and Enable
+
+```
+sudo systemctl start ssh
+sudo systemctl enable ssh
+
+#### Systemd Stop and Disable
+```
+sudo systemctl stop ssh
+sudo systemctl disable ssh
+```
+
+#### Ubuntu Firewall
+
+```
+sudo ufw enable
+sudo ufw allow ssh
+```
+#### PasswordAuthentication
+
+Change the `PasswordAuthentication` line to
+
+```
+PasswordAuthentication yes
+```
+
+to permit password authentication. Password can be set by running `passwd`.
 
 ### SCP (Secure Copy Protocol)
 
