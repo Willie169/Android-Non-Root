@@ -20,7 +20,7 @@ jobs:
         run: npm ci
       - name: mdInplaceTocH2H3
         run: node mdInplaceTocH2H3.js
-      - name: Commit changes
+      - name: Commit TOC
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -33,7 +33,7 @@ jobs:
           fi
       - name: generateGhPage
         run: node generateGhPage.js
-      - name: Checkout gh-pages
+      - name: Commit GitHub page
         run: |
           git fetch origin gh-pages
           git checkout gh-pages
