@@ -26,7 +26,7 @@
 <li><strong>The app version</strong>: <a href="https://github.com/Willie169/Android-Non-Root-App">https://github.com/Willie169/Android-Non-Root-App</a>.</li>
 <li><strong>App download link</strong>: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk</a>.</li>
 </ul>
-<p>In this guide, we’ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, <a href="https://www.qemu.org">QEMU</a>, <a href="https://github.com/tailscale/tailscale">Tailscale</a>, <a href="https://www.openssh.com">OpenSSH</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
+<p>In this guide, we’ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/thedjchi/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, <a href="https://www.qemu.org">QEMU</a>, <a href="https://github.com/tailscale/tailscale">Tailscale</a>, <a href="https://www.openssh.com">OpenSSH</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
 <p>Please read the <a href="#global-note">Global Note</a> before you start or you may encounter errors.</p>
 <p>My main development of Termux Shell scripts has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while guides for Termux, some of my scripts in <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, and other related stuff remain here.</p>
 <hr>
@@ -37,6 +37,33 @@
 <li><a href="#author-information">Author Information</a></li>
 <li><a href="#global-note">Global Note</a></li>
 <li><a href="#blogroll">Blogroll</a></li>
+<li><a href="#software-introduction">Software Introduction</a><ul>
+<li><a href="#android-debug-bridge-adb">Android Debug Bridge (ADB)</a></li>
+<li><a href="#shizuku">Shizuku</a></li>
+<li><a href="#termux">Termux</a></li>
+</ul>
+</li>
+<li><a href="#enable-adb-debugging">Enable ADB Debugging</a></li>
+<li><a href="#install-adb-server">Install ADB Server</a><ul>
+<li><a href="#sdkmanager">sdkmanager</a></li>
+<li><a href="#binary">Binary</a></li>
+<li><a href="#termux-1">Termux</a></li>
+</ul>
+</li>
+<li><a href="#connect-to-adb">Connect to ADB</a><ul>
+<li><a href="#another-device-over-usb">Another Device over USB</a></li>
+<li><a href="#shizuku-with-rish">Shizuku with rish</a></li>
+<li><a href="#adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a></li>
+<li><a href="#connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</a></li>
+<li><a href="#use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</a></li>
+<li><a href="#install-systemui-tuner">Install SystemUI Tuner</a></li>
+<li><a href="#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</a></li>
+<li><a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a></li>
+<li><a href="#other-systemui-tuner-usage">Other SystemUI Tuner Usage</a></li>
+<li><a href="#ashell">aShell</a></li>
+<li><a href="#further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</a></li>
+</ul>
+</li>
 <li><a href="#f-droid-free-software-android-apps-repository-and-app-store">F-Droid: Free Software Android Apps Repository and App Store</a><ul>
 <li><a href="#install-f-droid">Install F-Droid</a></li>
 <li><a href="#introduction-of-f-droid">Introduction of F-Droid</a></li>
@@ -134,19 +161,6 @@
 <li><a href="#resize-partition-in-debian-amd64">Resize Partition in Debian AMD64</a></li>
 <li><a href="#resize-partition-in-debian-arm64">Resize Partition in Debian ARM64</a></li>
 <li><a href="#further-readings-and-references-about-qemu">Further Readings and References about QEMU</a></li>
-</ul>
-</li>
-<li><a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a><ul>
-<li><a href="#install-shizuku">Install Shizuku</a></li>
-<li><a href="#introduction-of-adb-and-shizuku">Introduction of ADB and Shizuku</a></li>
-<li><a href="#connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</a></li>
-<li><a href="#use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</a></li>
-<li><a href="#install-systemui-tuner">Install SystemUI Tuner</a></li>
-<li><a href="#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</a></li>
-<li><a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a></li>
-<li><a href="#other-systemui-tuner-usage">Other SystemUI Tuner Usage</a></li>
-<li><a href="#ashell">aShell</a></li>
-<li><a href="#further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</a></li>
 </ul>
 </li>
 <li><a href="#tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</a><ul>
@@ -373,6 +387,149 @@
 <h2 id="blogroll">Blogroll</h2>
 <ul>
 <li><a href="https://ivonblog.com">Ivon’s blog / Ivon的部落格 / ivonblog.com</a>: <q>This is a place for sharing the information of Free and Open source software, technologies, and researches of liberal arts. Here you will see many practical tips on using free software, and various possibilities for applying it in life. 這裡是分享GNU/Linux情報、自由開源軟體、電腦手機資訊、人文思辨的所在。在這裡你會看到許多自由軟體的實際操作心得，以及將其運用在生活中的各種可能性。</q></li>
+</ul>
+<hr>
+<h1 id="adb-and-shizuku-guide">adb-and-shizuku-guide</h1>
+<h2 id="software-introduction">Software Introduction</h2>
+<h3 id="android-debug-bridge-adb">Android Debug Bridge (ADB)</h3>
+<p>The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</p>
+<h3 id="shizuku">Shizuku</h3>
+<p>Shizuku is an open-source app for serving multiple apps that require root/adb. If your &quot;root required app&quot; only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell.</p>
+<p>The <a href="https://github.com/thedjchi/Shizuku">thedjchi/Shizuku</a> fork is recommended since it adds many good features on top of the original <a href="https://github.com/RikkaApps/Shizuku">RikkaApps/Shizuku</a>.</p>
+<p>The original repo has an <a href="https://shizuku.rikka.app">official site</a> that offers some instructions.</p>
+<h3 id="termux">Termux</h3>
+<p>Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package collection. Some of the commands available in Linux are available in Termux too, such as <code>cp</code>, <code>mv</code>, <code>ls</code>, <code>mkdir</code>, <code>apt</code>, and <code>apt-get</code>.</p>
+<p>Termux (<code>com.termux</code>) can be installed from <a href="https://f-droid.org/packages/com.termux">F-Droid</a>.</p>
+<p><strong>WARNING</strong>: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <a href="https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html">https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html</a>. It is recommended that you shift to F-Droid or GitHub releases.</p>
+<p>Refer to <a href="https://github.com/Willie169/Android-Non-Root"><strong>Android-Non-Root</strong></a> for more information.</p>
+<h2 id="enable-adb-debugging">Enable ADB Debugging</h2>
+<h2 id="install-adb-server">Install ADB Server</h2>
+<p>This section list methods to install ADB server. Note that ADB server is not required for <a href="#shizuku-with-rish">Shizuku with rish</a>.</p>
+<h3 id="sdkmanager">sdkmanager</h3>
+<p>Refer to <a href="https://developer.android.com/tools/sdkmanager">https://developer.android.com/tools/sdkmanager</a> to install sdkmanager, put where it locates in <code>$PATH</code>, and execute</p>
+<pre><code class="language-bash">sdkmanager &quot;platform-tools&quot;
+</code></pre>
+<p>Alternatively, for Linux x86_64, the following script may work for you.</p>
+<pre><code class="language-bash">cd ~ || exit
+wget --tries=100 --retry-connrefused --waitretry=5 -O studio.html https://developer.android.com/studio
+export CMDLINETOOLS=&quot;$(awk &#39;/&lt;table class=&quot;download&quot;&gt;/ { count++ }
+count &gt;= 2 {
+  if (match($0, /commandlinetools-linux-.*zip/)) {
+    print substr($0, RSTART, RLENGTH)
+    exit
+  }
+}&#39; studio.html)&quot;
+rm studio.html*
+wget --tries=100 --retry-connrefused --waitretry=5 &quot;https://dl.google.com/android/repository/${CMDLINETOOLS}&quot;
+unzip &quot;$CMDLINETOOLS&quot;
+mkdir -p ~/Android/Sdk/cmdline-tools/latest
+mv cmdline-tools/* ~/Android/Sdk/cmdline-tools/latest
+rm -r cmdline-tools
+rm &quot;$CMDLINETOOLS&quot;*
+cd ~/Android/Sdk/cmdline-tools/latest/bin || exit
+echo y | ./sdkmanager &quot;platform-tools&quot;
+</code></pre>
+<h3 id="binary">Binary</h3>
+<ol>
+<li>Download latest release asset matching your machine from <a href="https://github.com/Genymobile/scrcpy/releases">scrcpy</a>.</li>
+<li>Extract it. <code>.zip</code> can be extracted with <code>unzip</code>. <code>.tar.gz</code> can be extracted with <code>tar -xzf</code>.</li>
+<li>Move <code>adb</code> in the extracted directory to some where in your <code>$PATH</code>, e.g., <code>~/.local/bin</code>.</li>
+</ol>
+<p>Alternatively, for Linux x86_64, the following script may work for you,</p>
+<pre><code class="language-bash">. &lt;(curl -fsSL &#39;https://raw.githubusercontent.com/Willie169/bashrc/refs/heads/main/bashrc.d/30-shared-functions.sh&#39;)
+gh_release -w --wget_option &#39;--tries=100 --retry-connrefused --waitretry=5&#39; Genymobile/scrcpy &#39;scrcpy-linux-x86_64-*.tar.gz&#39;
+tar -xzf scrcpy-linux-x86_64-*.tar.gz
+mv scrcpy-linux-x86_64-*/adb ~/.local/bin/
+mv scrcpy-linux-x86_64-*/scrcpy ~/.local/bin/
+rm -r scrcpy-linux-x86_64-*
+</code></pre>
+<h3 id="termux-1">Termux</h3>
+<pre><code class="language-bash">pkg install android-tools -y
+</code></pre>
+<h2 id="connect-to-adb">Connect to ADB</h2>
+<p>This section list methods to connect to ADB of an Android device (called client).</p>
+<h3 id="another-device-over-usb">Another Device over USB</h3>
+<p>Prerequisites:</p>
+<ul>
+<li>Another device with ADB server installed (called host).</li>
+<li>USB cable connecting host and client.</li>
+</ul>
+<h3 id="shizuku-with-rish">Shizuku with rish</h3>
+<h3 id="adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h3>
+<h3 id="connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</h3>
+<ol>
+<li>Grant Shizuku notification permission.</li>
+<li>Tap <code>Pairing</code> in <code>Start via Wireless debugging</code> block in Shizuku.</li>
+<li>Connect to a WiFi you trust. You don’t need to log in to the WiFi though. You just need to let your phone think that you’re connected to WiFi.</li>
+<li>In phone’s <code>Settings</code> or something similar, go to <code>About Phone</code> &gt; <code>Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
+<li>In the <code>Developer Options</code>, enable <code>Wireless ADB</code> and tap <code>Pair with a pairing code</code>.</li>
+<li>Input the pairing code in the notification of Shizuku.</li>
+<li>In the <code>Developer Options</code>, togle on <code>Disable adb authorization timeout</code> if you don’t want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow <a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a> to reconnect if you’re using SystemUI Tuner, or follow above guide again to reconnect.</li>
+<li>Back to Shizuku and tap <code>Start</code> in <code>Start via Wireless debugging</code> block. You all see Shizuku is running on the top of the app interface of Shizuku.</li>
+</ol>
+<h3 id="use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</h3>
+<ol>
+<li>Tap <code>Use Shizuku in terminal applications</code> in Shizuku and export files <code>rish</code> and <code>rish_shizuku.dex</code> to somewhere on your phone.</li>
+<li>Use a text editor to replace <code>PKG</code> in <code>rish</code> with the package name of your terminal application. Take Termux for example, Termux’s package name is <code>com.termux</code>. Run <code>termux-setup-storage</code> and tap <code>Allow to grant Termux storage permission</code>.</li>
+<li>Open your terminal application and move the exported files to somewhere it can access (usually with <code>mv old_location new_location</code>). The root directory of the main storage of Android is usually <code>/storage/emulated/0</code>. One recommended terminal application for Android is Termux. My guide for it is available in <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>.</li>
+<li>Go to the directory you moved the exported files to with <code>cd directory</code> (assumed <code>~/shizuku</code> below) and run <code>sh rish</code>.</li>
+<li><code>~ $</code> should become <code>&lt;device&gt;:/ $</code> (such as <code>e2q:/ $</code>) if <code>sh rish</code> succeeded. Write ADB commands here. Note that there is no need to use <code>adb</code> or <code>adb shell</code> prefixes before commands and that <code>devices</code> command gets <code>/system/bin/sh: devices: inaccessible or not found</code>.</li>
+<li>You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there’s a block that reads <code>Shizuku is running</code> on the top.</li>
+<li>Optionally, create a <code>.sh</code> file (<code>nano ~/shizuku.sh</code> for example), paste <code>cd shizuku &amp;&amp; sh rish</code>, save it, and make it executable with <code>chmod +x shizuku.sh</code> so that you can run this shortcut to start Shizuku on your terminal afterward.</li>
+</ol>
+<h3 id="install-systemui-tuner">Install SystemUI Tuner</h3>
+<p>SystemUI Tuner can be installed from <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">Google Play</a> (pub: Zachary Wander).</p>
+<h3 id="to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</h3>
+<p>Some apps (such as many financial apps) may require <code>Developer Options</code> to be off when using them. This section is the guide about how to turn <code>Developer Options</code> off while still using ADB Shell with Shizuku.</p>
+<ol>
+<li>Run <code>adb shell</code> command <code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS</code> (you can do it with Shizuku and a terminal such as Termux or aShell).</li>
+<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
+<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
+<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable ADB</code> and <code>Enable Wireless ADB</code>.</li>
+<li>In SystemUI Tuner, go to <code>Persistent Options</code> and select <code>Enable ADB</code>.</li>
+<li>Press <code>Start</code> on Shizuku.</li>
+<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in <code>SystemUI Tuner</code>.</li>
+</ol>
+<h3 id="reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</h3>
+<ol>
+<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
+<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
+<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable Wireless ADB</code>.</li>
+<li>Press <code>Start</code> on Shizuku.</li>
+<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in SystemUI Tuner.</li>
+</ol>
+<h3 id="other-systemui-tuner-usage">Other SystemUI Tuner Usage</h3>
+<p>SystemUI Tuner exposes some hidden options in Android. You can set them, add them to <code>Persistent Options</code> to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner may not work around.</p>
+<p>You may need to run the following <code>adb shell</code> command (you can do it with Shizuku and a terminal such as Termux or aShell) in order to change the settings:</p>
+<pre><code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS
+pm grant com.zacharee1.systemuituner android.permission.PACKAGE_USAGE_STATS
+pm grant com.zacharee1.systemuituner android.permission.DUMP
+</code></pre>
+<h3 id="ashell">aShell</h3>
+<h4 id="install-ashell">Install aShell</h4>
+<p>aShell can be installed from <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">F-Droid</a>.</p>
+<h4 id="introduction-of-ashell">Introduction of aShell</h4>
+<ul>
+<li>An elegantly designed user interface.</li>
+<li>Included a bundle of examples about common adb commands.</li>
+<li>Handles continuously running commands, such as logcat, top, etc.</li>
+<li>Search for specific text from the last command output.</li>
+<li>Option to save last command output as a text file.</li>
+<li>Bookmark frequently using commands.</li>
+<li>Dark/light theme.</li>
+<li>Auto complete.</li>
+</ul>
+<h4 id="usage-of-ashell">Usage of aShell</h4>
+<ol>
+<li>Give aShell the permission <code>moe.shizuku.manager.permission.API_V23</code>.</li>
+<li>Connect to ADB.</li>
+<li>Use aShell.</li>
+</ol>
+<h3 id="further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</h3>
+<ul>
+<li><a href="https://developer.android.com/tools/adb">https://developer.android.com/tools/adb</a>.</li>
+<li><a href="https://android.googlesource.com/platform/packages/modules/adb">https://android.googlesource.com/platform/packages/modules/adb</a>.</li>
+<li><a href="https://shizuku.rikka.app">https://shizuku.rikka.app</a>.</li>
 </ul>
 <hr>
 <h2 id="f-droid-free-software-android-apps-repository-and-app-store">F-Droid: Free Software Android Apps Repository and App Store</h2>
@@ -1973,90 +2130,6 @@ quit
 <li><a href="https://www.qemu.org/docs/master/index.html">https://www.qemu.org/docs/master/index.html</a>.</li>
 <li><a href="https://www.debian.org/distrib/index.en.html">https://www.debian.org/distrib/index.en.html</a>.</li>
 <li><a href="https://www.reddit.com/r/debian/s/s871vXlGRI">https://www.reddit.com/r/debian/s/s871vXlGRI</a>.</li>
-</ul>
-<hr>
-<h2 id="shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h2>
-<h3 id="install-shizuku">Install Shizuku</h3>
-<p>Shizuku (<code>moe.shizuku.privileged.api</code>) can be installed from <a href="https://apt.izzysoft.de/fdroid/index/apk/moe.shizuku.privileged.api">IzzyOnDroid F-Droid repository</a> or <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">Google Play</a>.</p>
-<h3 id="introduction-of-adb-and-shizuku">Introduction of ADB and Shizuku</h3>
-<ul>
-<li><strong>Android Debug Bridge (ADB)</strong>: The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</li>
-<li><strong>Shizuku</strong>: Shizuku is an open-source app for serving multiple apps that require root/adb. If your &quot;root required app&quot; only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell. Go to <a href="https://shizuku.rikka.app">their official website</a> for more information.</li>
-</ul>
-<h3 id="connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</h3>
-<ol>
-<li>Grant Shizuku notification permission.</li>
-<li>Tap <code>Pairing</code> in <code>Start via Wireless debugging</code> block in Shizuku.</li>
-<li>Connect to a WiFi you trust. You don’t need to log in to the WiFi though. You just need to let your phone think that you’re connected to WiFi.</li>
-<li>In phone’s <code>Settings</code> or something similar, go to <code>About Phone</code> &gt; <code>Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
-<li>In the <code>Developer Options</code>, enable <code>Wireless ADB</code> and tap <code>Pair with a pairing code</code>.</li>
-<li>Input the pairing code in the notification of Shizuku.</li>
-<li>In the <code>Developer Options</code>, togle on <code>Disable adb authorization timeout</code> if you don’t want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow <a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a> to reconnect if you’re using SystemUI Tuner, or follow above guide again to reconnect.</li>
-<li>Back to Shizuku and tap <code>Start</code> in <code>Start via Wireless debugging</code> block. You all see Shizuku is running on the top of the app interface of Shizuku.</li>
-</ol>
-<h3 id="use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</h3>
-<ol>
-<li>Tap <code>Use Shizuku in terminal applications</code> in Shizuku and export files <code>rish</code> and <code>rish_shizuku.dex</code> to somewhere on your phone.</li>
-<li>Use a text editor to replace <code>PKG</code> in <code>rish</code> with the package name of your terminal application. Take Termux for example, Termux’s package name is <code>com.termux</code>. Run <code>termux-setup-storage</code> and tap <code>Allow to grant Termux storage permission</code>.</li>
-<li>Open your terminal application and move the exported files to somewhere it can access (usually with <code>mv old_location new_location</code>). The root directory of the main storage of Android is usually <code>/storage/emulated/0</code>. One recommended terminal application for Android is Termux. My guide for it is available in <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>.</li>
-<li>Go to the directory you moved the exported files to with <code>cd directory</code> (assumed <code>~/shizuku</code> below) and run <code>sh rish</code>.</li>
-<li><code>~ $</code> should become <code>&lt;device&gt;:/ $</code> (such as <code>e2q:/ $</code>) if <code>sh rish</code> succeeded. Write ADB commands here. Note that there is no need to use <code>adb</code> or <code>adb shell</code> prefixes before commands and that <code>devices</code> command gets <code>/system/bin/sh: devices: inaccessible or not found</code>.</li>
-<li>You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there’s a block that reads <code>Shizuku is running</code> on the top.</li>
-<li>Optionally, create a <code>.sh</code> file (<code>nano ~/shizuku.sh</code> for example), paste <code>cd shizuku &amp;&amp; sh rish</code>, save it, and make it executable with <code>chmod +x shizuku.sh</code> so that you can run this shortcut to start Shizuku on your terminal afterward.</li>
-</ol>
-<h3 id="install-systemui-tuner">Install SystemUI Tuner</h3>
-<p>SystemUI Tuner can be installed from <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">Google Play</a> (pub: Zachary Wander).</p>
-<h3 id="to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</h3>
-<p>Some apps (such as many financial apps) may require <code>Developer Options</code> to be off when using them. This section is the guide about how to turn <code>Developer Options</code> off while still using ADB Shell with Shizuku.</p>
-<ol>
-<li>Run <code>adb shell</code> command <code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS</code> (you can do it with Shizuku and a terminal such as Termux or aShell).</li>
-<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
-<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
-<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable ADB</code> and <code>Enable Wireless ADB</code>.</li>
-<li>In SystemUI Tuner, go to <code>Persistent Options</code> and select <code>Enable ADB</code>.</li>
-<li>Press <code>Start</code> on Shizuku.</li>
-<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in <code>SystemUI Tuner</code>.</li>
-</ol>
-<h3 id="reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</h3>
-<ol>
-<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
-<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
-<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable Wireless ADB</code>.</li>
-<li>Press <code>Start</code> on Shizuku.</li>
-<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in SystemUI Tuner.</li>
-</ol>
-<h3 id="other-systemui-tuner-usage">Other SystemUI Tuner Usage</h3>
-<p>SystemUI Tuner exposes some hidden options in Android. You can set them, add them to <code>Persistent Options</code> to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner may not work around.</p>
-<p>You may need to run the following <code>adb shell</code> command (you can do it with Shizuku and a terminal such as Termux or aShell) in order to change the settings:</p>
-<pre><code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS
-pm grant com.zacharee1.systemuituner android.permission.PACKAGE_USAGE_STATS
-pm grant com.zacharee1.systemuituner android.permission.DUMP
-</code></pre>
-<h3 id="ashell">aShell</h3>
-<h4 id="install-ashell">Install aShell</h4>
-<p>aShell can be installed from <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">F-Droid</a>.</p>
-<h4 id="introduction-of-ashell">Introduction of aShell</h4>
-<ul>
-<li>An elegantly designed user interface.</li>
-<li>Included a bundle of examples about common adb commands.</li>
-<li>Handles continuously running commands, such as logcat, top, etc.</li>
-<li>Search for specific text from the last command output.</li>
-<li>Option to save last command output as a text file.</li>
-<li>Bookmark frequently using commands.</li>
-<li>Dark/light theme.</li>
-<li>Auto complete.</li>
-</ul>
-<h4 id="usage-of-ashell">Usage of aShell</h4>
-<ol>
-<li>Give aShell the permission <code>moe.shizuku.manager.permission.API_V23</code>.</li>
-<li>Connect to ADB.</li>
-<li>Use aShell.</li>
-</ol>
-<h3 id="further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</h3>
-<ul>
-<li><a href="https://developer.android.com/tools/adb">https://developer.android.com/tools/adb</a>.</li>
-<li><a href="https://android.googlesource.com/platform/packages/modules/adb">https://android.googlesource.com/platform/packages/modules/adb</a>.</li>
-<li><a href="https://shizuku.rikka.app">https://shizuku.rikka.app</a>.</li>
 </ul>
 <hr>
 <h2 id="tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</h2>
