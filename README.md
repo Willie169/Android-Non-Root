@@ -251,6 +251,9 @@ My main development of Termux Shell scripts has been moved to my another reposit
   * [Xtra by AndreyAsadchy or Andrey Asadchy and crackededed](#xtra-by-andreyasadchy-or-andrey-asadchy-and-crackededed)
   * [Others](#others)
 * [Contribution](#contribution)
+* [License](#license)
+  * [GNU Free Documentation License, Version 1.3 (GFDL 1.3)](#gnu-free-documentation-license-version-13-gfdl-13)
+  * [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](#creative-commons-attribution-sharealike-40-international-license-cc-by-sa-40)
 <!-- TOC END -->
 
 ---
