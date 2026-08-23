@@ -38,8 +38,8 @@ try {
   const firstH1 = htmlContent.search(/<h1\b[^>]*>/i);
   const content = htmlContent.slice(firstH1);
   const result = prepend + content + append;
-  fs.writeFileSync("index.html", result);
-  console.log("HTML file has been saved as index.html");
+  fs.writeFileSync("output.html", result);
+  console.log("HTML file has been saved as output.html");
 } catch (err) {
   console.error("An error occurred:", err);
 }

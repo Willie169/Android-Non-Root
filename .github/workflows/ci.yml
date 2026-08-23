@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
           node-version: 24
@@ -33,15 +35,13 @@ jobs:
         run: node generateGhPage.js
       - name: Checkout gh-pages
         run: |
-          mkdir tmp
-          mv index.html tmp
+          git fetch origin gh-pages
           git checkout gh-pages
-          mv tmp/index.html .
-          rm -r tmp
-          git add index.js
+          mv output.html index.html
+          git add index.html
           if git diff --cached --quiet; then
-            echo "No HTML changes"
+            echo "No GitHub page changes"
           else
-            git commit -m "Update GitHub Page"
+            git commit -m "Update GitHub page"
             git push
           fi
