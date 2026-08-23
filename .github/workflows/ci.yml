@@ -1,0 +1,33 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: ./npm.sh
+      - name: mdInplaceTocH2H3
+        run: node mdInplaceTocH2H3.js
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "No TOC changes"
+          else
+            git commit -m "Update README TOC"
+            git push
+          fi
+      - name: generateGhPage
+        run: node generateGhPage.js
