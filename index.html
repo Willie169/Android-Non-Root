@@ -26,7 +26,7 @@
 <li><strong>The app version</strong>: <a href="https://github.com/Willie169/Android-Non-Root-App">https://github.com/Willie169/Android-Non-Root-App</a>.</li>
 <li><strong>App download link</strong>: <a href="https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk">https://github.com/Willie169/Android-Non-Root-App/releases/download/v1.0/com.willie.androidnonroot%5F10.apk</a>.</li>
 </ul>
-<p>In this guide, we’ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/thedjchi/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, <a href="https://www.qemu.org">QEMU</a>, <a href="https://github.com/tailscale/tailscale">Tailscale</a>, <a href="https://www.openssh.com">OpenSSH</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
+<p>In this guide, we’ll explore a range of powerful, open-source tools such as <a href="https://github.com/termux/termux-app">Termux</a>, <a href="https://f-droid.org">F-Droid</a>, <a href="https://github.com/RikkaApps/Shizuku">Shizuku</a>, <a href="https://www.torproject.org">Tor</a>, <a href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a>, <a href="https://github.com/Gedsh/InviZible">InviZible Pro</a>, <a href="https://www.qemu.org">QEMU</a>, <a href="https://github.com/tailscale/tailscale">Tailscale</a>, <a href="https://www.openssh.com">OpenSSH</a>, and <a href="https://github.com/InfinityLoop1308/PipePipe">PipePipe</a> to enhance your Android device’s functionality, security, privacy, and customization without the need for root access.</p>
 <p>Please read the <a href="#global-note">Global Note</a> before you start or you may encounter errors.</p>
 <p>My main development of Termux Shell scripts has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while guides for Termux, some of my scripts in <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, and other related stuff remain here.</p>
 <hr>
@@ -36,36 +36,7 @@
 <li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#author-information">Author Information</a></li>
 <li><a href="#global-note">Global Note</a></li>
-<li><a href="#blogroll">Blogroll</a><ul>
-<li><a href="#adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a></li>
-</ul>
-</li>
-<li><a href="#software-introduction">Software Introduction</a><ul>
-<li><a href="#android-debug-bridge-adb">Android Debug Bridge (ADB)</a></li>
-<li><a href="#shizuku">Shizuku</a></li>
-<li><a href="#termux">Termux</a></li>
-</ul>
-</li>
-<li><a href="#enable-adb-debugging">Enable ADB Debugging</a></li>
-<li><a href="#install-adb-server">Install ADB Server</a><ul>
-<li><a href="#sdkmanager">sdkmanager</a></li>
-<li><a href="#binary">Binary</a></li>
-<li><a href="#termux-1">Termux</a></li>
-</ul>
-</li>
-<li><a href="#connect-to-adb">Connect to ADB</a><ul>
-<li><a href="#another-device-over-usb">Another Device over USB</a></li>
-<li><a href="#shizuku-with-rish">Shizuku with rish</a></li>
-<li><a href="#connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</a></li>
-<li><a href="#use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</a></li>
-<li><a href="#install-systemui-tuner">Install SystemUI Tuner</a></li>
-<li><a href="#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</a></li>
-<li><a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a></li>
-<li><a href="#other-systemui-tuner-usage">Other SystemUI Tuner Usage</a></li>
-<li><a href="#ashell">aShell</a></li>
-<li><a href="#further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</a></li>
-</ul>
-</li>
+<li><a href="#blogroll">Blogroll</a></li>
 <li><a href="#f-droid-free-software-android-apps-repository-and-app-store">F-Droid: Free Software Android Apps Repository and App Store</a><ul>
 <li><a href="#install-f-droid">Install F-Droid</a></li>
 <li><a href="#introduction-of-f-droid">Introduction of F-Droid</a></li>
@@ -104,7 +75,7 @@
 <li><a href="#termuxapi">Termux:API</a></li>
 </ul>
 </li>
-<li><a href="#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE</a><ul>
+<li><a href="#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-vnc-or-x-server-and-graphical-environment">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment</a><ul>
 <li><a href="#introduction-of-vnc-virtual-network-computing">Introduction of VNC (Virtual Network Computing)</a></li>
 <li><a href="#introduction-of-x-window-system-x11-or-x">Introduction of X Window System (X11, or X)</a></li>
 <li><a href="#termux-x11-repository">Termux X11 Repository</a></li>
@@ -118,19 +89,37 @@
 <li><a href="#further-readings-and-references-about-termux-vnc-or-x-server-and-graphical-environment">Further Readings and References about Termux VNC or X Server and Graphical Environment</a></li>
 </ul>
 </li>
-<li><a href="#avnc">AVNC</a><ul>
+<li><a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a><ul>
 <li><a href="#install-avnc">Install AVNC</a></li>
 <li><a href="#connect-a-vnc-server">Connect a VNC Server</a></li>
 <li><a href="#introduction-of-avnc">Introduction of AVNC</a></li>
 </ul>
 </li>
-<li><a href="#tailscale">Tailscale</a><ul>
+<li><a href="#tailscale-peer-to-peer-mesh-vpn">Tailscale: Peer-to-Peer Mesh VPN</a><ul>
 <li><a href="#introduction-of-tailscale">Introduction of Tailscale</a></li>
 <li><a href="#tailscale-in-linux">Tailscale in Linux</a></li>
 <li><a href="#tailscale-in-android">Tailscale in Android</a></li>
 </ul>
 </li>
-<li><a href="#qemu-system-emulation-with-termux">QEMU System Emulation with Termux</a><ul>
+<li><a href="#proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</a><ul>
+<li><a href="#introduction-of-chroot-proot-proot-distro">Introduction of Chroot, PRoot, PRoot-Distro</a></li>
+<li><a href="#proot-distro-usage">PRoot-Distro Usage</a></li>
+<li><a href="#supported-distributions">Supported Distributions</a></li>
+<li><a href="#hint-to-install-linux-os-with-proot-distro">Hint to Install Linux OS with PRoot-Distro</a></li>
+</ul>
+</li>
+<li><a href="#andronix-with-termux-install-linux-distributions-in-termux">Andronix with Termux: Install Linux Distributions in Termux</a><ul>
+<li><a href="#install-andronix-app-optional">Install Andronix App (Optional)</a></li>
+<li><a href="#install-an-os-following-andronix-app-instructions">Install an OS Following Andronix App Instructions</a></li>
+<li><a href="#uninstall-an-not-modded-os-following-andronix-app-instructions">Uninstall an Not Modded OS Following Andronix App Instructions</a></li>
+<li><a href="#pulseaudio-server-sound-output">PulseAudio Server Sound Output</a></li>
+<li><a href="#example-debian-with-xfce-desktop-environment">Example: Debian with XFCE Desktop Environment</a></li>
+<li><a href="#example-debian-with-cli-only">Example: Debian with CLI Only</a></li>
+<li><a href="#example-uninstall-debian-os-not-modded">Example: Uninstall Debian OS (Not Modded)</a></li>
+<li><a href="#further-readings-and-references-about-chroot-proot-and-andronix">Further Readings and References about Chroot, Proot, and Andronix</a></li>
+</ul>
+</li>
+<li><a href="#qemu-system-emulation-with-termux-full-system-emulation">QEMU System Emulation with Termux: Full System Emulation</a><ul>
 <li><a href="#install-qemu-system-emulation-for-x86-64">Install QEMU System Emulation for x86-64</a></li>
 <li><a href="#install-qemu-system-emulation-for-aarch64">Install QEMU System Emulation for AArch64</a></li>
 <li><a href="#iso-and-qcow2-image-methods">ISO and QCOW2 Image Methods</a></li>
@@ -147,6 +136,19 @@
 <li><a href="#further-readings-and-references-about-qemu">Further Readings and References about QEMU</a></li>
 </ul>
 </li>
+<li><a href="#shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a><ul>
+<li><a href="#install-shizuku">Install Shizuku</a></li>
+<li><a href="#introduction-of-adb-and-shizuku">Introduction of ADB and Shizuku</a></li>
+<li><a href="#connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</a></li>
+<li><a href="#use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</a></li>
+<li><a href="#install-systemui-tuner">Install SystemUI Tuner</a></li>
+<li><a href="#to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</a></li>
+<li><a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a></li>
+<li><a href="#other-systemui-tuner-usage">Other SystemUI Tuner Usage</a></li>
+<li><a href="#ashell">aShell</a></li>
+<li><a href="#further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</a></li>
+</ul>
+</li>
 <li><a href="#tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</a><ul>
 <li><a href="#introduction-of-tor">Introduction of Tor</a></li>
 <li><a href="#install-tor-browser">Install Tor Browser</a></li>
@@ -155,7 +157,7 @@
 <li><a href="#torsocks-in-termux">Torsocks in Termux</a></li>
 </ul>
 </li>
-<li><a href="#trackercontrol-and-invizible-pro">TrackerControl and InviZible Pro</a><ul>
+<li><a href="#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</a><ul>
 <li><a href="#install-invizible-pro">Install InviZible Pro</a></li>
 <li><a href="#install-trackercontrol">Install TrackerControl</a></li>
 <li><a href="#configure-trackercontrol-to-block-trackers-without-invizible-pro">Configure TrackerControl to Block Trackers without InviZible Pro</a></li>
@@ -371,148 +373,6 @@
 <h2 id="blogroll">Blogroll</h2>
 <ul>
 <li><a href="https://ivonblog.com">Ivon’s blog / Ivon的部落格 / ivonblog.com</a>: <q>This is a place for sharing the information of Free and Open source software, technologies, and researches of liberal arts. Here you will see many practical tips on using free software, and various possibilities for applying it in life. 這裡是分享GNU/Linux情報、自由開源軟體、電腦手機資訊、人文思辨的所在。在這裡你會看到許多自由軟體的實際操作心得，以及將其運用在生活中的各種可能性。</q></li>
-</ul>
-<hr>
-<h3 id="adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h3>
-<h2 id="software-introduction">Software Introduction</h2>
-<h3 id="android-debug-bridge-adb">Android Debug Bridge (ADB)</h3>
-<p>The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</p>
-<h3 id="shizuku">Shizuku</h3>
-<p>Shizuku is an open-source app for serving multiple apps that require root/adb. If your &quot;root required app&quot; only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell.</p>
-<p>The <a href="https://github.com/thedjchi/Shizuku">thedjchi/Shizuku</a> fork is recommended since it adds many good features on top of the original <a href="https://github.com/RikkaApps/Shizuku">RikkaApps/Shizuku</a>.</p>
-<p>The original repo has an <a href="https://shizuku.rikka.app">official site</a> that offers some instructions.</p>
-<h3 id="termux">Termux</h3>
-<p>Termux is an Android terminal application and Linux environment. Termux combines powerful terminal emulation with an extensive Linux package collection. Some of the commands available in Linux are available in Termux too, such as <code>cp</code>, <code>mv</code>, <code>ls</code>, <code>mkdir</code>, <code>apt</code>, and <code>apt-get</code>.</p>
-<p>Termux (<code>com.termux</code>) can be installed from <a href="https://f-droid.org/packages/com.termux">F-Droid</a>.</p>
-<p><strong>WARNING</strong>: If you installed termux from Google Play or a very old version, then you will receive package command errors. Google Play builds are deprecated and no longer supported. It is highly recommended that you update to termux-app v0.118.0 or higher as soon as possible for various bug fixes, including a critical world-readable vulnerability reported at <a href="https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html">https://termux.github.io/general/2022/02/15/termux-apps-vulnerability-disclosures.html</a>. It is recommended that you shift to F-Droid or GitHub releases.</p>
-<p>Refer to <a href="https://github.com/Willie169/Android-Non-Root"><strong>Android-Non-Root</strong></a> for more information.</p>
-<h2 id="enable-adb-debugging">Enable ADB Debugging</h2>
-<h2 id="install-adb-server">Install ADB Server</h2>
-<p>This section list methods to install ADB server. Note that ADB server is not required for <a href="#shizuku-with-rish">Shizuku with rish</a>.</p>
-<h3 id="sdkmanager">sdkmanager</h3>
-<p>Refer to <a href="https://developer.android.com/tools/sdkmanager">https://developer.android.com/tools/sdkmanager</a> to install sdkmanager, put where it locates in <code>$PATH</code>, and execute</p>
-<pre><code class="language-bash">sdkmanager &quot;platform-tools&quot;
-</code></pre>
-<p>Alternatively, for Linux x86_64, the following script may work for you.</p>
-<pre><code class="language-bash">cd ~ || exit
-wget --tries=100 --retry-connrefused --waitretry=5 -O studio.html https://developer.android.com/studio
-export CMDLINETOOLS=&quot;$(awk &#39;/&lt;table class=&quot;download&quot;&gt;/ { count++ }
-count &gt;= 2 {
-  if (match($0, /commandlinetools-linux-.*zip/)) {
-    print substr($0, RSTART, RLENGTH)
-    exit
-  }
-}&#39; studio.html)&quot;
-rm studio.html*
-wget --tries=100 --retry-connrefused --waitretry=5 &quot;https://dl.google.com/android/repository/${CMDLINETOOLS}&quot;
-unzip &quot;$CMDLINETOOLS&quot;
-mkdir -p ~/Android/Sdk/cmdline-tools/latest
-mv cmdline-tools/* ~/Android/Sdk/cmdline-tools/latest
-rm -r cmdline-tools
-rm &quot;$CMDLINETOOLS&quot;*
-cd ~/Android/Sdk/cmdline-tools/latest/bin || exit
-echo y | ./sdkmanager &quot;platform-tools&quot;
-</code></pre>
-<h3 id="binary">Binary</h3>
-<ol>
-<li>Download latest release asset matching your machine from <a href="https://github.com/Genymobile/scrcpy/releases">scrcpy</a>.</li>
-<li>Extract it. <code>.zip</code> can be extracted with <code>unzip</code>. <code>.tar.gz</code> can be extracted with <code>tar -xzf</code>.</li>
-<li>Move <code>adb</code> in the extracted directory to some where in your <code>$PATH</code>, e.g., <code>~/.local/bin</code>.</li>
-</ol>
-<p>Alternatively, for Linux x86_64, the following script may work for you,</p>
-<pre><code class="language-bash">. &lt;(curl -fsSL &#39;https://raw.githubusercontent.com/Willie169/bashrc/refs/heads/main/bashrc.d/30-shared-functions.sh&#39;)
-gh_release -w --wget_option &#39;--tries=100 --retry-connrefused --waitretry=5&#39; Genymobile/scrcpy &#39;scrcpy-linux-x86_64-*.tar.gz&#39;
-tar -xzf scrcpy-linux-x86_64-*.tar.gz
-mv scrcpy-linux-x86_64-*/adb ~/.local/bin/
-mv scrcpy-linux-x86_64-*/scrcpy ~/.local/bin/
-rm -r scrcpy-linux-x86_64-*
-</code></pre>
-<h3 id="termux-1">Termux</h3>
-<pre><code class="language-bash">pkg install android-tools -y
-</code></pre>
-<h2 id="connect-to-adb">Connect to ADB</h2>
-<p>This section list methods to connect to ADB of an Android device (called client).</p>
-<h3 id="another-device-over-usb">Another Device over USB</h3>
-<p>Prerequisites:</p>
-<ul>
-<li>Another device with ADB server installed (called host).</li>
-<li>USB cable connecting host and client.</li>
-</ul>
-<h3 id="shizuku-with-rish">Shizuku with rish</h3>
-<h3 id="connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</h3>
-<ol>
-<li>Grant Shizuku notification permission.</li>
-<li>Tap <code>Pairing</code> in <code>Start via Wireless debugging</code> block in Shizuku.</li>
-<li>Connect to a WiFi you trust. You don’t need to log in to the WiFi though. You just need to let your phone think that you’re connected to WiFi.</li>
-<li>In phone’s <code>Settings</code> or something similar, go to <code>About Phone</code> &gt; <code>Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
-<li>In the <code>Developer Options</code>, enable <code>Wireless ADB</code> and tap <code>Pair with a pairing code</code>.</li>
-<li>Input the pairing code in the notification of Shizuku.</li>
-<li>In the <code>Developer Options</code>, togle on <code>Disable adb authorization timeout</code> if you don’t want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow <a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a> to reconnect if you’re using SystemUI Tuner, or follow above guide again to reconnect.</li>
-<li>Back to Shizuku and tap <code>Start</code> in <code>Start via Wireless debugging</code> block. You all see Shizuku is running on the top of the app interface of Shizuku.</li>
-</ol>
-<h3 id="use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</h3>
-<ol>
-<li>Tap <code>Use Shizuku in terminal applications</code> in Shizuku and export files <code>rish</code> and <code>rish_shizuku.dex</code> to somewhere on your phone.</li>
-<li>Use a text editor to replace <code>PKG</code> in <code>rish</code> with the package name of your terminal application. Take Termux for example, Termux’s package name is <code>com.termux</code>. Run <code>termux-setup-storage</code> and tap <code>Allow to grant Termux storage permission</code>.</li>
-<li>Open your terminal application and move the exported files to somewhere it can access (usually with <code>mv old_location new_location</code>). The root directory of the main storage of Android is usually <code>/storage/emulated/0</code>. One recommended terminal application for Android is Termux. My guide for it is available in <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>.</li>
-<li>Go to the directory you moved the exported files to with <code>cd directory</code> (assumed <code>~/shizuku</code> below) and run <code>sh rish</code>.</li>
-<li><code>~ $</code> should become <code>&lt;device&gt;:/ $</code> (such as <code>e2q:/ $</code>) if <code>sh rish</code> succeeded. Write ADB commands here. Note that there is no need to use <code>adb</code> or <code>adb shell</code> prefixes before commands and that <code>devices</code> command gets <code>/system/bin/sh: devices: inaccessible or not found</code>.</li>
-<li>You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there’s a block that reads <code>Shizuku is running</code> on the top.</li>
-<li>Optionally, create a <code>.sh</code> file (<code>nano ~/shizuku.sh</code> for example), paste <code>cd shizuku &amp;&amp; sh rish</code>, save it, and make it executable with <code>chmod +x shizuku.sh</code> so that you can run this shortcut to start Shizuku on your terminal afterward.</li>
-</ol>
-<h3 id="install-systemui-tuner">Install SystemUI Tuner</h3>
-<p>SystemUI Tuner can be installed from <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">Google Play</a> (pub: Zachary Wander).</p>
-<h3 id="to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</h3>
-<p>Some apps (such as many financial apps) may require <code>Developer Options</code> to be off when using them. This section is the guide about how to turn <code>Developer Options</code> off while still using ADB Shell with Shizuku.</p>
-<ol>
-<li>Run <code>adb shell</code> command <code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS</code> (you can do it with Shizuku and a terminal such as Termux or aShell).</li>
-<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
-<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
-<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable ADB</code> and <code>Enable Wireless ADB</code>.</li>
-<li>In SystemUI Tuner, go to <code>Persistent Options</code> and select <code>Enable ADB</code>.</li>
-<li>Press <code>Start</code> on Shizuku.</li>
-<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in <code>SystemUI Tuner</code>.</li>
-</ol>
-<h3 id="reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</h3>
-<ol>
-<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
-<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
-<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable Wireless ADB</code>.</li>
-<li>Press <code>Start</code> on Shizuku.</li>
-<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in SystemUI Tuner.</li>
-</ol>
-<h3 id="other-systemui-tuner-usage">Other SystemUI Tuner Usage</h3>
-<p>SystemUI Tuner exposes some hidden options in Android. You can set them, add them to <code>Persistent Options</code> to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner may not work around.</p>
-<p>You may need to run the following <code>adb shell</code> command (you can do it with Shizuku and a terminal such as Termux or aShell) in order to change the settings:</p>
-<pre><code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS
-pm grant com.zacharee1.systemuituner android.permission.PACKAGE_USAGE_STATS
-pm grant com.zacharee1.systemuituner android.permission.DUMP
-</code></pre>
-<h3 id="ashell">aShell</h3>
-<h4 id="install-ashell">Install aShell</h4>
-<p>aShell can be installed from <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">F-Droid</a>.</p>
-<h4 id="introduction-of-ashell">Introduction of aShell</h4>
-<ul>
-<li>An elegantly designed user interface.</li>
-<li>Included a bundle of examples about common adb commands.</li>
-<li>Handles continuously running commands, such as logcat, top, etc.</li>
-<li>Search for specific text from the last command output.</li>
-<li>Option to save last command output as a text file.</li>
-<li>Bookmark frequently using commands.</li>
-<li>Dark/light theme.</li>
-<li>Auto complete.</li>
-</ul>
-<h4 id="usage-of-ashell">Usage of aShell</h4>
-<ol>
-<li>Give aShell the permission <code>moe.shizuku.manager.permission.API_V23</code>.</li>
-<li>Connect to ADB.</li>
-<li>Use aShell.</li>
-</ol>
-<h3 id="further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</h3>
-<ul>
-<li><a href="https://developer.android.com/tools/adb">https://developer.android.com/tools/adb</a>.</li>
-<li><a href="https://android.googlesource.com/platform/packages/modules/adb">https://android.googlesource.com/platform/packages/modules/adb</a>.</li>
-<li><a href="https://shizuku.rikka.app">https://shizuku.rikka.app</a>.</li>
 </ul>
 <hr>
 <h2 id="f-droid-free-software-android-apps-repository-and-app-store">F-Droid: Free Software Android Apps Repository and App Store</h2>
@@ -1573,7 +1433,7 @@ Stream editing:
 </code></pre>
 <p>Go to <a href="https://wiki.termux.com/wiki/Termux:API">the official wiki</a> for more information.</p>
 <hr>
-<h2 id="tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE</h2>
+<h2 id="tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-vnc-or-x-server-and-graphical-environment">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment</h2>
 <h3 id="introduction-of-vnc-virtual-network-computing">Introduction of VNC (Virtual Network Computing)</h3>
 <p>VNC (Virtual Network Computing) is a graphical desktop-sharing system that uses the Remote Frame Buffer protocol (RFB) to remotely control another computer. It transmits the keyboard and mouse input from one computer to another, relaying the graphical-screen updates, over a network.</p>
 <h3 id="introduction-of-x-window-system-x11-or-x">Introduction of X Window System (X11, or X)</h3>
@@ -1719,7 +1579,7 @@ mate-session &amp;
 <li><a href="https://en.wikipedia.org/wiki/X%5C_Window%5C_System">https://en.wikipedia.org/wiki/X\_Window\_System</a>.</li>
 </ul>
 <hr>
-<h2 id="avnc">AVNC</h2>
+<h2 id="avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</h2>
 <h3 id="install-avnc">Install AVNC</h3>
 <p>AVNC (<code>com.gaurav.avnc</code>) can be installed from <a href="https://f-droid.org/packages/com.gaurav.avnc">F-Droid</a>.</p>
 <h3 id="connect-a-vnc-server">Connect a VNC Server</h3>
@@ -1750,7 +1610,7 @@ mate-session &amp;
 <li>Automatically find supported servers.</li>
 </ul>
 <hr>
-<h2 id="tailscale">Tailscale</h2>
+<h2 id="tailscale-peer-to-peer-mesh-vpn">Tailscale: Peer-to-Peer Mesh VPN</h2>
 <h3 id="introduction-of-tailscale">Introduction of Tailscale</h3>
 <p>Tailscale is a modern, user-friendly mesh VPN that creates a secure, peer-to-peer network between your devices using <a href="https://www.wireguard.com">WireGuard</a>. It allows devices across different networks to communicate directly without complex firewall configurations or port forwarding.</p>
 <p>WireGuard is a registered trademark of Jason A. Donenfeld.</p>
@@ -1805,7 +1665,159 @@ sudo systemctl start tailscaled
 <p>Tailscale is a mesh VPN alternative that makes it easy to connect your devices, wherever they are. No more fighting configuration or firewall ports. Built on WireGuard®, Tailscale enables an incremental shift to zero-trust networking by implementing “always-on” remote access. This guarantees a consistent, portable, and secure experience independent of physical location.</p>
 <p>You can view the devices logged in and their Tailscale IPs in the app.</p>
 <hr>
-<h2 id="qemu-system-emulation-with-termux">QEMU System Emulation with Termux</h2>
+<h2 id="proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</h2>
+<h3 id="introduction-of-chroot-proot-proot-distro">Introduction of Chroot, PRoot, PRoot-Distro</h3>
+<ul>
+<li><strong>Chroot</strong>: Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.</li>
+<li><strong>PRoot</strong>: PRoot is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don’t need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.</li>
+<li><strong>PRoot-Distro</strong>: PRoot-Distro is a Bash script wrapper for PRoot. It provides a set of functions with standardized command line interface to let user easily manage Linux PRoot containers. By default it supports a number of well known Linux distributions such Alpine Linux, Debian or openSUSE. However it is possible to add others with a help of plug-ins.</li>
+</ul>
+<h3 id="proot-distro-usage">PRoot-Distro Usage</h3>
+<ul>
+<li>Usage: <code>proot-distro [COMMAND] [ARGUMENTS]</code></li>
+<li>Commands:<ul>
+<li><code>help</code> - Show this help information.</li>
+<li><code>backup</code> - Backup a specified distribution.</li>
+<li><code>install</code> - Install a specified distribution.</li>
+<li><code>list</code> - List supported distributions and their installation status.</li>
+<li><code>login</code> - Launch a login shell for the specified distribution if no additional arguments were given. Otherwise execute the
+given command and exit.<ul>
+<li>Usage: <code>proot-distro login [OPTIONS] [DISTRO ALIAS] [-- [COMMAND]]</code></li>
+<li>Command aliases: <code>sh</code></li>
+<li>Options:<ul>
+<li><code>--help</code> - Show this help information.</li>
+<li><code>--user [user]</code> - Login as specified user instead of &#39;root&#39;.</li>
+<li><code>--fix-low-ports</code> - Modify bindings to protected ports to use a higher port number.</li>
+<li><code>--isolated</code> - Run isolated environment without access to host file system.</li>
+<li><code>--termux-home</code> - Mount Termux home directory to /root. Takes priority over <code>--isolated</code> option.</li>
+<li><code>--shared-tmp</code> - Mount Termux temp directory to /tmp. Takes priority over <code>--isolated</code> option.</li>
+<li><code>--bind [path:path]</code> - Custom file system binding. Can be specified multiple times. Takes priority over <code>--isolated</code> option.</li>
+<li><code>--no-link2symlink</code> - Disable hardlink emulation by proot. Adviseable only on devices with SELinux in permissive mode.</li>
+<li><code>--no-sysvipc</code> - Disable System V IPC emulation by proot.</li>
+<li><code>--no-kill-on-exit</code> - Wait until all running processes will finish before exiting. This will cause proot to freeze if you are running daemons.</li>
+<li><code>--no-arch-warning</code> - Suppress warning about CPU not supporting 32-bit instructions.</li>
+<li><code>--kernel [string]</code> - Set the kernel release and compatibility level to string.</li>
+<li><code>--work-dir [path]</code> - Set the working directory.</li>
+<li><code>--env ENV=val</code> - Set environment variable. Can be specified multiple times.</li>
+</ul>
+</li>
+<li>Put <code>--</code> if you wish to stop command line processing and pass options as shell arguments.</li>
+<li>If no <code>--isolated</code> option given, the following host directories will be available:<ul>
+<li><code>/apex</code> (only Android 10+)</li>
+<li><code>/data/dalvik-cache</code></li>
+<li><code>/data/data/com.termux</code></li>
+<li><code>/sdcard</code></li>
+<li><code>/storage</code></li>
+<li><code>/system</code></li>
+<li><code>/vendor</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>remove</code> - Delete a specified distribution. <strong>WARNING</strong>: this command destroys data!</li>
+<li><code>rename</code> - Rename installed distribution.</li>
+<li><code>reset</code> - Reinstall from scratch a specified distribution. WARNING: this command destroys data!</li>
+<li><code>restore</code> - Restore a specified distribution. WARNING: this command destroys data!</li>
+<li><code>clear-cache</code> - Clear cache of downloaded files.</li>
+</ul>
+</li>
+</ul>
+<h3 id="supported-distributions">Supported Distributions</h3>
+<p>Here are the supported distributions (alias: name):</p>
+<ul>
+<li>alpine: Alpine Linux (edge)</li>
+<li>archlinux: Arch Linux ARM</li>
+<li>artix: Artix Linux (AArch64 only)</li>
+<li>debian: Debian (stable)</li>
+<li>deepin: Deepin (beige)</li>
+<li>fedora: Fedora 39 (AArch64 only)</li>
+<li>manjaro: Manjaro (AArch64 only)</li>
+<li>openkylin: OpenKylin (Yangtze)</li>
+<li>opensuse: OpenSUSE (Tumbleweed)</li>
+<li>pardus: Pardus (yirmibir)</li>
+<li>ubuntu: Ubuntu (23.10)</li>
+<li>void: Void Linux</li>
+</ul>
+<h3 id="hint-to-install-linux-os-with-proot-distro">Hint to Install Linux OS with PRoot-Distro</h3>
+<p>Type command <code>proot-distro list</code> to get a list of the supported distributions.</p>
+<p>Pick a distro alias and run the next command to install it:</p>
+<pre><code>proot-distro install &lt;alias&gt; [--override-alias &lt;new alias&gt;]
+</code></pre>
+<p>Runtime data is stored at this location:</p>
+<pre><code>/data/data/com.termux/files/usr/var/lib/proot-distro
+</code></pre>
+<p>If you have issues with proot during installation or login, try to set <code>PROOT_NO_SECCOMP=1</code> environment variable.</p>
+<hr>
+<h2 id="andronix-with-termux-install-linux-distributions-in-termux">Andronix with Termux: Install Linux Distributions in Termux</h2>
+<p>This section is deprecated and no longer maintained. It is recommended use <a href="#proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</a> instead.</p>
+<h3 id="install-andronix-app-optional">Install Andronix App (Optional)</h3>
+<p>Andronix (<code>studio.com.techriz.andronix</code>) can be installed from <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">Google Play</a>.</p>
+<p>Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won’t be mentioned in this guide.</p>
+<h3 id="install-an-os-following-andronix-app-instructions">Install an OS Following Andronix App Instructions</h3>
+<ol>
+<li>Open Andronix app.</li>
+<li>Click the Linux Distribution card.</li>
+<li>Click on the Linux distribution you want to install. It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.</li>
+<li>Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your Linux distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your Linux distribution.</li>
+<li>Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you’ve little or no experience with Linux.</li>
+<li>Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive.</li>
+<li>CLI Only: If you don’t want a Graphical User-interface, you can go ahead with the Command Line Interface.</li>
+<li>Andronix will automatically copy the command to your clipboard.</li>
+<li>Paste and run in Termux.</li>
+</ol>
+<h3 id="uninstall-an-not-modded-os-following-andronix-app-instructions">Uninstall an Not Modded OS Following Andronix App Instructions</h3>
+<ol>
+<li>Open Andronix app.</li>
+<li>Click the Linux Distribution card.</li>
+<li>Long press on the Linux distribution you want to uninstall.</li>
+<li>Select Uninstall.</li>
+<li>Andronix will automatically copy the command to your clipboard.</li>
+<li>Paste and run in Termux (Not inside that OS).</li>
+</ol>
+<h3 id="pulseaudio-server-sound-output">PulseAudio Server Sound Output</h3>
+<h4 id="install-and-setup">Install and Setup</h4>
+<p>Run the following command in Termux (Not inside that OS):</p>
+<pre><code>pkg install wget &amp;&amp; wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh &amp;&amp; chmod +x setup-audio.sh &amp;&amp; ./setup-audio.sh
+</code></pre>
+<h4 id="start-pulseaudio-server">Start PulseAudio Server</h4>
+<pre><code>pulseaudio --start
+</code></pre>
+<h3 id="example-debian-with-xfce-desktop-environment">Example: Debian with XFCE Desktop Environment</h3>
+<h4 id="install-debian-with-xfce">Install Debian with XFCE</h4>
+<pre><code>pkg update -y &amp;&amp; pkg install wget curl proot tar -y &amp;&amp; wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh &amp;&amp; chmod +x debian-xfce.sh &amp;&amp;  bash debian-xfce.sh
+</code></pre>
+<p>The file directory of the Debian OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in Termux or in the Debian OS.</p>
+<h4 id="turn-on-the-os-cli">Turn on the OS (CLI)</h4>
+<pre><code>./start-debian.sh
+</code></pre>
+<h4 id="vnc-server">VNC Server</h4>
+<ol>
+<li>Run <code>vncserver-start</code> in the OS to start the VNC server (default on port 1).</li>
+<li>Get a VNC viewer. AVNC is recommended for Android.</li>
+<li>Add a new connection with address <code>localhost:1</code>.</li>
+<li>View GUI of the OS from VNC viewer.</li>
+<li>Run <code>vncserver-start</code> in the OS to kill all VNC servers.</li>
+</ol>
+<h3 id="example-debian-with-cli-only">Example: Debian with CLI Only</h3>
+<h4 id="install-debian">Install Debian</h4>
+<pre><code>pkg update -y &amp;&amp; pkg install wget curl proot tar -y &amp;&amp; wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh &amp;&amp; chmod +x debian.sh &amp;&amp; bash debian.sh
+</code></pre>
+<p>The file directory of the Debian OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in Termux or in the Debian OS.</p>
+<h4 id="turn-on-the-os-cli-1">Turn on the OS (CLI)</h4>
+<pre><code>./start-debian.sh
+</code></pre>
+<h3 id="example-uninstall-debian-os-not-modded">Example: Uninstall Debian OS (Not Modded)</h3>
+<pre><code>wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh &amp;&amp; chmod +x UNI-debian.sh &amp;&amp; bash UNI-debian.sh
+</code></pre>
+<h3 id="further-readings-and-references-about-chroot-proot-and-andronix">Further Readings and References about Chroot, Proot, and Andronix</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Chroot">https://en.wikipedia.org/wiki/Chroot</a>.</li>
+<li><a href="https://github.com/AndronixApp/AndronixOrigin">https://github.com/AndronixApp/AndronixOrigin</a>.</li>
+<li><a href="https://github.com/termux/proot">https://github.com/termux/proot</a>.</li>
+<li><a href="https://wiki.termux.com/wiki/PRoot">https://wiki.termux.com/wiki/PRoot</a>.</li>
+</ul>
+<hr>
+<h2 id="qemu-system-emulation-with-termux-full-system-emulation">QEMU System Emulation with Termux: Full System Emulation</h2>
 <p>This section may be outdated. It will be updated as soon as possible.</p>
 <h3 id="install-qemu-system-emulation-for-x86-64">Install QEMU System Emulation for x86-64</h3>
 <p>Run the following command in Termux:</p>
@@ -1963,6 +1975,90 @@ quit
 <li><a href="https://www.reddit.com/r/debian/s/s871vXlGRI">https://www.reddit.com/r/debian/s/s871vXlGRI</a>.</li>
 </ul>
 <hr>
+<h2 id="shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h2>
+<h3 id="install-shizuku">Install Shizuku</h3>
+<p>Shizuku (<code>moe.shizuku.privileged.api</code>) can be installed from <a href="https://apt.izzysoft.de/fdroid/index/apk/moe.shizuku.privileged.api">IzzyOnDroid F-Droid repository</a> or <a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">Google Play</a>.</p>
+<h3 id="introduction-of-adb-and-shizuku">Introduction of ADB and Shizuku</h3>
+<ul>
+<li><strong>Android Debug Bridge (ADB)</strong>: The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</li>
+<li><strong>Shizuku</strong>: Shizuku is an open-source app for serving multiple apps that require root/adb. If your &quot;root required app&quot; only needs adb permission, you can easily expand the audience by using Shizuku. Also, Shizuku is significantly faster than root shell. Go to <a href="https://shizuku.rikka.app">their official website</a> for more information.</li>
+</ul>
+<h3 id="connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</h3>
+<ol>
+<li>Grant Shizuku notification permission.</li>
+<li>Tap <code>Pairing</code> in <code>Start via Wireless debugging</code> block in Shizuku.</li>
+<li>Connect to a WiFi you trust. You don’t need to log in to the WiFi though. You just need to let your phone think that you’re connected to WiFi.</li>
+<li>In phone’s <code>Settings</code> or something similar, go to <code>About Phone</code> &gt; <code>Software Information</code> or something similar, and tap the <code>Version Number</code> seven times to enable <code>Developer Options</code>. Some phones may have different methods to enable <code>Developer Options</code>.</li>
+<li>In the <code>Developer Options</code>, enable <code>Wireless ADB</code> and tap <code>Pair with a pairing code</code>.</li>
+<li>Input the pairing code in the notification of Shizuku.</li>
+<li>In the <code>Developer Options</code>, togle on <code>Disable adb authorization timeout</code> if you don’t want to do all the above again every few times using Shizuku. If the connection is disconnected due to whatever reason, follow <a href="#reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</a> to reconnect if you’re using SystemUI Tuner, or follow above guide again to reconnect.</li>
+<li>Back to Shizuku and tap <code>Start</code> in <code>Start via Wireless debugging</code> block. You all see Shizuku is running on the top of the app interface of Shizuku.</li>
+</ol>
+<h3 id="use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</h3>
+<ol>
+<li>Tap <code>Use Shizuku in terminal applications</code> in Shizuku and export files <code>rish</code> and <code>rish_shizuku.dex</code> to somewhere on your phone.</li>
+<li>Use a text editor to replace <code>PKG</code> in <code>rish</code> with the package name of your terminal application. Take Termux for example, Termux’s package name is <code>com.termux</code>. Run <code>termux-setup-storage</code> and tap <code>Allow to grant Termux storage permission</code>.</li>
+<li>Open your terminal application and move the exported files to somewhere it can access (usually with <code>mv old_location new_location</code>). The root directory of the main storage of Android is usually <code>/storage/emulated/0</code>. One recommended terminal application for Android is Termux. My guide for it is available in <a href="#termux-a-powerful-terminal-emulation-with-an-extensive-linux-package-collection">Termux: A Powerful Terminal Emulation with an Extensive Linux Package Collection</a>.</li>
+<li>Go to the directory you moved the exported files to with <code>cd directory</code> (assumed <code>~/shizuku</code> below) and run <code>sh rish</code>.</li>
+<li><code>~ $</code> should become <code>&lt;device&gt;:/ $</code> (such as <code>e2q:/ $</code>) if <code>sh rish</code> succeeded. Write ADB commands here. Note that there is no need to use <code>adb</code> or <code>adb shell</code> prefixes before commands and that <code>devices</code> command gets <code>/system/bin/sh: devices: inaccessible or not found</code>.</li>
+<li>You can turn WiFi off after ADB is connected. The notification of Shizuku may say Paring failed after that, but you can check Shizuku app to check whether there’s a block that reads <code>Shizuku is running</code> on the top.</li>
+<li>Optionally, create a <code>.sh</code> file (<code>nano ~/shizuku.sh</code> for example), paste <code>cd shizuku &amp;&amp; sh rish</code>, save it, and make it executable with <code>chmod +x shizuku.sh</code> so that you can run this shortcut to start Shizuku on your terminal afterward.</li>
+</ol>
+<h3 id="install-systemui-tuner">Install SystemUI Tuner</h3>
+<p>SystemUI Tuner can be installed from <a href="https://play.google.com/store/apps/details?id=com.zacharee1.systemuituner">Google Play</a> (pub: Zachary Wander).</p>
+<h3 id="to-leave-developer-options-off-when-using-shizuku-to-connect-to-adb-with-systemui-tuner">To Leave Developer Options off When Using Shizuku to Connect to ADB with SystemUI Tuner</h3>
+<p>Some apps (such as many financial apps) may require <code>Developer Options</code> to be off when using them. This section is the guide about how to turn <code>Developer Options</code> off while still using ADB Shell with Shizuku.</p>
+<ol>
+<li>Run <code>adb shell</code> command <code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS</code> (you can do it with Shizuku and a terminal such as Termux or aShell).</li>
+<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
+<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
+<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable ADB</code> and <code>Enable Wireless ADB</code>.</li>
+<li>In SystemUI Tuner, go to <code>Persistent Options</code> and select <code>Enable ADB</code>.</li>
+<li>Press <code>Start</code> on Shizuku.</li>
+<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in <code>SystemUI Tuner</code>.</li>
+</ol>
+<h3 id="reconnect-shizuku-in-case-it-stops-with-systemui-tuner">Reconnect Shizuku in Case it Stops with SystemUI Tuner</h3>
+<ol>
+<li>Connect to a WiFi. You don’t need to log in or have real WiFi access, just make your phone believes you are connected to WiFi.</li>
+<li>Turn off <code>Developer Options</code> if it’s on. The toggle switch is usually on the top of <code>Developer Options</code>.</li>
+<li>In SystemUI Tuner, go to <code>Developer</code> and turn on <code>Enable Wireless ADB</code>.</li>
+<li>Press <code>Start</code> on Shizuku.</li>
+<li>Turn off WiFi. <code>Enable Wireless ADB</code> will be turned off automatically by system settings. You can check that in SystemUI Tuner.</li>
+</ol>
+<h3 id="other-systemui-tuner-usage">Other SystemUI Tuner Usage</h3>
+<p>SystemUI Tuner exposes some hidden options in Android. You can set them, add them to <code>Persistent Options</code> to keep them on, etc. Different manufacturers may remove or change these options, which SystemUI Tuner may not work around.</p>
+<p>You may need to run the following <code>adb shell</code> command (you can do it with Shizuku and a terminal such as Termux or aShell) in order to change the settings:</p>
+<pre><code>pm grant com.zacharee1.systemuituner android.permission.WRITE_SECURE_SETTINGS
+pm grant com.zacharee1.systemuituner android.permission.PACKAGE_USAGE_STATS
+pm grant com.zacharee1.systemuituner android.permission.DUMP
+</code></pre>
+<h3 id="ashell">aShell</h3>
+<h4 id="install-ashell">Install aShell</h4>
+<p>aShell can be installed from <a href="https://f-droid.org/packages/in.sunilpaulmathew.ashell">F-Droid</a>.</p>
+<h4 id="introduction-of-ashell">Introduction of aShell</h4>
+<ul>
+<li>An elegantly designed user interface.</li>
+<li>Included a bundle of examples about common adb commands.</li>
+<li>Handles continuously running commands, such as logcat, top, etc.</li>
+<li>Search for specific text from the last command output.</li>
+<li>Option to save last command output as a text file.</li>
+<li>Bookmark frequently using commands.</li>
+<li>Dark/light theme.</li>
+<li>Auto complete.</li>
+</ul>
+<h4 id="usage-of-ashell">Usage of aShell</h4>
+<ol>
+<li>Give aShell the permission <code>moe.shizuku.manager.permission.API_V23</code>.</li>
+<li>Connect to ADB.</li>
+<li>Use aShell.</li>
+</ol>
+<h3 id="further-readings-and-references-about-adb-and-shizuku">Further Readings and References about ADB and Shizuku</h3>
+<ul>
+<li><a href="https://developer.android.com/tools/adb">https://developer.android.com/tools/adb</a>.</li>
+<li><a href="https://android.googlesource.com/platform/packages/modules/adb">https://android.googlesource.com/platform/packages/modules/adb</a>.</li>
+<li><a href="https://shizuku.rikka.app">https://shizuku.rikka.app</a>.</li>
+</ul>
+<hr>
 <h2 id="tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</h2>
 <h3 id="introduction-of-tor">Introduction of Tor</h3>
 <p>Tor is a free overlay network for enabling anonymous communication. Built on free and open-source software and more than seven thousand volunteer-operated relays worldwide, users can have their Internet traffic routed via a random path through the network.</p>
@@ -2023,7 +2119,7 @@ nohup tor &amp;
 </code></pre>
 <p>to <code>~/.termux/boot/boot.sh</code>.</p>
 <hr>
-<h2 id="trackercontrol-and-invizible-pro">TrackerControl and InviZible Pro</h2>
+<h2 id="trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</h2>
 <p>This section mentions Tor, for people who are new to it, please refer to <a href="#tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</a>.</p>
 <h3 id="install-invizible-pro">Install InviZible Pro</h3>
 <p>InviZible Pro (<code>pan.alexander.tordnscrypt.stable</code>) can be installed from <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">F-Droid</a> or <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">Google Play</a>.</p>
