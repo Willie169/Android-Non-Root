@@ -36,7 +36,10 @@
 <li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#author-information">Author Information</a></li>
 <li><a href="#global-note">Global Note</a></li>
-<li><a href="#blogroll">Blogroll</a></li>
+<li><a href="#blogroll">Blogroll</a><ul>
+<li><a href="#adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a></li>
+</ul>
+</li>
 <li><a href="#software-introduction">Software Introduction</a><ul>
 <li><a href="#android-debug-bridge-adb">Android Debug Bridge (ADB)</a></li>
 <li><a href="#shizuku">Shizuku</a></li>
@@ -53,7 +56,6 @@
 <li><a href="#connect-to-adb">Connect to ADB</a><ul>
 <li><a href="#another-device-over-usb">Another Device over USB</a></li>
 <li><a href="#shizuku-with-rish">Shizuku with rish</a></li>
-<li><a href="#adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</a></li>
 <li><a href="#connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</a></li>
 <li><a href="#use-shizuku-in-a-terminal-application-for-the-first-time">Use Shizuku in a Terminal Application for the First Time</a></li>
 <li><a href="#install-systemui-tuner">Install SystemUI Tuner</a></li>
@@ -102,7 +104,7 @@
 <li><a href="#termuxapi">Termux:API</a></li>
 </ul>
 </li>
-<li><a href="#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-vnc-or-x-server-and-graphical-environment">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment</a><ul>
+<li><a href="#tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE</a><ul>
 <li><a href="#introduction-of-vnc-virtual-network-computing">Introduction of VNC (Virtual Network Computing)</a></li>
 <li><a href="#introduction-of-x-window-system-x11-or-x">Introduction of X Window System (X11, or X)</a></li>
 <li><a href="#termux-x11-repository">Termux X11 Repository</a></li>
@@ -116,37 +118,19 @@
 <li><a href="#further-readings-and-references-about-termux-vnc-or-x-server-and-graphical-environment">Further Readings and References about Termux VNC or X Server and Graphical Environment</a></li>
 </ul>
 </li>
-<li><a href="#avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</a><ul>
+<li><a href="#avnc">AVNC</a><ul>
 <li><a href="#install-avnc">Install AVNC</a></li>
 <li><a href="#connect-a-vnc-server">Connect a VNC Server</a></li>
 <li><a href="#introduction-of-avnc">Introduction of AVNC</a></li>
 </ul>
 </li>
-<li><a href="#tailscale-peer-to-peer-mesh-vpn">Tailscale: Peer-to-Peer Mesh VPN</a><ul>
+<li><a href="#tailscale">Tailscale</a><ul>
 <li><a href="#introduction-of-tailscale">Introduction of Tailscale</a></li>
 <li><a href="#tailscale-in-linux">Tailscale in Linux</a></li>
 <li><a href="#tailscale-in-android">Tailscale in Android</a></li>
 </ul>
 </li>
-<li><a href="#proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</a><ul>
-<li><a href="#introduction-of-chroot-proot-proot-distro">Introduction of Chroot, PRoot, PRoot-Distro</a></li>
-<li><a href="#proot-distro-usage">PRoot-Distro Usage</a></li>
-<li><a href="#supported-distributions">Supported Distributions</a></li>
-<li><a href="#hint-to-install-linux-os-with-proot-distro">Hint to Install Linux OS with PRoot-Distro</a></li>
-</ul>
-</li>
-<li><a href="#andronix-with-termux-install-linux-distributions-in-termux">Andronix with Termux: Install Linux Distributions in Termux</a><ul>
-<li><a href="#install-andronix-app-optional">Install Andronix App (Optional)</a></li>
-<li><a href="#install-an-os-following-andronix-app-instructions">Install an OS Following Andronix App Instructions</a></li>
-<li><a href="#uninstall-an-not-modded-os-following-andronix-app-instructions">Uninstall an Not Modded OS Following Andronix App Instructions</a></li>
-<li><a href="#pulseaudio-server-sound-output">PulseAudio Server Sound Output</a></li>
-<li><a href="#example-debian-with-xfce-desktop-environment">Example: Debian with XFCE Desktop Environment</a></li>
-<li><a href="#example-debian-with-cli-only">Example: Debian with CLI Only</a></li>
-<li><a href="#example-uninstall-debian-os-not-modded">Example: Uninstall Debian OS (Not Modded)</a></li>
-<li><a href="#further-readings-and-references-about-chroot-proot-and-andronix">Further Readings and References about Chroot, Proot, and Andronix</a></li>
-</ul>
-</li>
-<li><a href="#qemu-system-emulation-with-termux-full-system-emulation">QEMU System Emulation with Termux: Full System Emulation</a><ul>
+<li><a href="#qemu-system-emulation-with-termux">QEMU System Emulation with Termux</a><ul>
 <li><a href="#install-qemu-system-emulation-for-x86-64">Install QEMU System Emulation for x86-64</a></li>
 <li><a href="#install-qemu-system-emulation-for-aarch64">Install QEMU System Emulation for AArch64</a></li>
 <li><a href="#iso-and-qcow2-image-methods">ISO and QCOW2 Image Methods</a></li>
@@ -171,7 +155,7 @@
 <li><a href="#torsocks-in-termux">Torsocks in Termux</a></li>
 </ul>
 </li>
-<li><a href="#trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</a><ul>
+<li><a href="#trackercontrol-and-invizible-pro">TrackerControl and InviZible Pro</a><ul>
 <li><a href="#install-invizible-pro">Install InviZible Pro</a></li>
 <li><a href="#install-trackercontrol">Install TrackerControl</a></li>
 <li><a href="#configure-trackercontrol-to-block-trackers-without-invizible-pro">Configure TrackerControl to Block Trackers without InviZible Pro</a></li>
@@ -389,7 +373,7 @@
 <li><a href="https://ivonblog.com">Ivon’s blog / Ivon的部落格 / ivonblog.com</a>: <q>This is a place for sharing the information of Free and Open source software, technologies, and researches of liberal arts. Here you will see many practical tips on using free software, and various possibilities for applying it in life. 這裡是分享GNU/Linux情報、自由開源軟體、電腦手機資訊、人文思辨的所在。在這裡你會看到許多自由軟體的實際操作心得，以及將其運用在生活中的各種可能性。</q></li>
 </ul>
 <hr>
-<h1 id="adb-and-shizuku-guide">adb-and-shizuku-guide</h1>
+<h3 id="adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h3>
 <h2 id="software-introduction">Software Introduction</h2>
 <h3 id="android-debug-bridge-adb">Android Debug Bridge (ADB)</h3>
 <p>The Android Debug Bridge (ADB) is a programming tool used for the debugging of Android-based devices. The daemon on the Android device connects with the server on the host PC over USB or TCP, which connects to the client that is used by the end-user over TCP. Made available as open-source software under the Apache License by Google, its features include a shell and the possibility to make backups. The ADB software is available for many devices such as Windows, Linux and macOS. It has been misused by botnets and other malware, for which mitigations were developed such as RSA authentication and device whitelisting.</p>
@@ -455,7 +439,6 @@ rm -r scrcpy-linux-x86_64-*
 <li>USB cable connecting host and client.</li>
 </ul>
 <h3 id="shizuku-with-rish">Shizuku with rish</h3>
-<h3 id="adb-shizuku-systemui-tuner-and-ashell-use-local-adb-of-android-device-on-terminals-such-as-termux-without-another-device-with-shizuku-leave-developer-options-off-when-doing-so-with-systemui-tuner-and-use-adb-with-features-like-autocomplete-suggestion-with-ashell">ADB, Shizuku, SystemUI Tuner, and aShell: Use Local ADB of Android Device on Terminals Such as Termux without Another Device with Shizuku, Leave Developer Options off When Doing So with SystemUI Tuner, and Use ADB with Features like Autocomplete Suggestion with aShell</h3>
 <h3 id="connect-shizuku-to-wireless-adb">Connect Shizuku to Wireless ADB</h3>
 <ol>
 <li>Grant Shizuku notification permission.</li>
@@ -1590,7 +1573,7 @@ Stream editing:
 </code></pre>
 <p>Go to <a href="https://wiki.termux.com/wiki/Termux:API">the official wiki</a> for more information.</p>
 <hr>
-<h2 id="tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate-termux-vnc-or-x-server-and-graphical-environment">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE: Termux VNC or X Server and Graphical Environment</h2>
+<h2 id="tigervnc-termux-x11-fluxbox-openbox-xfce-lxqt-and-mate">TigerVNC, Termux-x11, Fluxbox, Openbox, XFCE, LXQt, and MATE</h2>
 <h3 id="introduction-of-vnc-virtual-network-computing">Introduction of VNC (Virtual Network Computing)</h3>
 <p>VNC (Virtual Network Computing) is a graphical desktop-sharing system that uses the Remote Frame Buffer protocol (RFB) to remotely control another computer. It transmits the keyboard and mouse input from one computer to another, relaying the graphical-screen updates, over a network.</p>
 <h3 id="introduction-of-x-window-system-x11-or-x">Introduction of X Window System (X11, or X)</h3>
@@ -1736,7 +1719,7 @@ mate-session &amp;
 <li><a href="https://en.wikipedia.org/wiki/X%5C_Window%5C_System">https://en.wikipedia.org/wiki/X\_Window\_System</a>.</li>
 </ul>
 <hr>
-<h2 id="avnc-a-vnc-client-for-android">AVNC: A VNC Client for Android</h2>
+<h2 id="avnc">AVNC</h2>
 <h3 id="install-avnc">Install AVNC</h3>
 <p>AVNC (<code>com.gaurav.avnc</code>) can be installed from <a href="https://f-droid.org/packages/com.gaurav.avnc">F-Droid</a>.</p>
 <h3 id="connect-a-vnc-server">Connect a VNC Server</h3>
@@ -1767,7 +1750,7 @@ mate-session &amp;
 <li>Automatically find supported servers.</li>
 </ul>
 <hr>
-<h2 id="tailscale-peer-to-peer-mesh-vpn">Tailscale: Peer-to-Peer Mesh VPN</h2>
+<h2 id="tailscale">Tailscale</h2>
 <h3 id="introduction-of-tailscale">Introduction of Tailscale</h3>
 <p>Tailscale is a modern, user-friendly mesh VPN that creates a secure, peer-to-peer network between your devices using <a href="https://www.wireguard.com">WireGuard</a>. It allows devices across different networks to communicate directly without complex firewall configurations or port forwarding.</p>
 <p>WireGuard is a registered trademark of Jason A. Donenfeld.</p>
@@ -1822,159 +1805,7 @@ sudo systemctl start tailscaled
 <p>Tailscale is a mesh VPN alternative that makes it easy to connect your devices, wherever they are. No more fighting configuration or firewall ports. Built on WireGuard®, Tailscale enables an incremental shift to zero-trust networking by implementing “always-on” remote access. This guarantees a consistent, portable, and secure experience independent of physical location.</p>
 <p>You can view the devices logged in and their Tailscale IPs in the app.</p>
 <hr>
-<h2 id="proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</h2>
-<h3 id="introduction-of-chroot-proot-proot-distro">Introduction of Chroot, PRoot, PRoot-Distro</h3>
-<ul>
-<li><strong>Chroot</strong>: Chroot is an operation on Unix and Unix-like operating systems that changes the apparent root directory for the current running process and its children. A program that is run in such a modified environment cannot name (and therefore normally cannot access) files outside the designated directory tree.</li>
-<li><strong>PRoot</strong>: PRoot is a user-space implementation of chroot, mount --bind, and binfmt_misc. This means that users don’t need any privileges or setup to do things like using an arbitrary directory as the new root file system, making files accessible somewhere else in the file system hierarchy, or executing programs built for another CPU architecture transparently through QEMU user-mode.</li>
-<li><strong>PRoot-Distro</strong>: PRoot-Distro is a Bash script wrapper for PRoot. It provides a set of functions with standardized command line interface to let user easily manage Linux PRoot containers. By default it supports a number of well known Linux distributions such Alpine Linux, Debian or openSUSE. However it is possible to add others with a help of plug-ins.</li>
-</ul>
-<h3 id="proot-distro-usage">PRoot-Distro Usage</h3>
-<ul>
-<li>Usage: <code>proot-distro [COMMAND] [ARGUMENTS]</code></li>
-<li>Commands:<ul>
-<li><code>help</code> - Show this help information.</li>
-<li><code>backup</code> - Backup a specified distribution.</li>
-<li><code>install</code> - Install a specified distribution.</li>
-<li><code>list</code> - List supported distributions and their installation status.</li>
-<li><code>login</code> - Launch a login shell for the specified distribution if no additional arguments were given. Otherwise execute the
-given command and exit.<ul>
-<li>Usage: <code>proot-distro login [OPTIONS] [DISTRO ALIAS] [-- [COMMAND]]</code></li>
-<li>Command aliases: <code>sh</code></li>
-<li>Options:<ul>
-<li><code>--help</code> - Show this help information.</li>
-<li><code>--user [user]</code> - Login as specified user instead of &#39;root&#39;.</li>
-<li><code>--fix-low-ports</code> - Modify bindings to protected ports to use a higher port number.</li>
-<li><code>--isolated</code> - Run isolated environment without access to host file system.</li>
-<li><code>--termux-home</code> - Mount Termux home directory to /root. Takes priority over <code>--isolated</code> option.</li>
-<li><code>--shared-tmp</code> - Mount Termux temp directory to /tmp. Takes priority over <code>--isolated</code> option.</li>
-<li><code>--bind [path:path]</code> - Custom file system binding. Can be specified multiple times. Takes priority over <code>--isolated</code> option.</li>
-<li><code>--no-link2symlink</code> - Disable hardlink emulation by proot. Adviseable only on devices with SELinux in permissive mode.</li>
-<li><code>--no-sysvipc</code> - Disable System V IPC emulation by proot.</li>
-<li><code>--no-kill-on-exit</code> - Wait until all running processes will finish before exiting. This will cause proot to freeze if you are running daemons.</li>
-<li><code>--no-arch-warning</code> - Suppress warning about CPU not supporting 32-bit instructions.</li>
-<li><code>--kernel [string]</code> - Set the kernel release and compatibility level to string.</li>
-<li><code>--work-dir [path]</code> - Set the working directory.</li>
-<li><code>--env ENV=val</code> - Set environment variable. Can be specified multiple times.</li>
-</ul>
-</li>
-<li>Put <code>--</code> if you wish to stop command line processing and pass options as shell arguments.</li>
-<li>If no <code>--isolated</code> option given, the following host directories will be available:<ul>
-<li><code>/apex</code> (only Android 10+)</li>
-<li><code>/data/dalvik-cache</code></li>
-<li><code>/data/data/com.termux</code></li>
-<li><code>/sdcard</code></li>
-<li><code>/storage</code></li>
-<li><code>/system</code></li>
-<li><code>/vendor</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>remove</code> - Delete a specified distribution. <strong>WARNING</strong>: this command destroys data!</li>
-<li><code>rename</code> - Rename installed distribution.</li>
-<li><code>reset</code> - Reinstall from scratch a specified distribution. WARNING: this command destroys data!</li>
-<li><code>restore</code> - Restore a specified distribution. WARNING: this command destroys data!</li>
-<li><code>clear-cache</code> - Clear cache of downloaded files.</li>
-</ul>
-</li>
-</ul>
-<h3 id="supported-distributions">Supported Distributions</h3>
-<p>Here are the supported distributions (alias: name):</p>
-<ul>
-<li>alpine: Alpine Linux (edge)</li>
-<li>archlinux: Arch Linux ARM</li>
-<li>artix: Artix Linux (AArch64 only)</li>
-<li>debian: Debian (stable)</li>
-<li>deepin: Deepin (beige)</li>
-<li>fedora: Fedora 39 (AArch64 only)</li>
-<li>manjaro: Manjaro (AArch64 only)</li>
-<li>openkylin: OpenKylin (Yangtze)</li>
-<li>opensuse: OpenSUSE (Tumbleweed)</li>
-<li>pardus: Pardus (yirmibir)</li>
-<li>ubuntu: Ubuntu (23.10)</li>
-<li>void: Void Linux</li>
-</ul>
-<h3 id="hint-to-install-linux-os-with-proot-distro">Hint to Install Linux OS with PRoot-Distro</h3>
-<p>Type command <code>proot-distro list</code> to get a list of the supported distributions.</p>
-<p>Pick a distro alias and run the next command to install it:</p>
-<pre><code>proot-distro install &lt;alias&gt; [--override-alias &lt;new alias&gt;]
-</code></pre>
-<p>Runtime data is stored at this location:</p>
-<pre><code>/data/data/com.termux/files/usr/var/lib/proot-distro
-</code></pre>
-<p>If you have issues with proot during installation or login, try to set <code>PROOT_NO_SECCOMP=1</code> environment variable.</p>
-<hr>
-<h2 id="andronix-with-termux-install-linux-distributions-in-termux">Andronix with Termux: Install Linux Distributions in Termux</h2>
-<p>This section is deprecated and no longer maintained. It is recommended use <a href="#proot-distro-with-termux-install-linux-distributions-in-termux">PRoot-Distro with Termux: Install Linux Distributions in Termux</a> instead.</p>
-<h3 id="install-andronix-app-optional">Install Andronix App (Optional)</h3>
-<p>Andronix (<code>studio.com.techriz.andronix</code>) can be installed from <a href="https://play.google.com/store/apps/details?id=studio.com.techriz.andronix">Google Play</a>.</p>
-<p>Andronix is an app that lets you install Linux distributions like Ubuntu, Debian, Manjaro etc. in Termux on non-rooted Android devices with PRoot. Andronix provides paid, close-source modded OS too, which won’t be mentioned in this guide.</p>
-<h3 id="install-an-os-following-andronix-app-instructions">Install an OS Following Andronix App Instructions</h3>
-<ol>
-<li>Open Andronix app.</li>
-<li>Click the Linux Distribution card.</li>
-<li>Click on the Linux distribution you want to install. It is recommended to get started with Ubuntu or Debian if you are overwhelmed by the options.</li>
-<li>Click on the user interface you want. Graphical User Interface or GUI is the visual interface that you interact with to do things in your Linux distribution. Command Line Interface or CLI is the text-based interface that you interact with to execute commands and perform tasks in your Linux distribution.</li>
-<li>Desktop Environment: You can choose a Desktop Environment if you would like to use your mouse as well as your keyboard, or you’ve little or no experience with Linux.</li>
-<li>Window Manager: You can choose a Window Manager if you only want to use your keyboard to manage windows and other OS-level tasks. These are pretty light and fast, but do require some skill before getting productive.</li>
-<li>CLI Only: If you don’t want a Graphical User-interface, you can go ahead with the Command Line Interface.</li>
-<li>Andronix will automatically copy the command to your clipboard.</li>
-<li>Paste and run in Termux.</li>
-</ol>
-<h3 id="uninstall-an-not-modded-os-following-andronix-app-instructions">Uninstall an Not Modded OS Following Andronix App Instructions</h3>
-<ol>
-<li>Open Andronix app.</li>
-<li>Click the Linux Distribution card.</li>
-<li>Long press on the Linux distribution you want to uninstall.</li>
-<li>Select Uninstall.</li>
-<li>Andronix will automatically copy the command to your clipboard.</li>
-<li>Paste and run in Termux (Not inside that OS).</li>
-</ol>
-<h3 id="pulseaudio-server-sound-output">PulseAudio Server Sound Output</h3>
-<h4 id="install-and-setup">Install and Setup</h4>
-<p>Run the following command in Termux (Not inside that OS):</p>
-<pre><code>pkg install wget &amp;&amp; wget https://andronixos.sfo2.cdn.digitaloceanspaces.com/OS-Files/setup-audio.sh &amp;&amp; chmod +x setup-audio.sh &amp;&amp; ./setup-audio.sh
-</code></pre>
-<h4 id="start-pulseaudio-server">Start PulseAudio Server</h4>
-<pre><code>pulseaudio --start
-</code></pre>
-<h3 id="example-debian-with-xfce-desktop-environment">Example: Debian with XFCE Desktop Environment</h3>
-<h4 id="install-debian-with-xfce">Install Debian with XFCE</h4>
-<pre><code>pkg update -y &amp;&amp; pkg install wget curl proot tar -y &amp;&amp; wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh -O debian-xfce.sh &amp;&amp; chmod +x debian-xfce.sh &amp;&amp;  bash debian-xfce.sh
-</code></pre>
-<p>The file directory of the Debian OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in Termux or in the Debian OS.</p>
-<h4 id="turn-on-the-os-cli">Turn on the OS (CLI)</h4>
-<pre><code>./start-debian.sh
-</code></pre>
-<h4 id="vnc-server">VNC Server</h4>
-<ol>
-<li>Run <code>vncserver-start</code> in the OS to start the VNC server (default on port 1).</li>
-<li>Get a VNC viewer. AVNC is recommended for Android.</li>
-<li>Add a new connection with address <code>localhost:1</code>.</li>
-<li>View GUI of the OS from VNC viewer.</li>
-<li>Run <code>vncserver-start</code> in the OS to kill all VNC servers.</li>
-</ol>
-<h3 id="example-debian-with-cli-only">Example: Debian with CLI Only</h3>
-<h4 id="install-debian">Install Debian</h4>
-<pre><code>pkg update -y &amp;&amp; pkg install wget curl proot tar -y &amp;&amp; wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian.sh -O debian.sh &amp;&amp; chmod +x debian.sh &amp;&amp; bash debian.sh
-</code></pre>
-<p>The file directory of the Debian OS will be <code>debian-fs</code>. You can read, write, and execute files in it both in Termux or in the Debian OS.</p>
-<h4 id="turn-on-the-os-cli-1">Turn on the OS (CLI)</h4>
-<pre><code>./start-debian.sh
-</code></pre>
-<h3 id="example-uninstall-debian-os-not-modded">Example: Uninstall Debian OS (Not Modded)</h3>
-<pre><code>wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Uninstall/Debian/UNI-debian.sh &amp;&amp; chmod +x UNI-debian.sh &amp;&amp; bash UNI-debian.sh
-</code></pre>
-<h3 id="further-readings-and-references-about-chroot-proot-and-andronix">Further Readings and References about Chroot, Proot, and Andronix</h3>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Chroot">https://en.wikipedia.org/wiki/Chroot</a>.</li>
-<li><a href="https://github.com/AndronixApp/AndronixOrigin">https://github.com/AndronixApp/AndronixOrigin</a>.</li>
-<li><a href="https://github.com/termux/proot">https://github.com/termux/proot</a>.</li>
-<li><a href="https://wiki.termux.com/wiki/PRoot">https://wiki.termux.com/wiki/PRoot</a>.</li>
-</ul>
-<hr>
-<h2 id="qemu-system-emulation-with-termux-full-system-emulation">QEMU System Emulation with Termux: Full System Emulation</h2>
+<h2 id="qemu-system-emulation-with-termux">QEMU System Emulation with Termux</h2>
 <p>This section may be outdated. It will be updated as soon as possible.</p>
 <h3 id="install-qemu-system-emulation-for-x86-64">Install QEMU System Emulation for x86-64</h3>
 <p>Run the following command in Termux:</p>
@@ -2192,7 +2023,7 @@ nohup tor &amp;
 </code></pre>
 <p>to <code>~/.termux/boot/boot.sh</code>.</p>
 <hr>
-<h2 id="trackercontrol-and-invizible-pro-route-traffic-through-tor-block-dns-over-udp-set-dns-server-block-trackers-etc">TrackerControl and InviZible Pro: Route Traffic through Tor, Block DNS over UDP, Set DNS Server, Block Trackers, etc.</h2>
+<h2 id="trackercontrol-and-invizible-pro">TrackerControl and InviZible Pro</h2>
 <p>This section mentions Tor, for people who are new to it, please refer to <a href="#tor-tor-browser-noscript-security-suite-and-torsocks">Tor, Tor Browser, NoScript Security Suite, and Torsocks</a>.</p>
 <h3 id="install-invizible-pro">Install InviZible Pro</h3>
 <p>InviZible Pro (<code>pan.alexander.tordnscrypt.stable</code>) can be installed from <a href="https://f-droid.org/packages/pan.alexander.tordnscrypt.stable">F-Droid</a> or <a href="https://play.google.com/store/apps/details?id=pan.alexander.tordnscrypt.gp">Google Play</a>.</p>
