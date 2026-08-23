@@ -31,6 +31,7 @@
 <p>My main development of Termux Shell scripts has been moved to my another repository, <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, which includes setup automation, shortcuts, installations and configurations of development tools and emulation environments such as proot, proot-distro, QEMU system emulation, and box64, and more, while guides for Termux, some of my scripts in <a href="https://github.com/Willie169/termux-sh"><strong>termux-sh</strong></a>, and other related stuff remain here.</p>
 <hr>
 <h2 id="table-of-contents">Table of Contents</h2>
+<!-- TOC START -->
 <ul>
 <li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#author-information">Author Information</a></li>
@@ -336,7 +337,7 @@
 </ul>
 </li>
 </ul>
-<hr>
+<!-- TOC END --><hr>
 <h2 id="author-information">Author Information</h2>
 <p>The author of this guide is <a href="https://github.com/Willie169"><strong>Willie169, Willie Shen, or 沈威宇</strong></a>.</p>
 <p>If for whatever reason you want to send me money, here are where you may do so:</p>
@@ -534,9 +535,7 @@
 <td>no</td>
 <td>RO / RW (app dir)</td>
 </tr>
-</tbody></table>
-
-<h3 id="storage-related-utilities-in-termux">Storage Related Utilities in Termux</h3>
+</tbody></table><h3 id="storage-related-utilities-in-termux">Storage Related Utilities in Termux</h3>
 <ul>
 <li>To access shared and external storage you need to run <code>termux-setup-storage</code>. You will then be prompted to <code>Allow Termux access photos, media and files on your device</code>, which you should tap <code>Allow</code>.</li>
 <li>The contents of the created <code>~/storage</code> folder are symlinks to different storage folders. Run <code>termux-setup-storage</code> to rebuild its structure.</li>
@@ -668,9 +667,7 @@ N: This must be accepted explicitly before updates for this repository can be ap
 Do you want to accept these changes and continue updating from this repository? [y/N]
 </code></pre></li>
 <li>After changing the mirror, it is highly advisable to run <code>pkg upgrade</code> command to update all packages to the latest available versions, or at least update <code>termux-tools</code> package with <code>pkg install termux-tools</code> command. Also make sure your device has internet connectivity and the repository URLs are accessible in a browser.</li>
-</ul>
-
-<h4 id="manual-solution">Manual Solution</h4>
+</ul><h4 id="manual-solution">Manual Solution</h4>
 <ul>
 <li>If for some reason <code>termux-change-repo</code> is not available, you can manually edit <code>sources.list</code> to replace the main url with a value obtained from <a href="https://github.com/termux/termux-packages/wiki/Mirrors">Termux Mirrors List</a>.</li>
 <li>Run <code>nano $PREFIX/etc/apt/sources.list</code> to edit it.</li>
@@ -714,9 +711,7 @@ device_config get activity_manager max_phantom_processes
 <pre><code>device_config set_sync_disabled_for_tests none; device_config put activity_manager max_phantom_processes 32
 settings put global settings_enable_monitor_phantom_procs true
 </code></pre></li>
-</ol>
-
-<h4 id="further-readings-and-references-about-process-completed-signal-9---press-enter-error">Further Readings and References about Process completed (signal 9) - press Enter error</h4>
+</ol><h4 id="further-readings-and-references-about-process-completed-signal-9---press-enter-error">Further Readings and References about Process completed (signal 9) - press Enter error</h4>
 <ul>
 <li><a href="https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220">https://github.com/termux/termux-app/issues/2366#issuecomment-1237468220</a>.</li>
 <li><a href="https://github.com/termux/termux-app/issues/2366">https://github.com/termux/termux-app/issues/2366</a>.</li>
@@ -1393,9 +1388,7 @@ Stream editing:
 <td><code>export</code></td>
 <td>Set environment variable: <code>export VAR=value</code></td>
 </tr>
-</tbody></table>
-
-<hr>
+</tbody></table><hr>
 <h2 id="termuxstyling-termuxwidget-termuxboot-termuxfloat-and-termuxapi">Termux:Styling, Termux:Widget, Termux:Boot, Termux:Float, and Termux:API</h2>
 <h3 id="termuxstyling">Termux:Styling</h3>
 <p>Termux:Styling (<code>com.termux.styling</code>) can be installed from <a href="https://f-droid.org/packages/com.termux.styling">F-Droid</a>.</p>
@@ -2360,9 +2353,7 @@ ClientUseIPv4 1
 ClientUseIPv6 1
 UseBridges 0
 </code></pre></li>
-</ul>
-
-<p>Some services may crash when routing traffic through Tor, changing the <code>Exit nodes</code> in InviZible Pro may help; otherwise, you may try to disable monitoring that app or toggle off <code>Use SOCKS5 proxy</code> in TrackerControl, which however compromise your privacy to some degree.</p>
+</ul><p>Some services may crash when routing traffic through Tor, changing the <code>Exit nodes</code> in InviZible Pro may help; otherwise, you may try to disable monitoring that app or toggle off <code>Use SOCKS5 proxy</code> in TrackerControl, which however compromise your privacy to some degree.</p>
 <h3 id="configure-trackercontrol-and-invizible-pro-for-dnscrypt-only">Configure TrackerControl and InviZible Pro for DNSCrypt Only</h3>
 <p>To use DNSCrypt but not Tor of InviZible Pro with TrackerControl, there are below differences in the configuration compared with both DNSCrypt and Tor in above section.</p>
 <h4 id="configure-trackercontrol-1">Configure TrackerControl</h4>
