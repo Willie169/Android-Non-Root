@@ -31,3 +31,17 @@ jobs:
           fi
       - name: generateGhPage
         run: node generateGhPage.js
+      - name: Checkout gh-pages
+        run: |
+          mkdir tmp
+          mv index.html tmp
+          git checkout gh-pages
+          mv tmp/index.html .
+          rm -r tmp
+          git add index.js
+          if git diff --cached --quiet; then
+            echo "No HTML changes"
+          else
+            git commit -m "Update GitHub Page"
+            git push
+          fi
